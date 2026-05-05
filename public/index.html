@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Agent Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-dot"></div>
+          <div>
+            <h1>Control Agent</h1>
+            <p>Master Console</p>
+          </div>
+        </div>
+        <nav id="main-nav" class="nav-list">
+          <button class="nav-item active" data-view="overview">Dashboard Overview</button>
+          <button class="nav-item" data-view="reports">Active 8D-Reports</button>
+          <button class="nav-item" data-view="supply">Supply Agent</button>
+          <button class="nav-item" data-view="flow">Flow Agent</button>
+          <button class="nav-item" data-view="quality">Quality Agent</button>
+        </nav>
+      </aside>
+
+      <main class="main-board">
+        <header class="top-bar">
+          <div>
+            <p class="top-label">Global Risk Level</p>
+            <h2 id="risk-level">-</h2>
+          </div>
+          <div class="audit-controls">
+            <label class="audit-switch">
+              <input id="audit-mode-toggle" type="checkbox" />
+              <span>Enable Audit-Mode</span>
+            </label>
+            <span id="iatf-badge" class="cert-badge">IATF 10.2 COMPLIANT</span>
+            <button id="silence-alerts-btn" class="close-btn" type="button">Silence Alerts</button>
+          </div>
+          <div class="counter-card">
+            <p>Financial Counter</p>
+            <div class="financial-row">
+              <strong id="financial-counter">--- USD</strong>
+              <span id="financial-counter-unit" class="currency-unit">USD</span>
+              <button
+                id="financial-privacy-toggle"
+                class="eye-toggle"
+                title="Click to see current financial risk. Stay focused on the solution."
+                aria-label="Toggle Financial Counter Visibility"
+              >
+                👁
+              </button>
+            </div>
+            <small id="financial-permission-hint" class="permission-hint"></small>
+          </div>
+        </header>
+        <div id="captain-banner" class="captain-banner hidden">
+          ATTENTION CAPTAIN: Immediate Action Required for Step D4!
+        </div>
+        <div id="auto8d-notice" class="captain-banner hidden">
+          System created 8D-Report for Performance Gap
+        </div>
+
+        <section id="view-overview" class="view active">
+          <div class="card-grid">
+            <article class="panel">
+              <h3>The Control Board</h3>
+              <p class="muted">D1-D8 task cards with ownership details.</p>
+              <div id="task-cards" class="task-grid"></div>
+            </article>
+            <article class="panel">
+              <h3>Traffic Light Status</h3>
+              <p class="muted">Immediate risk signal for operations.</p>
+              <div id="traffic-light" class="traffic-light"></div>
+            </article>
+          </div>
+          <article class="panel">
+            <h3>Timestamped History</h3>
+            <p class="muted">Shows who approved which step and when.</p>
+            <div id="audit-history" class="summary-row"></div>
+          </article>
+        </section>
+
+        <section id="view-reports" class="view">
+          <article class="panel">
+            <h3>Active 8D-Reports (Grid View)</h3>
+            <p class="muted">Select a report to open full 8D detail view.</p>
+            <div id="report-grid" class="report-grid"></div>
+          </article>
+          <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
+          <aside id="report-detail-drawer" class="detail-drawer hidden">
+            <div class="drawer-head">
+              <div>
+                <h3 id="drawer-title">8D Report Detail</h3>
+                <p id="drawer-subtitle" class="muted">Report data and ownership details.</p>
+              </div>
+              <div class="case-financial">
+                <span>Financial Impact for this Case</span>
+                <div class="financial-row">
+                  <strong id="case-financial-impact" class="masked">--- USD</strong>
+                  <button id="case-financial-toggle" class="eye-toggle" aria-label="Toggle Case Financial Impact">👁</button>
+                </div>
+              </div>
+              <button id="drawer-close" class="close-btn" aria-label="Close report detail">X</button>
+            </div>
+            <article class="panel">
+              <h3>Ownership Matrix</h3>
+              <p class="muted">Hard ownership with immediate save-on-change.</p>
+              <div id="dstep-detail-grid" class="dstep-detail-grid"></div>
+            </article>
+            <article class="panel">
+              <h3>Agent Deep-Links</h3>
+              <div class="agent-link-row">
+                <button class="jump-btn" data-jump-view="supply">Jump to Supply Agent Stock-Lock</button>
+                <button class="jump-btn" data-jump-view="flow">View Flow Agent Machine Logs</button>
+              </div>
+            </article>
+          </aside>
+        </section>
+
+        <section id="view-supply" class="view">
+          <article class="panel">
+            <h3>Supply Agent (SAP Material/Stock)</h3>
+            <div id="supply-summary" class="summary-row"></div>
+          </article>
+          <article class="panel">
+            <h3>D3 SAP-Stock-Lock (MARD / Batch)</h3>
+            <p class="muted">Emergency block button per incoming batch.</p>
+            <div id="d3-stock-lock" class="table-wrap"></div>
+          </article>
+        </section>
+
+        <section id="view-flow" class="view">
+          <article class="panel">
+            <h3>Flow Agent (Production/Machine Telemetry)</h3>
+            <div id="flow-content" class="summary-row"></div>
+          </article>
+          <article class="panel">
+            <h3>Flow Detail Table</h3>
+            <div id="flow-table" class="table-wrap"></div>
+          </article>
+        </section>
+
+        <section id="view-quality" class="view">
+          <article class="panel">
+            <h3>Quality Agent (Archive & Export)</h3>
+            <p class="warning">Internal documents (FMEA) remain in-house as per IP policy.</p>
+            <div id="quality-content" class="summary-row"></div>
+            <div id="quality-internal-links" class="summary-row sensitive-internal"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

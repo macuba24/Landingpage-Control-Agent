@@ -1,0 +1,32 @@
+[
+  {
+    "scenario_id": "A",
+    "material_id": "PART-1001",
+    "batch_number": "BATCH-A9",
+    "stock_level": 120,
+    "transit_qty": 35,
+    "eta_hours": 4,
+    "risk": "LOW",
+    "status": "Available"
+  },
+  {
+    "scenario_id": "B",
+    "material_id": "PART-1001",
+    "batch_number": "BATCH-B2",
+    "stock_level": 120,
+    "transit_qty": 35,
+    "eta_hours": 12,
+    "risk": "HIGH",
+    "status": "BLOCKED"
+  },
+  {
+    "scenario_id": "C",
+    "material_id": "PART-SAFE",
+    "batch_number": "SAFE-LOT-1",
+    "stock_level": 5000,
+    "transit_qty": 10,
+    "eta_hours": 24,
+    "risk": "LOW",
+    "status": "Available"
+  }
+]
