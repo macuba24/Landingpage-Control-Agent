@@ -7,40 +7,172 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <section id="landing-page" class="landing-page">
+      <header class="landing-top">
+        <div class="brand">
+          <div class="brand-dot"></div>
+          <div>
+            <h1>Control Agent</h1>
+            <p data-i18n="brand.masterConsole">Master Console</p>
+          </div>
+        </div>
+      </header>
+      <div class="landing-hero">
+        <p class="landing-kicker" data-i18n="landing.kicker">Real-time quality and supply command center</p>
+        <h2 data-i18n="landing.title">Stop escalation before it stops production.</h2>
+        <p class="landing-copy" data-i18n="landing.copy">
+          Control Agent connects Supply, Flow, and Quality into one operational cockpit with 8D traceability, risk signals, and immediate containment actions.
+        </p>
+        <div class="landing-actions">
+          <button id="enter-dashboard-btn" class="jump-btn" type="button" data-i18n="landing.enter">Open Dashboard</button>
+        </div>
+      </div>
+      <section class="pricing-section">
+        <div class="panel pricing-panel">
+          <h3 data-i18n="pricing.title">Investment & ROI (Value-Based Pricing)</h3>
+          <p class="muted" data-i18n="pricing.subtitle">Clean 3-column pricing grid in USD.</p>
+          <div class="pricing-grid">
+            <article class="price-card">
+              <p class="price-tier" data-i18n="pricing.tier1.name">PILOT / TIER 2</p>
+              <p class="price-value" data-i18n="pricing.tier1.price">$990 / month</p>
+              <p class="price-billing" data-i18n="pricing.tier1.billing">(billed annually)</p>
+              <ul class="price-features">
+                <li data-i18n="pricing.tier1.f1">Supply Agent basic</li>
+                <li data-i18n="pricing.tier1.f2">AI-Sourcing link</li>
+                <li data-i18n="pricing.tier1.f3">SAP-Mock Connector</li>
+              </ul>
+              <p class="price-target" data-i18n="pricing.tier1.target">Target: Smaller production sites.</p>
+            </article>
+            <article class="price-card price-card-popular">
+              <span class="popular-badge" data-i18n="pricing.popular">Most Popular</span>
+              <p class="price-tier" data-i18n="pricing.tier2.name">PROFESSIONAL / CAPTAIN'S CHOICE</p>
+              <p class="price-value" data-i18n="pricing.tier2.price">$1,850 / month</p>
+              <ul class="price-features">
+                <li data-i18n="pricing.tier2.f1">Full Supply & Flow Agent</li>
+                <li data-i18n="pricing.tier2.f2">OEE Tracking</li>
+                <li data-i18n="pricing.tier2.f3">Financial Counter</li>
+                <li data-i18n="pricing.tier2.f4">Custom Alert Thresholds</li>
+              </ul>
+              <p class="price-target" data-i18n="pricing.tier2.target">Target: Core automotive suppliers in MEX/USA.</p>
+            </article>
+            <article class="price-card">
+              <p class="price-tier" data-i18n="pricing.tier3.name">ENTERPRISE / AUDIT READY</p>
+              <p class="price-value" data-i18n="pricing.tier3.price">Contact Sales</p>
+              <p class="price-billing" data-i18n="pricing.tier3.billing">(starts at $3,500/month)</p>
+              <ul class="price-features">
+                <li data-i18n="pricing.tier3.f1">Full Suite</li>
+                <li data-i18n="pricing.tier3.f2">Auto-8D Generation</li>
+                <li data-i18n="pricing.tier3.f3">Multi-Line Support</li>
+                <li data-i18n="pricing.tier3.f4">IATF 10.2 Compliance Suite</li>
+              </ul>
+              <p class="price-target" data-i18n="pricing.tier3.target">Target: Tier-1 Mega Plants.</p>
+            </article>
+          </div>
+          <div class="roi-box">
+            <strong data-i18n="pricing.roiTitle">ROI Callout</strong>
+            <p data-i18n="pricing.roiText">
+              If Control Agent prevents just ONE hour of downtime ($50,000 avg.), it pays for its entire annual subscription in the first 15 minutes of a crisis.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="contact-section">
+        <div class="panel contact-panel">
+          <h3 data-i18n="contact.title">Protect your Production Value.</h3>
+          <p class="muted" data-i18n="contact.subtitle">Tell us your current risk profile and receive a value-based estimate.</p>
+          <form id="contact-form" class="contact-form">
+            <div class="contact-grid">
+              <label>
+                <span data-i18n="contact.nameLabel">Name</span>
+                <input id="contact-name" type="text" required />
+              </label>
+              <label>
+                <span data-i18n="contact.emailLabel">Company Email</span>
+                <input id="contact-email" type="email" required />
+              </label>
+              <label>
+                <span data-i18n="contact.locationLabel">Plant Location</span>
+                <select id="contact-location">
+                  <option value="Mexico" data-i18n="contact.locMexico">Mexico</option>
+                  <option value="USA" data-i18n="contact.locUsa">USA</option>
+                  <option value="Germany" data-i18n="contact.locGermany">Germany</option>
+                  <option value="Other" data-i18n="contact.locOther">Other</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="contact.riskLabel">What is your hourly risk in case of a line stop?</span>
+                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" />
+                <small id="contact-risk-value">$50,000 / hour</small>
+                <small id="contact-risk-micro" class="critical-risk-note hidden"></small>
+              </label>
+            </div>
+            <p id="contact-error" class="contact-error hidden"></p>
+            <button type="submit" class="jump-btn" data-i18n="contact.submit">Get My ROI Estimate</button>
+          </form>
+          <div id="contact-thankyou" class="contact-thankyou hidden"></div>
+        </div>
+      </section>
+      <section class="founder-section">
+        <article class="panel founder-panel">
+          <h3 data-i18n="founder.title">Built in the Trenches, not in a Boardroom.</h3>
+          <p data-i18n="founder.story">
+            I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP
+            data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift
+            when I realized that managers need a 'Captain's View,' not just a spreadsheet.
+          </p>
+          <p data-i18n="founder.core">
+            I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the
+            supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with
+            confidence.
+          </p>
+          <p class="founder-signoff" data-i18n="founder.signoff">
+            Let's secure your production together. Because I know exactly what's at stake.
+          </p>
+        </article>
+      </section>
+    </section>
     <div class="app-shell">
       <aside class="sidebar">
         <div class="brand">
           <div class="brand-dot"></div>
           <div>
             <h1>Control Agent</h1>
-            <p>Master Console</p>
+            <p data-i18n="brand.masterConsole">Master Console</p>
           </div>
         </div>
         <nav id="main-nav" class="nav-list">
-          <button class="nav-item active" data-view="overview">Dashboard Overview</button>
-          <button class="nav-item" data-view="reports">Active 8D-Reports</button>
-          <button class="nav-item" data-view="supply">Supply Agent</button>
-          <button class="nav-item" data-view="flow">Flow Agent</button>
-          <button class="nav-item" data-view="quality">Quality Agent</button>
+          <button class="nav-item active" data-view="overview" data-i18n="nav.overview">Dashboard Overview</button>
+          <button class="nav-item" data-view="reports" data-i18n="nav.reports">Active 8D-Reports</button>
+          <button class="nav-item" data-view="supply" data-i18n="nav.supply">Supply Agent</button>
+          <button class="nav-item" data-view="flow" data-i18n="nav.flow">Flow Agent</button>
+          <button class="nav-item" data-view="quality" data-i18n="nav.quality">Quality Agent</button>
         </nav>
       </aside>
 
       <main class="main-board">
         <header class="top-bar">
           <div>
-            <p class="top-label">Global Risk Level</p>
+            <p class="top-label" data-i18n="top.globalRisk">Global Risk Level</p>
             <h2 id="risk-level">-</h2>
           </div>
           <div class="audit-controls">
             <label class="audit-switch">
               <input id="audit-mode-toggle" type="checkbox" />
-              <span>Enable Audit-Mode</span>
+              <span data-i18n="top.auditMode">Enable Audit-Mode</span>
             </label>
             <span id="iatf-badge" class="cert-badge">IATF 10.2 COMPLIANT</span>
-            <button id="silence-alerts-btn" class="close-btn" type="button">Silence Alerts</button>
+            <label class="language-switch">
+              <span data-i18n="top.language">Language</span>
+              <select id="language-select" aria-label="Language selector">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+              </select>
+            </label>
+            <button id="silence-alerts-btn" class="close-btn" type="button" data-i18n="top.silenceAlerts">Silence Alerts</button>
           </div>
           <div class="counter-card">
-            <p>Financial Counter</p>
+            <p data-i18n="top.financialCounter">Financial Counter</p>
             <div class="financial-row">
               <strong id="financial-counter">--- USD</strong>
               <span id="financial-counter-unit" class="currency-unit">USD</span>
@@ -66,19 +198,19 @@
         <section id="view-overview" class="view active">
           <div class="card-grid">
             <article class="panel">
-              <h3>The Control Board</h3>
-              <p class="muted">D1-D8 task cards with ownership details.</p>
+              <h3 data-i18n="overview.controlBoard">The Control Board</h3>
+              <p class="muted" data-i18n="overview.controlBoardSub">D1-D8 task cards with ownership details.</p>
               <div id="task-cards" class="task-grid"></div>
             </article>
             <article class="panel">
-              <h3>Traffic Light Status</h3>
-              <p class="muted">Immediate risk signal for operations.</p>
+              <h3 data-i18n="overview.trafficLight">Traffic Light Status</h3>
+              <p class="muted" data-i18n="overview.trafficLightSub">Immediate risk signal for operations.</p>
               <div id="traffic-light" class="traffic-light"></div>
             </article>
           </div>
           <article class="panel">
-            <h3>Timestamped History</h3>
-            <p class="muted">Shows who approved which step and when.</p>
+            <h3 data-i18n="overview.timestampedHistory">Timestamped History</h3>
+            <p class="muted" data-i18n="overview.timestampedHistorySub">Shows who approved which step and when.</p>
             <div id="audit-history" class="summary-row"></div>
           </article>
         </section>

@@ -7,7 +7,8 @@ import { liveDataStore } from "./integration/liveDataStore";
 import type { ActorContext, DStepId } from "./types";
 
 const app = express();
-const port = 4010;
+const port = Number(process.env.PORT || 4010);
+const host = process.env.HOST || "0.0.0.0";
 const controlAgent = new ControlAgent();
 const UI_ROLES = new Set(["TEAM_MEMBER", "CONTROL_OFFICER", "MANAGER", "CONTROL_MASTER", "FMEA_PROCESS_OWNER"]);
 
@@ -647,6 +648,7 @@ app.get("/quality/8d/:reportId/d7-audit-view", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Control Agent Master running at http://localhost:${port}`);
+app.listen(port, host, () => {
+  const baseUrl = process.env.PUBLIC_BASE_URL || `http://localhost:${port}`;
+  console.log(`Control Agent Master running at ${baseUrl}`);
 });

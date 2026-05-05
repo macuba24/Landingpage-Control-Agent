@@ -9,6 +9,264 @@ const STEP_META = [
   { id: "D8", title: "D8 - Closure & Recognition" },
 ];
 
+const I18N = {
+  en: {
+    "brand.masterConsole": "Master Console",
+    "nav.overview": "Dashboard Overview",
+    "nav.reports": "Active 8D-Reports",
+    "nav.supply": "Supply Agent",
+    "nav.flow": "Flow Agent",
+    "nav.quality": "Quality Agent",
+    "top.globalRisk": "Global Risk Level",
+    "top.auditMode": "Enable Audit-Mode",
+    "top.language": "Language",
+    "top.silenceAlerts": "Silence Alerts",
+    "top.financialCounter": "Financial Counter",
+    "overview.controlBoard": "The Control Board",
+    "overview.controlBoardSub": "D1-D8 task cards with ownership details.",
+    "overview.trafficLight": "Traffic Light Status",
+    "overview.trafficLightSub": "Immediate risk signal for operations.",
+    "overview.timestampedHistory": "Timestamped History",
+    "overview.timestampedHistorySub": "Shows who approved which step and when.",
+    "landing.kicker": "Real-time quality and supply command center",
+    "landing.title": "Stop escalation before it stops production.",
+    "landing.copy":
+      "Control Agent connects Supply, Flow, and Quality into one operational cockpit with 8D traceability, risk signals, and immediate containment actions.",
+    "landing.enter": "Open Dashboard",
+    "pricing.title": "Investment & ROI (Value-Based Pricing)",
+    "pricing.subtitle": "Clean 3-column pricing grid in USD.",
+    "pricing.popular": "Most Popular",
+    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.price": "$990 / month",
+    "pricing.tier1.billing": "(billed annually)",
+    "pricing.tier1.f1": "Supply Agent basic",
+    "pricing.tier1.f2": "AI-Sourcing link",
+    "pricing.tier1.f3": "SAP-Mock Connector",
+    "pricing.tier1.target": "Target: Smaller production sites.",
+    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.price": "$1,850 / month",
+    "pricing.tier2.f1": "Full Supply & Flow Agent",
+    "pricing.tier2.f2": "OEE Tracking",
+    "pricing.tier2.f3": "Financial Counter",
+    "pricing.tier2.f4": "Custom Alert Thresholds",
+    "pricing.tier2.target": "Target: Core automotive suppliers in MEX/USA.",
+    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
+    "pricing.tier3.price": "Contact Sales",
+    "pricing.tier3.billing": "(starts at $3,500/month)",
+    "pricing.tier3.f1": "Full Suite",
+    "pricing.tier3.f2": "Auto-8D Generation",
+    "pricing.tier3.f3": "Multi-Line Support",
+    "pricing.tier3.f4": "IATF 10.2 Compliance Suite",
+    "pricing.tier3.target": "Target: Tier-1 Mega Plants.",
+    "pricing.roiTitle": "ROI Callout",
+    "pricing.roiText":
+      "If Control Agent prevents just ONE hour of downtime ($50,000 avg.), it pays for its entire annual subscription in the first 15 minutes of a crisis.",
+    "contact.title": "Protect your Production Value.",
+    "contact.subtitle": "Tell us your current risk profile and receive a value-based estimate.",
+    "contact.nameLabel": "Name",
+    "contact.emailLabel": "Company Email",
+    "contact.locationLabel": "Plant Location",
+    "contact.locMexico": "Mexico",
+    "contact.locUsa": "USA",
+    "contact.locGermany": "Germany",
+    "contact.locOther": "Other",
+    "contact.riskLabel": "What is your hourly risk in case of a line stop?",
+    "contact.submit": "Get My ROI Estimate",
+    "contact.invalidEmail":
+      "Please use a company email. Free email providers (Gmail/Hotmail/etc.) are not accepted.",
+    "contact.criticalRisk":
+      "Critical Risk detected. Our Captain's Control module is designed for your scale.",
+    "contact.thankYou":
+      "Based on your {risk}/hour risk, the Control Agent can save you approximately {saving} per month by reducing response time by 40%.",
+    "founder.title": "Built in the Trenches, not in a Boardroom.",
+    "founder.story":
+      "I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift when I realized that managers need a 'Captain's View,' not just a spreadsheet.",
+    "founder.core":
+      "I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with confidence.",
+    "founder.signoff":
+      "Let's secure your production together. Because I know exactly what's at stake.",
+    "founder.title": "Built in the Trenches, not in a Boardroom.",
+    "founder.p1":
+      "I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift when I realized that managers need a 'Captain's View,' not just a spreadsheet.",
+    "founder.p2":
+      "I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with confidence.",
+    "founder.signoff":
+      "Let's secure your production together. Because I know exactly what's at stake.",
+    "alerts.captain": "ATTENTION CAPTAIN: Immediate Action Required for Step D4!",
+    "alerts.auto8d": "System created 8D-Report for Performance Gap",
+  },
+  es: {
+    "brand.masterConsole": "Consola Maestra",
+    "nav.overview": "Resumen del Panel",
+    "nav.reports": "Reportes 8D Activos",
+    "nav.supply": "Agente de Suministro",
+    "nav.flow": "Agente de Flujo",
+    "nav.quality": "Agente de Calidad",
+    "top.globalRisk": "Nivel Global de Riesgo",
+    "top.auditMode": "Activar Modo Auditoria",
+    "top.language": "Idioma",
+    "top.silenceAlerts": "Silenciar Alertas",
+    "top.financialCounter": "Contador Financiero",
+    "overview.controlBoard": "El Tablero de Control",
+    "overview.controlBoardSub": "Tarjetas de tareas D1-D8 con detalles de responsables.",
+    "overview.trafficLight": "Estado de Semaforo",
+    "overview.trafficLightSub": "Senal inmediata de riesgo para operaciones.",
+    "overview.timestampedHistory": "Historial con Marca de Tiempo",
+    "overview.timestampedHistorySub": "Muestra quien aprobo cada paso y cuando.",
+    "landing.kicker": "Centro de mando en tiempo real para calidad y suministro",
+    "landing.title": "Deten la escalacion antes de que detenga la produccion.",
+    "landing.copy":
+      "Control Agent conecta Suministro, Flujo y Calidad en una sola cabina operativa con trazabilidad 8D, senales de riesgo y acciones inmediatas de contencion.",
+    "landing.enter": "Abrir Dashboard",
+    "pricing.title": "Inversion y ROI (Precio Basado en Valor)",
+    "pricing.subtitle": "Cuadricula limpia de 3 columnas en USD.",
+    "pricing.popular": "Mas Popular",
+    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.price": "$990 / mes",
+    "pricing.tier1.billing": "(facturado anualmente)",
+    "pricing.tier1.f1": "Supply Agent basico",
+    "pricing.tier1.f2": "Enlace AI-Sourcing",
+    "pricing.tier1.f3": "Conector SAP-Mock",
+    "pricing.tier1.target": "Objetivo: Plantas de produccion pequenas.",
+    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.price": "$1,850 / mes",
+    "pricing.tier2.f1": "Supply & Flow Agent completos",
+    "pricing.tier2.f2": "Seguimiento OEE",
+    "pricing.tier2.f3": "Contador Financiero",
+    "pricing.tier2.f4": "Umbrales de alerta personalizados",
+    "pricing.tier2.target": "Objetivo: Proveedores automotrices clave en MEX/USA.",
+    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
+    "pricing.tier3.price": "Contactar Ventas",
+    "pricing.tier3.billing": "(desde $3,500/mes)",
+    "pricing.tier3.f1": "Suite completa",
+    "pricing.tier3.f2": "Generacion Auto-8D",
+    "pricing.tier3.f3": "Soporte multi-linea",
+    "pricing.tier3.f4": "Suite de Cumplimiento IATF 10.2",
+    "pricing.tier3.target": "Objetivo: Mega Plantas Tier-1.",
+    "pricing.roiTitle": "ROI",
+    "pricing.roiText":
+      "Si Control Agent evita solo UNA hora de inactividad ($50,000 promedio), paga toda su suscripcion anual en los primeros 15 minutos de una crisis.",
+    "contact.title": "Proteja el valor de su produccion.",
+    "contact.subtitle": "Comparta su perfil de riesgo actual y reciba una estimacion basada en valor.",
+    "contact.nameLabel": "Nombre",
+    "contact.emailLabel": "Correo corporativo",
+    "contact.locationLabel": "Ubicacion de planta",
+    "contact.locMexico": "Mexico",
+    "contact.locUsa": "USA",
+    "contact.locGermany": "Alemania",
+    "contact.locOther": "Otro",
+    "contact.riskLabel": "Cual es su riesgo por hora en caso de paro de linea?",
+    "contact.submit": "Obtener estimacion ROI",
+    "contact.invalidEmail":
+      "Use un correo corporativo. No se aceptan correos gratuitos (Gmail/Hotmail/etc.).",
+    "contact.criticalRisk":
+      "Riesgo critico detectado. Nuestro modulo Captain's Control esta disenado para su escala.",
+    "contact.thankYou":
+      "Con base en su riesgo de {risk}/hora, Control Agent puede ahorrarle aproximadamente {saving} por mes al reducir el tiempo de respuesta en 40%.",
+    "founder.title": "Construido en la Trinchera, no en una Sala de Juntas.",
+    "founder.story":
+      "He estado ahi. Senti la presion de una linea de produccion detenida y el caos por datos SAP faltantes. Control Agent no nacio en un laboratorio: nacio en el piso de planta durante un turno de medianoche cuando entendi que los lideres necesitan una 'Vista de Capitan', no solo una hoja de calculo.",
+    "founder.core":
+      "No quiero venderte software. Quiero devolverte el sueno que yo perdi. Mi herramienta identifica la brecha de suministro, monitorea el flujo de maquina y calcula tu riesgo en USD en tiempo real para que lideres con confianza.",
+    "founder.signoff":
+      "Aseguremos tu produccion juntos. Porque se exactamente lo que esta en juego.",
+    "founder.title": "Construido en la Trinchera, no en una Sala de Juntas.",
+    "founder.p1":
+      "He estado ahi. Senti la presion de una linea de produccion detenida y el caos por datos SAP faltantes. Control Agent no nacio en un laboratorio: nacio en el piso de planta durante un turno de medianoche cuando entendi que los lideres necesitan una 'Vista de Capitan', no solo una hoja de calculo.",
+    "founder.p2":
+      "No quiero venderte software. Quiero devolverte el sueno que yo perdi. Mi herramienta identifica la brecha de suministro, monitorea el flujo de maquina y calcula tu riesgo en USD en tiempo real para que lideres con confianza.",
+    "founder.signoff":
+      "Aseguremos tu produccion juntos. Porque se exactamente lo que esta en juego.",
+    "alerts.captain": "ATENCION CAPITAN: Accion inmediata requerida para el Paso D4.",
+    "alerts.auto8d": "El sistema creo un reporte 8D por brecha de rendimiento",
+  },
+  de: {
+    "brand.masterConsole": "Master Konsole",
+    "nav.overview": "Dashboard Ubersicht",
+    "nav.reports": "Aktive 8D-Reports",
+    "nav.supply": "Supply Agent",
+    "nav.flow": "Flow Agent",
+    "nav.quality": "Quality Agent",
+    "top.globalRisk": "Globales Risiko-Level",
+    "top.auditMode": "Audit-Modus aktivieren",
+    "top.language": "Sprache",
+    "top.silenceAlerts": "Alarme stummschalten",
+    "top.financialCounter": "Finanzzaehler",
+    "overview.controlBoard": "Das Control Board",
+    "overview.controlBoardSub": "D1-D8 Aufgabenkarten mit Verantwortlichkeiten.",
+    "overview.trafficLight": "Ampelstatus",
+    "overview.trafficLightSub": "Sofortiges Risikosignal fuer den Betrieb.",
+    "overview.timestampedHistory": "Zeitgestempelte Historie",
+    "overview.timestampedHistorySub": "Zeigt, wer welchen Schritt wann freigegeben hat.",
+    "landing.kicker": "Echtzeit-Leitzentrale fuer Qualitaet und Supply",
+    "landing.title": "Stoppe Eskalation, bevor die Produktion stoppt.",
+    "landing.copy":
+      "Control Agent verbindet Supply, Flow und Quality in einem operativen Cockpit mit 8D-Traceability, Risikosignalen und sofortigen Containment-Aktionen.",
+    "landing.enter": "Dashboard oeffnen",
+    "pricing.title": "Investition & ROI (Value-Based Pricing)",
+    "pricing.subtitle": "Sauberes 3-Spalten-Preismodell in USD.",
+    "pricing.popular": "Am beliebtesten",
+    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.price": "$990 / Monat",
+    "pricing.tier1.billing": "(jaehrliche Abrechnung)",
+    "pricing.tier1.f1": "Supply Agent basic",
+    "pricing.tier1.f2": "AI-Sourcing Link",
+    "pricing.tier1.f3": "SAP-Mock Connector",
+    "pricing.tier1.target": "Ziel: Kleinere Produktionsstandorte.",
+    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.price": "$1,850 / Monat",
+    "pricing.tier2.f1": "Voller Supply & Flow Agent",
+    "pricing.tier2.f2": "OEE Tracking",
+    "pricing.tier2.f3": "Financial Counter",
+    "pricing.tier2.f4": "Individuelle Alert-Schwellwerte",
+    "pricing.tier2.target": "Ziel: Kern-Zulieferer Automotive in MEX/USA.",
+    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
+    "pricing.tier3.price": "Sales kontaktieren",
+    "pricing.tier3.billing": "(ab $3,500/Monat)",
+    "pricing.tier3.f1": "Full Suite",
+    "pricing.tier3.f2": "Auto-8D Generierung",
+    "pricing.tier3.f3": "Multi-Line Support",
+    "pricing.tier3.f4": "IATF 10.2 Compliance Suite",
+    "pricing.tier3.target": "Ziel: Tier-1 Mega Plants.",
+    "pricing.roiTitle": "ROI-Box",
+    "pricing.roiText":
+      "Wenn Control Agent nur EINE Stunde Downtime verhindert (im Schnitt $50,000), bezahlt sich das gesamte Jahresabo in den ersten 15 Minuten einer Krise.",
+    "contact.title": "Sichern Sie Ihre Wertschoepfung ab.",
+    "contact.subtitle": "Teilen Sie Ihr aktuelles Risikoprofil und erhalten Sie eine wertbasierte Einschaetzung.",
+    "contact.nameLabel": "Name",
+    "contact.emailLabel": "Firmen-E-Mail",
+    "contact.locationLabel": "Standort Werk",
+    "contact.locMexico": "Mexiko",
+    "contact.locUsa": "USA",
+    "contact.locGermany": "Deutschland",
+    "contact.locOther": "Sonstiges",
+    "contact.riskLabel": "Wie hoch ist Ihr stündliches Risiko bei einem Linienstopp?",
+    "contact.submit": "ROI-Einschaetzung erhalten",
+    "contact.invalidEmail":
+      "Bitte verwenden Sie eine Firmen-E-Mail. Freemailer (Gmail/Hotmail/etc.) sind nicht erlaubt.",
+    "contact.criticalRisk":
+      "Kritisches Risiko erkannt. Unser Captain's-Control-Modul ist fuer Ihre Groessenordnung ausgelegt.",
+    "contact.thankYou":
+      "Basierend auf Ihrem Risiko von {risk}/Stunde kann Control Agent durch 40% schnellere Reaktionszeit ungefaehr {saving} pro Monat einsparen.",
+    "founder.title": "In der Praxis gebaut, nicht im Konferenzraum.",
+    "founder.story":
+      "Ich war dort. Ich kenne den Druck bei stillstehender Produktion und das Chaos durch fehlende SAP-Daten. Control Agent wurde nicht im Labor gebaut - sondern in der Nachtschicht auf dem Shopfloor, als ich merkte: Fuehrung braucht eine 'Captain's View' und nicht nur Tabellen.",
+    "founder.core":
+      "Ich will dir keine Software verkaufen. Ich will dir den Schlaf zurueckgeben, den ich verloren habe. Mein Tool erkennt Versorgungsluecken, ueberwacht den Maschinenfluss und berechnet dein Risiko in Echtzeit in USD - damit du sicher fuehren kannst.",
+    "founder.signoff":
+      "Lass uns deine Produktion gemeinsam absichern. Weil ich genau weiss, was auf dem Spiel steht.",
+    "founder.title": "In der Praxis gebaut, nicht im Konferenzraum.",
+    "founder.p1":
+      "Ich war dort. Ich kenne den Druck bei stillstehender Produktion und das Chaos durch fehlende SAP-Daten. Control Agent wurde nicht im Labor gebaut - sondern in der Nachtschicht auf dem Shopfloor, als ich merkte: Fuehrung braucht eine 'Captain's View' und nicht nur Tabellen.",
+    "founder.p2":
+      "Ich will dir keine Software verkaufen. Ich will dir den Schlaf zurueckgeben, den ich verloren habe. Mein Tool erkennt Versorgungsluecken, ueberwacht den Maschinenfluss und berechnet dein Risiko in Echtzeit in USD - damit du sicher fuehren kannst.",
+    "founder.signoff":
+      "Lass uns deine Produktion gemeinsam absichern. Weil ich genau weiss, was auf dem Spiel steht.",
+    "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln fuer Schritt D4 erforderlich!",
+    "alerts.auto8d": "System hat 8D-Report fuer Performance-Luecke erstellt",
+  },
+};
+
 const state = {
   partId: "PART-1001",
   processId: "PROC-A01",
@@ -28,10 +286,42 @@ const state = {
   altSourceShownOnceForMaterial: {},
   supplyCriticalAlertPlayed: false,
   emergencyBlockActive: false,
+  language: "en",
 };
 
 const ALLOWED_FINANCIAL_ROLES = new Set(["CONTROL_OFFICER", "MANAGER"]);
 const CAPTAIN_THRESHOLD_USD = 20000;
+
+function t(key) {
+  const dict = I18N[state.language] || I18N.en;
+  return dict[key] || I18N.en[key] || key;
+}
+
+function tf(key, vars) {
+  let str = t(key);
+  Object.entries(vars || {}).forEach(([k, v]) => {
+    str = str.replaceAll(`{${k}}`, String(v));
+  });
+  return str;
+}
+
+function applyI18nStatic() {
+  document.documentElement.setAttribute("lang", state.language);
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (!key) return;
+    el.textContent = t(key);
+  });
+  document.getElementById("captain-banner").textContent = t("alerts.captain");
+  document.getElementById("auto8d-notice").textContent = t("alerts.auto8d");
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    const riskInput = document.getElementById("contact-risk");
+    if (riskInput) {
+      updateRiskUi(Number(riskInput.value || 0));
+    }
+  }
+}
 
 function usd(value) {
   return new Intl.NumberFormat("en-US", {
@@ -138,6 +428,101 @@ function bindNavigation() {
     const btn = event.target.closest(".nav-item");
     if (!btn) return;
     showView(btn.dataset.view);
+  });
+}
+
+function bindLandingActions() {
+  const enter = document.getElementById("enter-dashboard-btn");
+  if (!enter) return;
+  enter.addEventListener("click", () => {
+    document.querySelector(".app-shell")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+function isCorporateEmail(email) {
+  const domain = String(email || "").split("@")[1]?.toLowerCase() || "";
+  const freeDomains = new Set([
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "live.com",
+    "yahoo.com",
+    "icloud.com",
+    "gmx.de",
+    "web.de",
+    "aol.com",
+    "proton.me",
+    "protonmail.com",
+  ]);
+  return Boolean(domain) && !freeDomains.has(domain);
+}
+
+function updateRiskUi(riskValue) {
+  const riskValueEl = document.getElementById("contact-risk-value");
+  const micro = document.getElementById("contact-risk-micro");
+  if (!riskValueEl || !micro) return;
+  riskValueEl.textContent = `${usd(riskValue)} / hour`;
+  if (riskValue > 50000) {
+    micro.textContent = t("contact.criticalRisk");
+    micro.classList.remove("hidden");
+  } else {
+    micro.classList.add("hidden");
+  }
+}
+
+function bindContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+  const nameInput = document.getElementById("contact-name");
+  const emailInput = document.getElementById("contact-email");
+  const locationInput = document.getElementById("contact-location");
+  const riskInput = document.getElementById("contact-risk");
+  const errorEl = document.getElementById("contact-error");
+  const thankYouEl = document.getElementById("contact-thankyou");
+  riskInput.addEventListener("input", () => {
+    const parsed = Number(riskInput.value || 0);
+    const bounded = Math.max(10000, Math.min(250000, Number.isFinite(parsed) ? parsed : 50000));
+    updateRiskUi(bounded);
+  });
+  updateRiskUi(Number(riskInput.value || 50000));
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    errorEl.classList.add("hidden");
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const location = locationInput.value;
+    const parsed = Number(riskInput.value || 0);
+    const risk = Math.max(10000, Math.min(250000, Number.isFinite(parsed) ? parsed : 50000));
+    if (!name || !email || !location) {
+      errorEl.textContent = "Please complete all fields.";
+      errorEl.classList.remove("hidden");
+      return;
+    }
+    if (!isCorporateEmail(email)) {
+      errorEl.textContent = t("contact.invalidEmail");
+      errorEl.classList.remove("hidden");
+      return;
+    }
+    const monthlySaving = risk * 0.4 * 30 * 24;
+    thankYouEl.textContent = tf("contact.thankYou", {
+      risk: usd(risk),
+      saving: usd(monthlySaving),
+    });
+    thankYouEl.classList.remove("hidden");
+    form.classList.add("hidden");
+  });
+}
+
+function bindLanguageSelector() {
+  const select = document.getElementById("language-select");
+  if (!select) return;
+  select.value = state.language;
+  select.addEventListener("change", async () => {
+    state.language = select.value || "en";
+    localStorage.setItem("control-agent-language", state.language);
+    applyI18nStatic();
+    await Promise.all([loadReports(), loadSupply(), loadFlow(), loadQuality(), loadTopBar()]);
   });
 }
 
@@ -636,6 +1021,7 @@ async function runFlowAutomation() {
     renderFinancialCounter();
     if (result.created) {
       notice.textContent = "System created 8D-Report for Performance Gap";
+      notice.textContent = t("alerts.auto8d");
       notice.classList.remove("hidden");
       await loadReports();
       return;
@@ -728,9 +1114,11 @@ function bindAlertSilence() {
   button.addEventListener("click", () => {
     state.alertSoundMuted = true;
     sessionStorage.setItem("control-agent-alert-muted", "1");
-    button.textContent = "Alerts Silenced";
+    button.textContent = state.language === "es" ? "Alertas silenciadas" : state.language === "de" ? "Alarme stumm" : "Alerts Silenced";
   });
-  if (state.alertSoundMuted) button.textContent = "Alerts Silenced";
+  if (state.alertSoundMuted) {
+    button.textContent = state.language === "es" ? "Alertas silenciadas" : state.language === "de" ? "Alarme stumm" : "Alerts Silenced";
+  }
 }
 
 function bindDemoTrigger() {
@@ -759,8 +1147,14 @@ async function init() {
   state.alertSoundMuted = sessionStorage.getItem("control-agent-alert-muted") === "1";
   state.supplyCriticalAlertPlayed =
     sessionStorage.getItem("control-agent-supply-critical-alert-played") === "1";
+  state.language = localStorage.getItem("control-agent-language") || "en";
+  if (!I18N[state.language]) state.language = "en";
+  applyI18nStatic();
   await loadSessionRole();
   bindNavigation();
+  bindLandingActions();
+  bindContactForm();
+  bindLanguageSelector();
   bindAuditToggle();
   bindFinancialToggle();
   bindReportDrawerActions();
