@@ -1,7 +1,7 @@
 import type { MachineTelemetry } from "../types";
 import type { TelemetryIngestionPort } from "./contracts";
 import { liveDataStore } from "./liveDataStore";
-const { getLineMex04Telemetry } = require("../core/flow/logic/flowTelemetry.js");
+import { getLineMex04Telemetry } from "../core/flow/logic/flowTelemetry";
 
 /**
  * FLOW_AGENT interface bridge to machine telemetry.
