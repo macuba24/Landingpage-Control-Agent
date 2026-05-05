@@ -27,55 +27,6 @@
           <button id="enter-dashboard-btn" class="jump-btn" type="button" data-i18n="landing.enter">Open Dashboard</button>
         </div>
       </div>
-      <section class="pricing-section">
-        <div class="panel pricing-panel">
-          <h3 data-i18n="pricing.title">Investment & ROI (Value-Based Pricing)</h3>
-          <p class="muted" data-i18n="pricing.subtitle">Clean 3-column pricing grid in USD.</p>
-          <div class="pricing-grid">
-            <article class="price-card">
-              <p class="price-tier" data-i18n="pricing.tier1.name">PILOT / TIER 2</p>
-              <p class="price-value" data-i18n="pricing.tier1.price">$990 / month</p>
-              <p class="price-billing" data-i18n="pricing.tier1.billing">(billed annually)</p>
-              <ul class="price-features">
-                <li data-i18n="pricing.tier1.f1">Supply Agent basic</li>
-                <li data-i18n="pricing.tier1.f2">AI-Sourcing link</li>
-                <li data-i18n="pricing.tier1.f3">SAP-Mock Connector</li>
-              </ul>
-              <p class="price-target" data-i18n="pricing.tier1.target">Target: Smaller production sites.</p>
-            </article>
-            <article class="price-card price-card-popular">
-              <span class="popular-badge" data-i18n="pricing.popular">Most Popular</span>
-              <p class="price-tier" data-i18n="pricing.tier2.name">PROFESSIONAL / CAPTAIN'S CHOICE</p>
-              <p class="price-value" data-i18n="pricing.tier2.price">$1,850 / month</p>
-              <ul class="price-features">
-                <li data-i18n="pricing.tier2.f1">Full Supply & Flow Agent</li>
-                <li data-i18n="pricing.tier2.f2">OEE Tracking</li>
-                <li data-i18n="pricing.tier2.f3">Financial Counter</li>
-                <li data-i18n="pricing.tier2.f4">Custom Alert Thresholds</li>
-              </ul>
-              <p class="price-target" data-i18n="pricing.tier2.target">Target: Core automotive suppliers in MEX/USA.</p>
-            </article>
-            <article class="price-card">
-              <p class="price-tier" data-i18n="pricing.tier3.name">ENTERPRISE / AUDIT READY</p>
-              <p class="price-value" data-i18n="pricing.tier3.price">Contact Sales</p>
-              <p class="price-billing" data-i18n="pricing.tier3.billing">(starts at $3,500/month)</p>
-              <ul class="price-features">
-                <li data-i18n="pricing.tier3.f1">Full Suite</li>
-                <li data-i18n="pricing.tier3.f2">Auto-8D Generation</li>
-                <li data-i18n="pricing.tier3.f3">Multi-Line Support</li>
-                <li data-i18n="pricing.tier3.f4">IATF 10.2 Compliance Suite</li>
-              </ul>
-              <p class="price-target" data-i18n="pricing.tier3.target">Target: Tier-1 Mega Plants.</p>
-            </article>
-          </div>
-          <div class="roi-box">
-            <strong data-i18n="pricing.roiTitle">ROI Callout</strong>
-            <p data-i18n="pricing.roiText">
-              If Control Agent prevents just ONE hour of downtime ($50,000 avg.), it pays for its entire annual subscription in the first 15 minutes of a crisis.
-            </p>
-          </div>
-        </div>
-      </section>
       <section class="contact-section">
         <div class="panel contact-panel">
           <h3 data-i18n="contact.title">Protect your Production Value.</h3>
@@ -146,6 +97,7 @@
           <button class="nav-item" data-view="supply" data-i18n="nav.supply">Supply Agent</button>
           <button class="nav-item" data-view="flow" data-i18n="nav.flow">Flow Agent</button>
           <button class="nav-item" data-view="quality" data-i18n="nav.quality">Quality Agent</button>
+          <button class="nav-item" data-view="investment" data-i18n="nav.investment">Investment & ROI</button>
         </nav>
       </aside>
 
@@ -281,6 +233,79 @@
             <p class="warning">Internal documents (FMEA) remain in-house as per IP policy.</p>
             <div id="quality-content" class="summary-row"></div>
             <div id="quality-internal-links" class="summary-row sensitive-internal"></div>
+          </article>
+        </section>
+
+        <section id="view-investment" class="view">
+          <article class="panel founder-panel investment-hero">
+            <h3 data-i18n="founder.title">Built in the Trenches, not in a Boardroom.</h3>
+            <div class="founder-layout investment-hero-layout">
+              <div class="founder-photo-wrap">
+                <img src="/founder-photo.png" alt="" class="founder-photo investment-hero-photo" />
+              </div>
+              <div>
+                <p data-i18n="founder.story">
+                  I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP
+                  data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift
+                  when I realized that managers need a 'Captain's View,' not just a spreadsheet.
+                </p>
+                <p data-i18n="founder.core">
+                  I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the
+                  supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with
+                  confidence.
+                </p>
+                <p class="founder-signoff" data-i18n="founder.signoff">
+                  Let's secure your production together. Because I know exactly what's at stake.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="panel pricing-panel">
+            <h3 data-i18n="pricing.title">Investment & ROI (Value-Based Pricing)</h3>
+            <p class="muted" data-i18n="pricing.subtitle">Clean 3-column pricing grid in USD.</p>
+            <div class="pricing-grid">
+              <article class="price-card">
+                <p class="price-tier" data-i18n="pricing.tier1.name">PILOT / TIER 2</p>
+                <p class="price-value" data-i18n="pricing.tier1.price">$990 / month</p>
+                <p class="price-billing" data-i18n="pricing.tier1.billing">(billed annually)</p>
+                <ul class="price-features">
+                  <li data-i18n="pricing.tier1.f1">Supply Agent basic</li>
+                  <li data-i18n="pricing.tier1.f2">AI-Sourcing link</li>
+                  <li data-i18n="pricing.tier1.f3">SAP-Mock Connector</li>
+                </ul>
+                <p class="price-target" data-i18n="pricing.tier1.target">Target: Smaller production sites.</p>
+              </article>
+              <article class="price-card price-card-popular">
+                <span class="popular-badge" data-i18n="pricing.popular">Most Popular</span>
+                <p class="price-tier" data-i18n="pricing.tier2.name">PROFESSIONAL / CAPTAIN'S CHOICE</p>
+                <p class="price-value" data-i18n="pricing.tier2.price">$1,850 / month</p>
+                <ul class="price-features">
+                  <li data-i18n="pricing.tier2.f1">Full Supply & Flow Agent</li>
+                  <li data-i18n="pricing.tier2.f2">OEE Tracking</li>
+                  <li data-i18n="pricing.tier2.f3">Financial Counter</li>
+                  <li data-i18n="pricing.tier2.f4">Custom Alert Thresholds</li>
+                </ul>
+                <p class="price-target" data-i18n="pricing.tier2.target">Target: Core automotive suppliers in MEX/USA.</p>
+              </article>
+              <article class="price-card">
+                <p class="price-tier" data-i18n="pricing.tier3.name">ENTERPRISE / AUDIT READY</p>
+                <p class="price-value" data-i18n="pricing.tier3.price">Contact Sales</p>
+                <p class="price-billing" data-i18n="pricing.tier3.billing">(starts at $3,500/month)</p>
+                <ul class="price-features">
+                  <li data-i18n="pricing.tier3.f1">Full Suite</li>
+                  <li data-i18n="pricing.tier3.f2">Auto-8D Generation</li>
+                  <li data-i18n="pricing.tier3.f3">Multi-Line Support</li>
+                  <li data-i18n="pricing.tier3.f4">IATF 10.2 Compliance Suite</li>
+                </ul>
+                <p class="price-target" data-i18n="pricing.tier3.target">Target: Tier-1 Mega Plants.</p>
+              </article>
+            </div>
+            <div class="roi-box">
+              <strong data-i18n="pricing.roiTitle">ROI Callout</strong>
+              <p data-i18n="pricing.roiText">
+                If Control Agent prevents just ONE hour of downtime ($50,000 avg.), it pays for its entire annual subscription in the first 15 minutes of a crisis.
+              </p>
+            </div>
           </article>
         </section>
       </main>

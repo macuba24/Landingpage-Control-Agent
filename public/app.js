@@ -17,6 +17,7 @@ const I18N = {
     "nav.supply": "Supply Agent",
     "nav.flow": "Flow Agent",
     "nav.quality": "Quality Agent",
+    "nav.investment": "Investment & ROI",
     "top.globalRisk": "Global Risk Level",
     "top.auditMode": "Enable Audit-Mode",
     "top.language": "Language",
@@ -85,13 +86,6 @@ const I18N = {
       "I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with confidence.",
     "founder.signoff":
       "Let's secure your production together. Because I know exactly what's at stake.",
-    "founder.title": "Built in the Trenches, not in a Boardroom.",
-    "founder.p1":
-      "I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift when I realized that managers need a 'Captain's View,' not just a spreadsheet.",
-    "founder.p2":
-      "I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with confidence.",
-    "founder.signoff":
-      "Let's secure your production together. Because I know exactly what's at stake.",
     "alerts.captain": "ATTENTION CAPTAIN: Immediate Action Required for Step D4!",
     "alerts.auto8d": "System created 8D-Report for Performance Gap",
   },
@@ -102,6 +96,7 @@ const I18N = {
     "nav.supply": "Agente de Suministro",
     "nav.flow": "Agente de Flujo",
     "nav.quality": "Agente de Calidad",
+    "nav.investment": "Inversion y ROI",
     "top.globalRisk": "Nivel Global de Riesgo",
     "top.auditMode": "Activar Modo Auditoria",
     "top.language": "Idioma",
@@ -170,13 +165,6 @@ const I18N = {
       "No quiero venderte software. Quiero devolverte el sueno que yo perdi. Mi herramienta identifica la brecha de suministro, monitorea el flujo de maquina y calcula tu riesgo en USD en tiempo real para que lideres con confianza.",
     "founder.signoff":
       "Aseguremos tu produccion juntos. Porque se exactamente lo que esta en juego.",
-    "founder.title": "Construido en la Trinchera, no en una Sala de Juntas.",
-    "founder.p1":
-      "He estado ahi. Senti la presion de una linea de produccion detenida y el caos por datos SAP faltantes. Control Agent no nacio en un laboratorio: nacio en el piso de planta durante un turno de medianoche cuando entendi que los lideres necesitan una 'Vista de Capitan', no solo una hoja de calculo.",
-    "founder.p2":
-      "No quiero venderte software. Quiero devolverte el sueno que yo perdi. Mi herramienta identifica la brecha de suministro, monitorea el flujo de maquina y calcula tu riesgo en USD en tiempo real para que lideres con confianza.",
-    "founder.signoff":
-      "Aseguremos tu produccion juntos. Porque se exactamente lo que esta en juego.",
     "alerts.captain": "ATENCION CAPITAN: Accion inmediata requerida para el Paso D4.",
     "alerts.auto8d": "El sistema creo un reporte 8D por brecha de rendimiento",
   },
@@ -187,6 +175,7 @@ const I18N = {
     "nav.supply": "Supply Agent",
     "nav.flow": "Flow Agent",
     "nav.quality": "Quality Agent",
+    "nav.investment": "Investment & ROI",
     "top.globalRisk": "Globales Risiko-Level",
     "top.auditMode": "Audit-Modus aktivieren",
     "top.language": "Sprache",
@@ -252,13 +241,6 @@ const I18N = {
     "founder.story":
       "Ich war dort. Ich kenne den Druck bei stillstehender Produktion und das Chaos durch fehlende SAP-Daten. Control Agent wurde nicht im Labor gebaut - sondern in der Nachtschicht auf dem Shopfloor, als ich merkte: Fuehrung braucht eine 'Captain's View' und nicht nur Tabellen.",
     "founder.core":
-      "Ich will dir keine Software verkaufen. Ich will dir den Schlaf zurueckgeben, den ich verloren habe. Mein Tool erkennt Versorgungsluecken, ueberwacht den Maschinenfluss und berechnet dein Risiko in Echtzeit in USD - damit du sicher fuehren kannst.",
-    "founder.signoff":
-      "Lass uns deine Produktion gemeinsam absichern. Weil ich genau weiss, was auf dem Spiel steht.",
-    "founder.title": "In der Praxis gebaut, nicht im Konferenzraum.",
-    "founder.p1":
-      "Ich war dort. Ich kenne den Druck bei stillstehender Produktion und das Chaos durch fehlende SAP-Daten. Control Agent wurde nicht im Labor gebaut - sondern in der Nachtschicht auf dem Shopfloor, als ich merkte: Fuehrung braucht eine 'Captain's View' und nicht nur Tabellen.",
-    "founder.p2":
       "Ich will dir keine Software verkaufen. Ich will dir den Schlaf zurueckgeben, den ich verloren habe. Mein Tool erkennt Versorgungsluecken, ueberwacht den Maschinenfluss und berechnet dein Risiko in Echtzeit in USD - damit du sicher fuehren kannst.",
     "founder.signoff":
       "Lass uns deine Produktion gemeinsam absichern. Weil ich genau weiss, was auf dem Spiel steht.",
