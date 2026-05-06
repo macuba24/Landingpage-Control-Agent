@@ -31,10 +31,15 @@ const I18N = {
     "overview.timestampedHistory": "Timestamped History",
     "overview.timestampedHistorySub": "Shows who approved which step and when.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexico",
-    "landing.heroHeadline": "Stop Losing $50,000 Every Hour the Line Stands Still.",
+    "landing.heroHeadline":
+      "It's 2:47 AM. Your line is down. Your phone won't stop ringing. And your SAP shows nothing.",
     "landing.heroSub":
-      "Real-time Supply, Flow, and Quality Intelligence. Built for the Captains of the Shop Floor.",
-    "landing.ctaDemo": "Schedule Live Demo ($ USD Base)",
+      "Most plant managers see the crisis after it costs them $80,000. Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.",
+    "landing.heroBody": "Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.",
+    "landing.ctaDemo": "See My Risk Right Now →",
+    "landing.ctaTrust": "No commitment. No sales call. Just your number.",
+    "landing.trustBox":
+      "15+ Years in Automotive Tier-1. I built this because I've been in your shoes at 2 AM.",
     "landing.enter": "Open Dashboard",
     "nav.mobile.hero": "Hero",
     "nav.mobile.story": "Story",
@@ -138,7 +143,7 @@ const I18N = {
     "contact.locGermany": "Germany",
     "contact.locOther": "Other",
     "contact.riskLabel": "Estimated hourly downtime cost ($ USD)",
-    "contact.submit": "Get My ROI Estimate",
+    "contact.submit": "Get My Control Back",
     "contact.invalidEmail":
       "Please use a company email. Free email providers (Gmail/Hotmail/etc.) are not accepted.",
     "contact.criticalRisk":
@@ -169,10 +174,12 @@ const I18N = {
     "overview.timestampedHistory": "Historial con Marca de Tiempo",
     "overview.timestampedHistorySub": "Muestra quien aprobo cada paso y cuando.",
     "landing.kicker": "Tier 1/2 automotriz · USA y Mexico",
-    "landing.heroHeadline": "Deje de Perder $50,000 USD por cada Hora de Paro de Linea.",
+    "landing.heroHeadline": "Controle el caos. No solo las piezas.",
     "landing.heroSub":
-      "Inteligencia en tiempo real de Suministro, Flujo y Calidad. Hecha para los capitanes del piso de planta.",
-    "landing.ctaDemo": "Agendar demo en vivo (base en $ USD)",
+      "Evite penalizaciones de $50k/h por linea detenida con inteligencia de cadena de suministro impulsada por AI. Creado por expertos Tier-1 que conocen el costo de una cena arruinada.",
+    "landing.ctaDemo": "Iniciar Mission Control",
+    "landing.trustBox":
+      "15+ anos en Tier-1 automotriz. Construi esto porque estuve en tus zapatos a las 2 AM.",
     "landing.enter": "Abrir panel",
     "nav.mobile.hero": "Inicio",
     "nav.mobile.story": "Historia",
@@ -278,7 +285,7 @@ const I18N = {
     "contact.locGermany": "Alemania",
     "contact.locOther": "Otro",
     "contact.riskLabel": "Costo horario estimado por paro ($ USD)",
-    "contact.submit": "Obtener estimacion ROI",
+    "contact.submit": "Recuperar el control",
     "contact.invalidEmail":
       "Use un correo corporativo. No se aceptan correos gratuitos (Gmail/Hotmail/etc.).",
     "contact.criticalRisk":
@@ -309,10 +316,12 @@ const I18N = {
     "overview.timestampedHistory": "Zeitgestempelte Historie",
     "overview.timestampedHistorySub": "Zeigt, wer welchen Schritt wann freigegeben hat.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexiko",
-    "landing.heroHeadline": "Stoppen Sie den Verlust von 50.000 $ pro Stunde Bandstillstand.",
+    "landing.heroHeadline": "Kontrollieren Sie das Chaos. Nicht nur die Teile.",
     "landing.heroSub":
-      "Echtzeit-Supply-, Flow- und Qualitaetsintelligenz. Gebaut fuer die Captains am Shopfloor.",
-    "landing.ctaDemo": "Live-Demo vereinbaren ($ USD Basis)",
+      "Vermeiden Sie 50k$/h Line-Down-Strafen mit KI-gestuetzter Supply-Chain-Intelligenz. Entwickelt von Tier-1-Experten, die die Kosten eines ruinierten Abendessens kennen.",
+    "landing.ctaDemo": "Mission Control starten",
+    "landing.trustBox":
+      "15+ Jahre in Automotive Tier-1. Ich habe das gebaut, weil ich um 2 Uhr nachts selbst in Ihrer Lage war.",
     "landing.enter": "Dashboard oeffnen",
     "nav.mobile.hero": "Start",
     "nav.mobile.story": "Story",
@@ -418,7 +427,7 @@ const I18N = {
     "contact.locGermany": "Deutschland",
     "contact.locOther": "Sonstiges",
     "contact.riskLabel": "Schaetzwert Stundenkosten bei Linienstopp ($ USD)",
-    "contact.submit": "ROI-Einschaetzung erhalten",
+    "contact.submit": "Kontrolle zurueckholen",
     "contact.invalidEmail":
       "Bitte verwenden Sie eine Firmen-E-Mail. Freemailer (Gmail/Hotmail/etc.) sind nicht erlaubt.",
     "contact.criticalRisk":
@@ -665,6 +674,7 @@ function bindLandingMobileNav() {
   const toggle = document.getElementById("landing-menu-toggle");
   const panel = document.getElementById("landing-mobile-nav");
   const dashboardBtn = document.getElementById("landing-menu-dashboard");
+  const header = document.getElementById("landing-sticky-header");
   if (!toggle || !panel) return;
 
   const setOpen = (open) => {
@@ -691,6 +701,16 @@ function bindLandingMobileNav() {
       document.querySelector(".app-shell")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (!header?.contains(target)) setOpen(false);
+  });
 }
 
 function bindScheduleDemoVisibility() {
@@ -706,6 +726,27 @@ function bindScheduleDemoVisibility() {
     { threshold: 0.08, rootMargin: "0px 0px -10% 0px" },
   );
   observer.observe(appShell);
+}
+
+function bindScrollReveal() {
+  const items = Array.from(document.querySelectorAll(".reveal-on-scroll"));
+  if (!items.length) return;
+  if (typeof IntersectionObserver === "undefined") {
+    items.forEach((el) => el.classList.add("in-view"));
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.14, rootMargin: "0px 0px -6% 0px" },
+  );
+  items.forEach((el) => observer.observe(el));
 }
 
 function isCorporateEmail(email) {
@@ -1577,6 +1618,7 @@ async function init() {
   bindLandingActions();
   bindLandingMobileNav();
   bindScheduleDemoVisibility();
+  bindScrollReveal();
   bindContactForm();
   bindRoiCalculator();
   bindLanguageSelector();

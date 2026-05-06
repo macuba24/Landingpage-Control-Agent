@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control Agent Dashboard</title>
+    <title>Control Agent | Real-Time Supply, Flow and Quality Command Center</title>
+    <meta
+      name="description"
+      content="Control Agent unifies Supply, Flow and Quality into one operational cockpit with 8D traceability, financial risk visibility and immediate containment actions."
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Control Agent | Stop Escalation Before Production Stops" />
+    <meta
+      property="og:description"
+      content="Real-time supply, flow and quality intelligence for automotive operations teams in the USA and Mexico."
+    />
+    <meta property="og:url" content="https://landingpage-control-agent.onrender.com/" />
+    <meta property="og:image" content="https://landingpage-control-agent.onrender.com/founder-photo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Control Agent | Real-Time Supply, Flow and Quality Command Center"
+    />
+    <meta
+      name="twitter:description"
+      content="Operational cockpit with 8D traceability, risk signals and immediate containment actions."
+    />
+    <link rel="canonical" href="https://landingpage-control-agent.onrender.com/" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
     <script>
       tailwind = window.tailwind || {};
       tailwind.config = {
@@ -26,6 +51,12 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body class="landing-has-mobile-cta">
+    <a
+      href="#landing-hero"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:rounded-lg focus:bg-ca-blue focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to main content
+    </a>
     <section id="landing-page" class="bg-ca-bg text-gray-100 border-b border-gray-800">
       <header
         class="sticky top-0 z-50 border-b border-gray-800/80 bg-ca-bg/95 backdrop-blur-md"
@@ -46,7 +77,7 @@
               <span class="hidden xs:inline" data-i18n="top.language">Language</span>
               <select
                 id="language-select-landing"
-                class="js-lang-select min-h-[44px] min-w-[44px] rounded-lg border border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
+                class="js-lang-select min-h-[44px] min-w-[44px] rounded-lg border border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                 aria-label="Language selector"
               >
                 <option value="en">EN</option>
@@ -57,7 +88,7 @@
             <button
               type="button"
               id="landing-menu-toggle"
-              class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-gray-100"
+              class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
               aria-label="Open menu"
               aria-expanded="false"
               aria-controls="landing-mobile-nav"
@@ -91,38 +122,52 @@
       </header>
 
       <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-24 md:pb-14 pt-4 sm:pt-6">
-        <div id="landing-hero" class="grid gap-10 lg:grid-cols-2 lg:items-center scroll-mt-28">
+        <div id="landing-hero" class="grid gap-10 lg:grid-cols-2 lg:items-center scroll-mt-28 reveal-on-scroll in-view">
           <div>
             <p class="text-sm font-medium text-sky-300 mb-2" data-i18n="landing.kicker">Automotive Tier 1/2 · USA & Mexico</p>
             <h1 class="text-[1.375rem] min-[400px]:text-3xl sm:text-4xl lg:text-[2.65rem] font-bold leading-tight tracking-tight text-white" data-i18n="landing.heroHeadline">
-              Stop Losing $50,000 Every Hour the Line Stands Still.
+              It's 2:47 AM. Your line is down. Your phone won't stop ringing. And your SAP shows nothing.
             </h1>
             <p class="mt-4 text-base sm:text-lg text-gray-300 max-w-xl" data-i18n="landing.heroSub">
-              Real-time Supply, Flow, and Quality Intelligence. Built for the Captains of the Shop Floor.
+              Most plant managers see the crisis after it costs them $80,000. Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.
             </p>
-            <div class="mt-6 flex flex-wrap gap-3">
+            <p class="mt-2 text-sm text-gray-300 max-w-xl" data-i18n="landing.heroBody">
+              Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
               <a
                 id="schedule-demo-btn"
                 href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
-                class="hidden md:inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-ca-blue px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/40 hover:brightness-110 transition"
+                class="hidden md:inline-flex primary-cta min-h-[44px] items-center justify-center gap-2 rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-red-900/40 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
               >
                 <i data-lucide="calendar-check" class="h-4 w-4"></i>
-                <span data-i18n="landing.ctaDemo">Schedule Live Demo ($ USD Base)</span>
+                <span data-i18n="landing.ctaDemo">See My Risk Right Now →</span>
               </a>
+              <span class="cta-radar-wrap hidden md:inline-flex" aria-hidden="true">
+                <span class="cta-radar-pulse"></span>
+                <span class="cta-radar-label">Live radar</span>
+              </span>
               <button
                 id="enter-dashboard-btn"
                 type="button"
-                class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-gray-600 bg-gray-900/80 px-5 py-3 text-sm font-semibold text-gray-100 hover:border-gray-500 transition"
+                class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-gray-600 bg-gray-900/80 px-5 py-3 text-sm font-semibold text-gray-100 hover:border-gray-500 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
               >
                 <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
                 <span data-i18n="landing.enter">Open Dashboard</span>
               </button>
             </div>
+            <p class="mt-2 text-xs text-gray-500" data-i18n="landing.ctaTrust">No commitment. No sales call. Just your number.</p>
             <p class="mt-4 text-xs text-gray-500 max-w-md" data-i18n="landing.heroFootnote">
               Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.
             </p>
+            <div class="trust-box mt-4" role="note" aria-label="Founder trust badge">
+              <img src="/founder-photo.png" alt="Founder portrait" class="trust-box-photo" />
+              <p class="trust-box-copy" data-i18n="landing.trustBox">
+                15+ Years in Automotive Tier-1. I built this because I’ve been in your shoes at 2 AM.
+              </p>
+            </div>
           </div>
-          <div class="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl">
+          <div class="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl reveal-on-scroll">
             <div class="flex items-start justify-between gap-3">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-ca-risk" data-i18n="landing.riskBadge">Risk signal</p>
@@ -147,7 +192,7 @@
           </div>
         </div>
 
-        <section id="section-founder" class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28">
+        <section id="section-founder" class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div>
               <h2 class="text-xl font-bold text-white" data-i18n="founder.scarsTitle">Built in the Trenches</h2>
@@ -162,11 +207,11 @@
           </p>
         </section>
 
-        <section id="section-triad" class="mt-14 scroll-mt-28">
+        <section id="section-triad" class="mt-14 scroll-mt-28 reveal-on-scroll">
           <h2 class="text-xl font-bold text-white" data-i18n="triad.title">The Tool Triad</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="triad.subtitle">Three agents. One command posture. Built for automotive operations.</p>
           <div class="mt-6 flex md:grid gap-5 overflow-x-auto pb-2 snap-x snap-mandatory md:overflow-visible md:grid-cols-3 md:snap-none">
-            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
+            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="package-search" class="h-5 w-5"></i>
               </div>
@@ -175,7 +220,7 @@
                 SAP MARD-live sync plus an AI-intelligence gateway for alternative sourcing (US/MEX).
               </p>
             </article>
-            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
+            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="gauge" class="h-5 w-5"></i>
               </div>
@@ -184,7 +229,7 @@
                 Performance telemetry, OEE, scrap analysis, and operator traceability — tied to escalation logic.
               </p>
             </article>
-            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
+            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="file-check-2" class="h-5 w-5"></i>
               </div>
@@ -196,7 +241,7 @@
           </div>
         </section>
 
-        <section id="section-roi" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28">
+        <section id="section-roi" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
               <h2 class="text-xl font-bold text-white" data-i18n="roi.title">Interactive ROI Calculator</h2>
@@ -240,11 +285,11 @@
           </div>
         </section>
 
-        <section id="section-pricing" class="mt-14 scroll-mt-28">
+        <section id="section-pricing" class="mt-14 scroll-mt-28 reveal-on-scroll">
           <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">Pricing</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="pricing.pageSubtitle">USD SaaS tiers for Tier 1/2 automotive operations.</p>
           <div class="mt-6 grid gap-5 md:grid-cols-3">
-            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
+            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
               <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">PILOT</p>
               <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier1.price">$990 / month</p>
               <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier1.billing">billed annually</p>
@@ -253,7 +298,7 @@
                 <li data-i18n="pricing.tier1.f2">AI sourcing gateway</li>
               </ul>
             </article>
-            <article class="rounded-2xl border-2 border-ca-blue bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
+            <article class="feature-card rounded-2xl border-2 border-ca-blue bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
               <span class="absolute -top-3 right-4 rounded-full bg-ca-blue px-3 py-0.5 text-[11px] font-bold text-white" data-i18n="pricing.popular">Most Popular</span>
               <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">PROFESSIONAL</p>
               <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier2.price">$1,850 / month</p>
@@ -263,7 +308,7 @@
                 <li data-i18n="pricing.tier2.f3">Captain thresholds & alerts</li>
               </ul>
             </article>
-            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
+            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
               <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">ENTERPRISE</p>
               <p class="mt-2 text-2xl font-bold text-white" data-i18n="pricing.tier3.price">Contact Sales</p>
               <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier3.billing">Multi-plant · full automation path</p>
@@ -275,22 +320,22 @@
           </div>
         </section>
 
-        <section id="section-contact" class="mt-14 max-w-3xl scroll-mt-28">
+        <section id="section-contact" class="mt-14 max-w-3xl scroll-mt-28 reveal-on-scroll">
           <h2 class="text-xl font-bold text-white" data-i18n="contact.title">Protect your Production Value.</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="contact.subtitle">Tell us your plant context and hourly risk — we respond with a focused next step.</p>
           <form id="contact-form" class="mt-6 space-y-4">
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.nameLabel">Name</span>
-                <input id="contact-name" type="text" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-name" type="text" autocomplete="name" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
               </label>
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.emailLabel">Company Email</span>
-                <input id="contact-email" type="email" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-email" type="email" autocomplete="email" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.locationLabel">Plant Location</span>
-                <select id="contact-location" class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100">
+                <select id="contact-location" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
                   <option value="Mexico" data-i18n="contact.locMexico">Mexico</option>
                   <option value="USA" data-i18n="contact.locUsa">USA</option>
                   <option value="Germany" data-i18n="contact.locGermany">Germany</option>
@@ -299,14 +344,14 @@
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.riskLabel">Estimated hourly downtime cost ($ USD)</span>
-                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
                 <span id="contact-risk-value" class="mt-1 block text-xs text-gray-500">$50,000.00 / hour</span>
                 <span id="contact-risk-micro" class="mt-2 hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-xs text-red-100"></span>
               </label>
             </div>
             <p id="contact-error" class="hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-sm text-red-100"></p>
-            <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition">
-              <span data-i18n="contact.submit">Get My ROI Estimate</span>
+            <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400">
+              <span data-i18n="contact.submit">Get My Control Back</span>
             </button>
           </form>
           <div id="contact-thankyou" class="mt-4 hidden rounded-xl border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-100"></div>
@@ -322,10 +367,10 @@
       <a
         id="schedule-demo-fixed"
         href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
-        class="schedule-demo-fixed md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-blue px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)]"
+        class="schedule-demo-fixed primary-cta md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-risk px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
       >
         <i data-lucide="calendar-check" class="h-4 w-4"></i>
-        <span data-i18n="landing.ctaDemo">Schedule Live Demo ($ USD Base)</span>
+        <span data-i18n="landing.ctaDemo">See My Risk Right Now →</span>
       </a>
     </section>
     <div class="app-shell">
