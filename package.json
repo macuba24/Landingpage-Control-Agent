@@ -2,7 +2,12 @@
   "name": "control-agent",
   "version": "1.0.0",
   "description": "Control Agent Master Console (Vite + React)",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "check:public": "node scripts/check-public.cjs",
+    "prebuild": "npm run check:public",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

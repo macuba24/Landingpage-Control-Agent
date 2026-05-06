@@ -1,0 +1,7 @@
+WICHTIG (Vite):
+Lege niemals "index.html" in diesem Ordner ab.
+
+Vite kopiert public/ nach dist/. Eine public/index.html ersetzt die echte
+SPA-Einstiegdatei aus dem Projektroot — dann zeigt Vercel eine falsche Seite.
+
+Statische Assets (Bilder, fonts, …) sind hier in Ordnung.

@@ -1,9 +1,23 @@
+# Dependencies & build (niemals committen)
 node_modules/
 dist/
+
+# Vercel Link-Metadaten (lokal; Deployment läuft über Git-Integration)
 .vercel/
+
+# Secrets
 .env
 .env.*
+!.env.example
+
+# Logs & caches
 *.log
+npm-debug.log*
+.cache/
+coverage/
+*.tsbuildinfo
+
+# OS / IDE
 .DS_Store
 Thumbs.db
 .idea/
