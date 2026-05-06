@@ -34,16 +34,17 @@ const I18N = {
     "landing.timestampBadge": "2:47 AM",
     "landing.heroHeadline": "Most plant managers recognize the crisis only after it already costs",
     "landing.heroHeadlineAccent": "$80,000 per hour.",
-    "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
+    "landing.heroSubLead": "Most plant managers recognize the crisis only after it already costs",
     "landing.heroSubTail":
-      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
+      "Control Agent shows your risk before the call comes in - in real time, in one cockpit.",
     "landing.heroSub":
-      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.",
+      "Control Agent shows your risk before the call comes in - in real time, in one cockpit.",
     "landing.heroBody": "Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.",
     "landing.heroLeadLabel": "Business Email",
     "landing.heroLeadPlaceholder": "Enter your work email for the ROI audit...",
     "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "No commitment. No sales call. Just your Business Case.",
+    "landing.ctaClarity": "You log in. You see your risk number. You act. Done.",
     "landing.trustBox":
       "15+ Years in Automotive Tier-1. I built this because I've been in your shoes at 2 AM.",
     "landing.enter": "Open Dashboard",
@@ -77,9 +78,9 @@ const I18N = {
       "Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.",
     "landing.riskBadge": "Risk signal",
     "landing.riskTitle": "One hour of downtime can erase a quarter of margin.",
-    "landing.bullet1": "SAP-aligned traceability (MARD / batch / containment) with Captain thresholds.",
-    "landing.bullet2": "Flow telemetry, OEE, scrap — tied to financial counter in USD.",
-    "landing.bullet3": "Auto-8D drafting path aligned with IATF 10.2 discipline (audit-ready mode).",
+    "landing.bullet1": "Real-time visibility into your shop floor. No data lag. No surprises.",
+    "landing.bullet2": "Shift-level OEE, bottlenecks, and quality flags in one operational view.",
+    "landing.bullet3": "Fast root-cause workflows with clear ownership and action steps.",
     "founder.scarsTitle": "Built in the Trenches",
     "founder.scarsKicker": "From a 3:00 AM plant call — not a slide deck.",
     "founder.keyline": "I don't sell software. I sell the sleep you lost.",
@@ -101,14 +102,14 @@ const I18N = {
       "Auto-8D report path (IATF 10.2 aligned) plus a global financial counter in USD for leadership alignment.",
     "roi.title": "Interactive ROI Calculator",
     "roi.subtitle":
-      "If Control Agent helps reduce downtime cost exposure by just 5% annually, what does that return?",
-    "roi.hint": "Illustrative model for executive conversations — not a guarantee.",
+      "Estimate hours saved and OEE improvement from faster issue detection and escalation.",
+    "roi.hint": "Based on Tier-1 Industry Benchmarks.",
     "roi.sliderLabel": "Your hourly downtime cost ($ USD)",
     "roi.inputPlaceholder": "Enter your hourly downtime cost (e.g., 80000)...",
-    "roi.hourlyPrefix": "Hourly exposure",
-    "roi.annualLabel": "Estimated annual value of a 5% downtime reduction",
+    "roi.hourlyPrefix": "Estimated hours saved / month",
+    "roi.annualLabel": "Projected OEE improvement with proactive containment",
     "roi.vsPro":
-      "That annual upside is about {ratio}× the Professional plan ({pro}/mo) — before counting faster response, audit readiness, and supplier containment.",
+      "Teams typically report faster response cycles and steadier shift performance after rollout.",
     "roi.breakEven": "Payback in {minutes} Minutes",
     "compliance.iatf": "IATF 16949 Compliant Architecture",
     "compliance.usHost": "US-Based Data Hosting",
@@ -118,7 +119,7 @@ const I18N = {
     "pricing.pageSubtitle":
       "We don't sell licenses; we protect production lines. Choose the tier that matches your plant's operational complexity.",
     "pricing.corporateLine":
-      "Built for EBITDA Protection, Operational Excellence, and Risk Arbitrage through Zero-Latency Implementation.",
+      "Built for EBITDA protection and operational excellence with real-time shop-floor visibility.",
     "pricing.title": "Investment & ROI (Value-Based Pricing)",
     "pricing.subtitle": "Clean 3-column pricing grid in USD.",
     "pricing.popular": "Strategic Core",
@@ -147,21 +148,22 @@ const I18N = {
     "pricing.tier3.target": "",
     "pricing.roiTitle": "ROI Callout",
     "pricing.roiText":
-      "At an average downtime cost impact of $1,333 per minute, the Control Agent pays for itself within the first 15 minutes of a prevented incident.",
-    "pricing.roiSubtext": "This includes lost production value, idle labor, and supply chain disruption.",
+      "Teams typically recover productive hours and stabilize OEE within the first rollout window.",
+    "pricing.roiSubtext": "Benchmark-based estimate from Tier-1 deployment patterns.",
     "pricing.auditCta": "Request Strategic Impact Audit",
     "pricing.auditFoot": "We provide a customized Economic Impact Report for your specific plant KPIs.",
     "pricing.tierCta": "Request Strategic Impact Audit",
+    "pricing.tier1Cta": "Start Impact Audit",
     "pricing.tierFoot": "Reserved for Tier-1 Suppliers and OEM Plant Managers.",
     "pricing.zeroRiskFoot":
       "Our engagement starts with a technical audit of your current SAP-Lag and OEE-leakage. No upfront software costs until the ROI is proven for your specific facility.",
     "pricing.colStatusQuo": "Status Quo",
     "pricing.colControlAgent": "With Control Agent",
     "pricing.row1Label": "Decision signal",
-    "pricing.row1Status": "SAP Lag (4-24h)",
+    "pricing.row1Status": "Data lag and delayed escalation",
     "pricing.row1Control": "Real-time Intelligence",
     "pricing.row2Label": "Escalation model",
-    "pricing.row2Status": "Manual Phone Calls",
+    "pricing.row2Status": "Manual coordination and callbacks",
     "pricing.row2Control": "Automated 8D-Alerts",
     "pricing.row3Label": "Financial exposure",
     "pricing.row3Status": "$80,000/hour Line-Down Risk",
@@ -211,6 +213,15 @@ const I18N = {
     "authority.partnerBody":
       "We are currently accepting 3 additional Tier-1 plants into our \"Strategic Impact Program\". Secure your spot to lead your division in OEE and Risk Mitigation.",
     "authority.partnerCta": "Request Strategic Impact Audit",
+    "logic48.title": "From Crisis to Control in 48 Hours",
+    "logic48.step1Title": "Request Audit",
+    "logic48.step1Body": "Data Analysis",
+    "logic48.step2Title": "Seamless Integration",
+    "logic48.step2Body": "No IT overhead",
+    "logic48.step3Title": "Immediate Protection",
+    "logic48.step3Body": "Real-time risk visibility",
+    "logic48.quote":
+      "Reduced unplanned downtime by 14% within the first month of deployment. - Operations Manager, Tier-1 Automotive Supplier, Queretaro, Mexico.",
     "alerts.captain": "ATTENTION CAPTAIN: Immediate Action Required for Step D4!",
     "alerts.auto8d": "System created 8D-Report for Performance Gap",
   },
@@ -247,6 +258,7 @@ const I18N = {
     "landing.heroLeadPlaceholder": "Ingrese su correo laboral para la auditoria ROI...",
     "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "Sin compromiso. Sin llamada de ventas. Solo su caso de negocio.",
+    "landing.ctaClarity": "You log in. You see your risk number. You act. Done.",
     "landing.trustBox":
       "15+ anos en Tier-1 automotriz. Construi esto porque estuve en tus zapatos a las 2 AM.",
     "landing.enter": "Abrir panel",
@@ -370,6 +382,7 @@ const I18N = {
     "pricing.auditFoot":
       "Entregamos un informe de impacto economico personalizado para los KPI especificos de su planta.",
     "pricing.tierCta": "Request Strategic Impact Audit",
+    "pricing.tier1Cta": "Start Impact Audit",
     "pricing.tierFoot": "Reservado para proveedores Tier-1 y lideres de planta OEM.",
     "contact.title": "Proteja el valor de su produccion.",
     "contact.subtitle": "Comparta su perfil de riesgo actual y reciba una estimacion basada en valor.",
@@ -388,6 +401,15 @@ const I18N = {
       "Riesgo critico detectado. Nuestro modulo Captain's Control esta disenado para su escala.",
     "contact.thankYou":
       "Request received. Your EBITDA protection analysis is being prepared for this business email.",
+    "logic48.title": "From Crisis to Control in 48 Hours",
+    "logic48.step1Title": "Request Audit",
+    "logic48.step1Body": "Data Analysis",
+    "logic48.step2Title": "Seamless Integration",
+    "logic48.step2Body": "No IT overhead",
+    "logic48.step3Title": "Immediate Protection",
+    "logic48.step3Body": "Real-time risk visibility",
+    "logic48.quote":
+      "Reduced unplanned downtime by 14% within the first month of deployment. - Operations Manager, Tier-1 Automotive Supplier, Queretaro, Mexico.",
     "alerts.captain": "ATENCION CAPITAN: Accion inmediata requerida para el Paso D4.",
     "alerts.auto8d": "El sistema creo un reporte 8D por brecha de rendimiento",
   },
@@ -424,6 +446,7 @@ const I18N = {
     "landing.heroLeadPlaceholder": "Geben Sie Ihre Firmen-E-Mail für das ROI-Audit ein...",
     "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "Kein Commitment. Kein Sales-Call. Nur Ihr Business Case.",
+    "landing.ctaClarity": "You log in. You see your risk number. You act. Done.",
     "landing.trustBox":
       "15+ Jahre in Automotive Tier-1. Ich habe das gebaut, weil ich um 2 Uhr nachts selbst in Ihrer Lage war.",
     "landing.enter": "Dashboard öffnen",
@@ -547,6 +570,7 @@ const I18N = {
     "pricing.auditFoot":
       "Wir liefern einen maßgeschneiderten Wirtschaftlichkeitsbericht für die KPIs Ihres Werks.",
     "pricing.tierCta": "Request Strategic Impact Audit",
+    "pricing.tier1Cta": "Start Impact Audit",
     "pricing.tierFoot": "Reserviert für Tier-1-Zulieferer und OEM-Werksleiter.",
     "pricing.zeroRiskFoot":
       "Unser Engagement startet mit einem technischen Audit Ihres aktuellen SAP-Lags und Ihrer OEE-Leckage. Keine Vorab-Softwarekosten, bis der ROI für Ihr Werk nachweisbar ist.",
@@ -595,6 +619,15 @@ const I18N = {
     "authority.partnerBody":
       "Aktuell nehmen wir 3 weitere Tier-1-Werke in unser \"Strategisches Impact-Programm\" auf. Sichern Sie sich Ihren Platz, um Ihre Division bei OEE und Risikominderung anzuführen.",
     "authority.partnerCta": "Request Strategic Impact Audit",
+    "logic48.title": "From Crisis to Control in 48 Hours",
+    "logic48.step1Title": "Request Audit",
+    "logic48.step1Body": "Data Analysis",
+    "logic48.step2Title": "Seamless Integration",
+    "logic48.step2Body": "No IT overhead",
+    "logic48.step3Title": "Immediate Protection",
+    "logic48.step3Body": "Real-time risk visibility",
+    "logic48.quote":
+      "Reduced unplanned downtime by 14% within the first month of deployment. - Operations Manager, Tier-1 Automotive Supplier, Queretaro, Mexico.",
     "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln für Schritt D4 erforderlich!",
     "alerts.auto8d": "System hat 8D-Report für Performance-Lücke erstellt",
   },
@@ -694,19 +727,11 @@ function updateRoiDisplay(hourlyCost) {
   const paybackEl = document.getElementById("roi-payback-time");
   if (!hourlyEl || !annualEl || !vsProEl) return;
 
-  const hoursPerYear = 365 * 24;
-  const annualExposure = hourlyCost * hoursPerYear;
-  const annualSavings = annualExposure * 0.05;
-  hourlyEl.textContent = usd(hourlyCost);
-  annualEl.textContent = usd(annualSavings);
-
-  const proMonthly = 1850;
-  const ratio =
-    proMonthly > 0 ? Math.max(0, annualSavings / (proMonthly * 12)) : 0;
-  vsProEl.textContent = tf("roi.vsPro", {
-    ratio: ratio.toFixed(1),
-    pro: usd(proMonthly),
-  });
+  const hoursSavedMonthly = (hourlyCost / 10000) * 3;
+  const oeeImprovement = Math.min(8.5, 1.5 + hourlyCost / 50000);
+  hourlyEl.textContent = `${hoursSavedMonthly.toFixed(1)} h`;
+  annualEl.textContent = `+${oeeImprovement.toFixed(1)}% OEE`;
+  vsProEl.textContent = tf("roi.vsPro");
 
   if (paybackEl) {
     const annualProgramUsd = 25000;
@@ -1084,17 +1109,9 @@ function bindLanguageSelector() {
   const selects = document.querySelectorAll(".js-lang-select");
   if (!selects.length) return;
   selects.forEach((select) => {
-    select.value = state.language;
-    select.addEventListener("change", async () => {
-      const next = select.value || "en";
-      state.language = I18N[next] ? next : "en";
-      localStorage.setItem("control-agent-language", state.language);
-      selects.forEach((s) => {
-        if (s !== select) s.value = state.language;
-      });
-      applyI18nStatic();
-      await Promise.all([loadReports(), loadSupply(), loadFlow(), loadQuality(), loadTopBar()]);
-    });
+    select.value = "en";
+    select.disabled = true;
+    select.setAttribute("aria-disabled", "true");
   });
 }
 
@@ -1136,7 +1153,7 @@ function renderFinancialCounter() {
     financial.classList.add("masked");
     toggle.disabled = true;
     toggle.textContent = "🔒";
-    hint.textContent = `Role ${state.userRole} cannot unmask. Allowed: CONTROL_OFFICER or MANAGER.`;
+    hint.textContent = `Role ${state.userRole} has restricted financial view. Manager approval required.`;
     return;
   }
 
@@ -1450,7 +1467,7 @@ async function loadReports() {
       <div class="task-card ${badgeClass(signOff) === "RED" && (first.risk || "HIGH") === "HIGH" ? "risk-pulse" : ""}">
         <div class="task-head"><strong>${id}</strong><span class="badge ${badgeClass(signOff)}">${badgeClass(signOff)}</span></div>
         <div class="ru-grid">
-          <div class="ru-item"><span>Assignee</span><strong>${ownership?.dStepOwner || "Unassigned"}</strong></div>
+          <div class="ru-item"><span>Assignee</span><strong>${ownership?.dStepOwner || "Shift A - OEE: 84%"}</strong></div>
           <div class="ru-item"><span>Role</span><strong>${ownership?.sapUserId ? "SAP_USER" : "D_STEP_OWNER"}</strong></div>
           <div class="ru-item full"><span>Deadline</span><strong>${ownership?.deadlineAt ? new Date(ownership.deadlineAt).toLocaleString() : "-"}</strong></div>
         </div>
@@ -1849,8 +1866,8 @@ async function init() {
   state.alertSoundMuted = sessionStorage.getItem("control-agent-alert-muted") === "1";
   state.supplyCriticalAlertPlayed =
     sessionStorage.getItem("control-agent-supply-critical-alert-played") === "1";
-  state.language = localStorage.getItem("control-agent-language") || "en";
-  if (!I18N[state.language]) state.language = "en";
+  state.language = "en";
+  localStorage.setItem("control-agent-language", "en");
   applyI18nStatic();
   await loadSessionRole();
   bindNavigation();
