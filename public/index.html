@@ -198,13 +198,24 @@
               <img src="/founder-photo.png" alt="Rainer Hampicke" class="founder-trust-photo" />
             </div>
             <div>
-              <h2 class="text-xl font-bold text-white">Founder Trust</h2>
-              <p class="mt-4 text-gray-300 leading-relaxed" data-i18n="founder.trustQuote">
-                I’ve spent 20 years on the shop floor in Tier-1 Automotive. I didn’t build this to sell software; I built it to stop the 2 AM phone calls and the $50k/hour penalties.
+              <h2 class="text-xl font-bold text-white" data-i18n="authority.experienceTitle">Tested by 20 Years of Shop Floor Reality, Not just 20 Lines of Code.</h2>
+              <p class="mt-4 text-gray-300 leading-relaxed" data-i18n="authority.experienceQuote">
+                I've lived through the 2:47 AM calls. I know the stress of an $80,000/hour penalty. Control Agent is the tool I wish I had for the last two decades.
               </p>
               <p class="mt-4 text-sm font-semibold text-sky-300" data-i18n="founder.trustName">Rainer Hampicke, Founder & Industry Expert.</p>
             </div>
           </div>
+        </section>
+
+        <section id="section-automotive-native" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
+          <div class="inline-flex items-center rounded-full border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-1 text-xs font-bold tracking-[0.08em] text-[#f5d983] uppercase" data-i18n="authority.nativeBadge">
+            100% Automotive Native.
+          </div>
+          <ul class="mt-5 space-y-3 text-sm text-gray-300">
+            <li data-i18n="authority.nativeB1">Designed for IATF 16949 compliant environments.</li>
+            <li data-i18n="authority.nativeB2">Engineered to eliminate the 4-hour SAP information lag.</li>
+            <li data-i18n="authority.nativeB3">Focused on Tier-1 OEM Relationship Protection.</li>
+          </ul>
         </section>
 
         <section id="section-cost-silence" class="mt-14 rounded-2xl border border-red-900/50 bg-gradient-to-b from-red-950/40 to-gray-950 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
@@ -312,37 +323,71 @@
         </section>
 
         <section id="section-pricing" class="mt-14 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">Pricing</h2>
-          <p class="mt-1 text-sm text-gray-400" data-i18n="pricing.pageSubtitle">USD SaaS tiers for Tier 1/2 automotive operations.</p>
+          <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">The Math of Survival.</h2>
+          <p class="mt-1 text-sm text-gray-400 max-w-4xl" data-i18n="pricing.pageSubtitle">In Automotive Tier-1, you don't pay for software. You pay for the hours you don't lose.</p>
+          <p class="mt-2 text-sm text-gray-400 max-w-4xl" data-i18n="pricing.corporateLine">Built for EBITDA Protection, Operational Excellence, and Risk Arbitrage through Zero-Latency Implementation.</p>
+          <div class="mt-6 overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/60">
+            <div class="grid grid-cols-3 border-b border-gray-800 bg-gray-900/90 text-xs font-semibold uppercase tracking-wider text-gray-400">
+              <div class="px-4 py-3">Scenario</div>
+              <div class="px-4 py-3" data-i18n="pricing.colStatusQuo">Status Quo</div>
+              <div class="px-4 py-3 text-sky-300" data-i18n="pricing.colControlAgent">With Control Agent</div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-gray-800 text-sm">
+              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row1Label">Decision signal</div>
+              <div class="px-4 py-3 text-gray-300" data-i18n="pricing.row1Status">SAP Lag (4-24h)</div>
+              <div class="px-4 py-3 text-gray-100" data-i18n="pricing.row1Control">Real-time Intelligence</div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-gray-800 text-sm">
+              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row2Label">Escalation model</div>
+              <div class="px-4 py-3 text-gray-300" data-i18n="pricing.row2Status">Manual Phone Calls</div>
+              <div class="px-4 py-3 text-gray-100" data-i18n="pricing.row2Control">Automated 8D-Alerts</div>
+            </div>
+            <div class="grid grid-cols-3 text-sm">
+              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row3Label">Financial exposure</div>
+              <div class="px-4 py-3 text-red-300" data-i18n="pricing.row3Status">$80k/hour Line-Down Risk</div>
+              <div class="px-4 py-3 text-emerald-300" data-i18n="pricing.row3Control">Risk Mitigation at 2:47 AM</div>
+            </div>
+          </div>
           <div class="mt-6 grid gap-5 md:grid-cols-3">
             <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
-              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">PILOT</p>
-              <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier1.price">$990 / month</p>
-              <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier1.billing">billed annually</p>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">Plant Pilot</p>
+              <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier1.billing">Request Access</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
-                <li data-i18n="pricing.tier1.f1">Basic Supply Agent</li>
-                <li data-i18n="pricing.tier1.f2">AI sourcing gateway</li>
+                <li data-i18n="pricing.tier1.f1">Single plant deployment</li>
+                <li data-i18n="pricing.tier1.f2">Real-time 2:47 AM alerting</li>
+                <li data-i18n="pricing.tier1.f3">8D-Traceability</li>
               </ul>
             </article>
-            <article class="feature-card rounded-2xl border-2 border-ca-blue bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
-              <span class="absolute -top-3 right-4 rounded-full bg-ca-blue px-3 py-0.5 text-[11px] font-bold text-white" data-i18n="pricing.popular">Most Popular</span>
-              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">PROFESSIONAL</p>
-              <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier2.price">$1,850 / month</p>
+            <article class="feature-card rounded-2xl border-2 border-[#3b82f6] bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
+              <span class="absolute -top-3 right-4 rounded-full border border-[#d4af37]/70 bg-[#1f2a44] px-3 py-0.5 text-[11px] font-bold text-[#f5d983]" data-i18n="pricing.popular">Strategic Core</span>
+              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">Enterprise Agent</p>
+              <p class="mt-2 text-sm text-gray-400" data-i18n="pricing.tier2.billing">Request Access</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-300 flex-1">
-                <li data-i18n="pricing.tier2.f1">Full Supply & Flow</li>
-                <li data-i18n="pricing.tier2.f2">Financial Counter (USD)</li>
-                <li data-i18n="pricing.tier2.f3">Captain thresholds & alerts</li>
+                <li data-i18n="pricing.tier2.f1">Multi-site intelligence</li>
+                <li data-i18n="pricing.tier2.f2">Cross-border risk mapping</li>
+                <li data-i18n="pricing.tier2.f3">Request Access</li>
               </ul>
             </article>
             <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
-              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">ENTERPRISE</p>
-              <p class="mt-2 text-2xl font-bold text-white" data-i18n="pricing.tier3.price">Contact Sales</p>
-              <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier3.billing">Multi-plant · full automation path</p>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">Mission Control</p>
+              <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier3.billing">Request Access</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
-                <li data-i18n="pricing.tier3.f1">Multi-plant support</li>
-                <li data-i18n="pricing.tier3.f2">Full IATF 10.2 automation suite</li>
+                <li data-i18n="pricing.tier3.f1">Full enterprise AI-integration</li>
+                <li data-i18n="pricing.tier3.f2">24/7 dedicated mission control</li>
+                <li data-i18n="pricing.tier3.f3">Predictive Risk Prevention</li>
               </ul>
             </article>
+          </div>
+          <div class="mt-6 rounded-xl border border-[#d4af37]/45 bg-[#2b2414]/40 p-4">
+            <p class="text-sm text-[#f5d983]" data-i18n="pricing.roiText">At an average downtime penalty of $1,333 per minute, the Control Agent pays for itself within the first 15 minutes of a prevented incident.</p>
+          </div>
+          <div class="mt-6">
+            <a
+              href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Audit%20Request"
+              class="inline-flex min-h-[48px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-7 py-4 text-lg font-bold text-[#f5d983] shadow-lg shadow-blue-900/30 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+              data-i18n="pricing.auditCta"
+            >Request ROI Business Case Study</a>
+            <p class="mt-2 text-xs text-gray-500" data-i18n="pricing.auditFoot">We provide a customized Economic Impact Report for your specific plant KPIs.</p>
           </div>
         </section>
 
@@ -399,6 +444,18 @@
             class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             data-i18n="monster.finalCta"
           >Secure My Production Now</a>
+        </section>
+
+        <section id="section-partnership" class="mt-14 rounded-2xl border border-[#3b82f6]/40 bg-[#101826]/80 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="authority.partnerTitle">Be the Leader, Not the Follower.</h2>
+          <p class="mt-3 text-gray-300 max-w-4xl" data-i18n="authority.partnerBody">
+            We are currently accepting 3 additional Tier-1 plants into our "Strategic Impact Program". Secure your spot to lead your division in OEE and Risk Mitigation.
+          </p>
+          <a
+            href="mailto:sales@control-agent.example?subject=Strategic%20Partnership%20Application"
+            class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-7 py-4 text-lg font-bold text-[#f5d983] shadow-lg shadow-blue-900/30 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+            data-i18n="authority.partnerCta"
+          >Apply for Strategic Partnership</a>
         </section>
 
         <footer class="mt-14 flex flex-wrap items-center gap-3 text-[11px] text-gray-500">
