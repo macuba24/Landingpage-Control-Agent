@@ -127,25 +127,33 @@
           <div>
             <div class="timestamp-badge" data-i18n="landing.timestampBadge">2:47 AM</div>
             <h1 class="hero-hook-headline">
-              <span data-i18n="landing.heroHeadline">It's 2:47 AM. Your line is down. Your phone won't stop ringing.</span><br />
-              <span class="hero-hook-accent" data-i18n="landing.heroHeadlineAccent">And your SAP shows nothing.</span>
+              <span data-i18n="landing.heroHeadline">Die meisten Werksleiter sehen die Krise erst, wenn sie bereits</span>
+              <span class="hero-hook-accent" data-i18n="landing.heroHeadlineAccent">$80.000 pro Stunde kostet.</span>
             </h1>
-            <p class="hero-hook-sub">
-              <span data-i18n="landing.heroSubLead">Most plant managers see the crisis after it costs them</span>
-              <strong>$80,000</strong>.
-              <span data-i18n="landing.heroSubTail">Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.</span>
-            </p>
+            <p class="hero-hook-sub" data-i18n="landing.heroSub">Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.</p>
             <div class="hero-hook-bodyline">
               <p data-i18n="landing.heroBody">Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.</p>
             </div>
-            <div class="mt-6 cta-area flex flex-wrap items-center gap-3">
+            <div class="mt-5 max-w-xl">
+              <label for="hero-business-email" class="block text-sm text-gray-300" data-i18n="landing.heroLeadLabel">Business Email</label>
+              <input
+                id="hero-business-email"
+                type="email"
+                autocomplete="email"
+                class="mt-2 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                placeholder="Enter your work email for the ROI audit..."
+                data-i18n-placeholder="landing.heroLeadPlaceholder"
+              />
+              <span id="hero-email-tip" class="mt-1 block hidden text-xs text-amber-300"></span>
+            </div>
+            <div class="mt-4 cta-area flex flex-wrap items-center gap-3">
               <a
                 id="schedule-demo-btn"
-                href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
+                href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
                 class="hidden md:inline-flex primary-cta min-h-[44px] items-center justify-center gap-2 rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
               >
                 <i data-lucide="calendar-check" class="h-4 w-4"></i>
-                <span data-i18n="landing.ctaDemo">See My Risk Right Now →</span>
+                <span data-i18n="landing.ctaDemo">Request Economic Impact Analysis</span>
               </a>
               <button
                 id="enter-dashboard-btn"
@@ -156,7 +164,7 @@
                 <span data-i18n="landing.enter">Open Dashboard</span>
               </button>
             </div>
-            <p class="mt-3 text-sm text-gray-500" data-i18n="landing.ctaTrust">No commitment. No sales call. Just your number.</p>
+            <p class="mt-3 text-sm text-gray-500" data-i18n="landing.ctaTrust">No commitment. No sales call. Just your Business Case.</p>
             <p class="mt-4 text-xs text-gray-500 max-w-md" data-i18n="landing.heroFootnote">
               Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.
             </p>
@@ -328,7 +336,7 @@
           <p class="mt-2 text-sm text-gray-400 max-w-4xl" data-i18n="pricing.corporateLine">Built for EBITDA Protection, Operational Excellence, and Risk Arbitrage through Zero-Latency Implementation.</p>
           <div class="mt-6 overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/60">
             <div class="grid grid-cols-3 border-b border-gray-800 bg-gray-900/90 text-xs font-semibold uppercase tracking-wider text-gray-400">
-              <div class="px-4 py-3">Scenario</div>
+              <div class="px-4 py-3" data-i18n="pricing.colScenario">Scenario</div>
               <div class="px-4 py-3" data-i18n="pricing.colStatusQuo">Status Quo</div>
               <div class="px-4 py-3 text-sky-300" data-i18n="pricing.colControlAgent">With Control Agent</div>
             </div>
@@ -408,8 +416,9 @@
                 <input id="contact-name" type="text" autocomplete="name" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
               </label>
               <label class="block text-sm text-gray-300">
-                <span data-i18n="contact.emailLabel">Company Email</span>
+                <span data-i18n="contact.emailLabel">Business Email</span>
                 <input id="contact-email" type="email" autocomplete="email" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
+                <span id="contact-email-tip" class="mt-1 hidden text-xs text-amber-300"></span>
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.locationLabel">Plant Location</span>
@@ -447,10 +456,10 @@
         <section id="section-final-call" class="mt-14 rounded-2xl border border-red-900/50 bg-red-950/20 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
           <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="monster.finalHeadline">Don't wait for the next 2:47 AM call.</h2>
           <a
-            href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Production%20Security%20Request"
+            href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
             class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             data-i18n="monster.finalCta"
-          >Secure My Production Now</a>
+          >Request Economic Impact Analysis</a>
         </section>
 
         <section id="section-partnership" class="mt-14 rounded-2xl border border-[#3b82f6]/40 bg-[#101826]/80 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
@@ -479,11 +488,11 @@
 
       <a
         id="schedule-demo-fixed"
-        href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
+        href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
         class="schedule-demo-fixed primary-cta md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-risk px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
       >
         <i data-lucide="calendar-check" class="h-4 w-4"></i>
-        <span data-i18n="landing.ctaDemo">See My Risk Right Now →</span>
+        <span data-i18n="landing.ctaDemo">Request Economic Impact Analysis</span>
       </a>
     </section>
     <div class="app-shell">

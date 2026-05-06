@@ -32,16 +32,18 @@ const I18N = {
     "overview.timestampedHistorySub": "Shows who approved which step and when.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexico",
     "landing.timestampBadge": "2:47 AM",
-    "landing.heroHeadline": "It's 2:47 AM. Your line is down. Your phone won't stop ringing.",
-    "landing.heroHeadlineAccent": "And your SAP shows nothing.",
-    "landing.heroSubLead": "Most plant managers see the crisis after it costs them",
+    "landing.heroHeadline": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
+    "landing.heroHeadlineAccent": "$80.000 pro Stunde kostet.",
+    "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
     "landing.heroSubTail":
-      "Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.",
+      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
     "landing.heroSub":
-      "Most plant managers see the crisis after it costs them $80,000. Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.",
+      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.",
     "landing.heroBody": "Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.",
-    "landing.ctaDemo": "See My Risk Right Now →",
-    "landing.ctaTrust": "No commitment. No sales call. Just your number.",
+    "landing.heroLeadLabel": "Business Email",
+    "landing.heroLeadPlaceholder": "Enter your work email for the ROI audit...",
+    "landing.ctaDemo": "Request Economic Impact Analysis",
+    "landing.ctaTrust": "No commitment. No sales call. Just your Business Case.",
     "landing.trustBox":
       "15+ Years in Automotive Tier-1. I built this because I've been in your shoes at 2 AM.",
     "landing.enter": "Open Dashboard",
@@ -164,7 +166,7 @@ const I18N = {
     "contact.title": "Protect your Production Value.",
     "contact.subtitle": "Tell us your current risk profile and receive a value-based estimate.",
     "contact.nameLabel": "Name",
-    "contact.emailLabel": "Company Email",
+    "contact.emailLabel": "Business Email",
     "contact.locationLabel": "Plant Location",
     "contact.locMexico": "Mexico",
     "contact.locUsa": "USA",
@@ -194,7 +196,7 @@ const I18N = {
     "monster.techB2": "SOC2 compliant",
     "monster.techB3": "Zero-config SAP integration",
     "monster.finalHeadline": "Don't wait for the next 2:47 AM call.",
-    "monster.finalCta": "Secure My Production Now",
+    "monster.finalCta": "Request Economic Impact Analysis",
     "authority.experienceTitle": "Tested by 20 Years of Shop Floor Reality, Not just 20 Lines of Code.",
     "authority.experienceQuote":
       "I've lived through the 2:47 AM calls. I know the stress of an $80,000/hour penalty. Control Agent is the tool I wish I had for the last two decades.",
@@ -238,7 +240,10 @@ const I18N = {
       "Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
     "landing.heroSub":
       "La mayoria de gerentes ve la crisis cuando ya costo $80,000. Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
-    "landing.ctaDemo": "Iniciar Mission Control",
+    "landing.heroLeadLabel": "Correo empresarial",
+    "landing.heroLeadPlaceholder": "Ingrese su correo laboral para la auditoria ROI...",
+    "landing.ctaDemo": "Solicitar analisis de impacto economico",
+    "landing.ctaTrust": "Sin compromiso. Sin llamada de ventas. Solo su caso de negocio.",
     "landing.trustBox":
       "15+ anos en Tier-1 automotriz. Construi esto porque estuve en tus zapatos a las 2 AM.",
     "landing.enter": "Abrir panel",
@@ -342,7 +347,7 @@ const I18N = {
     "contact.title": "Proteja el valor de su produccion.",
     "contact.subtitle": "Comparta su perfil de riesgo actual y reciba una estimacion basada en valor.",
     "contact.nameLabel": "Nombre",
-    "contact.emailLabel": "Correo corporativo",
+    "contact.emailLabel": "Correo empresarial",
     "contact.locationLabel": "Ubicacion de planta",
     "contact.locMexico": "Mexico",
     "contact.locUsa": "USA",
@@ -381,14 +386,17 @@ const I18N = {
     "overview.timestampedHistorySub": "Zeigt, wer welchen Schritt wann freigegeben hat.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexiko",
     "landing.timestampBadge": "2:47 AM",
-    "landing.heroHeadline": "Es ist 2:47 Uhr. Ihre Linie steht. Ihr Telefon hört nicht auf zu klingeln.",
-    "landing.heroHeadlineAccent": "Und SAP zeigt nichts.",
-    "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie",
+    "landing.heroHeadline": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
+    "landing.heroHeadlineAccent": "$80.000 pro Stunde kostet.",
+    "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
     "landing.heroSubTail":
       "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
     "landing.heroSub":
-      "Die meisten Werksleiter sehen die Krise erst, wenn sie 80.000 $ kostet. Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
-    "landing.ctaDemo": "Mission Control starten",
+      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.",
+    "landing.heroLeadLabel": "Geschäftliche E-Mail",
+    "landing.heroLeadPlaceholder": "Geben Sie Ihre Firmen-E-Mail für das ROI-Audit ein...",
+    "landing.ctaDemo": "Economic-Impact-Analyse anfordern",
+    "landing.ctaTrust": "Kein Commitment. Kein Sales-Call. Nur Ihr Business Case.",
     "landing.trustBox":
       "15+ Jahre in Automotive Tier-1. Ich habe das gebaut, weil ich um 2 Uhr nachts selbst in Ihrer Lage war.",
     "landing.enter": "Dashboard öffnen",
@@ -459,40 +467,80 @@ const I18N = {
     "compliance.usHost": "Daten-Hosting in den USA",
     "compliance.iatfFooter": "IATF-16949-konforme Architektur (Disziplin-first Design).",
     "compliance.renderUs": "Gehostet auf US-Region-Infrastruktur (z. B. Render.com).",
-    "pricing.pageTitle": "Preise",
-    "pricing.pageSubtitle": "USD-SaaS für Tier-1/2-Automotive-Operations.",
-    "pricing.title": "Investition & ROI (Value-Based Pricing)",
-    "pricing.subtitle": "Sauberes 3-Spalten-Preismodell in USD.",
-    "pricing.popular": "Am beliebtesten",
-    "pricing.tier1.name": "PILOT",
-    "pricing.tier1.price": "$990 / Monat",
-    "pricing.tier1.billing": "jährliche Abrechnung",
-    "pricing.tier1.f1": "Supply Agent Basis",
-    "pricing.tier1.f2": "AI-Sourcing-Gateway",
-    "pricing.tier1.f3": "SAP-Mock Connector",
-    "pricing.tier1.target": "Ziel: Kleinere Produktionsstandorte.",
-    "pricing.tier2.name": "PROFESSIONAL",
-    "pricing.tier2.price": "$1,850 / Monat",
-    "pricing.tier2.f1": "Voller Supply & Flow",
-    "pricing.tier2.f2": "Financial Counter (USD)",
-    "pricing.tier2.f3": "Captain-Schwellwerte & Alerts",
-    "pricing.tier2.f4": "Individuelle Alert-Schwellenwerte",
-    "pricing.tier2.target": "Ziel: Kern-Zulieferer Automotive in MEX/USA.",
-    "pricing.tier3.name": "ENTERPRISE",
-    "pricing.tier3.price": "Sales kontaktieren",
-    "pricing.tier3.billing": "Multi-Werk · volle Automatisierung",
-    "pricing.tier3.f1": "Multi-Werk-Support",
-    "pricing.tier3.f2": "Volle IATF-10.2-Automatisierungs-Suite",
-    "pricing.tier3.f3": "Multi-Line Support",
-    "pricing.tier3.f4": "IATF 10.2 Compliance Suite",
-    "pricing.tier3.target": "Ziel: Tier-1 Mega Plants.",
+    "pricing.pageTitle": "Strategische Einführung & ROI.",
+    "pricing.pageSubtitle":
+      "Wir verkaufen keine Lizenzen; wir schützen Produktionslinien. Wählen Sie den Tier, der zur operativen Komplexität Ihres Werks passt.",
+    "pricing.corporateLine":
+      "Entwickelt für EBITDA-Schutz, Operational Excellence und Risiko-Arbitrage durch Zero-Latency-Implementierung.",
+    "pricing.colScenario": "Szenario",
+    "pricing.colStatusQuo": "Status quo",
+    "pricing.colControlAgent": "Mit Control Agent",
+    "pricing.row1Label": "Entscheidungssignal",
+    "pricing.row1Status": "SAP-Verzug (4-24h)",
+    "pricing.row1Control": "Echtzeit-Intelligenz",
+    "pricing.row2Label": "Eskalationsmodell",
+    "pricing.row2Status": "Manuelle Telefonketten",
+    "pricing.row2Control": "Automatisierte 8D-Alerts",
+    "pricing.row3Label": "Finanzielle Exposition",
+    "pricing.row3Status": "80.000 $/Stunde Line-Down-Risiko",
+    "pricing.row3Control": "Risikominderung um 2:47 Uhr",
+    "pricing.title": "Investition & ROI (wertbasierte Einführung)",
+    "pricing.subtitle": "Sauberes 3-Säulen-Einführungsmodell in USD.",
+    "pricing.popular": "Strategischer Kern",
+    "pricing.tier1.name": "Pilot-Stufe",
+    "pricing.tier1.price": "",
+    "pricing.tier1.billing": "Einstieg in Risk Intelligence. Fokus auf schnelle 2:47-Uhr-Reaktion.",
+    "pricing.tier1.f1": "Single-Plant-Deployment",
+    "pricing.tier1.f2": "Echtzeit-Alerting um 2:47 Uhr",
+    "pricing.tier1.f3": "8D-Traceability",
+    "pricing.tier1.target": "",
+    "pricing.tier2.name": "Enterprise-Stufe",
+    "pricing.tier2.price": "",
+    "pricing.tier2.f1": "Multi-Site-Intelligence",
+    "pricing.tier2.f2": "Cross-Border-Risk-Mapping",
+    "pricing.tier2.f3": "Zugang anfragen",
+    "pricing.tier2.f4": "",
+    "pricing.tier2.billing": "Volle Multi-Plant-Synchronisierung und SAP-Lag-Eliminierung.",
+    "pricing.tier2.target": "",
+    "pricing.tier3.name": "Globales Mission Control",
+    "pricing.tier3.price": "",
+    "pricing.tier3.billing": "24/7 AI-gestützter Supply-Chain-Schutz für OEM-Level-Operations.",
+    "pricing.tier3.f1": "Volle Enterprise-AI-Integration",
+    "pricing.tier3.f2": "24/7 dediziertes Mission Control",
+    "pricing.tier3.f3": "Prädiktive Risikoprävention",
+    "pricing.tier3.f4": "",
+    "pricing.tier3.target": "",
     "pricing.roiTitle": "ROI-Box",
     "pricing.roiText":
-      "Wenn Control Agent nur EINE Stunde Downtime verhindert (im Schnitt $50,000), bezahlt sich das gesamte Jahresabo in den ersten 15 Minuten einer Krise.",
+      "Bei durchschnittlich 1.333 $ Ausfallstrafe pro Minute amortisiert sich der Control Agent innerhalb der ersten 15 Minuten eines verhinderten Vorfalls.",
+    "pricing.auditCta": "ROI-Business-Case anfordern",
+    "pricing.auditFoot":
+      "Wir liefern einen maßgeschneiderten Economic-Impact-Report für die KPIs Ihres Werks.",
+    "pricing.tierCta": "Economic-Impact-Analyse anfordern",
+    "pricing.tierFoot": "Reserviert für Tier-1-Zulieferer und OEM-Werksleiter.",
+    "pricing.zeroRiskFoot":
+      "Unser Engagement startet mit einem technischen Audit Ihres aktuellen SAP-Lags und Ihrer OEE-Leckage. Keine Vorab-Softwarekosten, bis der ROI für Ihr Werk nachweisbar ist.",
+    "monster.costKicker": "Kosten des Schweigens",
+    "monster.costHeadline": "Jede Minute Stillstand kostet bis zu 833 $.",
+    "monster.costBody":
+      "Während Ihr SAP noch \"synchronisiert\", verlieren Sie Geld. Control Agent schließt die Lücke zwischen ERP-Verzug und Shopfloor-Realität.",
+    "monster.pillarsTitle": "Die 3-Säulen-Lösung",
+    "monster.pillar1Title": "Supply Agent",
+    "monster.pillar1Body": "KI-gestützte Risikoerkennung, bevor der Lkw den Lieferanten verlässt.",
+    "monster.pillar2Title": "Flow Agent",
+    "monster.pillar2Body": "Echtzeit-Bottleneck-Analyse. Kein Rätselraten mehr, wo Teile bleiben.",
+    "monster.pillar3Title": "Quality Agent",
+    "monster.pillar3Body": "Sofortige 8D-Transparenz. Stoppt Defekte, bevor sie die Linie treffen.",
+    "monster.techTitle": "Gehostet in US-West (Oregon) für ultra-niedrige Latenz in Nordamerika.",
+    "monster.techB1": "Cloud-native",
+    "monster.techB2": "SOC2-konform",
+    "monster.techB3": "Zero-Config-SAP-Integration",
+    "monster.finalHeadline": "Warten Sie nicht auf den nächsten 2:47-Uhr-Anruf.",
+    "monster.finalCta": "Economic-Impact-Analyse anfordern",
     "contact.title": "Sichern Sie Ihre Wertschöpfung ab.",
     "contact.subtitle": "Teilen Sie Ihr aktuelles Risikoprofil und erhalten Sie eine wertbasierte Einschätzung.",
     "contact.nameLabel": "Name",
-    "contact.emailLabel": "Firmen-E-Mail",
+    "contact.emailLabel": "Geschäftliche E-Mail",
     "contact.locationLabel": "Standort Werk",
     "contact.locMexico": "Mexiko",
     "contact.locUsa": "USA",
@@ -506,6 +554,17 @@ const I18N = {
       "Kritisches Risiko erkannt. Unser Captain's-Control-Modul ist für Ihre Größenordnung ausgelegt.",
     "contact.thankYou":
       "Basierend auf Ihrem Risiko von {risk}/Stunde kann Control Agent durch 40% schnellere Reaktionszeit ungefähr {saving} pro Monat einsparen.",
+    "authority.experienceTitle": "Getestet durch 20 Jahre Shopfloor-Realität, nicht nur durch 20 Zeilen Code.",
+    "authority.experienceQuote":
+      "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress einer Strafe von 80.000 $ pro Stunde. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
+    "authority.nativeBadge": "100% Automotive Native.",
+    "authority.nativeB1": "Entwickelt für IATF 16949-konforme Umgebungen.",
+    "authority.nativeB2": "Konzipiert, um den 4-Stunden-SAP-Informationsverzug zu eliminieren.",
+    "authority.nativeB3": "Fokussiert auf den Schutz von Tier-1-OEM-Beziehungen.",
+    "authority.partnerTitle": "Seien Sie der Führende, nicht der Folgende.",
+    "authority.partnerBody":
+      "Aktuell nehmen wir 3 weitere Tier-1-Werke in unser \"Strategic Impact Program\" auf. Sichern Sie sich Ihren Platz, um Ihre Division bei OEE und Risikominderung anzuführen.",
+    "authority.partnerCta": "Für strategische Partnerschaft bewerben",
     "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln für Schritt D4 erforderlich!",
     "alerts.auto8d": "System hat 8D-Report für Performance-Lücke erstellt",
   },
@@ -612,6 +671,11 @@ function applyI18nStatic() {
   });
   document.querySelectorAll(".js-lang-select").forEach((sel) => {
     sel.value = state.language;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (!key) return;
+    el.setAttribute("placeholder", t(key));
   });
   document.getElementById("captain-banner").textContent = t("alerts.captain");
   document.getElementById("auto8d-notice").textContent = t("alerts.auto8d");
@@ -742,6 +806,15 @@ function bindLandingActions() {
   });
 }
 
+function bindHeroLeadField() {
+  const heroEmail = document.getElementById("hero-business-email");
+  const heroTip = document.getElementById("hero-email-tip");
+  if (!heroEmail || !heroTip) return;
+  const syncTip = () => updateBusinessEmailTip(heroEmail.value.trim(), heroTip);
+  heroEmail.addEventListener("input", syncTip);
+  syncTip();
+}
+
 function bindLandingMobileNav() {
   const toggle = document.getElementById("landing-menu-toggle");
   const panel = document.getElementById("landing-mobile-nav");
@@ -839,6 +912,25 @@ function isCorporateEmail(email) {
   return Boolean(domain) && !freeDomains.has(domain);
 }
 
+function updateBusinessEmailTip(email, targetEl) {
+  if (!targetEl) return;
+  const domain = String(email || "").split("@")[1]?.toLowerCase() || "";
+  const freeDomains = new Set([
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "live.com",
+    "yahoo.com",
+    "icloud.com",
+  ]);
+  if (domain && freeDomains.has(domain)) {
+    targetEl.textContent = "Tip: for a faster ROI audit handoff, use your business email.";
+    targetEl.classList.remove("hidden");
+  } else {
+    targetEl.classList.add("hidden");
+  }
+}
+
 function updateRiskUi(riskValue) {
   const riskValueEl = document.getElementById("contact-risk-value");
   const micro = document.getElementById("contact-risk-micro");
@@ -857,6 +949,7 @@ function bindContactForm() {
   if (!form) return;
   const nameInput = document.getElementById("contact-name");
   const emailInput = document.getElementById("contact-email");
+  const emailTipEl = document.getElementById("contact-email-tip");
   const locationInput = document.getElementById("contact-location");
   const riskInput = document.getElementById("contact-risk");
   const errorEl = document.getElementById("contact-error");
@@ -867,6 +960,11 @@ function bindContactForm() {
     syncHourlyCostAcrossUi(bounded);
   });
   syncHourlyCostAcrossUi(Number(riskInput.value || 50000));
+
+  emailInput.addEventListener("input", () => {
+    updateBusinessEmailTip(emailInput.value.trim(), emailTipEl);
+  });
+  updateBusinessEmailTip(emailInput.value.trim(), emailTipEl);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -881,11 +979,7 @@ function bindContactForm() {
       errorEl.classList.remove("hidden");
       return;
     }
-    if (!isCorporateEmail(email)) {
-      errorEl.textContent = t("contact.invalidEmail");
-      errorEl.classList.remove("hidden");
-      return;
-    }
+    updateBusinessEmailTip(email, emailTipEl);
     const monthlySaving = risk * 0.4 * 30 * 24;
     thankYouEl.textContent = tf("contact.thankYou", {
       risk: usd(risk),
@@ -1688,6 +1782,7 @@ async function init() {
   await loadSessionRole();
   bindNavigation();
   bindLandingActions();
+  bindHeroLeadField();
   bindLandingMobileNav();
   bindScheduleDemoVisibility();
   bindScrollReveal();
