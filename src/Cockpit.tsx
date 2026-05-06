@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 
 const NAV_ITEMS = [
@@ -9,6 +9,156 @@ const NAV_ITEMS = [
   "Quality Agent",
   "Investment & ROI",
 ] as const;
+
+type NavKey = (typeof NAV_ITEMS)[number];
+
+type EightDReport = {
+  id: string;
+  title: string;
+  owner: string;
+  status: string;
+};
+
+type SupplySnapshot = {
+  stockRiskPercent: number;
+  delayAlertCount: number;
+};
+
+const STOCK_RISK_THRESHOLD_PCT = 5;
+
+const INITIAL_REPORTS: EightDReport[] = [
+  {
+    id: "8d-1042",
+    title: "8D-1042 · Supplier Variance",
+    owner: "Quality Agent",
+    status: "Open",
+  },
+  {
+    id: "8d-1041",
+    title: "8D-1041 · Torque Drift Line B",
+    owner: "Quality Agent",
+    status: "Open",
+  },
+  {
+    id: "8d-1039",
+    title: "8D-1039 · Surface Finish Deviation",
+    owner: "Quality Agent",
+    status: "Open",
+  },
+];
+
+/** Replace with Supply Agent / inventory API response mapping. */
+async function fetchSupplySnapshot(): Promise<SupplySnapshot> {
+  return { stockRiskPercent: 2.1, delayAlertCount: 0 };
+}
+
+function randomSapLatencyNormal(): number {
+  return Math.floor(135 + Math.random() * 21);
+}
+
+function randomSapLatencyGlitch(): number {
+  return Math.floor(181 + Math.random() * 25);
+}
+
+const INVESTMENT_METRICS = {
+  primary: "EBITDA Loss Prevented: $14,450",
+  secondary: "Downtime Cost: $1,340 / hour",
+  tertiary: "Annualized ROI: 27.6%",
+} as const;
+
+type FlowTelemetry = {
+  lines: {
+    id: string;
+    label: string;
+    lineSpeedPct: number;
+    taktSec: number;
+    wipUnits: number;
+  }[];
+  bottleneckAlerts: {
+    id: string;
+    station: string;
+    queueDepth: number;
+    severity: "watch" | "elevated";
+  }[];
+};
+
+const INITIAL_FLOW_TELEMETRY: FlowTelemetry = {
+  lines: [
+    {
+      id: "LA",
+      label: "Line A — Final Assembly",
+      lineSpeedPct: 94.8,
+      taktSec: 58,
+      wipUnits: 122,
+    },
+    {
+      id: "LB",
+      label: "Line B — Powertrain",
+      lineSpeedPct: 91.2,
+      taktSec: 52,
+      wipUnits: 84,
+    },
+    {
+      id: "LC",
+      label: "Line C — Sub-assembly",
+      lineSpeedPct: 97.1,
+      taktSec: 44,
+      wipUnits: 56,
+    },
+  ],
+  bottleneckAlerts: [
+    {
+      id: "b1",
+      station: "OP-240 · Weld cell",
+      queueDepth: 14,
+      severity: "elevated",
+    },
+    {
+      id: "b2",
+      station: "OP-110 · Stamping",
+      queueDepth: 6,
+      severity: "watch",
+    },
+  ],
+};
+
+type QualityBoard = {
+  fpy: number;
+  openNcr: number;
+  criticalDefects: number;
+  inspections: {
+    id: string;
+    title: string;
+    result: string;
+    owner: string;
+  }[];
+};
+
+const INITIAL_QUALITY_BOARD: QualityBoard = {
+  fpy: 98.4,
+  openNcr: 3,
+  criticalDefects: 0,
+  inspections: [
+    {
+      id: "insp-1",
+      title: "First-piece layout · Door panel LH",
+      result: "Pass",
+      owner: "Shift 1",
+    },
+    {
+      id: "insp-2",
+      title: "Torque audit · OP-180",
+      result: "Hold",
+      owner: "Shift 2",
+    },
+    {
+      id: "insp-3",
+      title: "Surface scan · Hood outer",
+      result: "Pass",
+      owner: "Shift 1",
+    },
+  ],
+};
 
 const CONTROL_BOARD_TASKS: {
   phase: string;
@@ -75,6 +225,26 @@ const CONTROL_BOARD_TASKS: {
   },
 ];
 
+function supplyIsStable(s: SupplySnapshot): boolean {
+  return (
+    s.stockRiskPercent < STOCK_RISK_THRESHOLD_PCT && s.delayAlertCount === 0
+  );
+}
+
+function buildSupplyMetrics(
+  supply: SupplySnapshot,
+  sapMardLatencyMs: number | null,
+): { primary: string; secondary: string; tertiary: string } {
+  return {
+    primary: `Stock Risk: ${supply.stockRiskPercent.toFixed(1)}%`,
+    secondary: `Supplier Delay Alerts: ${supply.delayAlertCount}`,
+    tertiary:
+      sapMardLatencyMs != null
+        ? `SAP-MARD Latency: ${sapMardLatencyMs}ms`
+        : "SAP-MARD Latency: …",
+  };
+}
+
 function LockIcon() {
   return (
     <svg
@@ -116,8 +286,244 @@ function BellOffIcon() {
 }
 
 export default function Cockpit() {
+  const [activeNav, setActiveNav] = useState<NavKey>("Dashboard Overview");
+  const [sapMardLatencyMs, setSapMardLatencyMs] = useState<number | null>(145);
+  const [supplySnapshot, setSupplySnapshot] = useState<SupplySnapshot>({
+    stockRiskPercent: 2.1,
+    delayAlertCount: 0,
+  });
+  const [reports, setReports] = useState<EightDReport[]>(INITIAL_REPORTS);
+  const [supplyStressNonce, setSupplyStressNonce] = useState(0);
+  const [flowTelemetry, setFlowTelemetry] = useState<FlowTelemetry>(
+    INITIAL_FLOW_TELEMETRY,
+  );
+  const [qualityBoard, setQualityBoard] = useState<QualityBoard>(
+    INITIAL_QUALITY_BOARD,
+  );
+
+  const prevSupplyStableRef = useRef<boolean | null>(null);
+
+  /**
+   * Live simulations (SAP, supply pulse, flow, quality) mount once and keep running
+   * while you switch sidebar views — `activeNav` does not start/stop these intervals.
+   */
+  /** SAP-MARD latency: ~135–155ms every 3s; occasional simulated glitch >180ms. */
+  useEffect(() => {
+    const GLITCH_CHANCE = 0.12;
+
+    function tick() {
+      setSapMardLatencyMs(() => {
+        const glitch = Math.random() < GLITCH_CHANCE;
+        return glitch ? randomSapLatencyGlitch() : randomSapLatencyNormal();
+      });
+    }
+
+    tick();
+    const id = window.setInterval(tick, 3000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  /** Flow Agent telemetry pulse (always on — view switching does not stop updates). */
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setFlowTelemetry((prev) => ({
+        lines: prev.lines.map((line) => {
+          const delta = (Math.random() - 0.5) * 0.9;
+          const next = Math.min(100, Math.max(82, line.lineSpeedPct + delta));
+          return {
+            ...line,
+            lineSpeedPct: Math.round(next * 10) / 10,
+            wipUnits: Math.max(
+              20,
+              Math.round(line.wipUnits + (Math.random() - 0.5) * 6),
+            ),
+          };
+        }),
+        bottleneckAlerts: prev.bottleneckAlerts.map((b) => ({
+          ...b,
+          queueDepth: Math.max(
+            0,
+            Math.round(b.queueDepth + (Math.random() - 0.5) * 3),
+          ),
+        })),
+      }));
+    }, 2500);
+    return () => window.clearInterval(id);
+  }, []);
+
+  /** Quality board micro-pulse (always on). */
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setQualityBoard((prev) => {
+        const fpyDelta = (Math.random() - 0.5) * 0.12;
+        const nextFpy = Math.min(99.5, Math.max(96.5, prev.fpy + fpyDelta));
+        return {
+          ...prev,
+          fpy: Math.round(nextFpy * 10) / 10,
+        };
+      });
+    }, 3200);
+    return () => window.clearInterval(id);
+  }, []);
+
+  /** Supply Agent: stock risk micro-pulse while plant is in normal (non-stress) range. */
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setSupplySnapshot((prev) => {
+        if (
+          prev.stockRiskPercent >= STOCK_RISK_THRESHOLD_PCT ||
+          prev.delayAlertCount > 0
+        ) {
+          return prev;
+        }
+        const next = 2.0 + Math.random() * 0.3;
+        return {
+          ...prev,
+          stockRiskPercent: Math.round(next * 10) / 10,
+        };
+      });
+    }, 2000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadSupply() {
+      try {
+        const snap = await fetchSupplySnapshot();
+        if (!cancelled) setSupplySnapshot(snap);
+      } catch {
+        /* keep last snapshot; real app should surface error UI */
+      }
+    }
+
+    loadSupply();
+    return () => {
+      cancelled = true;
+    };
+  }, [supplyStressNonce]);
+
+  useEffect(() => {
+    const stable = supplyIsStable(supplySnapshot);
+    const prev = prevSupplyStableRef.current;
+
+    if (prev === true && stable === false) {
+      const reasons: string[] = [];
+      if (supplySnapshot.stockRiskPercent >= STOCK_RISK_THRESHOLD_PCT) {
+        reasons.push(`Stock risk ${supplySnapshot.stockRiskPercent.toFixed(1)}%`);
+      }
+      if (supplySnapshot.delayAlertCount > 0) {
+        reasons.push(
+          `${supplySnapshot.delayAlertCount} supplier delay alert(s)`,
+        );
+      }
+      const suffix = reasons.join(" · ");
+      const serial = Date.now().toString().slice(-6);
+      const id = `8d-supply-${serial}`;
+      const title = `8D-${serial} · Supply risk: ${suffix}`;
+
+      setReports((prevReports) => {
+        if (prevReports.some((r) => r.id === id)) return prevReports;
+        return [
+          {
+            id,
+            title,
+            owner: "Supply Agent",
+            status: "Open",
+          },
+          ...prevReports,
+        ];
+      });
+    }
+
+    prevSupplyStableRef.current = stable;
+  }, [supplySnapshot]);
+
+  const sectionTitle =
+    activeNav === "Dashboard Overview" ? "The Control Board" : activeNav;
+
+  const isDashboard = activeNav === "Dashboard Overview";
+  const isReports = activeNav === "Active 8D-Reports";
+
+  const supplyStable = supplyIsStable(supplySnapshot);
+
+  const sapLatencyHigh =
+    sapMardLatencyMs != null && sapMardLatencyMs > 180;
+  const globalRiskLevel = sapLatencyHigh ? "MEDIUM" : "LOW";
+
+  const notificationMessage = (() => {
+    if (!supplyStable) {
+      return "Supply Agent escalated inventory risk — new 8D report logged";
+    }
+    switch (activeNav) {
+      case "Supply Agent":
+        return "Supply Agent detected stable inventory flow";
+      case "Dashboard Overview":
+        return "System created 8D-Report for Performance Gap";
+      case "Active 8D-Reports":
+        return "8D pipeline synchronized with latest factory updates";
+      case "Flow Agent":
+        return "Flow Agent confirms balanced throughput on active lines";
+      case "Quality Agent":
+        return "Quality Agent flagged zero critical non-conformities";
+      case "Investment & ROI":
+        return "ROI model refreshed with latest prevention savings";
+      default:
+        return "";
+    }
+  })();
+
+  const notifyBarStyle = supplyStable
+    ? styles.notifyBar
+    : { ...styles.notifyBar, ...styles.notifyBarRisk };
+
+  const supplyMetrics =
+    activeNav === "Supply Agent"
+      ? buildSupplyMetrics(supplySnapshot, sapMardLatencyMs)
+      : null;
+
+  const sectionMeta = (() => {
+    switch (activeNav) {
+      case "Dashboard Overview":
+        return "8D workflow · Live";
+      case "Active 8D-Reports":
+        return `${reports.length} active reports · queue`;
+      case "Supply Agent":
+        return "Inventory + SAP-MARD stream";
+      case "Flow Agent":
+        return "Throughput + bottleneck monitor";
+      case "Quality Agent":
+        return "Inspection + NCR cockpit";
+      case "Investment & ROI":
+        return "Prevention economics";
+    }
+  })();
+
+  function runSupplyStressDemo() {
+    setSupplySnapshot((prev) => ({
+      stockRiskPercent: Math.max(prev.stockRiskPercent, 6.2),
+      delayAlertCount: Math.max(prev.delayAlertCount, 2),
+    }));
+  }
+
+  const riskPillStyle = {
+    ...styles.riskPill,
+    ...(sapLatencyHigh ? styles.riskPillMedium : {}),
+  };
+  const riskValueStyle = {
+    ...styles.riskValue,
+    ...(sapLatencyHigh ? styles.riskValueMedium : {}),
+  };
+
   return (
     <div style={styles.shell}>
+      <style>{`
+        @keyframes live-dot-pulse {
+          0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
+          50% { opacity: 0.3; box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+        }
+      `}</style>
       <aside style={styles.sidebar} aria-label="Main navigation">
         <div style={styles.sidebarBrand}>
           <span style={styles.brandMark} />
@@ -127,13 +533,14 @@ export default function Cockpit() {
           </div>
         </div>
         <nav style={styles.nav}>
-          {NAV_ITEMS.map((label, i) => (
+          {NAV_ITEMS.map((label) => (
             <button
               key={label}
               type="button"
+              onClick={() => setActiveNav(label)}
               style={{
                 ...styles.navItem,
-                ...(i === 0 ? styles.navItemActive : {}),
+                ...(label === activeNav ? styles.navItemActive : {}),
               }}
             >
               <span style={styles.navBullet} />
@@ -152,9 +559,9 @@ export default function Cockpit() {
         <header style={styles.topBar}>
           <div style={styles.topBarLeft} />
           <div style={styles.topBarCenter}>
-            <div style={styles.riskPill}>
+            <div style={riskPillStyle}>
               <span style={styles.riskLabel}>Global Risk Level</span>
-              <span style={styles.riskValue}>LOW</span>
+              <span style={riskValueStyle}>{globalRiskLevel}</span>
             </div>
             <span style={styles.iatfBadge}>IATF 10.2 COMPLIANT</span>
             <div style={styles.langSwitch} role="group" aria-label="Language">
@@ -179,36 +586,253 @@ export default function Cockpit() {
         <main style={styles.main}>
           <div style={styles.mainGrid}>
             <div style={styles.mainCol}>
-              <div style={styles.notifyBar} role="status">
-                System created 8D-Report for Performance Gap
+              <div style={notifyBarStyle} role="status">
+                {notificationMessage}
               </div>
 
               <section style={styles.boardSection}>
                 <div style={styles.sectionHead}>
-                  <h2 style={styles.sectionTitle}>The Control Board</h2>
-                  <span style={styles.sectionMeta}>8D workflow · Live</span>
+                  <h2 style={styles.sectionTitle}>{sectionTitle}</h2>
+                  <span style={styles.sectionMeta}>{sectionMeta}</span>
                 </div>
-                <div style={styles.taskGrid}>
-                  {CONTROL_BOARD_TASKS.map((t) => (
-                    <article key={t.phase} style={styles.taskCard}>
-                      <div style={styles.taskCardTop}>
-                        <span style={styles.phaseBadge}>{t.phase}</span>
-                        <span style={styles.statusTag}>{t.tag}</span>
+
+                {isDashboard && (
+                  <div style={styles.taskGrid}>
+                    {CONTROL_BOARD_TASKS.map((t) => (
+                      <article key={t.phase} style={styles.taskCard}>
+                        <div style={styles.taskCardTop}>
+                          <span style={styles.phaseBadge}>{t.phase}</span>
+                          <span style={styles.statusTag}>{t.tag}</span>
+                        </div>
+                        <h3 style={styles.taskTitle}>{t.title}</h3>
+                        <dl style={styles.taskMeta}>
+                          <div style={styles.metaRow}>
+                            <dt style={styles.metaDt}>Assignee</dt>
+                            <dd style={styles.metaDd}>{t.assignee}</dd>
+                          </div>
+                          <div style={styles.metaRow}>
+                            <dt style={styles.metaDt}>Role</dt>
+                            <dd style={styles.metaDd}>{t.role}</dd>
+                          </div>
+                        </dl>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {isReports && (
+                  <div style={styles.reportsList}>
+                    {reports.map((report) => (
+                      <article key={report.id} style={styles.reportCard}>
+                        <div style={styles.reportTitle}>{report.title}</div>
+                        <div style={styles.reportMetaRow}>
+                          <span style={styles.reportMeta}>Owner: {report.owner}</span>
+                          <span style={styles.statusTag}>{report.status}</span>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {activeNav === "Supply Agent" && supplyMetrics && (
+                  <div style={styles.agentPanel}>
+                    <div style={styles.sapStatusRow}>
+                      <span style={styles.liveDot} aria-hidden />
+                      <span style={styles.sapStatusText}>
+                        SAP-MARD Status: Secure
+                      </span>
+                      {sapMardLatencyMs != null && (
+                        <span style={styles.sapLatencyInline}>
+                          {sapMardLatencyMs}ms
+                        </span>
+                      )}
+                      <span style={styles.liveBadge}>Live</span>
+                    </div>
+                    <div style={styles.agentMetrics}>
+                      <div style={styles.agentMetricCard}>{supplyMetrics.primary}</div>
+                      <div style={styles.agentMetricCard}>{supplyMetrics.secondary}</div>
+                      <div style={styles.agentMetricCard}>{supplyMetrics.tertiary}</div>
+                    </div>
+                    <div style={styles.agentActions}>
+                      <button
+                        type="button"
+                        style={styles.actionBtn}
+                        onClick={() => runSupplyStressDemo()}
+                      >
+                        Run Analysis
+                      </button>
+                      <button type="button" style={styles.actionBtn}>
+                        Open Detailed View
+                      </button>
+                      <button
+                        type="button"
+                        style={styles.actionBtnSecondary}
+                        onClick={() => setSupplyStressNonce((n) => n + 1)}
+                      >
+                        Refresh supply data
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {activeNav === "Flow Agent" && (
+                  <div style={styles.agentPanel}>
+                    <p style={styles.agentIntro}>
+                      Live production flow — line speed vs target takt, WIP exposure, and
+                      bottleneck queue depth (placeholder telemetry; replace with line
+                      SCADA / MES feed).
+                    </p>
+                    <div style={styles.subsectionLabel}>Production lines</div>
+                    <div style={styles.flowLineGrid}>
+                      {flowTelemetry.lines.map((line) => (
+                        <article key={line.id} style={styles.flowLineCard}>
+                          <div style={styles.flowLineTitle}>{line.label}</div>
+                          <div style={styles.flowLineMetrics}>
+                            <span>
+                              Line speed:{" "}
+                              <strong>{line.lineSpeedPct.toFixed(1)}%</strong> of target
+                            </span>
+                            <span>
+                              Takt: <strong>{line.taktSec}s</strong>
+                            </span>
+                            <span>
+                              WIP: <strong>{line.wipUnits}</strong> units
+                            </span>
+                          </div>
+                          <span
+                            style={{
+                              ...styles.flowStatusPill,
+                              ...(line.lineSpeedPct < 92
+                                ? styles.flowStatusWarn
+                                : {}),
+                            }}
+                          >
+                            {line.lineSpeedPct < 92 ? "Watch" : "Nominal"}
+                          </span>
+                        </article>
+                      ))}
+                    </div>
+                    <div style={styles.subsectionLabel}>Bottleneck alerts</div>
+                    <div style={styles.tableWrap}>
+                      <table style={styles.dataTable}>
+                        <thead>
+                          <tr>
+                            <th style={styles.th}>Station</th>
+                            <th style={styles.th}>Queue depth</th>
+                            <th style={styles.th}>Severity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {flowTelemetry.bottleneckAlerts.map((b) => (
+                            <tr key={b.id}>
+                              <td style={styles.td}>{b.station}</td>
+                              <td style={styles.td}>{b.queueDepth} jobs</td>
+                              <td style={styles.td}>
+                                <span
+                                  style={{
+                                    ...styles.severityPill,
+                                    ...(b.severity === "elevated"
+                                      ? styles.severityElevated
+                                      : styles.severityWatch),
+                                  }}
+                                >
+                                  {b.severity}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div style={styles.agentActions}>
+                      <button type="button" style={styles.actionBtn}>
+                        Run Analysis
+                      </button>
+                      <button type="button" style={styles.actionBtn}>
+                        Open Detailed View
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {activeNav === "Quality Agent" && (
+                  <div style={styles.agentPanel}>
+                    <p style={styles.agentIntro}>
+                      Quality cockpit — first-pass yield, containment, and inspection
+                      queue (placeholder; connect to QMS / LIMS).
+                    </p>
+                    <div style={styles.agentMetrics}>
+                      <div style={styles.agentMetricCard}>
+                        FPY: {qualityBoard.fpy.toFixed(1)}%
                       </div>
-                      <h3 style={styles.taskTitle}>{t.title}</h3>
-                      <dl style={styles.taskMeta}>
-                        <div style={styles.metaRow}>
-                          <dt style={styles.metaDt}>Assignee</dt>
-                          <dd style={styles.metaDd}>{t.assignee}</dd>
-                        </div>
-                        <div style={styles.metaRow}>
-                          <dt style={styles.metaDt}>Role</dt>
-                          <dd style={styles.metaDd}>{t.role}</dd>
-                        </div>
-                      </dl>
-                    </article>
-                  ))}
-                </div>
+                      <div style={styles.agentMetricCard}>
+                        Open NCR: {qualityBoard.openNcr}
+                      </div>
+                      <div style={styles.agentMetricCard}>
+                        Critical defects: {qualityBoard.criticalDefects}
+                      </div>
+                    </div>
+                    <div style={styles.subsectionLabel}>Inspection queue</div>
+                    <div style={styles.reportsList}>
+                      {qualityBoard.inspections.map((row) => (
+                        <article key={row.id} style={styles.reportCard}>
+                          <div style={styles.reportTitle}>{row.title}</div>
+                          <div style={styles.reportMetaRow}>
+                            <span style={styles.reportMeta}>
+                              {row.owner} · Result: {row.result}
+                            </span>
+                            <span
+                              style={{
+                                ...styles.statusTag,
+                                ...(row.result === "Hold"
+                                  ? styles.statusTagAlert
+                                  : {}),
+                              }}
+                            >
+                              {row.result}
+                            </span>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                    <div style={styles.agentActions}>
+                      <button type="button" style={styles.actionBtn}>
+                        Run Analysis
+                      </button>
+                      <button type="button" style={styles.actionBtn}>
+                        Open Detailed View
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {activeNav === "Investment & ROI" && (
+                  <div style={styles.agentPanel}>
+                    <p style={styles.agentIntro}>
+                      Financial prevention view — EBITDA protected, downtime cost, and
+                      ROI model (static placeholder metrics).
+                    </p>
+                    <div style={styles.agentMetrics}>
+                      <div style={styles.agentMetricCard}>
+                        {INVESTMENT_METRICS.primary}
+                      </div>
+                      <div style={styles.agentMetricCard}>
+                        {INVESTMENT_METRICS.secondary}
+                      </div>
+                      <div style={styles.agentMetricCard}>
+                        {INVESTMENT_METRICS.tertiary}
+                      </div>
+                    </div>
+                    <div style={styles.agentActions}>
+                      <button type="button" style={styles.actionBtn}>
+                        Run Analysis
+                      </button>
+                      <button type="button" style={styles.actionBtn}>
+                        Open Detailed View
+                      </button>
+                    </div>
+                  </div>
+                )}
               </section>
             </div>
 
@@ -217,20 +841,42 @@ export default function Cockpit() {
               <p style={styles.trafficHint}>Plant-wide composite</p>
               <div style={styles.trafficLights}>
                 <div style={styles.trafficCol}>
-                  <div style={{ ...styles.trafficOrb, ...styles.orbGreen, ...styles.orbActive }} />
+                  <div
+                    style={{
+                      ...styles.trafficOrb,
+                      ...styles.orbGreen,
+                      ...(sapLatencyHigh ? styles.orbDim : styles.orbActive),
+                    }}
+                  />
                   <span style={styles.trafficLabel}>Green</span>
                 </div>
                 <div style={styles.trafficCol}>
-                  <div style={{ ...styles.trafficOrb, ...styles.orbYellow }} />
+                  <div
+                    style={{
+                      ...styles.trafficOrb,
+                      ...styles.orbYellow,
+                      ...(sapLatencyHigh
+                        ? { ...styles.orbYellowActive, opacity: 1 }
+                        : { opacity: 0.45 }),
+                    }}
+                  />
                   <span style={styles.trafficLabel}>Yellow</span>
                 </div>
                 <div style={styles.trafficCol}>
-                  <div style={{ ...styles.trafficOrb, ...styles.orbRed }} />
+                  <div style={{ ...styles.trafficOrb, ...styles.orbRed, ...styles.orbDim }} />
                   <span style={styles.trafficLabel}>Red</span>
                 </div>
               </div>
               <div style={styles.trafficFooter}>
-                <span style={styles.trafficSummary}>Overall: LOW risk</span>
+                <span
+                  style={
+                    sapLatencyHigh
+                      ? { ...styles.trafficSummary, ...styles.trafficSummaryMedium }
+                      : styles.trafficSummary
+                  }
+                >
+                  Overall: {globalRiskLevel} risk
+                </span>
               </div>
             </aside>
           </div>
@@ -369,6 +1015,10 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "999px",
     padding: "0.35rem 0.85rem",
   },
+  riskPillMedium: {
+    background: "rgba(234, 179, 8, 0.14)",
+    border: "1px solid rgba(250, 204, 21, 0.55)",
+  },
   riskLabel: {
     fontSize: "0.68rem",
     color: "#86efac",
@@ -380,6 +1030,9 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "0.85rem",
     fontWeight: 800,
     color: "#4ade80",
+  },
+  riskValueMedium: {
+    color: "#facc15",
   },
   iatfBadge: {
     fontSize: "0.65rem",
@@ -463,6 +1116,11 @@ const styles: Record<string, CSSProperties> = {
     fontWeight: 600,
     padding: "0.65rem 1rem",
     borderRadius: "10px",
+  },
+  notifyBarRisk: {
+    background: "linear-gradient(90deg, rgba(234, 179, 8, 0.22), rgba(234, 179, 8, 0.08))",
+    border: "1px solid rgba(250, 204, 21, 0.55)",
+    color: "#fef08a",
   },
   boardSection: {
     background: bgPanel,
@@ -602,6 +1260,9 @@ const styles: Record<string, CSSProperties> = {
     background: "radial-gradient(circle at 30% 30%, #fde047, #ca8a04)",
     opacity: 0.45,
   },
+  orbYellowActive: {
+    boxShadow: "0 0 26px rgba(250, 204, 21, 0.65)",
+  },
   orbRed: {
     background: "radial-gradient(circle at 30% 30%, #fca5a5, #b91c1c)",
     opacity: 0.35,
@@ -609,6 +1270,10 @@ const styles: Record<string, CSSProperties> = {
   orbActive: {
     boxShadow: "0 0 28px rgba(34, 197, 94, 0.55)",
     opacity: 1,
+  },
+  orbDim: {
+    opacity: 0.38,
+    boxShadow: "none",
   },
   trafficLabel: {
     fontSize: "0.72rem",
@@ -627,5 +1292,220 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "0.75rem",
     fontWeight: 700,
     color: "#4ade80",
+  },
+  trafficSummaryMedium: {
+    color: "#facc15",
+  },
+  reportsList: {
+    display: "grid",
+    gap: "0.7rem",
+  },
+  reportCard: {
+    background: bgCard,
+    border: borderCard,
+    borderRadius: "10px",
+    padding: "0.85rem 0.9rem",
+    display: "grid",
+    gap: "0.5rem",
+  },
+  reportTitle: {
+    fontSize: "0.82rem",
+    fontWeight: 700,
+    color: "#e2e8f0",
+  },
+  reportMetaRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: "0.8rem",
+    flexWrap: "wrap",
+  },
+  reportMeta: {
+    fontSize: "0.72rem",
+    color: "#94a3b8",
+    fontWeight: 600,
+  },
+  agentPanel: {
+    display: "grid",
+    gap: "0.9rem",
+  },
+  sapStatusRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    flexWrap: "wrap",
+    padding: "0.55rem 0.75rem",
+    borderRadius: "10px",
+    border: borderCard,
+    background: "rgba(10, 18, 32, 0.55)",
+  },
+  liveDot: {
+    width: "8px",
+    height: "8px",
+    borderRadius: "50%",
+    backgroundColor: "#22c55e",
+    animation: "live-dot-pulse 1.2s ease-in-out infinite",
+    flexShrink: 0,
+  },
+  sapStatusText: {
+    fontSize: "0.78rem",
+    fontWeight: 700,
+    color: "#cbd5e1",
+  },
+  liveBadge: {
+    marginLeft: "auto",
+    fontSize: "0.62rem",
+    fontWeight: 800,
+    letterSpacing: "0.08em",
+    color: "#86efac",
+    textTransform: "uppercase",
+  },
+  sapLatencyInline: {
+    fontSize: "0.72rem",
+    color: "#7b8fab",
+    fontWeight: 700,
+    fontVariantNumeric: "tabular-nums",
+  },
+  agentIntro: {
+    margin: 0,
+    fontSize: "0.78rem",
+    lineHeight: 1.5,
+    color: "#94a3b8",
+  },
+  subsectionLabel: {
+    fontSize: "0.68rem",
+    fontWeight: 800,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    color: "#64748b",
+  },
+  flowLineGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+    gap: "0.65rem",
+  },
+  flowLineCard: {
+    background: bgCard,
+    border: borderCard,
+    borderRadius: "10px",
+    padding: "0.85rem",
+    display: "grid",
+    gap: "0.55rem",
+    position: "relative",
+  },
+  flowLineTitle: {
+    fontSize: "0.78rem",
+    fontWeight: 700,
+    color: "#e2e8f0",
+  },
+  flowLineMetrics: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.25rem",
+    fontSize: "0.72rem",
+    color: "#94a3b8",
+  },
+  flowStatusPill: {
+    alignSelf: "flex-start",
+    fontSize: "0.6rem",
+    fontWeight: 800,
+    textTransform: "uppercase",
+    letterSpacing: "0.06em",
+    padding: "0.2rem 0.45rem",
+    borderRadius: "6px",
+    background: "rgba(34, 197, 94, 0.15)",
+    color: "#86efac",
+    border: "1px solid rgba(34, 197, 94, 0.35)",
+  },
+  flowStatusWarn: {
+    background: "rgba(234, 179, 8, 0.12)",
+    color: "#facc15",
+    border: "1px solid rgba(250, 204, 21, 0.4)",
+  },
+  tableWrap: {
+    borderRadius: "10px",
+    border: borderCard,
+    overflow: "hidden",
+    background: bgCard,
+  },
+  dataTable: {
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "0.74rem",
+  },
+  th: {
+    textAlign: "left",
+    padding: "0.55rem 0.75rem",
+    color: "#7b8fab",
+    fontWeight: 700,
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
+    background: "rgba(10, 18, 32, 0.65)",
+    borderBottom: borderCard,
+  },
+  td: {
+    padding: "0.55rem 0.75rem",
+    color: "#cbd5e1",
+    borderBottom: borderCard,
+  },
+  severityPill: {
+    fontSize: "0.58rem",
+    fontWeight: 800,
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
+    padding: "0.15rem 0.4rem",
+    borderRadius: "6px",
+  },
+  severityWatch: {
+    background: "rgba(56, 130, 246, 0.15)",
+    color: "#93c5fd",
+  },
+  severityElevated: {
+    background: "rgba(234, 179, 8, 0.18)",
+    color: "#facc15",
+  },
+  statusTagAlert: {
+    color: "#7f1d1d",
+    background: "#fecaca",
+    border: "1px solid rgba(248, 113, 113, 0.55)",
+  },
+  agentMetrics: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+    gap: "0.7rem",
+  },
+  agentMetricCard: {
+    background: bgCard,
+    border: borderCard,
+    borderRadius: "10px",
+    padding: "0.8rem",
+    fontSize: "0.78rem",
+    fontWeight: 700,
+    color: "#dbe7f5",
+  },
+  agentActions: {
+    display: "flex",
+    gap: "0.6rem",
+    flexWrap: "wrap",
+  },
+  actionBtn: {
+    border: borderCard,
+    background: "rgba(37, 99, 235, 0.18)",
+    color: "#dbeafe",
+    borderRadius: "8px",
+    padding: "0.45rem 0.75rem",
+    fontSize: "0.74rem",
+    fontWeight: 700,
+    cursor: "pointer",
+  },
+  actionBtnSecondary: {
+    border: borderCard,
+    background: "rgba(15, 23, 42, 0.55)",
+    color: "#cbd5e1",
+    borderRadius: "8px",
+    padding: "0.45rem 0.75rem",
+    fontSize: "0.74rem",
+    fontWeight: 700,
+    cursor: "pointer",
   },
 };
