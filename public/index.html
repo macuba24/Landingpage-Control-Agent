@@ -76,12 +76,7 @@ nav {
   pointer-events: none;
 }
 .hero-inner { position: relative; max-width: 1100px; margin: 0 auto; width: 100%; }
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 34px;
-  align-items: center;
-}
+.hero-layout { display: block; }
 
 .tag {
   font-family: var(--mono); font-size: 10px; font-weight: 600;
@@ -140,100 +135,6 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
 
 .trust-micro { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.05em; }
 .trust-micro span { color: var(--green); }
-.tool-preview-pro {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: linear-gradient(180deg, rgba(22,32,53,0.72) 0%, rgba(8,13,24,0.74) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
-}
-.tool-preview-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: #9fb2cb;
-}
-.tool-preview-body { padding: 14px; }
-.tp-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; }
-.tp-card {
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  background: rgba(9,16,28,0.62);
-  padding: 10px;
-}
-.tp-label { font-family: var(--mono); font-size: 9px; color: #90a3bc; letter-spacing: 0.1em; text-transform: uppercase; }
-.tp-risk {
-  color: #ff6b6b;
-  font-family: var(--display);
-  font-size: 40px;
-  line-height: 1;
-  margin-top: 6px;
-  animation: riskPulse 1.6s ease-in-out infinite;
-}
-.tp-sync {
-  color: #7cf5b2;
-  font-family: var(--display);
-  font-size: 34px;
-  line-height: 1;
-  margin-top: 6px;
-}
-.tp-graph {
-  margin-top: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 10px;
-  background: rgba(7,13,24,0.72);
-}
-.tp-graph-svg {
-  width: 100%;
-  height: 110px;
-  display: block;
-}
-.tp-graph-cap {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: #7cf5b2;
-  margin-top: 4px;
-}
-.tp-streams { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
-.tp-stream { font-family: var(--mono); font-size: 10px; color: #d3dbe7; }
-.tp-stream i { color: #10b981; font-style: normal; margin-right: 6px; }
-.tp-feed { display: flex; flex-direction: column; gap: 8px; }
-.tp-feed-item {
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  background: rgba(8,14,26,0.75);
-  padding: 8px;
-  font-size: 11px;
-  color: #d3dbe7;
-  line-height: 1.5;
-}
-.tp-feed-item time {
-  display: block;
-  color: #fca5a5;
-  font-family: var(--mono);
-  font-size: 10px;
-  margin-bottom: 4px;
-}
-.tp-feed-item strong { color: #9ff0c6; }
-.founder-tool-wrap { margin-top: 28px; }
-.founder-tool-caption {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #9fb2cb;
-  font-family: var(--mono);
-}
-@keyframes riskPulse {
-  0%, 100% { text-shadow: 0 0 0 rgba(220,38,38,0); }
-  50% { text-shadow: 0 0 14px rgba(220,38,38,0.65); }
-}
 
 /* TRUST BRIDGE */
 .founder-bridge {
@@ -492,15 +393,6 @@ section { padding: 96px 48px; }
 .mock-nav-item.active { color: var(--red); background: var(--red-dim); border-right: 2px solid var(--red); }
 .mock-nav-item:hover:not(.active) { color: var(--text); }
 .mock-main { padding: 24px; }
-.preview-callout {
-  margin: 10px 0 20px;
-  padding: 10px 12px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(15, 23, 36, 0.55);
-  color: #c8d1de;
-  font-size: 13px;
-  line-height: 1.6;
-}
 .mock-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
 .kpi-card { background: var(--bg2); border: 1px solid var(--border); padding: 16px; }
 .kpi-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
@@ -599,6 +491,7 @@ input:focus, select:focus { border-color: var(--red); }
 .final p { font-size: 18px; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
 .final-trust { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: 0.12em; margin-top: 24px; }
 
+
 /* FOOTER */
 footer { padding: 28px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); flex-wrap: wrap; gap: 12px; }
 .footer-logo { font-family: var(--display); font-size: 16px; letter-spacing: 0.08em; color: var(--dim); }
@@ -623,8 +516,7 @@ h1 { animation-delay: 0.25s; }
   section, .hero, .final { padding: 64px 20px; }
   .proof-strip { padding: 24px 20px; gap: 24px; }
   .proof-divider { display: none; }
-  .hero-layout { grid-template-columns: 1fr; }
-  .tp-layout { grid-template-columns: 1fr; }
+  .hero-layout { display: block; }
   .founder-bridge-grid { grid-template-columns: 1fr; gap: 28px; }
   .founder-bridge-photo-wrap { max-width: 360px; }
   .pain-grid, .agents-grid, .pricing-grid { grid-template-columns: 1fr; }
@@ -651,87 +543,26 @@ h1 { animation-delay: 0.25s; }
   <div class="hero-radial"></div>
   <div class="hero-inner">
     <div class="hero-layout">
-      <div>
-        <div class="tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
-        <div class="live-bar">
-          <div class="pulse" style="background:var(--red);"></div>
-          <span class="live-label">INDUSTRY LINE STOP LOSSES THIS HOUR</span>
-          <span class="live-num" id="liveNum">$0</span>
-        </div>
-        <h1>
-          <span class="w1">IT'S 2:47 AM.</span>
-          <span class="w2">YOUR LINE IS DOWN.</span>
-          <span class="w3">SAP SHOWS NOTHING.</span>
-          <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
-        </h1>
-        <p class="hero-mantra">You log in. You see your risk number. You act. Done.</p>
-        <p class="hero-sub">
-          Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
-          Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises. That is exactly why leaders trust this system under pressure.
-        </p>
-        <div class="cta-group">
-          <a href="#audit" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
-          <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
-        </div>
+      <div class="tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
+      <div class="live-bar">
+        <div class="pulse" style="background:var(--red);"></div>
+        <span class="live-label">INDUSTRY LINE STOP LOSSES THIS HOUR</span>
+        <span class="live-num" id="liveNum">$0</span>
       </div>
-      <div class="tool-preview-pro" aria-label="tool_preview_pro.png">
-        <div class="tool-preview-header">
-          <span>CONTROL AGENT // PRO TOOL COMMAND CENTER</span>
-          <span>SAP READ-ONLY BRIDGE: SECURE</span>
-        </div>
-        <div class="tool-preview-body">
-          <div class="tp-layout">
-            <div>
-              <div class="tp-card">
-                <div class="tp-label">Live EBITDA Risk</div>
-                <div class="tp-risk" id="heroRiskRate">-$1,340 / min</div>
-              </div>
-              <div class="tp-card" style="margin-top:10px;">
-                <div class="tp-label">SAP Material Sync</div>
-                <div class="tp-sync">99.4% Integrity</div>
-              </div>
-              <div class="tp-graph">
-                <div class="tp-label">OEE Trendline</div>
-                <svg class="tp-graph-svg" viewBox="0 0 340 110" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="profitShade" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="rgba(16,185,129,0.35)"></stop>
-                      <stop offset="100%" stop-color="rgba(16,185,129,0.03)"></stop>
-                    </linearGradient>
-                  </defs>
-                  <polyline points="0,84 42,80 84,73 126,68 168,61 210,56 252,52 294,47 340,42" fill="none" stroke="#86efac" stroke-width="2"></polyline>
-                  <polygon points="0,84 42,80 84,73 126,68 168,61 210,56 252,52 294,47 340,42 340,110 0,110" fill="url(#profitShade)"></polygon>
-                </svg>
-                <div class="tp-graph-cap">Recovered Profit via Control Agent</div>
-              </div>
-              <div class="tp-card" style="margin-top:10px;">
-                <div class="tp-label">Downtime Clock</div>
-                <div class="tp-risk" id="heroDowntimeClock">$248,400</div>
-              </div>
-              <div class="tp-card" style="margin-top:10px;">
-              <div class="tp-label">Active Shop Floor Streams</div>
-              <div class="tp-streams">
-                <div class="tp-stream"><i>●</i>Plant 01 - Puebla</div>
-                <div class="tp-stream"><i>●</i>Plant 02 - Detroit</div>
-                  <div class="tp-stream"><i>●</i>Plant 03 - Monterrey</div>
-              </div>
-            </div>
-            </div>
-            <div class="tp-card">
-              <div class="tp-label">Notification Feed</div>
-              <div class="tp-feed">
-                <div class="tp-feed-item">
-                  <time>02:47 AM</time>
-                  Micro-stop detected at Station 04. Alert sent to Maintenance.
-                </div>
-                <div class="tp-feed-item">
-                  <time>02:51 AM</time>
-                  Production resumed. <strong>$5,360 in EBITDA leakage prevented.</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <h1>
+        <span class="w1">IT'S 2:47 AM.</span>
+        <span class="w2">YOUR LINE IS DOWN.</span>
+        <span class="w3">SAP SHOWS NOTHING.</span>
+        <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
+      </h1>
+      <p class="hero-mantra">You log in. You see your risk number. You act. Done.</p>
+      <p class="hero-sub">
+        Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
+        Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises. That is exactly why leaders trust this system under pressure.
+      </p>
+      <div class="cta-group">
+        <a href="/cockpit" class="btn-red">View My Risk Number <span class="btn-arrow">→</span></a>
+        <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your email</div>
       </div>
     </div>
   </div>
@@ -843,30 +674,6 @@ h1 { animation-delay: 0.25s; }
         <div class="founder-quote">
           "I know exactly what's at stake at 2:47 AM. Let's make sure you never face it unprepared."
         </div>
-        <div class="founder-tool-wrap">
-          <div class="tool-preview-pro">
-            <div class="tool-preview-header">
-              <span>CONTROL AGENT // LAPTOP FRAME</span>
-              <span>SAP READ-ONLY BRIDGE: SECURE</span>
-            </div>
-            <div class="tool-preview-body">
-              <div class="tp-layout">
-                <div class="tp-card">
-                  <div class="tp-label">Live EBITDA Risk</div>
-                  <div class="tp-risk">-$1,340 / min</div>
-                </div>
-                <div class="tp-card">
-                  <div class="tp-label">Notification Feed</div>
-                  <div class="tp-feed">
-                    <div class="tp-feed-item"><time>02:47 AM</time>Micro-stop detected at Station 04. Alert sent to Maintenance.</div>
-                    <div class="tp-feed-item"><time>02:51 AM</time>Production resumed. <strong>$5,360 in EBITDA leakage prevented.</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="founder-tool-caption">The Control Agent Shield: Your Command Center for Global Operations.</div>
-        </div>
       </div>
     </div>
   </div>
@@ -959,67 +766,6 @@ h1 { animation-delay: 0.25s; }
           <div class="af">D1–D8 ownership assignment</div>
           <div class="af">IATF 10.2 audit trail</div>
           <div class="af">Containment action tracking</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="preview">
-  <div class="inner">
-    <div class="sec-tag" style="margin-top:96px;">What You See</div>
-    <div class="sec-h">Stop guessing. Start seeing your Shop Floor in <em>Real-Time.</em></div>
-    <p class="sec-sub">Not a spreadsheet. Not a SAP report from 4 hours ago. This is your shop floor — right now.</p>
-    <p class="preview-callout">The Control Agent Shield boils down thousands of SAP-MARD data points into one actionable risk number. No fluff. Just clarity.</p>
-    <div class="dashboard-mock">
-      <div class="mock-bar">
-        <div class="mock-bar-left">
-          <div class="mock-logo">CONTROL AGENT</div>
-          <div class="mock-badge">● LIVE</div>
-        </div>
-        <div class="mock-bar-right">
-          <span>Plant: MEX-01</span>
-          <span style="color:var(--green)">IATF 10.2 ✓</span>
-          <span style="color:var(--amber)">⚠ 2 Alerts</span>
-        </div>
-      </div>
-      <div class="mock-body">
-        <div class="mock-nav">
-          <div class="mock-nav-item active">Dashboard</div>
-          <div class="mock-nav-item">Supply Agent</div>
-          <div class="mock-nav-item">Flow Agent</div>
-          <div class="mock-nav-item">Quality Agent</div>
-          <div class="mock-nav-item">Active 8D Reports</div>
-          <div class="mock-nav-item">Investment & ROI</div>
-        </div>
-        <div class="mock-main">
-          <div class="mock-kpi-row">
-            <div class="kpi-card">
-              <div class="kpi-label">Global Risk Level</div>
-              <div class="kpi-val amber">MEDIUM</div>
-              <div class="kpi-sub">↑ Supply gap detected</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Last Month EBITDA Protection</div>
-              <div class="kpi-val green">$14,200</div>
-              <div class="kpi-sub">Measured performance recovery</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">OEE Current Shift</div>
-              <div class="kpi-val green">87.4%</div>
-              <div class="kpi-sub">↑ +3.1% vs. yesterday</div>
-            </div>
-          </div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Active 8D — Auto-Triggered 14:32</div>
-          <div class="d1d8-row">
-            <div class="d-step"><div class="d-label">D1</div><div class="d-status done">✓ DONE</div></div>
-            <div class="d-step"><div class="d-label">D2</div><div class="d-status done">✓ DONE</div></div>
-            <div class="d-step"><div class="d-label">D3</div><div class="d-status active">● ACTIVE</div></div>
-            <div class="d-step"><div class="d-label">D4</div><div class="d-status active">● ACTIVE</div></div>
-            <div class="d-step"><div class="d-label">D5</div><div class="d-status open">– OPEN</div></div>
-            <div class="d-step"><div class="d-label">D6</div><div class="d-status open">– OPEN</div></div>
-            <div class="d-step"><div class="d-label">D7</div><div class="d-status open">– OPEN</div></div>
-            <div class="d-step"><div class="d-label">D8</div><div class="d-status open">– OPEN</div></div>
-          </div>
         </div>
       </div>
     </div>
@@ -1144,8 +890,8 @@ h1 { animation-delay: 0.25s; }
     <div class="final-pre">// Last Warning</div>
     <h2>Your Next Line Stop<br><em>Is Already In The Data.</em></h2>
     <p>The question is: will you see it first — or will your customer?</p>
-    <a href="#audit" class="btn-red" style="font-size:22px;padding:22px 52px;">
-      Get My Risk Dashboard <span class="btn-arrow">→</span>
+    <a href="/cockpit" class="btn-red" style="font-size:22px;padding:22px 52px;">
+      Open Shield Cockpit <span class="btn-arrow">→</span>
     </a>
     <div class="final-trust">NO COMMITMENT · NO SALES CALL · USED BY OPERATIONS LEADERS WHO REFUSE TO BE CAUGHT OFF GUARD</div>
   </div>
@@ -1166,15 +912,9 @@ const implementation_buffer = 14;
 
 let base = 612480;
 const el = document.getElementById('liveNum');
-let simulatedDowntimeLoss = 248400;
-const downtimeEl = document.getElementById('heroDowntimeClock');
 setInterval(() => {
   base += Math.floor(Math.random() * 1100 + 300);
   el.textContent = '$' + base.toLocaleString('en-US');
-  if (downtimeEl) {
-    simulatedDowntimeLoss += Math.floor(Math.random() * 1400 + 700);
-    downtimeEl.textContent = '$' + simulatedDowntimeLoss.toLocaleString('en-US');
-  }
 }, 1400);
 
 function calcROI() {
@@ -1221,7 +961,7 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 
-document.querySelectorAll('.pain-card, .agent, .plan, .step, .kpi-card').forEach(el2 => {
+document.querySelectorAll('.pain-card, .agent, .plan, .step').forEach(el2 => {
   el2.style.opacity = '0';
   el2.style.transform = 'translateY(18px)';
   el2.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
