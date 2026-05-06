@@ -121,14 +121,14 @@
         </div>
       </header>
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-24 md:pb-14 pt-4 sm:pt-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-[120px]">
         <div id="landing-hero" class="hero-hook-section grid gap-10 lg:grid-cols-2 lg:items-center scroll-mt-28 reveal-on-scroll in-view">
           <div class="hero-hook-glow" aria-hidden="true"></div>
           <div>
             <div class="timestamp-badge" data-i18n="landing.timestampBadge">2:47 AM</div>
             <h1 class="hero-hook-headline">
               <span data-i18n="landing.heroHeadline">Die meisten Werksleiter sehen die Krise erst, wenn sie bereits</span>
-              <span class="hero-hook-accent" data-i18n="landing.heroHeadlineAccent">$80.000 pro Stunde kostet.</span>
+              <span class="hero-hook-accent" data-i18n="landing.heroHeadlineAccent">$80,000 per hour.</span>
             </h1>
             <p class="hero-hook-sub" data-i18n="landing.heroSub">Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.</p>
             <div class="hero-hook-bodyline">
@@ -139,8 +139,10 @@
               <input
                 id="hero-business-email"
                 type="email"
+                name="email"
+                required
                 autocomplete="email"
-                class="mt-2 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                class="high-visibility-input mt-2 w-full min-h-[44px] rounded-lg border px-3 py-2"
                 placeholder="Enter your work email for the ROI audit..."
                 data-i18n-placeholder="landing.heroLeadPlaceholder"
               />
@@ -149,11 +151,11 @@
             <div class="mt-4 cta-area flex flex-wrap items-center gap-3">
               <a
                 id="schedule-demo-btn"
-                href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
+                href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
                 class="hidden md:inline-flex primary-cta min-h-[44px] items-center justify-center gap-2 rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
               >
                 <i data-lucide="calendar-check" class="h-4 w-4"></i>
-                <span data-i18n="landing.ctaDemo">Request Economic Impact Analysis</span>
+                <span data-i18n="landing.ctaDemo">Request Strategic Impact Audit</span>
               </a>
               <button
                 id="enter-dashboard-btn"
@@ -321,14 +323,14 @@
                 spellcheck="false"
                 placeholder="Enter your hourly downtime cost (e.g., 80000)..."
                 data-i18n-placeholder="roi.inputPlaceholder"
-                class="roi-cost-input w-full min-h-[48px] rounded-lg border px-3 py-2 tabular-nums"
+                class="high-visibility-input roi-cost-input w-full min-h-[48px] rounded-lg border px-3 py-2 tabular-nums"
               />
             </div>
             <div class="mt-2 flex flex-wrap items-baseline justify-between gap-2 text-sm">
               <span class="text-gray-400" data-i18n="roi.hourlyPrefix">Hourly exposure</span>
               <strong id="roi-hourly-display" class="text-white tabular-nums">$50,000.00</strong>
             </div>
-            <p id="roi-payback-time" class="mt-2 text-xs text-sky-200"></p>
+            <div id="roi-payback-time" class="roi-payback-box mt-3"></div>
           </div>
           <div class="mt-6 rounded-xl border border-emerald-900/50 bg-emerald-950/30 p-4">
             <p class="text-sm text-emerald-100/90" data-i18n="roi.annualLabel">Estimated annual value of a 5% downtime reduction</p>
@@ -359,43 +361,46 @@
             </div>
             <div class="grid grid-cols-3 text-sm">
               <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row3Label">Financial exposure</div>
-              <div class="px-4 py-3 text-red-300" data-i18n="pricing.row3Status">$80k/hour Line-Down Risk</div>
+              <div class="px-4 py-3 text-red-300" data-i18n="pricing.row3Status">$80,000/hour Line-Down Risk</div>
               <div class="px-4 py-3 text-emerald-300" data-i18n="pricing.row3Control">Risk Mitigation at 2:47 AM</div>
             </div>
           </div>
           <div class="mt-6 grid gap-5 md:grid-cols-3">
             <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
               <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">Plant Pilot</p>
+              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier1.price">$12,000</p>
               <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier1.billing">Entry into Risk Intelligence. Focused on rapid 2:47 AM response.</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
                 <li data-i18n="pricing.tier1.f1">Single plant deployment</li>
                 <li data-i18n="pricing.tier1.f2">Real-time 2:47 AM alerting</li>
                 <li data-i18n="pricing.tier1.f3">8D-Traceability</li>
               </ul>
-              <a href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Economic Impact Analysis</a>
+              <a href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Strategic Impact Audit</a>
               <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
             </article>
             <article class="feature-card rounded-2xl border-2 border-[#3b82f6] bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
               <span class="absolute -top-3 right-4 rounded-full border border-[#d4af37]/70 bg-[#1f2a44] px-3 py-0.5 text-[11px] font-bold text-[#f5d983]" data-i18n="pricing.popular">Strategic Core</span>
               <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">Enterprise Agent</p>
+              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier2.price">$24,000</p>
               <p class="mt-2 text-sm text-gray-400" data-i18n="pricing.tier2.billing">Full multi-plant synchronization and SAP-Lag elimination.</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-300 flex-1">
                 <li data-i18n="pricing.tier2.f1">Multi-site intelligence</li>
                 <li data-i18n="pricing.tier2.f2">Cross-border risk mapping</li>
                 <li data-i18n="pricing.tier2.f3">Request Access</li>
               </ul>
-              <a href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Economic Impact Analysis</a>
+              <a href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Strategic Impact Audit</a>
               <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
             </article>
             <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
               <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">Mission Control</p>
+              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier3.price">$30,000</p>
               <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier3.billing">24/7 AI-driven supply chain shield for OEM-level operations.</p>
               <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
                 <li data-i18n="pricing.tier3.f1">Full enterprise AI-integration</li>
                 <li data-i18n="pricing.tier3.f2">24/7 dedicated mission control</li>
                 <li data-i18n="pricing.tier3.f3">Predictive Risk Prevention</li>
               </ul>
-              <a href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Economic Impact Analysis</a>
+              <a href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request" class="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-2 text-sm font-semibold text-[#f5d983] hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]" data-i18n="pricing.tierCta">Request Strategic Impact Audit</a>
               <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
             </article>
           </div>
@@ -405,10 +410,10 @@
           </div>
           <div class="mt-6">
             <a
-              href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Audit%20Request"
+              href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
               class="inline-flex min-h-[48px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-7 py-4 text-lg font-bold text-[#f5d983] shadow-lg shadow-blue-900/30 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
               data-i18n="pricing.auditCta"
-            >Request ROI Business Case Study</a>
+            >Request Strategic Impact Audit</a>
             <p class="mt-2 text-xs text-gray-500" data-i18n="pricing.auditFoot">We provide a customized Economic Impact Report for your specific plant KPIs.</p>
           </div>
           <p class="mt-4 text-xs text-gray-500 max-w-4xl" data-i18n="pricing.zeroRiskFoot">Our engagement starts with a technical audit of your current SAP-Lag and OEE-leakage. No upfront software costs until the ROI is proven for your specific facility.</p>
@@ -417,20 +422,20 @@
         <section id="section-contact" class="mt-14 max-w-3xl scroll-mt-28 reveal-on-scroll">
           <h2 class="text-xl font-bold text-white" data-i18n="contact.title">Protect your Production Value.</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="contact.subtitle">Tell us your plant context and hourly risk — we respond with a focused next step.</p>
-          <form id="contact-form" class="mt-6 space-y-4">
+          <form id="contact-form" action="https://formspree.io/f/mbdwyerk" method="POST" class="mt-6 space-y-4">
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.nameLabel">Name</span>
-                <input id="contact-name" type="text" autocomplete="name" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
+                <input id="contact-name" type="text" autocomplete="name" required class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
               </label>
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.emailLabel">Business Email</span>
-                <input id="contact-email" type="email" autocomplete="email" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
+                <input id="contact-email" name="email" type="email" autocomplete="email" required class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
                 <span id="contact-email-tip" class="mt-1 hidden text-xs text-amber-300"></span>
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.locationLabel">Plant Location</span>
-                <select id="contact-location" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
+                <select id="contact-location" class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2">
                   <option value="Mexico" data-i18n="contact.locMexico">Mexico</option>
                   <option value="USA" data-i18n="contact.locUsa">USA</option>
                   <option value="Germany" data-i18n="contact.locGermany">Germany</option>
@@ -439,14 +444,14 @@
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.riskLabel">Estimated hourly downtime cost ($ USD)</span>
-                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400" />
+                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
                 <span id="contact-risk-value" class="mt-1 block text-xs text-gray-500">$50,000.00 / hour</span>
                 <span id="contact-risk-micro" class="mt-2 hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-xs text-red-100"></span>
               </label>
             </div>
             <p id="contact-error" class="hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-sm text-red-100"></p>
             <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400">
-              <span data-i18n="contact.submit">Get My Control Back</span>
+              <span data-i18n="contact.submit">Request Strategic Impact Audit</span>
             </button>
           </form>
           <div id="contact-thankyou" class="mt-4 hidden rounded-xl border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-100"></div>
@@ -464,10 +469,10 @@
         <section id="section-final-call" class="mt-14 rounded-2xl border border-red-900/50 bg-red-950/20 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
           <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="monster.finalHeadline">Don't wait for the next 2:47 AM call.</h2>
           <a
-            href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
+            href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
             class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             data-i18n="monster.finalCta"
-          >Request Economic Impact Analysis</a>
+          >Request Strategic Impact Audit</a>
         </section>
 
         <section id="section-partnership" class="mt-14 rounded-2xl border border-[#3b82f6]/40 bg-[#101826]/80 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
@@ -479,7 +484,7 @@
             href="mailto:sales@control-agent.example?subject=Strategic%20Partnership%20Application"
             class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md border border-[#d4af37]/70 bg-[#1f2a44] px-7 py-4 text-lg font-bold text-[#f5d983] shadow-lg shadow-blue-900/30 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
             data-i18n="authority.partnerCta"
-          >Apply for Strategic Partnership</a>
+          >Request Strategic Impact Audit</a>
         </section>
 
         <footer class="mt-14 flex flex-wrap items-center gap-3 text-[11px] text-gray-500">
@@ -496,11 +501,11 @@
 
       <a
         id="schedule-demo-fixed"
-        href="mailto:sales@control-agent.example?subject=Economic%20Impact%20Analysis%20Request"
+        href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
         class="schedule-demo-fixed primary-cta md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-risk px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
       >
         <i data-lucide="calendar-check" class="h-4 w-4"></i>
-        <span data-i18n="landing.ctaDemo">Request Economic Impact Analysis</span>
+        <span data-i18n="landing.ctaDemo">Request Strategic Impact Audit</span>
       </a>
     </section>
     <div class="app-shell">

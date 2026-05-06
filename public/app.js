@@ -32,8 +32,8 @@ const I18N = {
     "overview.timestampedHistorySub": "Shows who approved which step and when.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexico",
     "landing.timestampBadge": "2:47 AM",
-    "landing.heroHeadline": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
-    "landing.heroHeadlineAccent": "$80.000 pro Stunde kostet.",
+    "landing.heroHeadline": "Most plant managers recognize the crisis only after it already costs",
+    "landing.heroHeadlineAccent": "$80,000 per hour.",
     "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
     "landing.heroSubTail":
       "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
@@ -42,7 +42,7 @@ const I18N = {
     "landing.heroBody": "Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.",
     "landing.heroLeadLabel": "Business Email",
     "landing.heroLeadPlaceholder": "Enter your work email for the ROI audit...",
-    "landing.ctaDemo": "Request Economic Impact Analysis",
+    "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "No commitment. No sales call. Just your Business Case.",
     "landing.trustBox":
       "15+ Years in Automotive Tier-1. I built this because I've been in your shoes at 2 AM.",
@@ -109,7 +109,7 @@ const I18N = {
     "roi.annualLabel": "Estimated annual value of a 5% downtime reduction",
     "roi.vsPro":
       "That annual upside is about {ratio}× the Professional plan ({pro}/mo) — before counting faster response, audit readiness, and supplier containment.",
-    "roi.breakEven": "Your Break-Even Point: {minutes} minutes of prevented downtime per year.",
+    "roi.breakEven": "Payback in {minutes} Minutes",
     "compliance.iatf": "IATF 16949 Compliant Architecture",
     "compliance.usHost": "US-Based Data Hosting",
     "compliance.iatfFooter": "IATF 16949 compliant architecture (discipline-first design).",
@@ -123,23 +123,23 @@ const I18N = {
     "pricing.subtitle": "Clean 3-column pricing grid in USD.",
     "pricing.popular": "Strategic Core",
     "pricing.tier1.name": "Plant Pilot",
-    "pricing.tier1.price": "",
-    "pricing.tier1.billing": "Entry into Risk Intelligence. Focused on rapid 2:47 AM response.",
+    "pricing.tier1.price": "$12,000",
+    "pricing.tier1.billing": "Billed annually",
     "pricing.tier1.f1": "Single plant deployment",
     "pricing.tier1.f2": "Real-time 2:47 AM alerting",
     "pricing.tier1.f3": "8D-Traceability",
     "pricing.tier1.target": "",
     "pricing.tier2.name": "Enterprise Agent",
-    "pricing.tier2.price": "",
+    "pricing.tier2.price": "$24,000",
     "pricing.tier2.f1": "Multi-site intelligence",
     "pricing.tier2.f2": "Cross-border risk mapping",
     "pricing.tier2.f3": "Request Access",
     "pricing.tier2.f4": "",
-    "pricing.tier2.billing": "Full multi-plant synchronization and SAP-Lag elimination.",
+    "pricing.tier2.billing": "Billed annually",
     "pricing.tier2.target": "",
     "pricing.tier3.name": "Mission Control",
-    "pricing.tier3.price": "",
-    "pricing.tier3.billing": "24/7 AI-driven supply chain shield for OEM-level operations.",
+    "pricing.tier3.price": "$30,000",
+    "pricing.tier3.billing": "Billed annually",
     "pricing.tier3.f1": "Full enterprise AI-integration",
     "pricing.tier3.f2": "24/7 dedicated mission control",
     "pricing.tier3.f3": "Predictive Risk Prevention",
@@ -149,9 +149,9 @@ const I18N = {
     "pricing.roiText":
       "At an average downtime cost impact of $1,333 per minute, the Control Agent pays for itself within the first 15 minutes of a prevented incident.",
     "pricing.roiSubtext": "This includes lost production value, idle labor, and supply chain disruption.",
-    "pricing.auditCta": "Request ROI Business Case Study",
+    "pricing.auditCta": "Request Strategic Impact Audit",
     "pricing.auditFoot": "We provide a customized Economic Impact Report for your specific plant KPIs.",
-    "pricing.tierCta": "Request Economic Impact Analysis",
+    "pricing.tierCta": "Request Strategic Impact Audit",
     "pricing.tierFoot": "Reserved for Tier-1 Suppliers and OEM Plant Managers.",
     "pricing.zeroRiskFoot":
       "Our engagement starts with a technical audit of your current SAP-Lag and OEE-leakage. No upfront software costs until the ROI is proven for your specific facility.",
@@ -164,7 +164,7 @@ const I18N = {
     "pricing.row2Status": "Manual Phone Calls",
     "pricing.row2Control": "Automated 8D-Alerts",
     "pricing.row3Label": "Financial exposure",
-    "pricing.row3Status": "$80k/hour Line-Down Risk",
+    "pricing.row3Status": "$80,000/hour Line-Down Risk",
     "pricing.row3Control": "Risk Mitigation at 2:47 AM",
     "contact.title": "Protect your Production Value.",
     "contact.subtitle": "Tell us your current risk profile and receive a value-based estimate.",
@@ -176,13 +176,13 @@ const I18N = {
     "contact.locGermany": "Germany",
     "contact.locOther": "Other",
     "contact.riskLabel": "Estimated hourly downtime cost ($ USD)",
-    "contact.submit": "Get My Control Back",
+    "contact.submit": "Request Strategic Impact Audit",
     "contact.invalidEmail":
       "Please use a company email. Free email providers (Gmail/Hotmail/etc.) are not accepted.",
     "contact.criticalRisk":
       "Critical Risk detected. Our Captain's Control module is designed for your scale.",
     "contact.thankYou":
-      "Based on your {risk}/hour risk, the Control Agent can save you approximately {saving} per month by reducing response time by 40%.",
+      "Request received. Your EBITDA protection analysis is being prepared for this business email.",
     "monster.costKicker": "Cost of Silence",
     "monster.costHeadline": "Every minute of downtime costs up to $833.",
     "monster.costBody":
@@ -199,7 +199,7 @@ const I18N = {
     "monster.techB2": "SOC2 compliant",
     "monster.techB3": "Zero-config SAP integration",
     "monster.finalHeadline": "Don't wait for the next 2:47 AM call.",
-    "monster.finalCta": "Request Economic Impact Analysis",
+    "monster.finalCta": "Request Strategic Impact Audit",
     "authority.experienceTitle": "Tested by 20 Years of Shop Floor Reality, Not just 20 Lines of Code.",
     "authority.experienceQuote":
       "I've lived through the 2:47 AM calls. I know the stress when every hour of downtime burns $80,000 in costs. Control Agent is the tool I wish I had for the last two decades.",
@@ -210,7 +210,7 @@ const I18N = {
     "authority.partnerTitle": "Be the Leader, Not the Follower.",
     "authority.partnerBody":
       "We are currently accepting 3 additional Tier-1 plants into our \"Strategic Impact Program\". Secure your spot to lead your division in OEE and Risk Mitigation.",
-    "authority.partnerCta": "Apply for Strategic Partnership",
+    "authority.partnerCta": "Request Strategic Impact Audit",
     "alerts.captain": "ATTENTION CAPTAIN: Immediate Action Required for Step D4!",
     "alerts.auto8d": "System created 8D-Report for Performance Gap",
   },
@@ -236,8 +236,8 @@ const I18N = {
     "overview.timestampedHistorySub": "Muestra quien aprobo cada paso y cuando.",
     "landing.kicker": "Tier 1/2 automotriz · USA y Mexico",
     "landing.timestampBadge": "2:47 AM",
-    "landing.heroHeadline": "Son las 2:47 AM. Su linea esta detenida. Su telefono no deja de sonar.",
-    "landing.heroHeadlineAccent": "Y su SAP no muestra nada.",
+    "landing.heroHeadline": "La mayoria de los gerentes detecta la crisis solo cuando ya cuesta",
+    "landing.heroHeadlineAccent": "$80,000 por hora.",
     "landing.heroSubLead": "La mayoria de gerentes ve la crisis cuando ya costo",
     "landing.heroSubTail":
       "Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
@@ -245,7 +245,7 @@ const I18N = {
       "La mayoria de gerentes ve la crisis cuando ya costo $80,000. Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
     "landing.heroLeadLabel": "Correo empresarial",
     "landing.heroLeadPlaceholder": "Ingrese su correo laboral para la auditoria ROI...",
-    "landing.ctaDemo": "Solicitar analisis de impacto economico",
+    "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "Sin compromiso. Sin llamada de ventas. Solo su caso de negocio.",
     "landing.trustBox":
       "15+ anos en Tier-1 automotriz. Construi esto porque estuve en tus zapatos a las 2 AM.",
@@ -314,7 +314,7 @@ const I18N = {
     "roi.annualLabel": "Valor anual estimado de reducir paros 5%",
     "roi.vsPro":
       "Ese upside anual es ~{ratio}× el plan Professional ({pro}/mes) — antes de contar respuesta mas rapida, auditoria y contencion con proveedores.",
-    "roi.breakEven": "Su punto de equilibrio: {minutes} minutos de paro evitado por ano.",
+    "roi.breakEven": "Payback in {minutes} Minutes",
     "compliance.iatf": "Arquitectura alineada a IATF 16949",
     "compliance.usHost": "Alojamiento de datos en EE.UU.",
     "compliance.iatfFooter": "Arquitectura alineada a IATF 16949 (diseno disciplina primero).",
@@ -339,22 +339,23 @@ const I18N = {
     "pricing.subtitle": "Cuadricula limpia de 3 columnas en USD.",
     "pricing.popular": "Mas popular",
     "pricing.tier1.name": "PILOTO",
-    "pricing.tier1.price": "$990 / mes",
-    "pricing.tier1.billing": "facturado anualmente",
+    "pricing.tier1.price": "$12,000",
+    "pricing.tier1.billing": "Billed annually",
     "pricing.tier1.f1": "Agente de suministro basico",
     "pricing.tier1.f2": "Pasarela de IA para abastecimiento",
     "pricing.tier1.f3": "Conector SAP simulado",
     "pricing.tier1.target": "Objetivo: Plantas de produccion pequenas.",
     "pricing.tier2.name": "PROFESIONAL",
-    "pricing.tier2.price": "$1,850 / mes",
+    "pricing.tier2.price": "$24,000",
+    "pricing.tier2.billing": "Billed annually",
     "pricing.tier2.f1": "Suministro y flujo completos",
     "pricing.tier2.f2": "Contador financiero (USD)",
     "pricing.tier2.f3": "Umbrales y alertas de Capitan",
     "pricing.tier2.f4": "Umbrales de alerta personalizados",
     "pricing.tier2.target": "Objetivo: Proveedores automotrices clave en MEX/USA.",
     "pricing.tier3.name": "EMPRESARIAL",
-    "pricing.tier3.price": "Contactar ventas",
-    "pricing.tier3.billing": "Multi-planta · automatizacion completa",
+    "pricing.tier3.price": "$30,000",
+    "pricing.tier3.billing": "Billed annually",
     "pricing.tier3.f1": "Soporte multi-planta",
     "pricing.tier3.f2": "Suite completa de automatizacion IATF 10.2",
     "pricing.tier3.f3": "Soporte multi-linea",
@@ -365,10 +366,10 @@ const I18N = {
       "Si Control Agent evita solo UNA hora de inactividad ($50,000 promedio), paga toda su suscripcion anual en los primeros 15 minutos de una crisis.",
     "pricing.roiSubtext":
       "Esto incluye valor de produccion perdido, mano de obra inactiva y disrupciones en la cadena de suministro.",
-    "pricing.auditCta": "Solicitar estudio de caso ROI",
+    "pricing.auditCta": "Request Strategic Impact Audit",
     "pricing.auditFoot":
       "Entregamos un informe de impacto economico personalizado para los KPI especificos de su planta.",
-    "pricing.tierCta": "Solicitar analisis de impacto economico",
+    "pricing.tierCta": "Request Strategic Impact Audit",
     "pricing.tierFoot": "Reservado para proveedores Tier-1 y lideres de planta OEM.",
     "contact.title": "Proteja el valor de su produccion.",
     "contact.subtitle": "Comparta su perfil de riesgo actual y reciba una estimacion basada en valor.",
@@ -380,13 +381,13 @@ const I18N = {
     "contact.locGermany": "Alemania",
     "contact.locOther": "Otro",
     "contact.riskLabel": "Costo horario estimado por paro ($ USD)",
-    "contact.submit": "Recuperar el control",
+    "contact.submit": "Request Strategic Impact Audit",
     "contact.invalidEmail":
       "Use un correo corporativo. No se aceptan correos gratuitos (Gmail/Hotmail/etc.).",
     "contact.criticalRisk":
       "Riesgo critico detectado. Nuestro modulo Captain's Control esta disenado para su escala.",
     "contact.thankYou":
-      "Con base en su riesgo de {risk}/hora, Control Agent puede ahorrarle aproximadamente {saving} por mes al reducir el tiempo de respuesta en 40%.",
+      "Request received. Your EBITDA protection analysis is being prepared for this business email.",
     "alerts.captain": "ATENCION CAPITAN: Accion inmediata requerida para el Paso D4.",
     "alerts.auto8d": "El sistema creo un reporte 8D por brecha de rendimiento",
   },
@@ -413,7 +414,7 @@ const I18N = {
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexiko",
     "landing.timestampBadge": "2:47 AM",
     "landing.heroHeadline": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
-    "landing.heroHeadlineAccent": "$80.000 pro Stunde kostet.",
+    "landing.heroHeadlineAccent": "$80,000 pro Stunde kostet.",
     "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie bereits",
     "landing.heroSubTail":
       "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
@@ -421,7 +422,7 @@ const I18N = {
       "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt – in Echtzeit und in einem Cockpit.",
     "landing.heroLeadLabel": "Geschäftliche E-Mail",
     "landing.heroLeadPlaceholder": "Geben Sie Ihre Firmen-E-Mail für das ROI-Audit ein...",
-    "landing.ctaDemo": "Economic-Impact-Analyse anfordern",
+    "landing.ctaDemo": "Request Strategic Impact Audit",
     "landing.ctaTrust": "Kein Commitment. Kein Sales-Call. Nur Ihr Business Case.",
     "landing.trustBox":
       "15+ Jahre in Automotive Tier-1. Ich habe das gebaut, weil ich um 2 Uhr nachts selbst in Ihrer Lage war.",
@@ -490,7 +491,7 @@ const I18N = {
     "roi.annualLabel": "Geschätzter Jahreswert bei 5% weniger Stillstandskosten-Exposition",
     "roi.vsPro":
       "Dieses jährliche Potenzial entspricht ca. {ratio}× dem Professional-Plan ({pro}/Monat) — ohne schnellere Reaktion, Audit-Bereitschaft und Lieferanten-Containment einzurechnen.",
-    "roi.breakEven": "Ihr Break-Even-Punkt: {minutes} Minuten verhinderter Stillstand pro Jahr.",
+    "roi.breakEven": "Payback in {minutes} Minutes",
     "compliance.iatf": "IATF-16949-konforme Architektur",
     "compliance.usHost": "Daten-Hosting in den USA",
     "compliance.iatfFooter": "IATF-16949-konforme Architektur (Disziplin-first Design).",
@@ -510,29 +511,29 @@ const I18N = {
     "pricing.row2Status": "Manuelle Telefonketten",
     "pricing.row2Control": "Automatisierte 8D-Warnungen",
     "pricing.row3Label": "Finanzielle Exposition",
-    "pricing.row3Status": "80.000 $/Stunde Stillstandsrisiko",
+    "pricing.row3Status": "$80,000/Stunde Stillstandsrisiko",
     "pricing.row3Control": "Risikominderung um 2:47 Uhr",
     "pricing.title": "Investition & ROI (wertbasierte Einführung)",
     "pricing.subtitle": "Sauberes 3-Säulen-Einführungsmodell in USD.",
     "pricing.popular": "Strategischer Kern",
     "pricing.tier1.name": "Pilot-Stufe",
-    "pricing.tier1.price": "",
-    "pricing.tier1.billing": "Einstieg in Risiko-Intelligenz. Fokus auf schnelle Reaktion um 2:47 Uhr.",
+    "pricing.tier1.price": "$12,000",
+    "pricing.tier1.billing": "Billed annually",
     "pricing.tier1.f1": "Einführung in einem einzelnen Werk",
     "pricing.tier1.f2": "Echtzeit-Warnungen um 2:47 Uhr",
     "pricing.tier1.f3": "8D-Rückverfolgbarkeit",
     "pricing.tier1.target": "",
     "pricing.tier2.name": "Unternehmens-Stufe",
-    "pricing.tier2.price": "",
+    "pricing.tier2.price": "$24,000",
     "pricing.tier2.f1": "Standortübergreifende Intelligenz",
     "pricing.tier2.f2": "Grenzüberschreitende Risikokartierung",
     "pricing.tier2.f3": "Zugang anfragen",
     "pricing.tier2.f4": "",
-    "pricing.tier2.billing": "Vollständige Multi-Werk-Synchronisierung und Eliminierung von SAP-Verzögerungen.",
+    "pricing.tier2.billing": "Billed annually",
     "pricing.tier2.target": "",
     "pricing.tier3.name": "Globales Leitstand-Modell",
-    "pricing.tier3.price": "",
-    "pricing.tier3.billing": "24/7 KI-gestützter Lieferkettenschutz für OEM-Operationen.",
+    "pricing.tier3.price": "$30,000",
+    "pricing.tier3.billing": "Billed annually",
     "pricing.tier3.f1": "Vollständige KI-Integration auf Unternehmensebene",
     "pricing.tier3.f2": "24/7 dedizierter Leitstand",
     "pricing.tier3.f3": "Prädiktive Risikoprävention",
@@ -542,10 +543,10 @@ const I18N = {
     "pricing.roiText":
       "Bei durchschnittlichem Downtime-Kostenimpact von 1.333 $ pro Minute amortisiert sich der Control Agent innerhalb der ersten 15 Minuten eines verhinderten Vorfalls.",
     "pricing.roiSubtext": "Darin enthalten sind verlorener Produktionswert, unproduktive Arbeitszeit und Störungen in der Lieferkette.",
-    "pricing.auditCta": "ROI-Business-Case anfordern",
+    "pricing.auditCta": "Request Strategic Impact Audit",
     "pricing.auditFoot":
       "Wir liefern einen maßgeschneiderten Wirtschaftlichkeitsbericht für die KPIs Ihres Werks.",
-    "pricing.tierCta": "Wirtschaftlichkeitsanalyse anfordern",
+    "pricing.tierCta": "Request Strategic Impact Audit",
     "pricing.tierFoot": "Reserviert für Tier-1-Zulieferer und OEM-Werksleiter.",
     "pricing.zeroRiskFoot":
       "Unser Engagement startet mit einem technischen Audit Ihres aktuellen SAP-Lags und Ihrer OEE-Leckage. Keine Vorab-Softwarekosten, bis der ROI für Ihr Werk nachweisbar ist.",
@@ -565,7 +566,7 @@ const I18N = {
     "monster.techB2": "SOC2-konform",
     "monster.techB3": "SAP-Integration ohne Konfigurationsaufwand",
     "monster.finalHeadline": "Warten Sie nicht auf den nächsten 2:47-Uhr-Anruf.",
-    "monster.finalCta": "Wirtschaftlichkeitsanalyse anfordern",
+    "monster.finalCta": "Request Strategic Impact Audit",
     "contact.title": "Sichern Sie Ihre Wertschöpfung ab.",
     "contact.subtitle": "Teilen Sie Ihr aktuelles Risikoprofil und erhalten Sie eine wertbasierte Einschätzung.",
     "contact.nameLabel": "Name",
@@ -576,16 +577,16 @@ const I18N = {
     "contact.locGermany": "Deutschland",
     "contact.locOther": "Sonstiges",
     "contact.riskLabel": "Schätzwert Stundenkosten bei Linienstopp ($ USD)",
-    "contact.submit": "Kontrolle zurückholen",
+    "contact.submit": "Request Strategic Impact Audit",
     "contact.invalidEmail":
       "Bitte verwenden Sie eine Firmen-E-Mail. Freemailer (Gmail/Hotmail/etc.) sind nicht erlaubt.",
     "contact.criticalRisk":
       "Kritisches Risiko erkannt. Unser Captain's-Control-Modul ist für Ihre Größenordnung ausgelegt.",
     "contact.thankYou":
-      "Basierend auf Ihrem Risiko von {risk}/Stunde kann Control Agent durch 40% schnellere Reaktionszeit ungefähr {saving} pro Monat einsparen.",
+      "Request received. Your EBITDA protection analysis is being prepared for this business email.",
     "authority.experienceTitle": "Getestet durch 20 Jahre Shopfloor-Realität, nicht nur durch 20 Zeilen Code.",
     "authority.experienceQuote":
-      "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress, wenn jede Stunde Stillstand 80.000 $ an Kosten verschlingt. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
+      "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress, wenn jede Stunde Stillstand $80,000 an Kosten verschlingt. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
     "authority.nativeBadge": "100% nativ für Automotive.",
     "authority.nativeB1": "Entwickelt für IATF 16949-konforme Umgebungen.",
     "authority.nativeB2": "Konzipiert, um den 4-Stunden-SAP-Informationsverzug zu eliminieren.",
@@ -593,7 +594,7 @@ const I18N = {
     "authority.partnerTitle": "Seien Sie der Führende, nicht der Folgende.",
     "authority.partnerBody":
       "Aktuell nehmen wir 3 weitere Tier-1-Werke in unser \"Strategisches Impact-Programm\" auf. Sichern Sie sich Ihren Platz, um Ihre Division bei OEE und Risikominderung anzuführen.",
-    "authority.partnerCta": "Für strategische Partnerschaft bewerben",
+    "authority.partnerCta": "Request Strategic Impact Audit",
     "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln für Schritt D4 erforderlich!",
     "alerts.auto8d": "System hat 8D-Report für Performance-Lücke erstellt",
   },
@@ -1021,7 +1022,7 @@ function bindContactForm() {
   });
   updateBusinessEmailTip(emailInput.value.trim(), emailTipEl);
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     errorEl.classList.add("hidden");
     const name = nameInput.value.trim();
@@ -1035,13 +1036,29 @@ function bindContactForm() {
       return;
     }
     updateBusinessEmailTip(email, emailTipEl);
-    const monthlySaving = risk * 0.4 * 30 * 24;
-    thankYouEl.textContent = tf("contact.thankYou", {
-      risk: usd(risk),
-      saving: usd(monthlySaving),
-    });
-    thankYouEl.classList.remove("hidden");
-    form.classList.add("hidden");
+    try {
+      const payload = new FormData(form);
+      payload.set("name", name);
+      payload.set("email", email);
+      payload.set("location", location);
+      payload.set("risk", String(risk));
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: payload,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Lead submission failed");
+      }
+      thankYouEl.textContent = tf("contact.thankYou");
+      thankYouEl.classList.remove("hidden");
+      form.classList.add("hidden");
+    } catch (_error) {
+      errorEl.textContent = "Submission failed. Please try again in a minute.";
+      errorEl.classList.remove("hidden");
+    }
   });
 }
 
