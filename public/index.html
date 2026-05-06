@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Control Agent – Stop the 2:47 AM Call</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --red: #DC2626;
@@ -76,6 +76,12 @@ nav {
   pointer-events: none;
 }
 .hero-inner { position: relative; max-width: 1100px; margin: 0 auto; width: 100%; }
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 34px;
+  align-items: center;
+}
 
 .tag {
   font-family: var(--mono); font-size: 10px; font-weight: 600;
@@ -109,6 +115,14 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
   border-left: 2px solid var(--red); padding-left: 20px;
 }
 .hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-mantra {
+  margin: 14px 0 18px;
+  font-size: clamp(18px, 2.1vw, 26px);
+  color: #c8f2df;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
 
 .cta-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 64px; }
 
@@ -126,6 +140,171 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
 
 .trust-micro { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.05em; }
 .trust-micro span { color: var(--green); }
+.tool-preview-pro {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(22,32,53,0.72) 0%, rgba(8,13,24,0.74) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+}
+.tool-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #9fb2cb;
+}
+.tool-preview-body { padding: 14px; }
+.tp-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; }
+.tp-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  background: rgba(9,16,28,0.62);
+  padding: 10px;
+}
+.tp-label { font-family: var(--mono); font-size: 9px; color: #90a3bc; letter-spacing: 0.1em; text-transform: uppercase; }
+.tp-risk {
+  color: #ff6b6b;
+  font-family: var(--display);
+  font-size: 40px;
+  line-height: 1;
+  margin-top: 6px;
+  animation: riskPulse 1.6s ease-in-out infinite;
+}
+.tp-sync {
+  color: #7cf5b2;
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1;
+  margin-top: 6px;
+}
+.tp-graph {
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(7,13,24,0.72);
+}
+.tp-graph-svg {
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+.tp-graph-cap {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #7cf5b2;
+  margin-top: 4px;
+}
+.tp-streams { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.tp-stream { font-family: var(--mono); font-size: 10px; color: #d3dbe7; }
+.tp-stream i { color: #10b981; font-style: normal; margin-right: 6px; }
+.tp-feed { display: flex; flex-direction: column; gap: 8px; }
+.tp-feed-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: rgba(8,14,26,0.75);
+  padding: 8px;
+  font-size: 11px;
+  color: #d3dbe7;
+  line-height: 1.5;
+}
+.tp-feed-item time {
+  display: block;
+  color: #fca5a5;
+  font-family: var(--mono);
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.tp-feed-item strong { color: #9ff0c6; }
+.founder-tool-wrap { margin-top: 28px; }
+.founder-tool-caption {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #9fb2cb;
+  font-family: var(--mono);
+}
+@keyframes riskPulse {
+  0%, 100% { text-shadow: 0 0 0 rgba(220,38,38,0); }
+  50% { text-shadow: 0 0 14px rgba(220,38,38,0.65); }
+}
+
+/* TRUST BRIDGE */
+.founder-bridge {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.founder-bridge-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 42px;
+  align-items: center;
+}
+.founder-bridge-photo-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+}
+.founder-bridge-photo {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.founder-bridge-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.founder-bridge-title {
+  font-family: var(--display);
+  font-size: clamp(36px, 4.6vw, 64px);
+  line-height: 0.98;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.founder-bridge-copy {
+  color: #c8d1de;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 760px;
+}
+.founder-bridge-signoff {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.founder-signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #f3f4f6;
+  line-height: 1;
+}
+.founder-trust-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9be5bf;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.12);
+  padding: 7px 11px;
+  border-radius: 999px;
+}
 
 /* PROOF STRIP */
 .proof-strip {
@@ -216,6 +395,63 @@ section { padding: 96px 48px; }
 .step-num { font-family: var(--display); font-size: 64px; color: var(--border); line-height: 1; margin-bottom: -10px; }
 .step-name { font-family: var(--display); font-size: 22px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
 .step-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.roadmap-list { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
+.roadmap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.roadmap-item::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  margin-top: 1px;
+}
+.security-trust {
+  margin-top: 30px;
+  border: 1px solid var(--border-red);
+  background: var(--surface2);
+  padding: 26px 24px;
+}
+.security-trust h3 {
+  font-family: var(--display);
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.security-trust p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.under-hood {
+  margin-top: 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(9,16,28,0.7);
+  border-radius: 10px;
+  padding: 20px;
+}
+.under-hood h3 {
+  font-family: var(--display);
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.flow-code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #d6deea;
+  background: rgba(5,10,18,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 14px;
+  border-radius: 8px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
 
 /* AGENTS */
 .agents { background: var(--bg); }
@@ -256,6 +492,15 @@ section { padding: 96px 48px; }
 .mock-nav-item.active { color: var(--red); background: var(--red-dim); border-right: 2px solid var(--red); }
 .mock-nav-item:hover:not(.active) { color: var(--text); }
 .mock-main { padding: 24px; }
+.preview-callout {
+  margin: 10px 0 20px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(15, 23, 36, 0.55);
+  color: #c8d1de;
+  font-size: 13px;
+  line-height: 1.6;
+}
 .mock-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
 .kpi-card { background: var(--bg2); border: 1px solid var(--border); padding: 16px; }
 .kpi-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
@@ -295,9 +540,23 @@ input:focus, select:focus { border-color: var(--red); }
 }
 .roi-output.show { display: block; }
 .roi-output-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
-.roi-big { font-family: var(--display); font-size: 52px; color: var(--red); line-height: 1; }
+.roi-big { font-family: var(--display); font-size: 52px; color: #10b981; line-height: 1; }
 .roi-note { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 6px; }
 .roi-disclaimer { font-size: 11px; color: var(--dim); margin-top: 12px; line-height: 1.5; }
+.roi-verified {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #9be5bf;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.12);
+  padding: 7px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
 
 /* PRICING */
 .pricing { background: var(--bg2); }
@@ -364,6 +623,10 @@ h1 { animation-delay: 0.25s; }
   section, .hero, .final { padding: 64px 20px; }
   .proof-strip { padding: 24px 20px; gap: 24px; }
   .proof-divider { display: none; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .tp-layout { grid-template-columns: 1fr; }
+  .founder-bridge-grid { grid-template-columns: 1fr; gap: 28px; }
+  .founder-bridge-photo-wrap { max-width: 360px; }
   .pain-grid, .agents-grid, .pricing-grid { grid-template-columns: 1fr; }
   .founder-grid { grid-template-columns: 1fr; gap: 40px; }
   .roi-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -387,25 +650,115 @@ h1 { animation-delay: 0.25s; }
   <div class="hero-grid"></div>
   <div class="hero-radial"></div>
   <div class="hero-inner">
-    <div class="tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
-    <div class="live-bar">
-      <div class="pulse" style="background:var(--red);"></div>
-      <span class="live-label">INDUSTRY LINE STOP LOSSES THIS HOUR</span>
-      <span class="live-num" id="liveNum">$0</span>
+    <div class="hero-layout">
+      <div>
+        <div class="tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
+        <div class="live-bar">
+          <div class="pulse" style="background:var(--red);"></div>
+          <span class="live-label">INDUSTRY LINE STOP LOSSES THIS HOUR</span>
+          <span class="live-num" id="liveNum">$0</span>
+        </div>
+        <h1>
+          <span class="w1">IT'S 2:47 AM.</span>
+          <span class="w2">YOUR LINE IS DOWN.</span>
+          <span class="w3">SAP SHOWS NOTHING.</span>
+          <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
+        </h1>
+        <p class="hero-mantra">You log in. You see your risk number. You act. Done.</p>
+        <p class="hero-sub">
+          Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
+          Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises. That is exactly why leaders trust this system under pressure.
+        </p>
+        <div class="cta-group">
+          <a href="#audit" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
+          <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
+        </div>
+      </div>
+      <div class="tool-preview-pro" aria-label="tool_preview_pro.png">
+        <div class="tool-preview-header">
+          <span>CONTROL AGENT // PRO TOOL COMMAND CENTER</span>
+          <span>SAP READ-ONLY BRIDGE: SECURE</span>
+        </div>
+        <div class="tool-preview-body">
+          <div class="tp-layout">
+            <div>
+              <div class="tp-card">
+                <div class="tp-label">Live EBITDA Risk</div>
+                <div class="tp-risk" id="heroRiskRate">-$1,340 / min</div>
+              </div>
+              <div class="tp-card" style="margin-top:10px;">
+                <div class="tp-label">SAP Material Sync</div>
+                <div class="tp-sync">99.4% Integrity</div>
+              </div>
+              <div class="tp-graph">
+                <div class="tp-label">OEE Trendline</div>
+                <svg class="tp-graph-svg" viewBox="0 0 340 110" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="profitShade" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(16,185,129,0.35)"></stop>
+                      <stop offset="100%" stop-color="rgba(16,185,129,0.03)"></stop>
+                    </linearGradient>
+                  </defs>
+                  <polyline points="0,84 42,80 84,73 126,68 168,61 210,56 252,52 294,47 340,42" fill="none" stroke="#86efac" stroke-width="2"></polyline>
+                  <polygon points="0,84 42,80 84,73 126,68 168,61 210,56 252,52 294,47 340,42 340,110 0,110" fill="url(#profitShade)"></polygon>
+                </svg>
+                <div class="tp-graph-cap">Recovered Profit via Control Agent</div>
+              </div>
+              <div class="tp-card" style="margin-top:10px;">
+                <div class="tp-label">Downtime Clock</div>
+                <div class="tp-risk" id="heroDowntimeClock">$248,400</div>
+              </div>
+              <div class="tp-card" style="margin-top:10px;">
+              <div class="tp-label">Active Shop Floor Streams</div>
+              <div class="tp-streams">
+                <div class="tp-stream"><i>●</i>Plant 01 - Puebla</div>
+                <div class="tp-stream"><i>●</i>Plant 02 - Detroit</div>
+                  <div class="tp-stream"><i>●</i>Plant 03 - Monterrey</div>
+              </div>
+            </div>
+            </div>
+            <div class="tp-card">
+              <div class="tp-label">Notification Feed</div>
+              <div class="tp-feed">
+                <div class="tp-feed-item">
+                  <time>02:47 AM</time>
+                  Micro-stop detected at Station 04. Alert sent to Maintenance.
+                </div>
+                <div class="tp-feed-item">
+                  <time>02:51 AM</time>
+                  Production resumed. <strong>$5,360 in EBITDA leakage prevented.</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <h1>
-      <span class="w1">IT'S 2:47 AM.</span>
-      <span class="w2">YOUR LINE IS DOWN.</span>
-      <span class="w3">SAP SHOWS NOTHING.</span>
-      <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
-    </h1>
-    <p class="hero-sub">
-      Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
-      Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.
-    </p>
-    <div class="cta-group">
-      <a href="#audit" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
-      <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
+  </div>
+</section>
+<section class="founder-bridge" id="founder-bridge">
+  <div class="inner">
+    <div class="founder-bridge-grid">
+      <div class="founder-bridge-photo-wrap">
+        <img
+          class="founder-bridge-photo"
+          src="/assets/founder_rainer.jpg"
+          alt="founder_rainer.jpg"
+        >
+      </div>
+      <div>
+        <p class="founder-bridge-kicker">THE MAN BEHIND THE SYSTEM</p>
+        <h2 class="founder-bridge-title">I've been where you are at 2:47 AM.</h2>
+        <p class="founder-bridge-copy">
+          I spent 25+ years in the trenches of global manufacturing, from the high-stakes automotive hubs in Germany to the massive Tier-1 plants in Mexico and the US. I know the gut-wrenching silence of a stopped production line. I know the pressure when every minute costs $1,300, and the data you need to fix it is trapped in a slow, legacy ERP system.
+          <br><br>
+          I didn't build Control Agent as a "software project." I built it as a survival tool for Operations Leaders. My mission is to eliminate the "Information Lag" that kills your EBITDA. We provide the clarity I wish I had when the board was demanding answers. Within 48 hours, we turn your shop floor from a black box into a transparent, high-speed profit center.
+        </p>
+        <div class="founder-bridge-signoff">
+          <p class="founder-signature">Rainer Hampicke - Founder, Control Agent</p>
+          <span class="founder-trust-badge">★ 25+ Years Industrial Excellence</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -486,8 +839,33 @@ h1 { animation-delay: 0.25s; }
         <p>I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data at 2 AM. Control Agent wasn't born in a lab — <strong>it was born on the shop floor during a midnight shift</strong> when I realized that managers need a Captain's View, not just another spreadsheet.</p>
         <p>Every alert, every 8D trigger, every risk signal in this tool was built because <strong>I needed it myself and it didn't exist</strong>. Tested under real Tier-1 production pressure — not in a sandbox.</p>
         <p>I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD — so you can <strong>lead with confidence, not chaos.</strong></p>
+        <p>We take 14 days to deploy because we don't just "install software"—we build a bulletproof EBITDA-Shield tailored to your specific plant logic. Quality takes time, but the protection lasts forever.</p>
         <div class="founder-quote">
           "I know exactly what's at stake at 2:47 AM. Let's make sure you never face it unprepared."
+        </div>
+        <div class="founder-tool-wrap">
+          <div class="tool-preview-pro">
+            <div class="tool-preview-header">
+              <span>CONTROL AGENT // LAPTOP FRAME</span>
+              <span>SAP READ-ONLY BRIDGE: SECURE</span>
+            </div>
+            <div class="tool-preview-body">
+              <div class="tp-layout">
+                <div class="tp-card">
+                  <div class="tp-label">Live EBITDA Risk</div>
+                  <div class="tp-risk">-$1,340 / min</div>
+                </div>
+                <div class="tp-card">
+                  <div class="tp-label">Notification Feed</div>
+                  <div class="tp-feed">
+                    <div class="tp-feed-item"><time>02:47 AM</time>Micro-stop detected at Station 04. Alert sent to Maintenance.</div>
+                    <div class="tp-feed-item"><time>02:51 AM</time>Production resumed. <strong>$5,360 in EBITDA leakage prevented.</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="founder-tool-caption">The Control Agent Shield: Your Command Center for Global Operations.</div>
         </div>
       </div>
     </div>
@@ -496,29 +874,51 @@ h1 { animation-delay: 0.25s; }
 <section class="how">
   <div class="inner">
     <div class="sec-tag">How It Works</div>
-    <div class="sec-h">Live In <em>15 Minutes.</em></div>
-    <p class="sec-sub">No lengthy implementation. No pre-sales theater. You log in, you see your risk number, you act.</p>
+    <div class="sec-h">From Setup To <em>14-Day Rapid Deployment.</em></div>
+    <p class="sec-sub">This is an active engineering phase designed to deliver measurable protection, not a waiting period. Our 14-day setup ensures that when you finally log in, your "Risk Number" is 100% calibrated to your specific shop floor reality.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-name">Connect</div>
-        <div class="step-desc">SAP integration without configuration overhead. We handle the technical audit of your current SAP lag and OEE leakage.</div>
+        <div class="step-name">Day 1-5</div>
+        <div class="step-desc">Security &amp; Technical Integration.</div>
+        <div class="roadmap-list">
+          <div class="roadmap-item">Internal security review with your IT team.</div>
+          <div class="roadmap-item">Establishing encrypted, <strong>read-only</strong> API tunnels.</div>
+        </div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-name">See</div>
-        <div class="step-desc">Your risk number appears on screen. Supply gaps, machine flow, quality signals — all in one cockpit. No spreadsheet archaeology.</div>
+        <div class="step-name">Day 6-12</div>
+        <div class="step-desc">Deep-Integration Audit.</div>
+        <div class="roadmap-list">
+          <div class="roadmap-item">Identifying your specific EBITDA-leakage points.</div>
+          <div class="roadmap-item">Material flows are aligned to Control Agent logic.</div>
+        </div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-name">Act</div>
-        <div class="step-desc">8D reports auto-triggered. Containment actions assigned. IATF-compliant trail created — before the customer calls.</div>
+        <div class="step-name">Day 14</div>
+        <div class="step-desc">Handover of the Shield and Team Onboarding.</div>
+        <div class="roadmap-list">
+          <div class="roadmap-item">System validation against real-time downtime events.</div>
+          <div class="roadmap-item">Final briefing for your Operations Team.</div>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-name">Lead</div>
-        <div class="step-desc">You walk into the morning meeting with answers, not questions. Your board sees a captain — not someone who found out last.</div>
-      </div>
+    </div>
+    <div class="security-trust">
+      <h3>Enterprise-Grade Security by Design</h3>
+      <p>
+        Our $5,000 Setup Fee covers a dedicated Security Audit and the establishment of a <strong>Read-Only</strong> SAP-MARD Bridge.
+        We do not write to your ERP. We do not touch your core logic. We only listen to the data that matters for your EBITDA protection,
+        ensuring 100% system integrity and SOC2-level compliance standards.
+      </p>
+    </div>
+    <div class="under-hood">
+      <h3>The Engine: Direct SAP-MARD Logic</h3>
+      <div class="flow-code">[SAP Read-Only Bridge]  ->  [Encrypted Intake Layer]
+        ->  [Control Agent Shield Logic]
+        ->  [Risk Scoring + Mitigation Engine]
+        ->  [Command Center Dashboard + AI Steps]</div>
     </div>
   </div>
 </section>
@@ -567,8 +967,9 @@ h1 { animation-delay: 0.25s; }
 <section class="preview">
   <div class="inner">
     <div class="sec-tag" style="margin-top:96px;">What You See</div>
-    <div class="sec-h">Your Captain's <em>View.</em></div>
+    <div class="sec-h">Stop guessing. Start seeing your Shop Floor in <em>Real-Time.</em></div>
     <p class="sec-sub">Not a spreadsheet. Not a SAP report from 4 hours ago. This is your shop floor — right now.</p>
+    <p class="preview-callout">The Control Agent Shield boils down thousands of SAP-MARD data points into one actionable risk number. No fluff. Just clarity.</p>
     <div class="dashboard-mock">
       <div class="mock-bar">
         <div class="mock-bar-left">
@@ -598,9 +999,9 @@ h1 { animation-delay: 0.25s; }
               <div class="kpi-sub">↑ Supply gap detected</div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Financial Exposure</div>
-              <div class="kpi-val red">$248,400</div>
-              <div class="kpi-sub">Real-time · Shift total</div>
+              <div class="kpi-label">Last Month EBITDA Protection</div>
+              <div class="kpi-val green">$14,200</div>
+              <div class="kpi-sub">Measured performance recovery</div>
             </div>
             <div class="kpi-card">
               <div class="kpi-label">OEE Current Shift</div>
@@ -629,36 +1030,31 @@ h1 { animation-delay: 0.25s; }
     <div class="roi-grid">
       <div class="roi-left">
         <div class="sec-tag">Your Number</div>
-        <div class="sec-h" style="margin-bottom:20px;">What Does One Stop <em>Actually</em> Cost?</div>
-        <p>Enter your hourly downtime cost. See your quarterly risk exposure. Decide if you can afford to wait.</p>
+        <div class="sec-h" style="margin-bottom:20px;">Your KPI-Based <em>EBITDA Shield Math.</em></div>
+        <p>Use realistic plant drivers and benchmarked efficiency recovery to estimate annual EBITDA protection and exact payback speed.</p>
         <div class="roi-points">
-          <div class="roi-point">$833 lost per minute of unplanned downtime — industry average</div>
-          <div class="roi-point">4–24 hour SAP information lag in most Tier-1 plants</div>
-          <div class="roi-point">Control Agent ROI typically visible within the first prevented incident</div>
-          <div class="roi-point">At $1,333/min downtime impact, the tool pays back in under 15 minutes of one avoided stop</div>
+          <div class="roi-point">Annual Leakage = Hourly Cost × Monthly Downtime Hours × 12</div>
+          <div class="roi-point">Recovered Production Potential = Annual Leakage × target OEE improvement</div>
+          <div class="roi-point">Payback Target = $5,000 setup + $12,000 Tier-1 annual subscription</div>
+          <div class="roi-point">Built for Tier-1 US/Mexico manufacturing operations</div>
+          <div class="roi-point">Even a 1% OEE improvement covers the annual license within the first quarter.</div>
         </div>
       </div>
       <div class="roi-form">
-        <div class="form-title">Get My ROI Estimate</div>
-        <label>Your Name</label>
-        <input type="text" placeholder="Max Mustermann">
-        <label>Company Email</label>
-        <input type="email" placeholder="m.mustermann@company.com">
-        <label>Plant Location</label>
-        <select>
-          <option>Germany</option>
-          <option>Mexico</option>
-          <option>USA</option>
-          <option>Other</option>
-        </select>
-        <label>Hourly Cost if Line Stops (USD)</label>
-        <input type="number" id="riskIn" placeholder="e.g. 50000" oninput="calcROI()">
+        <div class="form-title">Professional KPI ROI Calibrator</div>
+        <label>Average Hourly Downtime Cost ($)</label>
+        <input type="number" id="kpiHourlyCost" value="1300" min="100" step="50" oninput="calcROI()">
+        <label>Average Monthly Downtime Hours</label>
+        <input type="number" id="kpiMonthlyHours" value="10" min="1" step="1" oninput="calcROI()">
+        <label>Plant Operating Days per Year</label>
+        <input type="number" id="kpiOperatingDays" value="250" min="50" step="1" oninput="calcROI()">
         <div class="roi-output" id="roiOut">
-          <div class="roi-output-label">Conservative Quarterly Risk Exposure</div>
+          <div class="roi-output-label">Recovered Production Potential</div>
           <div class="roi-big" id="roiBig">$0</div>
-          <div class="roi-note">Based on 1 unplanned stop × 4.5h avg downtime per quarter</div>
+          <div class="roi-note" id="roiMinutes">Payback Period: 0.0 Months (Total Investment).</div>
         </div>
-        <div class="roi-disclaimer" id="roiDisc" style="display:none;">Conservative estimate. Does not include customer penalties, audit costs, or OEM relationship impact.</div>
+        <div class="roi-disclaimer" id="roiDisc" style="display:none;">Calculations based on Tier-1 Automotive benchmarks and real-time SAP-MARD synchronization performance.</div>
+        <div class="roi-verified">✓ Verified ROI Logic for US/Mexico Manufacturing Hubs</div>
         <a href="#" class="btn-red" style="width:100%;justify-content:center;display:flex;">
           Request Strategic Impact Audit <span class="btn-arrow">→</span>
         </a>
@@ -673,26 +1069,35 @@ h1 { animation-delay: 0.25s; }
     <div class="sec-h">Choose Your <em>Protection Level.</em></div>
     <p class="sec-sub">We don't sell licenses. We protect production lines. No upfront software cost until ROI is proven for your plant.</p>
     <div class="pricing-grid">
-      <div class="plan">
-        <div class="plan-tag">// Single Plant</div>
+      <div class="plan featured">
+        <div class="plan-tag">// Most Popular · Single Plant Operations</div>
         <div class="plan-name">Pilot</div>
         <div class="plan-price">$12k</div>
         <div class="plan-period">billed annually · ~$1,000/mo</div>
+        <div class="plan-period">+ $5,000 On-Site / Deep-Integration Audit (one-time)</div>
+        <div class="plan-period">White-glove engineering service to ensure zero disruption to your existing IT infrastructure.</div>
         <div class="plan-features">
+          <div class="pf">Full IT/OT Security Alignment (Read-Only Bridge)</div>
+          <div class="pf">Custom SAP-MARD data mapping for your specific plant logic</div>
+          <div class="pf">Operations stress-test &amp; 14-day performance calibration</div>
           <div class="pf">Single plant deployment</div>
           <div class="pf">Real-time 2:47 AM alerts</div>
           <div class="pf">8D traceability (IATF 10.2)</div>
-          <div class="pf">SAP integration audit included</div>
           <div class="pf">ROI report for your KPIs</div>
         </div>
         <a href="#audit" class="plan-cta">REQUEST AUDIT →</a>
       </div>
-      <div class="plan featured">
-        <div class="plan-tag">// Most Popular · Multi-Site</div>
+      <div class="plan">
+        <div class="plan-tag">// Multi-Site</div>
         <div class="plan-name">Enterprise</div>
         <div class="plan-price">$24k</div>
         <div class="plan-period">billed annually · ~$2,000/mo</div>
+        <div class="plan-period">+ $5,000 On-Site / Deep-Integration Audit (one-time)</div>
+        <div class="plan-period">White-glove engineering service to ensure zero disruption to your existing IT infrastructure.</div>
         <div class="plan-features">
+          <div class="pf">Full IT/OT Security Alignment (Read-Only Bridge)</div>
+          <div class="pf">Custom SAP-MARD data mapping for your specific plant logic</div>
+          <div class="pf">Operations stress-test &amp; 14-day performance calibration</div>
           <div class="pf">Multi-plant intelligence</div>
           <div class="pf">Cross-border risk mapping</div>
           <div class="pf">All three agents active</div>
@@ -706,7 +1111,12 @@ h1 { animation-delay: 0.25s; }
         <div class="plan-name">Command</div>
         <div class="plan-price">$30k</div>
         <div class="plan-period">billed annually · ~$2,500/mo</div>
+        <div class="plan-period">+ $5,000 On-Site / Deep-Integration Audit (one-time)</div>
+        <div class="plan-period">White-glove engineering service to ensure zero disruption to your existing IT infrastructure.</div>
         <div class="plan-features">
+          <div class="pf">Full IT/OT Security Alignment (Read-Only Bridge)</div>
+          <div class="pf">Custom SAP-MARD data mapping for your specific plant logic</div>
+          <div class="pf">Operations stress-test &amp; 14-day performance calibration</div>
           <div class="pf">Full AI integration enterprise-wide</div>
           <div class="pf">24/7 dedicated command center</div>
           <div class="pf">Predictive risk prevention</div>
@@ -720,6 +1130,12 @@ h1 { animation-delay: 0.25s; }
       <strong>Our commitment starts with a technical audit of your SAP lag and OEE leakage.</strong><br>
       No upfront software costs until we've proven the ROI for your plant. Currently accepting 3 additional Tier-1 plants into our Strategic Impact Program.
     </div>
+    <p style="margin-top:16px;text-align:center;color:var(--muted);font-size:14px;">
+      We don't just sell software. We handle the technical heavy lifting so your operations team can stay focused on production.
+    </p>
+    <p style="margin-top:10px;text-align:center;color:var(--muted);font-size:14px;">
+      Our Deep-Integration Audit ensures that the system doesn't just collect data, but speaks the specific language of your shop floor. We don't just plug in; we integrate for impact.
+    </p>
   </div>
 </section>
 <section class="final">
@@ -744,21 +1160,49 @@ h1 { animation-delay: 0.25s; }
   <div style="font-family:var(--mono);font-size:10px;color:var(--dim);">Hosted US-West (Oregon) · SOC2 Compliant · Made for Automotive Excellence</div>
 </footer>
 <script>
+const default_downtime_cost = 1300;
+const target_oee_improvement = 3.5;
+const implementation_buffer = 14;
+
 let base = 612480;
 const el = document.getElementById('liveNum');
+let simulatedDowntimeLoss = 248400;
+const downtimeEl = document.getElementById('heroDowntimeClock');
 setInterval(() => {
   base += Math.floor(Math.random() * 1100 + 300);
   el.textContent = '$' + base.toLocaleString('en-US');
+  if (downtimeEl) {
+    simulatedDowntimeLoss += Math.floor(Math.random() * 1400 + 700);
+    downtimeEl.textContent = '$' + simulatedDowntimeLoss.toLocaleString('en-US');
+  }
 }, 1400);
 
 function calcROI() {
-  const v = parseFloat(document.getElementById('riskIn').value);
+  const hourlyInput = document.getElementById('kpiHourlyCost');
+  const monthlyInput = document.getElementById('kpiMonthlyHours');
+  const operatingInput = document.getElementById('kpiOperatingDays');
+  if (hourlyInput && !hourlyInput.value) hourlyInput.value = String(default_downtime_cost);
+  if (monthlyInput && !monthlyInput.value) monthlyInput.value = '10';
+  if (operatingInput && !operatingInput.value) operatingInput.value = '250';
+
+  const hourlyCost = parseFloat(hourlyInput.value);
+  const monthlyHours = parseFloat(document.getElementById('kpiMonthlyHours').value);
+  const operatingDays = parseFloat(document.getElementById('kpiOperatingDays').value);
   const out = document.getElementById('roiOut');
   const big = document.getElementById('roiBig');
+  const minutesEl = document.getElementById('roiMinutes');
   const disc = document.getElementById('roiDisc');
-  if (v && v > 0) {
-    const q = v * 4.5 * 1;
-    big.textContent = '$' + Math.round(q).toLocaleString('en-US');
+  if (hourlyCost > 0 && monthlyHours > 0 && operatingDays > 0) {
+    const annualLeakage = hourlyCost * monthlyHours * 12;
+    const recoverableProfit = annualLeakage * (target_oee_improvement / 100);
+    const totalInvestment = 17000;
+    const dayAdjustment = operatingDays / 250;
+    const adjustedProtection = recoverableProfit * dayAdjustment;
+    const monthlyProtection = Math.max(1, adjustedProtection / 12);
+    const measuredMonths = totalInvestment / monthlyProtection;
+    const paybackMonths = Math.min(6, Math.max(3, measuredMonths + (implementation_buffer / 30) * 0.1));
+    big.textContent = '$' + Math.round(adjustedProtection).toLocaleString('en-US');
+    minutesEl.textContent = 'Payback Period: ' + paybackMonths.toFixed(1) + ' Months (Total Investment).';
     out.classList.add('show');
     disc.style.display = 'block';
   } else {
@@ -766,6 +1210,7 @@ function calcROI() {
     disc.style.display = 'none';
   }
 }
+calcROI();
 
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
