@@ -36,6 +36,32 @@ const I18N = {
       "Real-time Supply, Flow, and Quality Intelligence. Built for the Captains of the Shop Floor.",
     "landing.ctaDemo": "Schedule Live Demo ($ USD Base)",
     "landing.enter": "Open Dashboard",
+    "nav.mobile.hero": "Hero",
+    "nav.mobile.story": "Story",
+    "nav.mobile.triad": "Product",
+    "nav.mobile.roi": "ROI",
+    "nav.mobile.pricing": "Pricing",
+    "nav.mobile.contact": "Contact",
+    "mobile.riskScoreTitle": "Financial Risk Score",
+    "mobile.riskLevel.low": "Low",
+    "mobile.riskLevel.watch": "Watch",
+    "mobile.riskLevel.elevated": "Elevated",
+    "mobile.riskLevel.critical": "Critical",
+    "mobile.riskHint.low": "Operations within normal tolerance. Keep monitoring supply and flow.",
+    "mobile.riskHint.watch": "Early stress signals. Validate stock, scheduling locks, and line output.",
+    "mobile.riskHint.elevated": "Material financial exposure. Prioritize containment and captain review.",
+    "mobile.riskHint.critical": "Immediate escalation posture — financial counter and supply locks are driving exposure.",
+    "mobile.supplyCardTitle": "Supply / batch",
+    "mobile.flowCardTitle": "Flow / line",
+    "mobile.stock": "Stock",
+    "mobile.transit": "Transit",
+    "mobile.lock": "Lock",
+    "mobile.batch": "Batch",
+    "mobile.emergencyBlock": "Emergency block",
+    "mobile.targetOut": "Target out",
+    "mobile.realtimeOut": "Realtime out",
+    "mobile.oee": "OEE",
+    "mobile.scrap": "Scrap",
     "landing.heroFootnote":
       "Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.",
     "landing.riskBadge": "Risk signal",
@@ -148,6 +174,32 @@ const I18N = {
       "Inteligencia en tiempo real de Suministro, Flujo y Calidad. Hecha para los capitanes del piso de planta.",
     "landing.ctaDemo": "Agendar demo en vivo (base en $ USD)",
     "landing.enter": "Abrir panel",
+    "nav.mobile.hero": "Inicio",
+    "nav.mobile.story": "Historia",
+    "nav.mobile.triad": "Producto",
+    "nav.mobile.roi": "ROI",
+    "nav.mobile.pricing": "Precios",
+    "nav.mobile.contact": "Contacto",
+    "mobile.riskScoreTitle": "Puntuacion de riesgo financiero",
+    "mobile.riskLevel.low": "Bajo",
+    "mobile.riskLevel.watch": "Atencion",
+    "mobile.riskLevel.elevated": "Elevado",
+    "mobile.riskLevel.critical": "Critico",
+    "mobile.riskHint.low": "Operacion en tolerancia normal. Siga monitoreando suministro y flujo.",
+    "mobile.riskHint.watch": "Senales tempranas. Valide stock, bloqueos de programacion y salida de linea.",
+    "mobile.riskHint.elevated": "Exposicion financiera material. Priorice contencion y revision de capitan.",
+    "mobile.riskHint.critical": "Postura de escalamiento inmediato — contador y bloqueos de suministro elevan el riesgo.",
+    "mobile.supplyCardTitle": "Suministro / lote",
+    "mobile.flowCardTitle": "Flujo / linea",
+    "mobile.stock": "Stock",
+    "mobile.transit": "Transito",
+    "mobile.lock": "Bloqueo",
+    "mobile.batch": "Lote",
+    "mobile.emergencyBlock": "Bloqueo de emergencia",
+    "mobile.targetOut": "Salida objetivo",
+    "mobile.realtimeOut": "Salida en tiempo real",
+    "mobile.oee": "OEE",
+    "mobile.scrap": "Scrap",
     "landing.heroFootnote":
       "Desplegado en infraestructura en region de EE.UU. para reducir latencia a equipos en Mexico y EE.UU.",
     "landing.riskBadge": "Senal de riesgo",
@@ -262,6 +314,32 @@ const I18N = {
       "Echtzeit-Supply-, Flow- und Qualitaetsintelligenz. Gebaut fuer die Captains am Shopfloor.",
     "landing.ctaDemo": "Live-Demo vereinbaren ($ USD Basis)",
     "landing.enter": "Dashboard oeffnen",
+    "nav.mobile.hero": "Start",
+    "nav.mobile.story": "Story",
+    "nav.mobile.triad": "Produkt",
+    "nav.mobile.roi": "ROI",
+    "nav.mobile.pricing": "Preise",
+    "nav.mobile.contact": "Kontakt",
+    "mobile.riskScoreTitle": "Finanzrisiko-Score",
+    "mobile.riskLevel.low": "Niedrig",
+    "mobile.riskLevel.watch": "Beobachten",
+    "mobile.riskLevel.elevated": "Erhoeht",
+    "mobile.riskLevel.critical": "Kritisch",
+    "mobile.riskHint.low": "Betrieb im normalen Toleranzband. Supply und Flow weiter beobachten.",
+    "mobile.riskHint.watch": "Fruehsignale. Bestand, Scheduling-Locks und Linienoutput pruefen.",
+    "mobile.riskHint.elevated": "Materielle finanzielle Exposition. Containment und Captain-Review priorisieren.",
+    "mobile.riskHint.critical": "Sofortige Eskalation — Finanzzaehler und Supply-Locks treiben die Exposition.",
+    "mobile.supplyCardTitle": "Supply / Charge",
+    "mobile.flowCardTitle": "Flow / Linie",
+    "mobile.stock": "Bestand",
+    "mobile.transit": "Transit",
+    "mobile.lock": "Lock",
+    "mobile.batch": "Charge",
+    "mobile.emergencyBlock": "Notfall-Block",
+    "mobile.targetOut": "Soll-Output",
+    "mobile.realtimeOut": "Echtzeit-Output",
+    "mobile.oee": "OEE",
+    "mobile.scrap": "Scrap",
     "landing.heroFootnote":
       "Ausrollung auf US-Region-Infrastruktur fuer geringere Latenz fuer Teams in Mexiko und den USA.",
     "landing.riskBadge": "Risikosignal",
@@ -404,11 +482,20 @@ function clampHourlyCost(value) {
   return Math.max(10000, Math.min(250000, n));
 }
 
+function getRoiHourlyFromInputs() {
+  const mobile = document.getElementById("roi-mobile-input");
+  const slider = document.getElementById("roi-slider");
+  const raw = mobile?.value ?? slider?.value ?? 50000;
+  return clampHourlyCost(Number(raw));
+}
+
 function syncHourlyCostAcrossUi(value) {
   const bounded = clampHourlyCost(value);
   const slider = document.getElementById("roi-slider");
+  const mobileRoi = document.getElementById("roi-mobile-input");
   const contactRisk = document.getElementById("contact-risk");
   if (slider) slider.value = String(bounded);
+  if (mobileRoi) mobileRoi.value = String(bounded);
   if (contactRisk) contactRisk.value = String(bounded);
   updateRiskUi(bounded);
   updateRoiDisplay(bounded);
@@ -454,10 +541,7 @@ function applyI18nStatic() {
       updateRiskUi(Number(riskInput.value || 0));
     }
   }
-  const slider = document.getElementById("roi-slider");
-  if (slider) {
-    updateRoiDisplay(clampHourlyCost(Number(slider.value || 50000)));
-  }
+  updateRoiDisplay(getRoiHourlyFromInputs());
   refreshLucideIcons();
 }
 
@@ -577,6 +661,53 @@ function bindLandingActions() {
   });
 }
 
+function bindLandingMobileNav() {
+  const toggle = document.getElementById("landing-menu-toggle");
+  const panel = document.getElementById("landing-mobile-nav");
+  const dashboardBtn = document.getElementById("landing-menu-dashboard");
+  if (!toggle || !panel) return;
+
+  const setOpen = (open) => {
+    panel.classList.toggle("hidden", !open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    const icon = toggle.querySelector("[data-lucide]");
+    if (icon) icon.setAttribute("data-lucide", open ? "x" : "menu");
+    refreshLucideIcons();
+  };
+
+  toggle.addEventListener("click", () => {
+    const next = panel.classList.contains("hidden");
+    setOpen(next);
+  });
+
+  panel.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  if (dashboardBtn) {
+    dashboardBtn.addEventListener("click", () => {
+      setOpen(false);
+      document.querySelector(".app-shell")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+}
+
+function bindScheduleDemoVisibility() {
+  const appShell = document.querySelector(".app-shell");
+  const fixedCta = document.getElementById("schedule-demo-fixed");
+  if (!appShell || !fixedCta || typeof IntersectionObserver === "undefined") return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const hit = entries.some((e) => e.isIntersecting);
+      document.body.classList.toggle("dashboard-in-view", hit);
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -10% 0px" },
+  );
+  observer.observe(appShell);
+}
+
 function isCorporateEmail(email) {
   const domain = String(email || "").split("@")[1]?.toLowerCase() || "";
   const freeDomains = new Set([
@@ -654,11 +785,19 @@ function bindContactForm() {
 
 function bindRoiCalculator() {
   const slider = document.getElementById("roi-slider");
-  if (!slider) return;
-  slider.addEventListener("input", () => {
-    syncHourlyCostAcrossUi(Number(slider.value || 50000));
-  });
-  syncHourlyCostAcrossUi(Number(slider.value || 50000));
+  const mobileRoi = document.getElementById("roi-mobile-input");
+  if (slider) {
+    slider.addEventListener("input", () => {
+      syncHourlyCostAcrossUi(Number(slider.value || 50000));
+    });
+  }
+  if (mobileRoi) {
+    mobileRoi.addEventListener("input", () => {
+      syncHourlyCostAcrossUi(Number(mobileRoi.value || 50000));
+    });
+  }
+  if (!slider && !mobileRoi) return;
+  syncHourlyCostAcrossUi(getRoiHourlyFromInputs());
 }
 
 function bindLanguageSelector() {
@@ -752,6 +891,64 @@ function renderCaseFinancial() {
   el.classList.remove("masked");
 }
 
+function gaugeBaseScore(level) {
+  const lv = String(level || "").toUpperCase();
+  if (lv === "DARK_RED" || lv === "RED") return 82;
+  if (lv === "ORANGE") return 64;
+  if (lv === "YELLOW") return 48;
+  if (lv === "GREEN") return 18;
+  return 32;
+}
+
+function qualitySeverityScore(sev) {
+  const s = String(sev || "").toUpperCase();
+  if (s === "CRITICAL" || s === "HIGH") return 22;
+  if (s === "MEDIUM") return 12;
+  if (s === "LOW") return 0;
+  return 8;
+}
+
+function renderMobileFinancialRiskScore({ risk, gauge, supply }) {
+  const valueEl = document.getElementById("mobile-risk-score-value");
+  const levelEl = document.getElementById("mobile-risk-score-level");
+  const hintEl = document.getElementById("mobile-risk-score-hint");
+  if (!valueEl || !levelEl || !hintEl) return;
+
+  if (state.maintenanceMode) {
+    valueEl.textContent = "0";
+    levelEl.textContent = t("mobile.riskLevel.low");
+    levelEl.className = "mobile-risk-score-level level-low";
+    hintEl.textContent = t("mobile.riskHint.low");
+    return;
+  }
+
+  const gaugeLevel = gauge?.gauge?.level;
+  let score = gaugeBaseScore(gaugeLevel);
+  score = Math.max(score, qualitySeverityScore(risk?.qualityDeviation?.severity));
+
+  const riskLabel = String(supply?.riskLevel || "").toUpperCase();
+  if (riskLabel && riskLabel !== "LOW") score += 14;
+  if (state.scenarioAExists) score += 22;
+  const stockBelow = Number(supply?.stock || 0) < Number(state.stockThreshold);
+  if (stockBelow) score += 12;
+  if (state.emergencyBlockActive) score += 18;
+
+  score = Math.max(0, Math.min(100, Math.round(score)));
+
+  let band = "low";
+  if (score >= 75) band = "critical";
+  else if (score >= 50) band = "elevated";
+  else if (score >= 25) band = "watch";
+
+  const levelText = t(`mobile.riskLevel.${band}`);
+  const hintText = t(`mobile.riskHint.${band}`);
+
+  valueEl.textContent = String(score);
+  levelEl.textContent = levelText;
+  levelEl.className = `mobile-risk-score-level level-${band}`;
+  hintEl.textContent = hintText;
+}
+
 async function loadTopBar() {
   const [risk, gauge, supply] = await Promise.all([
     fetchJson(`/dashboard/risk?partId=${state.partId}&processId=${state.processId}`),
@@ -776,6 +973,7 @@ async function loadTopBar() {
   state.financialValueEur = baseRiskUsd;
   renderFinancialCounter();
   renderCaseFinancial();
+  renderMobileFinancialRiskScore({ risk, gauge, supply });
   const criticalPulse = gauge.gauge.level === "DARK_RED" || state.scenarioAExists;
   riskLevel.classList.toggle("risk-pulse", criticalPulse);
 
@@ -986,6 +1184,7 @@ async function loadSupply() {
   const supply = await fetchJson(
     `/dashboard/supply?partId=${state.partId}&processId=${state.processId}&auditMode=${state.auditMode}`,
   );
+  const stockLockMobile = document.getElementById("d3-stock-lock-mobile");
   const shouldShowAltSource =
     Number(supply.stock || 0) <= Number(state.stockThreshold);
   const criticalAlertState = shouldShowAltSource;
@@ -1033,6 +1232,21 @@ async function loadSupply() {
     <div class="metric"><strong>Risk</strong><p>${supply.riskLevel}</p></div>
     <div class="metric"><strong>System Health</strong><p>${supply.systemHealth === "SAP-EMULATOR-ACTIVE" ? "SAP-Emulator Active" : "Live SAP"}</p></div>`;
   if (state.auditMode && supply.complianceSummary) {
+    const summary = supply.complianceSummary;
+    const restricted = Number(summary.restrictedBatches || 0);
+    const total = Math.max(1, Number(summary.totalBatches || 0));
+    const auditCardClass =
+      restricted / total > 0.2 ? "status-red" : restricted > 0 ? "status-yellow" : "status-green";
+    if (stockLockMobile) {
+      stockLockMobile.innerHTML = `
+        <article class="mobile-status-card ${auditCardClass}">
+          <h4>${t("mobile.supplyCardTitle")} · Audit</h4>
+          <p class="muted" style="margin:0 0 8px;font-size:13px;line-height:1.45">${summary.statement}</p>
+          <div class="row"><span>Total batches</span><strong>${summary.totalBatches}</strong></div>
+          <div class="row"><span>Restricted</span><strong>${summary.restrictedBatches}</strong></div>
+          <div class="row"><span>Transit qty</span><strong>${summary.totalTransitQty}</strong></div>
+        </article>`;
+    }
     document.getElementById("d3-stock-lock").innerHTML = `
       <div class="metric">
         <strong>Audit Compliance Summary</strong>
@@ -1047,12 +1261,39 @@ async function loadSupply() {
     return;
   }
 
-  const rows = (supply.eketScheduling || [])
+  const eket = supply.eketScheduling || [];
+  const rows = eket
     .map(
       (r) =>
         `<tr><td>${r.batch_number || "-"}</td><td>${r.material_id || "-"}</td><td>${Number(r.stock_level ?? 0)}</td><td>${Number(r.transit_qty ?? 0)}</td><td>${lockStatusChip(r.lock_status || "Available")}</td><td><button class="danger-btn" data-batch="${r.batch_number || ""}">Emergency Block</button></td></tr>`,
     )
     .join("");
+  if (stockLockMobile) {
+    if (!eket.length) {
+      stockLockMobile.innerHTML = `<p class="muted">No SAP supply rows.</p>`;
+    } else {
+      stockLockMobile.innerHTML = eket
+        .map((r) => {
+          const lock = r.lock_status || "Available";
+          const cardClass = supplyRowStatusCardClass(lock);
+          const batch = r.batch_number || "-";
+          return `
+            <article class="mobile-status-card ${cardClass}">
+              <h4>${t("mobile.supplyCardTitle")}</h4>
+              <div class="row"><span>${t("mobile.batch")}</span><strong>${batch}</strong></div>
+              <div class="row"><span>Material</span><strong>${r.material_id || "-"}</strong></div>
+              <div class="row"><span>${t("mobile.stock")}</span><strong>${Number(r.stock_level ?? 0)}</strong></div>
+              <div class="row"><span>${t("mobile.transit")}</span><strong>${Number(r.transit_qty ?? 0)}</strong></div>
+              <div class="row" style="margin-top:8px;align-items:center">
+                <span>${t("mobile.lock")}</span>
+                <span class="pill" style="background:${cardClass === "status-red" ? "rgba(239,68,68,0.15)" : cardClass === "status-yellow" ? "rgba(234,179,8,0.15)" : "rgba(34,197,94,0.15)"};color:var(--text)">${String(lock)}</span>
+              </div>
+              <button type="button" class="danger-btn" style="margin-top:12px;width:100%" data-batch="${r.batch_number || ""}">${t("mobile.emergencyBlock")}</button>
+            </article>`;
+        })
+        .join("");
+    }
+  }
   document.getElementById("d3-stock-lock").innerHTML = `<table><thead><tr><th>Batch</th><th>Material</th><th>Stock (MARD-LABST)</th><th>Transit (EKET)</th><th>Lock Status</th><th>Action</th></tr></thead><tbody>${rows || "<tr><td colspan='6'>No SAP supply rows.</td></tr>"}</tbody></table><div class="compliance-note">Notice: AI-generated suggestions. Final IATF validation required by purchasing department.</div>`;
   bindAlternativeSourceSearch();
   bindCaptainInputs();
@@ -1106,6 +1347,13 @@ function lockStatusChip(status) {
   return `<span class="lock-chip ${cls}">${normalized}</span>`;
 }
 
+function supplyRowStatusCardClass(lockStatus) {
+  const s = String(lockStatus || "").toUpperCase();
+  if (s === "BLOCKED" || s === "CRITICAL") return "status-red";
+  if (s === "AVAILABLE" || s === "OPEN" || s === "RELEASED" || s === "OK") return "status-green";
+  return "status-yellow";
+}
+
 function bindStockThresholdInput() {
   const input = document.getElementById("stock-threshold-input");
   if (!input) return;
@@ -1145,6 +1393,27 @@ function bindCaptainInputs() {
 
 async function loadFlow() {
   const flow = await fetchJson(`/dashboard/flow?partId=${state.partId}&processId=${state.processId}`);
+  const flowMobile = document.getElementById("flow-table-mobile");
+  const oee = Number(flow.telemetry?.oeePct ?? 0);
+  const scrap = Number(flow.telemetry?.scrapRatePct ?? 0);
+  let flowCardClass = "status-green";
+  if (scrap >= 5 || oee < 70) flowCardClass = "status-red";
+  else if (scrap >= 2 || oee < 80) flowCardClass = "status-yellow";
+
+  if (flowMobile) {
+    const line = flow.telemetry?.lineId ?? "LINE-MEX-04";
+    flowMobile.innerHTML = `
+      <article class="mobile-status-card ${flowCardClass}">
+        <h4>${t("mobile.flowCardTitle")}</h4>
+        <div class="row"><span>Line</span><strong>${line}</strong></div>
+        <div class="row"><span>${t("mobile.targetOut")}</span><strong>${flow.outputPerHour ?? 0} / h</strong></div>
+        <div class="row"><span>${t("mobile.realtimeOut")}</span><strong>${flow.telemetry?.outputPerHourRealtime ?? 0} / h</strong></div>
+        <div class="row"><span>${t("mobile.oee")}</span><strong>${oee}%</strong></div>
+        <div class="row"><span>${t("mobile.scrap")}</span><strong>${scrap}%</strong></div>
+        <div class="row"><span>Machine</span><strong>${flow.telemetry?.machineState ?? "UNKNOWN"}</strong></div>
+      </article>`;
+  }
+
   document.getElementById("flow-content").innerHTML = `
     <div class="metric"><strong>Cycle Time</strong><p>${flow.cycleTimeMinutes ?? 0} min</p></div>
     <div class="metric"><strong>Output</strong><p>${flow.outputPerHour ?? 0} / h</p></div>
@@ -1306,6 +1575,8 @@ async function init() {
   await loadSessionRole();
   bindNavigation();
   bindLandingActions();
+  bindLandingMobileNav();
+  bindScheduleDemoVisibility();
   bindContactForm();
   bindRoiCalculator();
   bindLanguageSelector();

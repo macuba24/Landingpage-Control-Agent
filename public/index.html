@@ -25,45 +25,76 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
+  <body class="landing-has-mobile-cta">
     <section id="landing-page" class="bg-ca-bg text-gray-100 border-b border-gray-800">
-      <header class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-emerald-500 shadow-lg shrink-0"></div>
-          <div>
-            <p class="text-lg font-semibold tracking-tight">Control Agent</p>
-            <p class="text-xs text-gray-400" data-i18n="brand.tagline">Manufacturing Execution & Supply Chain Intelligence</p>
+      <header
+        class="sticky top-0 z-50 border-b border-gray-800/80 bg-ca-bg/95 backdrop-blur-md"
+        id="landing-sticky-header"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-emerald-500 shadow-lg shrink-0"></div>
+            <div class="min-w-0">
+              <p class="text-base sm:text-lg font-semibold tracking-tight truncate">Control Agent</p>
+              <p class="text-[11px] sm:text-xs text-gray-400 truncate hidden sm:block" data-i18n="brand.tagline">
+                Manufacturing Execution & Supply Chain Intelligence
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <label class="flex items-center gap-2 text-[11px] sm:text-xs text-gray-400">
+              <span class="hidden xs:inline" data-i18n="top.language">Language</span>
+              <select
+                id="language-select-landing"
+                class="js-lang-select min-h-[44px] min-w-[44px] rounded-lg border border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
+                aria-label="Language selector"
+              >
+                <option value="en">EN</option>
+                <option value="es">ES-MEX</option>
+                <option value="de">DE</option>
+              </select>
+            </label>
+            <button
+              type="button"
+              id="landing-menu-toggle"
+              class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-gray-100"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="landing-mobile-nav"
+            >
+              <i data-lucide="menu" class="h-5 w-5"></i>
+            </button>
           </div>
         </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-900/60 px-3 py-1 text-[11px] text-gray-300">
-            <i data-lucide="shield-check" class="h-3.5 w-3.5 text-emerald-400"></i>
-            <span data-i18n="compliance.iatf">IATF 16949 Compliant Architecture</span>
-          </span>
-          <span class="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-900/60 px-3 py-1 text-[11px] text-gray-300">
-            <i data-lucide="server" class="h-3.5 w-3.5 text-sky-400"></i>
-            <span data-i18n="compliance.usHost">US-Based Data Hosting</span>
-          </span>
-          <label class="flex items-center gap-2 text-xs text-gray-400">
-            <span data-i18n="top.language">Language</span>
-            <select
-              id="language-select-landing"
-              class="js-lang-select rounded-lg border border-gray-700 bg-gray-900 px-2 py-1.5 text-sm text-gray-100"
-              aria-label="Language selector"
+        <div
+          id="landing-mobile-nav"
+          class="hidden md:hidden border-t border-gray-800 bg-gray-950/95"
+          role="navigation"
+        >
+          <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm">
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#landing-hero" data-i18n="nav.mobile.hero">Hero</a>
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-founder" data-i18n="nav.mobile.story">Story</a>
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-triad" data-i18n="nav.mobile.triad">Product</a>
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-roi" data-i18n="nav.mobile.roi">ROI</a>
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-pricing" data-i18n="nav.mobile.pricing">Pricing</a>
+            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-contact" data-i18n="nav.mobile.contact">Contact</a>
+            <button
+              type="button"
+              id="landing-menu-dashboard"
+              class="mt-2 w-full rounded-xl border border-gray-700 bg-gray-900 px-3 py-3 text-left font-semibold text-gray-100"
+              data-i18n="landing.enter"
             >
-              <option value="en">EN</option>
-              <option value="es">ES-MEX</option>
-              <option value="de">DE</option>
-            </select>
-          </label>
+              Open Dashboard
+            </button>
+          </nav>
         </div>
       </header>
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-14 pt-2">
-        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-24 md:pb-14 pt-4 sm:pt-6">
+        <div id="landing-hero" class="grid gap-10 lg:grid-cols-2 lg:items-center scroll-mt-28">
           <div>
             <p class="text-sm font-medium text-sky-300 mb-2" data-i18n="landing.kicker">Automotive Tier 1/2 · USA & Mexico</p>
-            <h1 class="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold leading-tight tracking-tight text-white" data-i18n="landing.heroHeadline">
+            <h1 class="text-[1.375rem] min-[400px]:text-3xl sm:text-4xl lg:text-[2.65rem] font-bold leading-tight tracking-tight text-white" data-i18n="landing.heroHeadline">
               Stop Losing $50,000 Every Hour the Line Stands Still.
             </h1>
             <p class="mt-4 text-base sm:text-lg text-gray-300 max-w-xl" data-i18n="landing.heroSub">
@@ -73,7 +104,7 @@
               <a
                 id="schedule-demo-btn"
                 href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
-                class="inline-flex items-center justify-center gap-2 rounded-xl bg-ca-blue px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/40 hover:brightness-110 transition"
+                class="hidden md:inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-ca-blue px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/40 hover:brightness-110 transition"
               >
                 <i data-lucide="calendar-check" class="h-4 w-4"></i>
                 <span data-i18n="landing.ctaDemo">Schedule Live Demo ($ USD Base)</span>
@@ -81,7 +112,7 @@
               <button
                 id="enter-dashboard-btn"
                 type="button"
-                class="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-600 bg-gray-900/80 px-5 py-3 text-sm font-semibold text-gray-100 hover:border-gray-500 transition"
+                class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-gray-600 bg-gray-900/80 px-5 py-3 text-sm font-semibold text-gray-100 hover:border-gray-500 transition"
               >
                 <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
                 <span data-i18n="landing.enter">Open Dashboard</span>
@@ -116,7 +147,7 @@
           </div>
         </div>
 
-        <section class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8">
+        <section id="section-founder" class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28">
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div>
               <h2 class="text-xl font-bold text-white" data-i18n="founder.scarsTitle">Built in the Trenches</h2>
@@ -131,11 +162,11 @@
           </p>
         </section>
 
-        <section class="mt-14">
+        <section id="section-triad" class="mt-14 scroll-mt-28">
           <h2 class="text-xl font-bold text-white" data-i18n="triad.title">The Tool Triad</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="triad.subtitle">Three agents. One command posture. Built for automotive operations.</p>
-          <div class="mt-6 grid gap-5 md:grid-cols-3">
-            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+          <div class="mt-6 flex md:grid gap-5 overflow-x-auto pb-2 snap-x snap-mandatory md:overflow-visible md:grid-cols-3 md:snap-none">
+            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="package-search" class="h-5 w-5"></i>
               </div>
@@ -144,7 +175,7 @@
                 SAP MARD-live sync plus an AI-intelligence gateway for alternative sourcing (US/MEX).
               </p>
             </article>
-            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="gauge" class="h-5 w-5"></i>
               </div>
@@ -153,7 +184,7 @@
                 Performance telemetry, OEE, scrap analysis, and operator traceability — tied to escalation logic.
               </p>
             </article>
-            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+            <article class="min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
               <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
                 <i data-lucide="file-check-2" class="h-5 w-5"></i>
               </div>
@@ -165,7 +196,7 @@
           </div>
         </section>
 
-        <section class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8">
+        <section id="section-roi" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28">
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
               <h2 class="text-xl font-bold text-white" data-i18n="roi.title">Interactive ROI Calculator</h2>
@@ -184,8 +215,19 @@
               max="250000"
               step="1000"
               value="50000"
-              class="mt-3 w-full accent-ca-risk"
+              class="mt-3 hidden md:block w-full accent-ca-risk"
             />
+            <div class="mt-3 md:hidden">
+              <input
+                id="roi-mobile-input"
+                type="number"
+                min="10000"
+                max="250000"
+                step="1000"
+                value="50000"
+                class="w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 tabular-nums"
+              />
+            </div>
             <div class="mt-2 flex flex-wrap items-baseline justify-between gap-2 text-sm">
               <span class="text-gray-400" data-i18n="roi.hourlyPrefix">Hourly exposure</span>
               <strong id="roi-hourly-display" class="text-white tabular-nums">$50,000.00</strong>
@@ -198,7 +240,7 @@
           </div>
         </section>
 
-        <section class="mt-14">
+        <section id="section-pricing" class="mt-14 scroll-mt-28">
           <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">Pricing</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="pricing.pageSubtitle">USD SaaS tiers for Tier 1/2 automotive operations.</p>
           <div class="mt-6 grid gap-5 md:grid-cols-3">
@@ -233,18 +275,18 @@
           </div>
         </section>
 
-        <section class="mt-14 max-w-3xl">
+        <section id="section-contact" class="mt-14 max-w-3xl scroll-mt-28">
           <h2 class="text-xl font-bold text-white" data-i18n="contact.title">Protect your Production Value.</h2>
           <p class="mt-1 text-sm text-gray-400" data-i18n="contact.subtitle">Tell us your plant context and hourly risk — we respond with a focused next step.</p>
           <form id="contact-form" class="mt-6 space-y-4">
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.nameLabel">Name</span>
-                <input id="contact-name" type="text" required class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-name" type="text" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
               </label>
               <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.emailLabel">Company Email</span>
-                <input id="contact-email" type="email" required class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-email" type="email" required class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.locationLabel">Plant Location</span>
@@ -257,13 +299,13 @@
               </label>
               <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.riskLabel">Estimated hourly downtime cost ($ USD)</span>
-                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
                 <span id="contact-risk-value" class="mt-1 block text-xs text-gray-500">$50,000.00 / hour</span>
                 <span id="contact-risk-micro" class="mt-2 hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-xs text-red-100"></span>
               </label>
             </div>
             <p id="contact-error" class="hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-sm text-red-100"></p>
-            <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition">
+            <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition">
               <span data-i18n="contact.submit">Get My ROI Estimate</span>
             </button>
           </form>
@@ -276,6 +318,15 @@
           <span class="inline-flex items-center gap-1.5" data-i18n="compliance.renderUs">Hosted on US-region infrastructure (e.g. Render.com).</span>
         </footer>
       </div>
+
+      <a
+        id="schedule-demo-fixed"
+        href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
+        class="schedule-demo-fixed md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-blue px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)]"
+      >
+        <i data-lucide="calendar-check" class="h-4 w-4"></i>
+        <span data-i18n="landing.ctaDemo">Schedule Live Demo ($ USD Base)</span>
+      </a>
     </section>
     <div class="app-shell">
       <aside class="sidebar">
@@ -335,6 +386,14 @@
             <small id="financial-permission-hint" class="permission-hint"></small>
           </div>
         </header>
+        <div id="mobile-exec-strip" class="mobile-only panel" style="margin-bottom: 12px">
+          <h3 class="mobile-risk-score-title" data-i18n="mobile.riskScoreTitle">Financial Risk Score</h3>
+          <div class="mobile-risk-score-row">
+            <div id="mobile-risk-score-value" class="mobile-risk-score-value">—</div>
+            <div id="mobile-risk-score-level" class="mobile-risk-score-level">—</div>
+          </div>
+          <p id="mobile-risk-score-hint" class="muted" style="margin: 8px 0 0; font-size: 12px"></p>
+        </div>
         <div id="captain-banner" class="captain-banner hidden">
           ATTENTION CAPTAIN: Immediate Action Required for Step D4!
         </div>
@@ -407,7 +466,8 @@
           <article class="panel">
             <h3>D3 SAP-Stock-Lock (MARD / Batch)</h3>
             <p class="muted">Emergency block button per incoming batch.</p>
-            <div id="d3-stock-lock" class="table-wrap"></div>
+            <div id="d3-stock-lock-mobile" class="mobile-only mobile-card-stack"></div>
+            <div id="d3-stock-lock" class="table-wrap desktop-only"></div>
           </article>
         </section>
 
@@ -418,7 +478,8 @@
           </article>
           <article class="panel">
             <h3>Flow Detail Table</h3>
-            <div id="flow-table" class="table-wrap"></div>
+            <div id="flow-table-mobile" class="mobile-only mobile-card-stack"></div>
+            <div id="flow-table" class="table-wrap desktop-only"></div>
           </article>
         </section>
 
