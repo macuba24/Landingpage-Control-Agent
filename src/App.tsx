@@ -1,14 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Cockpit from "./Cockpit";
-import LandingPage from "./LandingPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './LandingPage';
+import Cockpit from './Cockpit';
 
-export default function App() {
+function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Cockpit />} />
         <Route path="/cockpit" element={<Cockpit />} />
+        <Route path="/info" element={<LandingPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
+export default App;

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Link } from "react-router-dom";
 
 export default function Cockpit() {
   return (
@@ -16,9 +17,14 @@ export default function Cockpit() {
           <p style={styles.kicker}>Operations Cockpit</p>
           <h1 style={styles.title}>Executive Dashboard</h1>
         </div>
-        <button type="button" style={styles.reportButton}>
-          Generate Executive Report
-        </button>
+        <div style={styles.headerActions}>
+          <Link to="/info" style={styles.aboutLink}>
+            About Control Agent
+          </Link>
+          <button type="button" style={styles.reportButton}>
+            Generate Executive Report
+          </button>
+        </div>
       </section>
 
       <section style={styles.grid}>
@@ -95,6 +101,20 @@ const styles: Record<string, CSSProperties> = {
     fontWeight: 700,
     padding: "0.75rem 1rem",
     cursor: "pointer",
+  },
+  headerActions: {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.7rem",
+    flexWrap: "wrap",
+  },
+  aboutLink: {
+    textDecoration: "none",
+    color: "#cbd5e1",
+    border: "1px solid rgba(148, 163, 184, 0.35)",
+    borderRadius: "10px",
+    padding: "0.65rem 0.9rem",
+    fontWeight: 600,
   },
   grid: {
     display: "grid",
