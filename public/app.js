@@ -31,8 +31,12 @@ const I18N = {
     "overview.timestampedHistory": "Timestamped History",
     "overview.timestampedHistorySub": "Shows who approved which step and when.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexico",
-    "landing.heroHeadline":
-      "It's 2:47 AM. Your line is down. Your phone won't stop ringing. And your SAP shows nothing.",
+    "landing.timestampBadge": "2:47 AM",
+    "landing.heroHeadline": "It's 2:47 AM. Your line is down. Your phone won't stop ringing.",
+    "landing.heroHeadlineAccent": "And your SAP shows nothing.",
+    "landing.heroSubLead": "Most plant managers see the crisis after it costs them",
+    "landing.heroSubTail":
+      "Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.",
     "landing.heroSub":
       "Most plant managers see the crisis after it costs them $80,000. Control Agent shows you the risk before the call comes in - in real-time, in one cockpit.",
     "landing.heroBody": "Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.",
@@ -174,9 +178,14 @@ const I18N = {
     "overview.timestampedHistory": "Historial con Marca de Tiempo",
     "overview.timestampedHistorySub": "Muestra quien aprobo cada paso y cuando.",
     "landing.kicker": "Tier 1/2 automotriz · USA y Mexico",
-    "landing.heroHeadline": "Controle el caos. No solo las piezas.",
+    "landing.timestampBadge": "2:47 AM",
+    "landing.heroHeadline": "Son las 2:47 AM. Su linea esta detenida. Su telefono no deja de sonar.",
+    "landing.heroHeadlineAccent": "Y su SAP no muestra nada.",
+    "landing.heroSubLead": "La mayoria de gerentes ve la crisis cuando ya costo",
+    "landing.heroSubTail":
+      "Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
     "landing.heroSub":
-      "Evite penalizaciones de $50k/h por linea detenida con inteligencia de cadena de suministro impulsada por AI. Creado por expertos Tier-1 que conocen el costo de una cena arruinada.",
+      "La mayoria de gerentes ve la crisis cuando ya costo $80,000. Control Agent le muestra el riesgo antes de que llegue la llamada, en tiempo real y en un solo cockpit.",
     "landing.ctaDemo": "Iniciar Mission Control",
     "landing.trustBox":
       "15+ anos en Tier-1 automotriz. Construi esto porque estuve en tus zapatos a las 2 AM.",
@@ -316,9 +325,14 @@ const I18N = {
     "overview.timestampedHistory": "Zeitgestempelte Historie",
     "overview.timestampedHistorySub": "Zeigt, wer welchen Schritt wann freigegeben hat.",
     "landing.kicker": "Automotive Tier 1/2 · USA & Mexiko",
-    "landing.heroHeadline": "Kontrollieren Sie das Chaos. Nicht nur die Teile.",
+    "landing.timestampBadge": "2:47 AM",
+    "landing.heroHeadline": "Es ist 2:47 Uhr. Ihre Linie steht. Ihr Telefon hoert nicht auf zu klingeln.",
+    "landing.heroHeadlineAccent": "Und SAP zeigt nichts.",
+    "landing.heroSubLead": "Die meisten Werksleiter sehen die Krise erst, wenn sie",
+    "landing.heroSubTail":
+      "Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
     "landing.heroSub":
-      "Vermeiden Sie 50k$/h Line-Down-Strafen mit KI-gestuetzter Supply-Chain-Intelligenz. Entwickelt von Tier-1-Experten, die die Kosten eines ruinierten Abendessens kennen.",
+      "Die meisten Werksleiter sehen die Krise erst, wenn sie 80.000 $ kostet. Control Agent zeigt Ihnen das Risiko, bevor der Anruf kommt - in Echtzeit und in einem Cockpit.",
     "landing.ctaDemo": "Mission Control starten",
     "landing.trustBox":
       "15+ Jahre in Automotive Tier-1. Ich habe das gebaut, weil ich um 2 Uhr nachts selbst in Ihrer Lage war.",
