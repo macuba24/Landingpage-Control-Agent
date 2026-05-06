@@ -1,735 +1,787 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control Agent | Real-Time Supply, Flow and Quality Command Center</title>
-    <meta
-      name="description"
-      content="Control Agent unifies Supply, Flow and Quality into one operational cockpit with 8D traceability, financial risk visibility and immediate containment actions."
-    />
-    <meta name="theme-color" content="#0b1220" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Control Agent | Stop Escalation Before Production Stops" />
-    <meta
-      property="og:description"
-      content="Real-time supply, flow and quality intelligence for automotive operations teams in the USA and Mexico."
-    />
-    <meta property="og:url" content="https://landingpage-control-agent.onrender.com/" />
-    <meta property="og:image" content="https://landingpage-control-agent.onrender.com/founder-photo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Control Agent | Real-Time Supply, Flow and Quality Command Center"
-    />
-    <meta
-      name="twitter:description"
-      content="Operational cockpit with 8D traceability, risk signals and immediate containment actions."
-    />
-    <link rel="canonical" href="https://landingpage-control-agent.onrender.com/" />
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
-    <link rel="preconnect" href="https://unpkg.com" />
-    <script>
-      tailwind = window.tailwind || {};
-      tailwind.config = {
-        corePlugins: { preflight: false },
-        theme: {
-          extend: {
-            colors: {
-              ca: {
-                bg: "#121212",
-                blue: "#1E3A8A",
-                risk: "#DC2626",
-              },
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body class="landing-has-mobile-cta">
-    <a
-      href="#landing-hero"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:rounded-lg focus:bg-ca-blue focus:px-4 focus:py-2 focus:text-white"
-    >
-      Skip to main content
-    </a>
-    <section id="landing-page" class="bg-ca-bg text-gray-100 border-b border-gray-800">
-      <header
-        class="sticky top-0 z-50 border-b border-gray-800/80 bg-ca-bg/95 backdrop-blur-md"
-        id="landing-sticky-header"
-      >
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-emerald-500 shadow-lg shrink-0"></div>
-            <div class="min-w-0">
-              <p class="text-base sm:text-lg font-semibold tracking-tight truncate">Control Agent</p>
-              <p class="text-[11px] sm:text-xs text-gray-400 truncate hidden sm:block" data-i18n="brand.tagline">
-                Manufacturing Execution & Supply Chain Intelligence
-              </p>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <label class="flex items-center gap-2 text-[11px] sm:text-xs text-gray-400">
-              <span class="hidden xs:inline" data-i18n="top.language">Language</span>
-              <select
-                id="language-select-landing"
-                class="js-lang-select min-h-[44px] min-w-[44px] rounded-lg border border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-                aria-label="Language selector"
-              >
-                <option value="en">EN</option>
-              </select>
-            </label>
-            <button
-              type="button"
-              id="landing-menu-toggle"
-              class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="landing-mobile-nav"
-            >
-              <i data-lucide="menu" class="h-5 w-5"></i>
-            </button>
-          </div>
-        </div>
-        <div
-          id="landing-mobile-nav"
-          class="hidden md:hidden border-t border-gray-800 bg-gray-950/95"
-          role="navigation"
-        >
-          <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm">
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#landing-hero" data-i18n="nav.mobile.hero">Hero</a>
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-founder" data-i18n="nav.mobile.story">Story</a>
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-triad" data-i18n="nav.mobile.triad">Product</a>
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-roi" data-i18n="nav.mobile.roi">ROI</a>
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-pricing" data-i18n="nav.mobile.pricing">Pricing</a>
-            <a class="mobile-nav-link rounded-lg px-3 py-3 text-gray-200 hover:bg-gray-900" href="#section-contact" data-i18n="nav.mobile.contact">Contact</a>
-            <button
-              type="button"
-              id="landing-menu-dashboard"
-              class="mt-2 w-full rounded-xl border border-gray-700 bg-gray-900 px-3 py-3 text-left font-semibold text-gray-100"
-              data-i18n="landing.enter"
-            >
-              Open Dashboard
-            </button>
-          </nav>
-        </div>
-      </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Agent – Stop the 2:47 AM Call</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #DC2626;
+  --red-dim: rgba(220,38,38,0.15);
+  --red-glow: rgba(220,38,38,0.3);
+  --amber: #F59E0B;
+  --green: #10B981;
+  --bg: #06090E;
+  --bg2: #0A0F18;
+  --surface: #0F1724;
+  --surface2: #162035;
+  --border: rgba(255,255,255,0.06);
+  --border-red: rgba(220,38,38,0.25);
+  --text: #EDF2F7;
+  --muted: #64748B;
+  --dim: #2D3748;
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'DM Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--body); overflow-x: hidden; line-height: 1.6; }
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-[120px]">
-        <div id="landing-hero" class="hero-hook-section grid gap-10 lg:grid-cols-2 lg:items-center scroll-mt-28 reveal-on-scroll in-view">
-          <div class="hero-hook-glow" aria-hidden="true"></div>
-          <div>
-            <div class="timestamp-badge" data-i18n="landing.timestampBadge">2:47 AM</div>
-            <h1 class="hero-hook-headline">
-              <span data-i18n="landing.heroHeadline">Most plant managers recognize the crisis only after it already costs</span>
-              <span class="hero-hook-accent" data-i18n="landing.heroHeadlineAccent">$80,000 per hour.</span>
-            </h1>
-            <p class="hero-hook-sub" data-i18n="landing.heroSub">Control Agent shows your risk before the call comes in - in real time, in one cockpit.</p>
-            <div class="hero-hook-bodyline">
-              <p data-i18n="landing.heroBody">Supply. Flow. Quality. 8D traceability. One screen. Zero surprises.</p>
-            </div>
-            <div class="mt-5 max-w-xl">
-              <label for="hero-business-email" class="block text-sm text-gray-300" data-i18n="landing.heroLeadLabel">Business Email</label>
-              <input
-                id="hero-business-email"
-                type="email"
-                name="email"
-                required
-                autocomplete="email"
-                class="high-visibility-input mt-2 w-full min-h-[44px] rounded-lg border px-3 py-2"
-                placeholder="Enter your work email for the ROI audit..."
-                data-i18n-placeholder="landing.heroLeadPlaceholder"
-              />
-              <span id="hero-email-tip" class="mt-1 block hidden text-xs text-amber-300"></span>
-            </div>
-            <div class="mt-4 cta-area flex flex-wrap items-center gap-3">
-              <a
-                id="schedule-demo-btn"
-                href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
-                class="hidden md:inline-flex primary-cta min-h-[44px] items-center justify-center gap-2 rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
-              >
-                <i data-lucide="calendar-check" class="h-4 w-4"></i>
-                <span data-i18n="landing.ctaDemo">Request Strategic Impact Audit</span>
-              </a>
-            </div>
-            <p class="mt-3 text-sm text-gray-500" data-i18n="landing.ctaTrust">No commitment. No sales call. Just your Business Case.</p>
-            <p class="mt-2 text-sm font-semibold text-sky-200" data-i18n="landing.ctaClarity">
-              You log in. You see your risk number. You act. Done.
-            </p>
-            <p class="mt-4 text-xs text-gray-500 max-w-md" data-i18n="landing.heroFootnote">
-              Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.
-            </p>
-            <div class="trust-box mt-4" role="note" aria-label="Founder trust badge">
-              <img src="/founder-photo.png" alt="Founder portrait" class="trust-box-photo" />
-              <p class="trust-box-copy" data-i18n="landing.trustBox">
-                15+ Years in Automotive Tier-1. I built this because I’ve been in your shoes at 2 AM.
-              </p>
-            </div>
-          </div>
-          <div class="dashboard-live-scan rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl reveal-on-scroll">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-ca-risk" data-i18n="landing.riskBadge">Risk signal</p>
-                <p class="mt-1 text-lg font-semibold text-white" data-i18n="landing.riskTitle">One hour of downtime can erase a quarter of margin.</p>
-              </div>
-              <i data-lucide="activity" class="h-8 w-8 text-ca-risk shrink-0"></i>
-            </div>
-            <ul class="mt-5 space-y-3 text-sm text-gray-300">
-              <li class="flex gap-2">
-                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
-                <span data-i18n="landing.bullet1">Real-time visibility into your shop floor. No data lag. No surprises.</span>
-              </li>
-              <li class="flex gap-2">
-                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
-                <span data-i18n="landing.bullet2">Shift-level OEE, bottlenecks, and quality flags in one operational view.</span>
-              </li>
-              <li class="flex gap-2">
-                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
-                <span data-i18n="landing.bullet3">Fast root-cause workflows with clear ownership and action steps.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+/* NOISE */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1000; opacity: 0.5;
+}
 
-        <section id="section-founder" class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <div class="founder-trust-grid">
-            <div class="founder-trust-photo-wrap">
-              <img src="/founder-photo.png" alt="Rainer Hampicke" class="founder-trust-photo" />
-            </div>
-            <div>
-              <h2 class="text-xl font-bold text-white" data-i18n="authority.experienceTitle">Tested by 20 Years of Shop Floor Reality, Not just 20 Lines of Code.</h2>
-              <p class="mt-4 text-gray-300 leading-relaxed" data-i18n="authority.experienceQuote">
-                I've lived through the 2:47 AM calls. I know the stress when every hour of downtime burns $80,000 in costs. Control Agent is the tool I wish I had for the last two decades.
-              </p>
-              <p class="mt-4 text-sm font-semibold text-sky-300" data-i18n="founder.trustName">Rainer Hampicke, Founder & Industry Expert.</p>
-            </div>
-          </div>
-        </section>
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(6,9,14,0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-family: var(--display); font-size: 22px; letter-spacing: 0.08em; color: var(--text); }
+.logo em { color: var(--red); font-style: normal; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-status { font-family: var(--mono); font-size: 10px; color: var(--green); letter-spacing: 0.15em; display: flex; align-items: center; gap: 6px; }
+.pulse { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); } 50% { box-shadow: 0 0 0 7px rgba(16,185,129,0); } }
+.nav-cta {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  color: white; background: var(--red); border: none; padding: 10px 20px; cursor: pointer;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: #B91C1C; }
 
-        <section id="section-automotive-native" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <div class="inline-flex items-center rounded-full border border-[#d4af37]/70 bg-[#1f2a44] px-4 py-1 text-xs font-bold tracking-[0.08em] text-[#f5d983] uppercase" data-i18n="authority.nativeBadge">
-            100% Automotive Native.
-          </div>
-          <ul class="mt-5 space-y-3 text-sm text-gray-300">
-            <li data-i18n="authority.nativeB1">Designed for IATF 16949 compliant environments.</li>
-            <li data-i18n="authority.nativeB2">Engineered to eliminate the 4-hour SAP information lag.</li>
-            <li data-i18n="authority.nativeB3">Focused on Tier-1 OEM Relationship Protection.</li>
-          </ul>
-        </section>
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 48px 80px; position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(220,38,38,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(220,38,38,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black, transparent);
+}
+.hero-radial {
+  position: absolute; top: -300px; left: 50%; transform: translateX(-50%);
+  width: 1000px; height: 700px;
+  background: radial-gradient(ellipse, rgba(220,38,38,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 1100px; margin: 0 auto; width: 100%; }
 
-        <section id="section-cost-silence" class="mt-14 rounded-2xl border border-red-900/50 bg-gradient-to-b from-red-950/40 to-gray-950 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-red-300" data-i18n="monster.costKicker">Cost of Silence</p>
-          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white" data-i18n="monster.costHeadline">Every minute of downtime costs up to $833.</h2>
-          <p class="mt-3 text-gray-300 max-w-3xl" data-i18n="monster.costBody">
-            While your SAP is "syncing", you are losing money. Control Agent bridges the gap between ERP lag and shop-floor reality.
-          </p>
-        </section>
+.tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.22em; color: var(--red); text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px;
+}
+.tag::before { content: ''; width: 28px; height: 1px; background: var(--red); }
 
-        <section id="section-logic-48h" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/50 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="logic48.title">From Crisis to Control in 48 Hours</h2>
-          <div class="mt-6 grid gap-4 md:grid-cols-3">
-            <article class="rounded-xl border border-gray-800 bg-gray-900/70 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300">Step 1</p>
-              <h3 class="mt-1 font-semibold text-white" data-i18n="logic48.step1Title">Request Audit</h3>
-              <p class="mt-1 text-sm text-gray-300" data-i18n="logic48.step1Body">Data Analysis</p>
-            </article>
-            <article class="rounded-xl border border-gray-800 bg-gray-900/70 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300">Step 2</p>
-              <h3 class="mt-1 font-semibold text-white" data-i18n="logic48.step2Title">Seamless Integration</h3>
-              <p class="mt-1 text-sm text-gray-300" data-i18n="logic48.step2Body">No IT overhead</p>
-            </article>
-            <article class="rounded-xl border border-gray-800 bg-gray-900/70 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300">Step 3</p>
-              <h3 class="mt-1 font-semibold text-white" data-i18n="logic48.step3Title">Immediate Protection</h3>
-              <p class="mt-1 text-sm text-gray-300" data-i18n="logic48.step3Body">Real-time risk visibility</p>
-            </article>
-          </div>
-          <blockquote class="mt-6 rounded-xl border border-emerald-800/60 bg-emerald-950/30 p-4 text-sm text-emerald-100" data-i18n="logic48.quote">
-            Reduced unplanned downtime by 14% within the first month of deployment. - Operations Manager, Tier-1 Automotive Supplier, Queretaro, Mexico.
-          </blockquote>
-        </section>
+.live-bar {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border-red);
+  padding: 10px 18px; margin-bottom: 40px;
+}
+.live-label { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+.live-num { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--red); }
 
-        <section id="section-pillars" class="mt-14 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="monster.pillarsTitle">The 3-Pillar Solution</h2>
-          <div class="mt-5 grid gap-4 md:grid-cols-3">
-            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
-              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar1Title">Supply Agent</p>
-              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar1Body">AI-driven risk detection before the truck even leaves the supplier.</p>
-            </article>
-            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
-              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar2Title">Flow Agent</p>
-              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar2Body">Real-time bottleneck analysis. No more guessing where the parts are.</p>
-            </article>
-            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
-              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar3Title">Quality Agent</p>
-              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar3Body">Instant 8D-transparency. Stop defects before they hit the assembly line.</p>
-            </article>
-          </div>
-        </section>
+h1 {
+  font-family: var(--display);
+  font-size: clamp(56px, 9vw, 118px);
+  line-height: 0.93; letter-spacing: 0.01em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+h1 .w1 { color: var(--text); display: block; }
+h1 .w2 { color: var(--red); display: block; }
+h1 .w3 { color: var(--text); display: block; }
+h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weight: 300; color: var(--muted); display: block; text-transform: none; letter-spacing: 0; margin-top: 12px; }
 
-        <section id="section-triad" class="mt-14 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="triad.title">The Tool Triad</h2>
-          <p class="mt-1 text-sm text-gray-400" data-i18n="triad.subtitle">Three agents. One command posture. Built for automotive operations.</p>
-          <div class="mt-6 flex md:grid gap-5 overflow-x-auto pb-2 snap-x snap-mandatory md:overflow-visible md:grid-cols-3 md:snap-none">
-            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
-                <i data-lucide="package-search" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.supplyTitle">Supply Agent</h3>
-              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.supplyBody">
-                SAP MARD-live sync plus an AI-intelligence gateway for alternative sourcing (US/MEX).
-              </p>
-            </article>
-            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
-                <i data-lucide="gauge" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.flowTitle">Flow Agent</h3>
-              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.flowBody">
-                Performance telemetry, OEE, scrap analysis, and operator traceability — tied to escalation logic.
-              </p>
-            </article>
-            <article class="feature-card min-w-[85vw] sm:min-w-[320px] shrink-0 snap-center rounded-2xl border border-gray-800 bg-gray-900/50 p-5 md:min-w-0">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
-                <i data-lucide="file-check-2" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.qualityTitle">Quality Agent</h3>
-              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.qualityBody">
-                Auto-8D report path (IATF 10.2 aligned) plus a global financial counter in USD for leadership alignment.
-              </p>
-            </article>
-          </div>
-        </section>
+.hero-sub {
+  font-size: clamp(16px,1.8vw,20px); color: var(--muted); max-width: 580px;
+  margin-bottom: 48px; line-height: 1.7;
+  border-left: 2px solid var(--red); padding-left: 20px;
+}
+.hero-sub strong { color: var(--text); font-weight: 600; }
 
-        <section id="section-roi" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-bold text-white" data-i18n="roi.title">Interactive ROI Calculator</h2>
-              <p class="mt-1 text-sm text-gray-400" data-i18n="roi.subtitle">
-                If Control Agent helps reduce downtime cost exposure by just 5% annually, what does that return?
-              </p>
-            </div>
-            <p class="text-xs text-gray-500" data-i18n="roi.hint">Based on Tier-1 Industry Benchmarks.</p>
-          </div>
-          <div class="mt-6">
-            <label for="roi-slider" class="text-sm font-medium text-gray-200" data-i18n="roi.sliderLabel">Your hourly downtime cost ($ USD)</label>
-            <input
-              id="roi-slider"
-              type="range"
-              min="10000"
-              max="250000"
-              step="1000"
-              value="50000"
-              class="mt-3 hidden md:block w-full accent-ca-risk"
-            />
-            <div class="mt-3 md:hidden">
-              <input
-                id="roi-mobile-input"
-                type="text"
-                min="10000"
-                max="250000"
-                step="1000"
-                value="$50,000"
-                inputmode="numeric"
-                enterkeyhint="done"
-                autocomplete="off"
-                spellcheck="false"
-                placeholder="Enter your hourly downtime cost (e.g., 80000)..."
-                data-i18n-placeholder="roi.inputPlaceholder"
-                class="high-visibility-input roi-cost-input w-full min-h-[48px] rounded-lg border px-3 py-2 tabular-nums"
-              />
-            </div>
-            <div class="mt-2 flex flex-wrap items-baseline justify-between gap-2 text-sm">
-              <span class="text-gray-400" data-i18n="roi.hourlyPrefix">Hourly exposure</span>
-              <strong id="roi-hourly-display" class="text-white tabular-nums">$50,000.00</strong>
-            </div>
-            <div id="roi-payback-time" class="roi-payback-box mt-3"></div>
-          </div>
-          <div class="mt-6 rounded-xl border border-emerald-900/50 bg-emerald-950/30 p-4">
-            <p class="text-sm text-emerald-100/90" data-i18n="roi.annualLabel">Estimated annual value of a 5% downtime reduction</p>
-            <p id="roi-annual-savings" class="mt-1 text-2xl font-bold text-emerald-300 tabular-nums">$0.00</p>
-            <p id="roi-vs-pro" class="mt-3 text-sm text-gray-400"></p>
-          </div>
-        </section>
+.cta-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 64px; }
 
-        <section id="section-pricing" class="mt-14 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">Strategic Deployment & ROI.</h2>
-          <p class="mt-1 text-sm text-gray-400 max-w-4xl" data-i18n="pricing.pageSubtitle">We don't sell licenses; we protect production lines. Choose the tier that matches your plant's operational complexity.</p>
-          <p class="mt-2 text-sm text-gray-400 max-w-4xl" data-i18n="pricing.corporateLine">Built for EBITDA protection and operational excellence with real-time shop-floor visibility.</p>
-          <div class="mt-6 overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/60">
-            <div class="grid grid-cols-3 border-b border-gray-800 bg-gray-900/90 text-xs font-semibold uppercase tracking-wider text-gray-400">
-              <div class="px-4 py-3" data-i18n="pricing.colScenario">Scenario</div>
-              <div class="px-4 py-3" data-i18n="pricing.colStatusQuo">Status Quo</div>
-              <div class="px-4 py-3 text-sky-300" data-i18n="pricing.colControlAgent">With Control Agent</div>
-            </div>
-            <div class="grid grid-cols-3 border-b border-gray-800 text-sm">
-              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row1Label">Decision signal</div>
-              <div class="px-4 py-3 text-gray-300" data-i18n="pricing.row1Status">Data lag and delayed escalation</div>
-              <div class="px-4 py-3 text-gray-100" data-i18n="pricing.row1Control">Real-time Intelligence</div>
-            </div>
-            <div class="grid grid-cols-3 border-b border-gray-800 text-sm">
-              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row2Label">Escalation model</div>
-              <div class="px-4 py-3 text-gray-300" data-i18n="pricing.row2Status">Manual coordination and callbacks</div>
-              <div class="px-4 py-3 text-gray-100" data-i18n="pricing.row2Control">Automated 8D-Alerts</div>
-            </div>
-            <div class="grid grid-cols-3 text-sm">
-              <div class="px-4 py-3 text-gray-400" data-i18n="pricing.row3Label">Financial exposure</div>
-              <div class="px-4 py-3 text-red-300" data-i18n="pricing.row3Status">$80,000/hour Line-Down Risk</div>
-              <div class="px-4 py-3 text-emerald-300" data-i18n="pricing.row3Control">Risk Mitigation at 2:47 AM</div>
-            </div>
-          </div>
-          <div class="mt-6 grid gap-5 md:grid-cols-3">
-            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
-              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">Plant Pilot</p>
-              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier1.price">$12,000</p>
-              <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier1.billing">Billed annually</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
-                <li data-i18n="pricing.tier1.f1">Single plant deployment</li>
-                <li data-i18n="pricing.tier1.f2">Real-time 2:47 AM alerting</li>
-                <li data-i18n="pricing.tier1.f3">8D-Traceability</li>
-              </ul>
-              <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
-            </article>
-            <article class="feature-card rounded-2xl border-2 border-[#3b82f6] bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
-              <span class="absolute -top-3 right-4 rounded-full border border-[#d4af37]/70 bg-[#1f2a44] px-3 py-0.5 text-[11px] font-bold text-[#f5d983]" data-i18n="pricing.popular">Strategic Core</span>
-              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">Enterprise Agent</p>
-              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier2.price">$24,000</p>
-              <p class="mt-2 text-sm text-gray-400" data-i18n="pricing.tier2.billing">Billed annually</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-300 flex-1">
-                <li data-i18n="pricing.tier2.f1">Multi-site intelligence</li>
-                <li data-i18n="pricing.tier2.f2">Cross-border risk mapping</li>
-                <li data-i18n="pricing.tier2.f3">Request Access</li>
-              </ul>
-              <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
-            </article>
-            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
-              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">Mission Control</p>
-              <p class="mt-2 text-2xl font-black text-white tabular-nums" data-i18n="pricing.tier3.price">$30,000</p>
-              <p class="mt-2 text-sm text-gray-500" data-i18n="pricing.tier3.billing">Billed annually</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
-                <li data-i18n="pricing.tier3.f1">Full enterprise AI-integration</li>
-                <li data-i18n="pricing.tier3.f2">24/7 dedicated mission control</li>
-                <li data-i18n="pricing.tier3.f3">Predictive Risk Prevention</li>
-              </ul>
-              <p class="mt-2 text-[11px] text-gray-500" data-i18n="pricing.tierFoot">Reserved for Tier-1 Suppliers and OEM Plant Managers.</p>
-            </article>
-          </div>
-          <div class="mt-6 rounded-xl border border-[#d4af37]/45 bg-[#2b2414]/40 p-4">
-            <p class="text-sm text-[#f5d983]" data-i18n="pricing.roiText">Teams typically recover productive hours and stabilize OEE within the first rollout window.</p>
-            <p class="mt-2 text-xs text-[#e5d3a0]" data-i18n="pricing.roiSubtext">This includes lost production value, idle labor, and supply chain disruption.</p>
-          </div>
-          <div class="mt-6">
-            <p class="text-xs text-gray-500" data-i18n="pricing.auditFoot">We provide a customized Economic Impact Report for your specific plant KPIs.</p>
-          </div>
-          <p class="mt-4 text-xs text-gray-500 max-w-4xl" data-i18n="pricing.zeroRiskFoot">Our engagement starts with a technical audit of your current SAP-Lag and OEE-leakage. No upfront software costs until the ROI is proven for your specific facility.</p>
-        </section>
+.btn-red {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red); color: white;
+  font-family: var(--display); font-size: 20px; letter-spacing: 0.06em;
+  padding: 18px 38px; border: none; cursor: pointer; text-decoration: none;
+  transition: all 0.2s; position: relative; overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.btn-red:hover { background: #B91C1C; transform: translateY(-2px); box-shadow: 0 12px 32px var(--red-glow); }
+.btn-arrow { transition: transform 0.2s; }
+.btn-red:hover .btn-arrow { transform: translateX(5px); }
 
-        <section id="section-contact" class="mt-14 max-w-3xl scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="contact.title">Protect your Production Value.</h2>
-          <p class="mt-1 text-sm text-gray-400" data-i18n="contact.subtitle">Tell us your plant context and hourly risk — we respond with a focused next step.</p>
-          <form id="contact-form" action="https://formspree.io/f/mbdwyerk" method="POST" class="mt-6 space-y-4">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <label class="block text-sm text-gray-300">
-                <span data-i18n="contact.nameLabel">Name</span>
-                <input id="contact-name" type="text" autocomplete="name" required class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
-              </label>
-              <label class="block text-sm text-gray-300">
-                <span data-i18n="contact.emailLabel">Business Email</span>
-                <input id="contact-email" name="email" type="email" autocomplete="email" required class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
-                <span id="contact-email-tip" class="mt-1 hidden text-xs text-amber-300"></span>
-              </label>
-              <label class="block text-sm text-gray-300 sm:col-span-2">
-                <span data-i18n="contact.locationLabel">Plant Location</span>
-                <select id="contact-location" class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2">
-                  <option value="Mexico" data-i18n="contact.locMexico">Mexico</option>
-                  <option value="USA" data-i18n="contact.locUsa">USA</option>
-                  <option value="Germany" data-i18n="contact.locGermany">Germany</option>
-                  <option value="Other" data-i18n="contact.locOther">Other</option>
-                </select>
-              </label>
-              <label class="block text-sm text-gray-300 sm:col-span-2">
-                <span data-i18n="contact.riskLabel">Estimated hourly downtime cost ($ USD)</span>
-                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="high-visibility-input mt-1 w-full min-h-[44px] rounded-lg border px-3 py-2" />
-                <span id="contact-risk-value" class="mt-1 block text-xs text-gray-500">$50,000.00 / hour</span>
-                <span id="contact-risk-micro" class="mt-2 hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-xs text-red-100"></span>
-              </label>
-            </div>
-            <p id="contact-error" class="hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-sm text-red-100"></p>
-            <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400">
-              <span data-i18n="contact.submit">Request Strategic Impact Audit</span>
-            </button>
-          </form>
-          <div id="contact-thankyou" class="mt-4 hidden rounded-xl border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-100"></div>
-        </section>
+.trust-micro { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.05em; }
+.trust-micro span { color: var(--green); }
 
-        <section id="section-tech" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-xl font-bold text-white" data-i18n="monster.techTitle">Hosted on US-West (Oregon) for ultra-low latency in North America.</h2>
-          <ul class="mt-4 space-y-2 text-sm text-gray-300">
-            <li data-i18n="monster.techB1">Cloud-native</li>
-            <li data-i18n="monster.techB2">SOC2 compliant</li>
-            <li data-i18n="monster.techB3">Zero-config SAP integration</li>
-          </ul>
-        </section>
+/* PROOF STRIP */
+.proof-strip {
+  background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+}
+.proof-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.proof-num { font-family: var(--display); font-size: 36px; color: var(--red); line-height: 1; }
+.proof-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.proof-divider { width: 1px; height: 40px; background: var(--border); }
 
-        <section id="section-partnership" class="mt-14 rounded-2xl border border-[#3b82f6]/40 bg-[#101826]/80 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="authority.partnerTitle">Be the Leader, Not the Follower.</h2>
-          <p class="mt-3 text-gray-300 max-w-4xl" data-i18n="authority.partnerBody">
-            We are currently accepting 3 additional Tier-1 plants into our "Strategic Impact Program". Secure your spot to lead your division in OEE and Risk Mitigation.
-          </p>
-        </section>
+/* TICKER */
+.ticker { background: var(--red); padding: 9px 0; overflow: hidden; }
+.ticker-inner { display: flex; gap: 48px; animation: scroll 22s linear infinite; white-space: nowrap; }
+.ticker-item { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: white; flex-shrink: 0; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        <footer class="mt-14 flex flex-wrap items-center gap-3 text-[11px] text-gray-500">
-          <span class="inline-flex items-center gap-1.5" data-i18n="compliance.iatfFooter">IATF 16949 compliant architecture (discipline-first design).</span>
-          <span class="text-gray-700">·</span>
-          <span class="inline-flex items-center gap-1.5" data-i18n="compliance.renderUs">Hosted on US-region infrastructure (e.g. Render.com).</span>
-          <span class="text-gray-700">·</span>
-          <a href="#" onclick="return false;" class="text-gray-400 hover:text-gray-200">Privacy Policy</a>
-          <span class="text-gray-700">·</span>
-          <a href="#" onclick="return false;" class="text-gray-400 hover:text-gray-200">Legal Notice</a>
-          <span class="made-automotive-badge">Made for Automotive Excellence</span>
-        </footer>
-      </div>
+/* SECTIONS */
+section { padding: 96px 48px; }
+.inner { max-width: 1100px; margin: 0 auto; }
 
-      <a
-        id="schedule-demo-fixed"
-        href="mailto:sales@control-agent.example?subject=Strategic%20Impact%20Audit%20Request"
-        class="schedule-demo-fixed primary-cta md:hidden fixed bottom-0 inset-x-0 z-50 flex min-h-[52px] items-center justify-center gap-2 border-t border-gray-800 bg-ca-risk px-4 py-3 text-sm font-semibold text-white shadow-[0_-8px_30px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
-      >
-        <i data-lucide="calendar-check" class="h-4 w-4"></i>
-        <span data-i18n="landing.ctaDemo">Request Strategic Impact Audit</span>
-      </a>
-    </section>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-dot"></div>
-          <div>
-            <h1>Control Agent</h1>
-            <p data-i18n="brand.masterConsole">Master Console</p>
-          </div>
-        </div>
-        <nav id="main-nav" class="nav-list">
-          <button class="nav-item active" data-view="overview" data-i18n="nav.overview">Dashboard Overview</button>
-          <button class="nav-item" data-view="reports" data-i18n="nav.reports">Active 8D-Reports</button>
-          <button class="nav-item" data-view="supply" data-i18n="nav.supply">Supply Agent</button>
-          <button class="nav-item" data-view="flow" data-i18n="nav.flow">Flow Agent</button>
-          <button class="nav-item" data-view="quality" data-i18n="nav.quality">Quality Agent</button>
-          <button class="nav-item" data-view="investment" data-i18n="nav.investment">Investment & ROI</button>
-        </nav>
-      </aside>
+.sec-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 12px; }
+.sec-tag::before { content: '// '; opacity: 0.5; }
+.sec-h { font-family: var(--display); font-size: clamp(40px,5vw,72px); text-transform: uppercase; line-height: 0.95; margin-bottom: 16px; }
+.sec-h em { color: var(--red); font-style: normal; }
+.sec-sub { color: var(--muted); font-size: 17px; max-width: 520px; line-height: 1.7; margin-bottom: 56px; }
 
-      <main class="main-board">
-        <header class="top-bar">
-          <div>
-            <p class="top-label" data-i18n="top.globalRisk">Global Risk Level</p>
-            <h2 id="risk-level">-</h2>
-          </div>
-          <div class="audit-controls">
-            <label class="audit-switch">
-              <input id="audit-mode-toggle" type="checkbox" />
-              <span data-i18n="top.auditMode">Enable Audit-Mode</span>
-            </label>
-            <span id="iatf-badge" class="cert-badge">IATF 10.2 COMPLIANT</span>
-            <label class="language-switch">
-              <span data-i18n="top.language">Language</span>
-              <select id="language-select" class="js-lang-select" aria-label="Language selector">
-                <option value="en">English</option>
-              </select>
-            </label>
-            <button id="silence-alerts-btn" class="close-btn" type="button" data-i18n="top.silenceAlerts">Silence Alerts</button>
-          </div>
-          <div class="counter-card">
-            <p data-i18n="top.financialCounter">Financial Counter</p>
-            <div class="financial-row">
-              <strong id="financial-counter">--- USD</strong>
-              <span id="financial-counter-unit" class="currency-unit">USD</span>
-              <button
-                id="financial-privacy-toggle"
-                class="eye-toggle"
-                title="Click to see current financial risk. Stay focused on the solution."
-                aria-label="Toggle Financial Counter Visibility"
-              >
-                👁
-              </button>
-            </div>
-            <small id="financial-permission-hint" class="permission-hint"></small>
-          </div>
-        </header>
-        <div id="mobile-exec-strip" class="mobile-only panel" style="margin-bottom: 12px">
-          <h3 class="mobile-risk-score-title" data-i18n="mobile.riskScoreTitle">Financial Risk Score</h3>
-          <div class="mobile-risk-score-row">
-            <div id="mobile-risk-score-value" class="mobile-risk-score-value">—</div>
-            <div id="mobile-risk-score-level" class="mobile-risk-score-level">—</div>
-          </div>
-          <p id="mobile-risk-score-hint" class="muted" style="margin: 8px 0 0; font-size: 12px"></p>
-        </div>
-        <div id="captain-banner" class="captain-banner hidden">
-          ATTENTION CAPTAIN: Immediate Action Required for Step D4!
-        </div>
-        <div id="auto8d-notice" class="captain-banner hidden">
-          System created 8D-Report for Performance Gap
-        </div>
+/* PAIN */
+.pain { background: var(--bg2); position: relative; }
+.pain::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
 
-        <section id="view-overview" class="view active">
-          <div class="card-grid">
-            <article class="panel">
-              <h3 data-i18n="overview.controlBoard">The Control Board</h3>
-              <p class="muted" data-i18n="overview.controlBoardSub">D1-D8 task cards with ownership details.</p>
-              <div id="task-cards" class="task-grid"></div>
-            </article>
-            <article class="panel">
-              <h3 data-i18n="overview.trafficLight">Traffic Light Status</h3>
-              <p class="muted" data-i18n="overview.trafficLightSub">Immediate risk signal for operations.</p>
-              <div id="traffic-light" class="traffic-light"></div>
-            </article>
-          </div>
-          <article class="panel">
-            <h3 data-i18n="overview.timestampedHistory">Timestamped History</h3>
-            <p class="muted" data-i18n="overview.timestampedHistorySub">Shows who approved which step and when.</p>
-            <div id="audit-history" class="summary-row"></div>
-          </article>
-        </section>
+.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 56px; }
+.pain-card {
+  background: var(--surface); padding: 36px 28px; position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.pain-card:hover { background: var(--surface2); }
+.pain-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
+}
+.pain-card:hover::after { transform: scaleX(1); }
+.pain-role { font-family: var(--mono); font-size: 10px; color: var(--red); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.pain-q { font-size: 17px; font-weight: 500; color: var(--text); line-height: 1.5; margin-bottom: 16px; font-style: italic; }
+.pain-q::before { content: '"'; color: var(--red); font-style: normal; }
+.pain-q::after { content: '"'; color: var(--red); font-style: normal; }
+.pain-meta { font-family: var(--mono); font-size: 11px; color: var(--dim); }
 
-        <section id="view-reports" class="view">
-          <article class="panel">
-            <h3>Active 8D-Reports (Grid View)</h3>
-            <p class="muted">Select a report to open full 8D detail view.</p>
-            <div id="report-grid" class="report-grid"></div>
-          </article>
-          <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
-          <aside id="report-detail-drawer" class="detail-drawer hidden">
-            <div class="drawer-head">
-              <div>
-                <h3 id="drawer-title">8D Report Detail</h3>
-                <p id="drawer-subtitle" class="muted">Report data and ownership details.</p>
-              </div>
-              <div class="case-financial">
-                <span>Financial Impact for this Case</span>
-                <div class="financial-row">
-                  <strong id="case-financial-impact" class="masked">--- USD</strong>
-                  <button id="case-financial-toggle" class="eye-toggle" aria-label="Toggle Case Financial Impact">👁</button>
-                </div>
-              </div>
-              <button id="drawer-close" class="close-btn" aria-label="Close report detail">X</button>
-            </div>
-            <article class="panel">
-              <h3>Ownership Matrix</h3>
-              <p class="muted">Hard ownership with immediate save-on-change.</p>
-              <div id="dstep-detail-grid" class="dstep-detail-grid"></div>
-            </article>
-            <article class="panel">
-              <h3>Agent Deep-Links</h3>
-              <div class="agent-link-row">
-                <button class="jump-btn" data-jump-view="supply">Jump to Supply Agent Stock-Lock</button>
-                <button class="jump-btn" data-jump-view="flow">View Flow Agent Machine Logs</button>
-              </div>
-            </article>
-          </aside>
-        </section>
+.pain-verdict {
+  background: var(--surface); border: 1px solid var(--border-red);
+  padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.verdict-text { font-family: var(--display); font-size: clamp(28px,3vw,44px); text-transform: uppercase; line-height: 1.1; }
+.verdict-text em { color: var(--red); font-style: normal; display: block; }
+.verdict-note { font-size: 15px; color: var(--muted); max-width: 380px; line-height: 1.6; }
+.verdict-note strong { color: var(--text); }
 
-        <section id="view-supply" class="view">
-          <article class="panel">
-            <h3>Supply Agent (SAP Material/Stock)</h3>
-            <div id="supply-summary" class="summary-row"></div>
-          </article>
-          <article class="panel">
-            <h3>D3 SAP-Stock-Lock (MARD / Batch)</h3>
-            <p class="muted">Emergency block button per incoming batch.</p>
-            <div id="d3-stock-lock-mobile" class="mobile-only mobile-card-stack"></div>
-            <div id="d3-stock-lock" class="table-wrap desktop-only"></div>
-          </article>
-        </section>
+/* FOUNDER */
+.founder { background: var(--bg); position: relative; overflow: hidden; }
+.founder-bg { position: absolute; right: -60px; bottom: -60px; font-family: var(--display); font-size: 260px; color: rgba(255,255,255,0.012); pointer-events: none; user-select: none; line-height: 1; }
+.founder-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; align-items: center; }
+.founder-left { }
+.founder-badge {
+  display: inline-flex; flex-direction: column; gap: 6px;
+  background: var(--surface); border: 1px solid var(--border-red);
+  padding: 24px 28px; margin-bottom: 32px;
+}
+.badge-title { font-family: var(--mono); font-size: 10px; color: var(--red); letter-spacing: 0.18em; text-transform: uppercase; }
+.badge-name { font-family: var(--display); font-size: 28px; color: var(--text); letter-spacing: 0.05em; }
+.badge-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.founder-stats { display: flex; flex-direction: column; gap: 12px; }
+.f-stat { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--muted); }
+.f-stat-num { font-family: var(--display); font-size: 36px; color: var(--red); line-height: 1; min-width: 70px; }
+.founder-right p { font-size: 17px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.founder-right p strong { color: var(--text); font-weight: 600; }
+.founder-quote {
+  border-left: 3px solid var(--red); padding: 20px 24px;
+  background: var(--surface); margin-top: 32px;
+  font-size: 18px; font-weight: 500; color: var(--text); line-height: 1.6; font-style: italic;
+}
 
-        <section id="view-flow" class="view">
-          <article class="panel">
-            <h3>Flow Agent (Production/Machine Telemetry)</h3>
-            <div id="flow-content" class="summary-row"></div>
-          </article>
-          <article class="panel">
-            <h3>Flow Detail Table</h3>
-            <div id="flow-table-mobile" class="mobile-only mobile-card-stack"></div>
-            <div id="flow-table" class="table-wrap desktop-only"></div>
-          </article>
-        </section>
+/* HOW IT WORKS */
+.how { background: var(--bg2); }
+.how::before { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); margin: 0 0 96px; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
+.step { background: var(--surface); padding: 36px 28px; position: relative; }
+.step-num { font-family: var(--display); font-size: 64px; color: var(--border); line-height: 1; margin-bottom: -10px; }
+.step-name { font-family: var(--display); font-size: 22px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.step-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-        <section id="view-quality" class="view">
-          <article class="panel">
-            <h3>Quality Agent (Archive & Export)</h3>
-            <p class="warning">Internal documents (FMEA) remain in-house as per IP policy.</p>
-            <div id="quality-content" class="summary-row"></div>
-            <div id="quality-internal-links" class="summary-row sensitive-internal"></div>
-          </article>
-        </section>
+/* AGENTS */
+.agents { background: var(--bg); }
+.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.agent {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 36px 28px; position: relative; overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.agent:hover { border-color: var(--border-red); transform: translateY(-5px); }
+.agent-idx { font-family: var(--display); font-size: 80px; color: rgba(255,255,255,0.03); position: absolute; top: -10px; right: 16px; line-height: 1; }
+.agent-name { font-family: var(--display); font-size: 30px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.agent-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
+.agent-features { display: flex; flex-direction: column; gap: 8px; }
+.af { font-family: var(--mono); font-size: 11px; color: var(--dim); display: flex; align-items: flex-start; gap: 8px; }
+.af::before { content: '→'; color: var(--red); flex-shrink: 0; }
 
-        <section id="view-investment" class="view">
-          <article class="panel founder-panel investment-hero">
-            <h3 data-i18n="founder.scarsTitle">Built in the Trenches</h3>
-            <p class="muted" data-i18n="founder.scarsKicker">From a 3:00 AM plant call — not a slide deck.</p>
-            <div class="founder-layout investment-hero-layout">
-              <div class="founder-photo-wrap">
-                <img src="/founder-photo.png" alt="" class="founder-photo investment-hero-photo" />
-              </div>
-              <div>
-                <p class="founder-keyline" data-i18n="founder.keyline">I don't sell software. I sell the sleep you lost.</p>
-                <p data-i18n="founder.story">
-                  The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.
-                </p>
-              </div>
-            </div>
-          </article>
-          <article class="panel pricing-panel">
-            <h3 data-i18n="pricing.title">Investment & ROI (Value-Based Pricing)</h3>
-            <p class="muted" data-i18n="pricing.subtitle">Clean 3-column pricing grid in USD.</p>
-            <div class="pricing-grid">
-              <article class="price-card">
-                <p class="price-tier" data-i18n="pricing.tier1.name">PILOT / TIER 2</p>
-                <p class="price-value" data-i18n="pricing.tier1.billing">Request Access</p>
-                <ul class="price-features">
-                  <li data-i18n="pricing.tier1.f1">Supply Agent basic</li>
-                  <li data-i18n="pricing.tier1.f2">AI-Sourcing link</li>
-                  <li data-i18n="pricing.tier1.f3">SAP-Mock Connector</li>
-                </ul>
-                <p class="price-target" data-i18n="pricing.tier1.target">Target: Smaller production sites.</p>
-              </article>
-              <article class="price-card price-card-popular">
-                <span class="popular-badge" data-i18n="pricing.popular">Most Popular</span>
-                <p class="price-tier" data-i18n="pricing.tier2.name">PROFESSIONAL / CAPTAIN'S CHOICE</p>
-                <p class="price-value" data-i18n="pricing.tier2.billing">Request Access</p>
-                <ul class="price-features">
-                  <li data-i18n="pricing.tier2.f1">Full Supply & Flow Agent</li>
-                  <li data-i18n="pricing.tier2.f2">OEE Tracking</li>
-                  <li data-i18n="pricing.tier2.f3">Financial Counter</li>
-                  <li data-i18n="pricing.tier2.f4">Custom Alert Thresholds</li>
-                </ul>
-                <p class="price-target" data-i18n="pricing.tier2.target">Target: Core automotive suppliers in MEX/USA.</p>
-              </article>
-              <article class="price-card">
-                <p class="price-tier" data-i18n="pricing.tier3.name">ENTERPRISE / AUDIT READY</p>
-                <p class="price-value" data-i18n="pricing.tier3.billing">Request Access</p>
-                <ul class="price-features">
-                  <li data-i18n="pricing.tier3.f1">Full Suite</li>
-                  <li data-i18n="pricing.tier3.f2">Auto-8D Generation</li>
-                  <li data-i18n="pricing.tier3.f3">Multi-Line Support</li>
-                  <li data-i18n="pricing.tier3.f4">IATF 10.2 Compliance Suite</li>
-                </ul>
-                <p class="price-target" data-i18n="pricing.tier3.target">Target: Tier-1 Mega Plants.</p>
-              </article>
-            </div>
-            <div class="roi-box">
-              <strong data-i18n="pricing.roiTitle">ROI Callout</strong>
-              <p data-i18n="pricing.roiText">
-                If Control Agent prevents just ONE hour of downtime ($50,000 avg.), it pays for its entire annual subscription in the first 15 minutes of a crisis.
-              </p>
-            </div>
-          </article>
-        </section>
-      </main>
+/* DASHBOARD PREVIEW */
+.preview { background: var(--bg2); position: relative; }
+.preview::before { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.dashboard-mock {
+  max-width: 960px; margin: 0 auto;
+  background: var(--surface); border: 1px solid var(--border);
+  overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+.mock-bar {
+  background: var(--surface2); padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.mock-bar-left { display: flex; align-items: center; gap: 12px; }
+.mock-logo { font-family: var(--display); font-size: 14px; letter-spacing: 0.08em; color: var(--muted); }
+.mock-badge { font-family: var(--mono); font-size: 9px; color: var(--green); border: 1px solid var(--green); padding: 2px 7px; letter-spacing: 0.1em; }
+.mock-bar-right { font-family: var(--mono); font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 16px; }
+.mock-body { display: grid; grid-template-columns: 200px 1fr; }
+.mock-nav { background: var(--bg2); border-right: 1px solid var(--border); padding: 20px 0; }
+.mock-nav-item { padding: 10px 20px; font-family: var(--mono); font-size: 11px; color: var(--muted); cursor: default; transition: all 0.2s; }
+.mock-nav-item.active { color: var(--red); background: var(--red-dim); border-right: 2px solid var(--red); }
+.mock-nav-item:hover:not(.active) { color: var(--text); }
+.mock-main { padding: 24px; }
+.mock-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.kpi-card { background: var(--bg2); border: 1px solid var(--border); padding: 16px; }
+.kpi-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+.kpi-val { font-family: var(--display); font-size: 28px; line-height: 1; }
+.kpi-val.red { color: var(--red); }
+.kpi-val.green { color: var(--green); }
+.kpi-val.amber { color: var(--amber); }
+.kpi-sub { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 4px; }
+.d1d8-row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+.d-step { background: var(--bg2); border: 1px solid var(--border); padding: 10px 8px; text-align: center; }
+.d-label { font-family: var(--display); font-size: 14px; color: var(--muted); }
+.d-status { font-family: var(--mono); font-size: 9px; margin-top: 4px; }
+.d-status.done { color: var(--green); }
+.d-status.active { color: var(--amber); }
+.d-status.open { color: var(--dim); }
+
+/* ROI */
+.roi { background: var(--bg); }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.roi-left p { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+.roi-points { display: flex; flex-direction: column; gap: 12px; }
+.roi-point { display: flex; align-items: flex-start; gap: 14px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.roi-point::before { content: '▸'; color: var(--red); font-size: 11px; margin-top: 3px; flex-shrink: 0; }
+.roi-form { background: var(--surface); border: 1px solid var(--border); padding: 40px; }
+.form-title { font-family: var(--display); font-size: 24px; text-transform: uppercase; color: var(--text); margin-bottom: 28px; letter-spacing: 0.05em; }
+label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 7px; }
+input, select {
+  width: 100%; background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text); font-family: var(--mono); font-size: 13px;
+  padding: 13px 14px; margin-bottom: 18px; outline: none;
+  transition: border-color 0.2s; appearance: none;
+}
+input:focus, select:focus { border-color: var(--red); }
+.roi-output {
+  background: var(--bg); border: 1px solid var(--border-red);
+  padding: 20px; margin-bottom: 20px; display: none;
+}
+.roi-output.show { display: block; }
+.roi-output-label { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+.roi-big { font-family: var(--display); font-size: 52px; color: var(--red); line-height: 1; }
+.roi-note { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 6px; }
+.roi-disclaimer { font-size: 11px; color: var(--dim); margin-top: 12px; line-height: 1.5; }
+
+/* PRICING */
+.pricing { background: var(--bg2); }
+.pricing::before { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-bottom: 48px; }
+.plan {
+  background: var(--surface); padding: 40px 32px; position: relative;
+  display: flex; flex-direction: column;
+  transition: background 0.3s;
+}
+.plan.featured { background: var(--surface2); border-top: 3px solid var(--red); }
+.plan-tag { font-family: var(--mono); font-size: 9px; color: var(--red); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; }
+.plan-name { font-family: var(--display); font-size: 32px; text-transform: uppercase; color: var(--text); margin-bottom: 6px; }
+.plan-price { font-family: var(--display); font-size: 52px; color: var(--red); line-height: 1; margin-bottom: 4px; }
+.plan-period { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 28px; }
+.plan-features { flex: 1; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.pf { font-size: 14px; color: var(--muted); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+.pf::before { content: '✓'; color: var(--green); flex-shrink: 0; font-weight: 700; }
+.plan-cta {
+  display: block; text-align: center; text-decoration: none;
+  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  padding: 14px; transition: all 0.2s;
+  border: 1px solid var(--border-red); color: var(--red);
+}
+.plan-cta:hover, .plan.featured .plan-cta { background: var(--red); color: white; border-color: var(--red); }
+.pricing-note {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 28px 32px; font-size: 15px; color: var(--muted); line-height: 1.7; text-align: center;
+}
+.pricing-note strong { color: var(--text); }
+
+/* FINAL CTA */
+.final { background: var(--bg); padding: 120px 48px; text-align: center; position: relative; overflow: hidden; }
+.final::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.final-glow { position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(220,38,38,0.1) 0%, transparent 65%); pointer-events: none; }
+.final-inner { position: relative; max-width: 760px; margin: 0 auto; }
+.final-pre { font-family: var(--mono); font-size: 11px; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 28px; }
+.final h2 { font-family: var(--display); font-size: clamp(44px, 6.5vw, 88px); text-transform: uppercase; line-height: 0.93; margin-bottom: 24px; }
+.final h2 em { color: var(--red); font-style: normal; display: block; }
+.final p { font-size: 18px; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
+.final-trust { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: 0.12em; margin-top: 24px; }
+
+/* FOOTER */
+footer { padding: 28px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); flex-wrap: wrap; gap: 12px; }
+.footer-logo { font-family: var(--display); font-size: 16px; letter-spacing: 0.08em; color: var(--dim); }
+.footer-logo em { color: var(--red); font-style: normal; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-family: var(--mono); font-size: 10px; color: var(--dim); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--muted); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.hero-inner > * { animation: fadeUp 0.7s ease both; }
+.tag { animation-delay: 0.05s; }
+.live-bar { animation-delay: 0.15s; }
+h1 { animation-delay: 0.25s; }
+.hero-sub { animation-delay: 0.4s; }
+.cta-group { animation-delay: 0.55s; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-right .nav-status { display: none; }
+  section, .hero, .final { padding: 64px 20px; }
+  .proof-strip { padding: 24px 20px; gap: 24px; }
+  .proof-divider { display: none; }
+  .pain-grid, .agents-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+  .roi-grid { grid-template-columns: 1fr; gap: 40px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .mock-body { grid-template-columns: 1fr; }
+  .mock-nav { display: none; }
+  .d1d8-row { grid-template-columns: repeat(4, 1fr); }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">CONTROL <em>AGENT</em></div>
+  <div class="nav-right">
+    <div class="nav-status"><div class="pulse"></div> SYSTEM ONLINE</div>
+    <a href="#audit" class="nav-cta">REQUEST AUDIT →</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-radial"></div>
+  <div class="hero-inner">
+    <div class="tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
+    <div class="live-bar">
+      <div class="pulse" style="background:var(--red);"></div>
+      <span class="live-label">INDUSTRY LINE STOP LOSSES THIS HOUR</span>
+      <span class="live-num" id="liveNum">$0</span>
     </div>
+    <h1>
+      <span class="w1">IT'S 2:47 AM.</span>
+      <span class="w2">YOUR LINE IS DOWN.</span>
+      <span class="w3">SAP SHOWS NOTHING.</span>
+      <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
+    </h1>
+    <p class="hero-sub">
+      Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
+      Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.
+    </p>
+    <div class="cta-group">
+      <a href="#audit" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
+      <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
+    </div>
+  </div>
+</section>
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-num">20+</div><div class="proof-label">Years Shop Floor</div></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item"><div class="proof-num">$833</div><div class="proof-label">Lost Per Minute Down</div></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item"><div class="proof-num">4h</div><div class="proof-label">Avg SAP Lag Eliminated</div></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item"><div class="proof-num">IATF</div><div class="proof-label">16949 Compliant</div></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item"><div class="proof-num">&lt;15min</div><div class="proof-label">To First Risk Signal</div></div>
+</div>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⬥ SUPPLY AGENT ACTIVE</span>
+    <span class="ticker-item">⬥ FLOW AGENT MONITORING</span>
+    <span class="ticker-item">⬥ QUALITY AGENT ARMED</span>
+    <span class="ticker-item">⬥ 8D AUTO-TRIGGERED</span>
+    <span class="ticker-item">⬥ IATF 10.2 COMPLIANT</span>
+    <span class="ticker-item">⬥ SAP LAG ELIMINATED</span>
+    <span class="ticker-item">⬥ ZERO BLIND SPOTS</span>
+    <span class="ticker-item">⬥ SUPPLY AGENT ACTIVE</span>
+    <span class="ticker-item">⬥ FLOW AGENT MONITORING</span>
+    <span class="ticker-item">⬥ QUALITY AGENT ARMED</span>
+    <span class="ticker-item">⬥ 8D AUTO-TRIGGERED</span>
+    <span class="ticker-item">⬥ IATF 10.2 COMPLIANT</span>
+    <span class="ticker-item">⬥ SAP LAG ELIMINATED</span>
+    <span class="ticker-item">⬥ ZERO BLIND SPOTS</span>
+  </div>
+</div>
+<section class="pain">
+  <div class="inner">
+    <div class="sec-tag">Sound Familiar?</div>
+    <div class="sec-h">These Conversations<br>Are Happening <em>Right Now.</em></div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-role">🏭 Plant Manager</div>
+        <div class="pain-q">My line stopped and I had zero early warning. I found out from the customer — not my system.</div>
+        <div class="pain-meta">// 4.5h downtime · est. $360,000 exposure</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-role">🔍 Quality Manager</div>
+        <div class="pain-q">The 8D was opened after the customer called. That's always how it happens. We're always reactive.</div>
+        <div class="pain-meta">// Escalation Level 3 · Audit risk open</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-role">📦 Supply Chain Manager</div>
+        <div class="pain-q">I had no visibility on the supplier gap until it was too late to reroute. SAP showed green.</div>
+        <div class="pain-meta">// 2 suppliers critical · no buffer · line at risk</div>
+      </div>
+    </div>
+    <div class="pain-verdict">
+      <div class="verdict-text">This Is Not A Data Problem.<br><em>It's A Visibility Problem.</em></div>
+      <div class="verdict-note">Your ERP has the data. But it arrives <strong>4–24 hours too late</strong>. Control Agent bridges the gap between what SAP knows and what your shop floor needs — right now.</div>
+    </div>
+  </div>
+</section>
+<section class="founder">
+  <div class="founder-bg">TRENCH</div>
+  <div class="inner">
+    <div class="sec-tag">Why Trust This</div>
+    <div class="founder-grid">
+      <div class="founder-left">
+        <div class="founder-badge">
+          <div class="badge-title">// Founder</div>
+          <div class="badge-name">RAINER HAMPICKE</div>
+          <div class="badge-sub">Mechanical Engineer · Automotive PM</div>
+        </div>
+        <div class="founder-stats">
+          <div class="f-stat"><span class="f-stat-num">20+</span> Years on the shop floor — Tier-1 Automotive</div>
+          <div class="f-stat"><span class="f-stat-num">2:47</span> AM — the call I kept getting that I couldn't answer fast enough</div>
+          <div class="f-stat"><span class="f-stat-num">0</span> Boardroom investors. Built from real operational pain.</div>
+        </div>
+      </div>
+      <div class="founder-right">
+        <p>I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data at 2 AM. Control Agent wasn't born in a lab — <strong>it was born on the shop floor during a midnight shift</strong> when I realized that managers need a Captain's View, not just another spreadsheet.</p>
+        <p>Every alert, every 8D trigger, every risk signal in this tool was built because <strong>I needed it myself and it didn't exist</strong>. Tested under real Tier-1 production pressure — not in a sandbox.</p>
+        <p>I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD — so you can <strong>lead with confidence, not chaos.</strong></p>
+        <div class="founder-quote">
+          "I know exactly what's at stake at 2:47 AM. Let's make sure you never face it unprepared."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="how">
+  <div class="inner">
+    <div class="sec-tag">How It Works</div>
+    <div class="sec-h">Live In <em>15 Minutes.</em></div>
+    <p class="sec-sub">No lengthy implementation. No pre-sales theater. You log in, you see your risk number, you act.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-name">Connect</div>
+        <div class="step-desc">SAP integration without configuration overhead. We handle the technical audit of your current SAP lag and OEE leakage.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-name">See</div>
+        <div class="step-desc">Your risk number appears on screen. Supply gaps, machine flow, quality signals — all in one cockpit. No spreadsheet archaeology.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-name">Act</div>
+        <div class="step-desc">8D reports auto-triggered. Containment actions assigned. IATF-compliant trail created — before the customer calls.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-name">Lead</div>
+        <div class="step-desc">You walk into the morning meeting with answers, not questions. Your board sees a captain — not someone who found out last.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="agents">
+  <div class="inner">
+    <div class="sec-tag">The Solution</div>
+    <div class="sec-h">One Cockpit. <em>Three Agents.</em></div>
+    <p class="sec-sub">Supply. Flow. Quality. Unified into one operational command center.</p>
+    <div class="agents-grid">
+      <div class="agent">
+        <div class="agent-idx">01</div>
+        <div class="agent-name">Supply Agent</div>
+        <p class="agent-desc">AI-powered risk detection before the truck leaves the supplier. SAP-MARD live sync with AI gateway for alternative sourcing across US/MEX regions.</p>
+        <div class="agent-features">
+          <div class="af">Live supplier risk dashboard</div>
+          <div class="af">SAP-MARD synchronization</div>
+          <div class="af">Auto-escalation on supply gap</div>
+          <div class="af">Alternative sourcing signals (US/MEX)</div>
+        </div>
+      </div>
+      <div class="agent">
+        <div class="agent-idx">02</div>
+        <div class="agent-name">Flow Agent</div>
+        <p class="agent-desc">Real-time bottleneck analysis. Performance telemetry, OEE, scrap analysis and operator traceability — with built-in escalation logic.</p>
+        <div class="agent-features">
+          <div class="af">Real-time OEE monitoring</div>
+          <div class="af">Shift-level performance view</div>
+          <div class="af">Scrap & downtime tracking</div>
+          <div class="af">Financial counter in USD</div>
+        </div>
+      </div>
+      <div class="agent">
+        <div class="agent-idx">03</div>
+        <div class="agent-name">Quality Agent</div>
+        <p class="agent-desc">Automated 8D path (IATF 10.2). Stops defects before they hit your line. Keeps your audit trail clean without manual input.</p>
+        <div class="agent-features">
+          <div class="af">Auto-generated 8D reports</div>
+          <div class="af">D1–D8 ownership assignment</div>
+          <div class="af">IATF 10.2 audit trail</div>
+          <div class="af">Containment action tracking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="preview">
+  <div class="inner">
+    <div class="sec-tag" style="margin-top:96px;">What You See</div>
+    <div class="sec-h">Your Captain's <em>View.</em></div>
+    <p class="sec-sub">Not a spreadsheet. Not a SAP report from 4 hours ago. This is your shop floor — right now.</p>
+    <div class="dashboard-mock">
+      <div class="mock-bar">
+        <div class="mock-bar-left">
+          <div class="mock-logo">CONTROL AGENT</div>
+          <div class="mock-badge">● LIVE</div>
+        </div>
+        <div class="mock-bar-right">
+          <span>Plant: MEX-01</span>
+          <span style="color:var(--green)">IATF 10.2 ✓</span>
+          <span style="color:var(--amber)">⚠ 2 Alerts</span>
+        </div>
+      </div>
+      <div class="mock-body">
+        <div class="mock-nav">
+          <div class="mock-nav-item active">Dashboard</div>
+          <div class="mock-nav-item">Supply Agent</div>
+          <div class="mock-nav-item">Flow Agent</div>
+          <div class="mock-nav-item">Quality Agent</div>
+          <div class="mock-nav-item">Active 8D Reports</div>
+          <div class="mock-nav-item">Investment & ROI</div>
+        </div>
+        <div class="mock-main">
+          <div class="mock-kpi-row">
+            <div class="kpi-card">
+              <div class="kpi-label">Global Risk Level</div>
+              <div class="kpi-val amber">MEDIUM</div>
+              <div class="kpi-sub">↑ Supply gap detected</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Financial Exposure</div>
+              <div class="kpi-val red">$248,400</div>
+              <div class="kpi-sub">Real-time · Shift total</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">OEE Current Shift</div>
+              <div class="kpi-val green">87.4%</div>
+              <div class="kpi-sub">↑ +3.1% vs. yesterday</div>
+            </div>
+          </div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Active 8D — Auto-Triggered 14:32</div>
+          <div class="d1d8-row">
+            <div class="d-step"><div class="d-label">D1</div><div class="d-status done">✓ DONE</div></div>
+            <div class="d-step"><div class="d-label">D2</div><div class="d-status done">✓ DONE</div></div>
+            <div class="d-step"><div class="d-label">D3</div><div class="d-status active">● ACTIVE</div></div>
+            <div class="d-step"><div class="d-label">D4</div><div class="d-status active">● ACTIVE</div></div>
+            <div class="d-step"><div class="d-label">D5</div><div class="d-status open">– OPEN</div></div>
+            <div class="d-step"><div class="d-label">D6</div><div class="d-status open">– OPEN</div></div>
+            <div class="d-step"><div class="d-label">D7</div><div class="d-status open">– OPEN</div></div>
+            <div class="d-step"><div class="d-label">D8</div><div class="d-status open">– OPEN</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="roi" id="audit">
+  <div class="inner">
+    <div class="roi-grid">
+      <div class="roi-left">
+        <div class="sec-tag">Your Number</div>
+        <div class="sec-h" style="margin-bottom:20px;">What Does One Stop <em>Actually</em> Cost?</div>
+        <p>Enter your hourly downtime cost. See your quarterly risk exposure. Decide if you can afford to wait.</p>
+        <div class="roi-points">
+          <div class="roi-point">$833 lost per minute of unplanned downtime — industry average</div>
+          <div class="roi-point">4–24 hour SAP information lag in most Tier-1 plants</div>
+          <div class="roi-point">Control Agent ROI typically visible within the first prevented incident</div>
+          <div class="roi-point">At $1,333/min downtime impact, the tool pays back in under 15 minutes of one avoided stop</div>
+        </div>
+      </div>
+      <div class="roi-form">
+        <div class="form-title">Get My ROI Estimate</div>
+        <label>Your Name</label>
+        <input type="text" placeholder="Max Mustermann">
+        <label>Company Email</label>
+        <input type="email" placeholder="m.mustermann@company.com">
+        <label>Plant Location</label>
+        <select>
+          <option>Germany</option>
+          <option>Mexico</option>
+          <option>USA</option>
+          <option>Other</option>
+        </select>
+        <label>Hourly Cost if Line Stops (USD)</label>
+        <input type="number" id="riskIn" placeholder="e.g. 50000" oninput="calcROI()">
+        <div class="roi-output" id="roiOut">
+          <div class="roi-output-label">Conservative Quarterly Risk Exposure</div>
+          <div class="roi-big" id="roiBig">$0</div>
+          <div class="roi-note">Based on 1 unplanned stop × 4.5h avg downtime per quarter</div>
+        </div>
+        <div class="roi-disclaimer" id="roiDisc" style="display:none;">Conservative estimate. Does not include customer penalties, audit costs, or OEM relationship impact.</div>
+        <a href="#" class="btn-red" style="width:100%;justify-content:center;display:flex;">
+          Request Strategic Impact Audit <span class="btn-arrow">→</span>
+        </a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);text-align:center;margin-top:14px;letter-spacing:0.08em;">NO SPAM · NO PRE-SALES THEATER · YOUR BUSINESS CASE FIRST</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pricing">
+  <div class="inner">
+    <div class="sec-tag">Investment</div>
+    <div class="sec-h">Choose Your <em>Protection Level.</em></div>
+    <p class="sec-sub">We don't sell licenses. We protect production lines. No upfront software cost until ROI is proven for your plant.</p>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-tag">// Single Plant</div>
+        <div class="plan-name">Pilot</div>
+        <div class="plan-price">$12k</div>
+        <div class="plan-period">billed annually · ~$1,000/mo</div>
+        <div class="plan-features">
+          <div class="pf">Single plant deployment</div>
+          <div class="pf">Real-time 2:47 AM alerts</div>
+          <div class="pf">8D traceability (IATF 10.2)</div>
+          <div class="pf">SAP integration audit included</div>
+          <div class="pf">ROI report for your KPIs</div>
+        </div>
+        <a href="#audit" class="plan-cta">REQUEST AUDIT →</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-tag">// Most Popular · Multi-Site</div>
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">$24k</div>
+        <div class="plan-period">billed annually · ~$2,000/mo</div>
+        <div class="plan-features">
+          <div class="pf">Multi-plant intelligence</div>
+          <div class="pf">Cross-border risk mapping</div>
+          <div class="pf">All three agents active</div>
+          <div class="pf">Financial counter in USD (live)</div>
+          <div class="pf">Dedicated onboarding support</div>
+        </div>
+        <a href="#audit" class="plan-cta">REQUEST AUDIT →</a>
+      </div>
+      <div class="plan">
+        <div class="plan-tag">// Global Command</div>
+        <div class="plan-name">Command</div>
+        <div class="plan-price">$30k</div>
+        <div class="plan-period">billed annually · ~$2,500/mo</div>
+        <div class="plan-features">
+          <div class="pf">Full AI integration enterprise-wide</div>
+          <div class="pf">24/7 dedicated command center</div>
+          <div class="pf">Predictive risk prevention</div>
+          <div class="pf">Custom OEM reporting</div>
+          <div class="pf">White-glove implementation</div>
+        </div>
+        <a href="#audit" class="plan-cta">REQUEST AUDIT →</a>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <strong>Our commitment starts with a technical audit of your SAP lag and OEE leakage.</strong><br>
+      No upfront software costs until we've proven the ROI for your plant. Currently accepting 3 additional Tier-1 plants into our Strategic Impact Program.
+    </div>
+  </div>
+</section>
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="final-inner">
+    <div class="final-pre">// Last Warning</div>
+    <h2>Your Next Line Stop<br><em>Is Already In The Data.</em></h2>
+    <p>The question is: will you see it first — or will your customer?</p>
+    <a href="#audit" class="btn-red" style="font-size:22px;padding:22px 52px;">
+      Get My Risk Dashboard <span class="btn-arrow">→</span>
+    </a>
+    <div class="final-trust">NO COMMITMENT · NO SALES CALL · USED BY OPERATIONS LEADERS WHO REFUSE TO BE CAUGHT OFF GUARD</div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">CONTROL <em>AGENT</em></div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Legal Notice</a>
+    <a href="#">IATF 16949 Architecture</a>
+  </div>
+  <div style="font-family:var(--mono);font-size:10px;color:var(--dim);">Hosted US-West (Oregon) · SOC2 Compliant · Made for Automotive Excellence</div>
+</footer>
+<script>
+let base = 612480;
+const el = document.getElementById('liveNum');
+setInterval(() => {
+  base += Math.floor(Math.random() * 1100 + 300);
+  el.textContent = '$' + base.toLocaleString('en-US');
+}, 1400);
 
-    <script src="/app.js"></script>
-  </body>
+function calcROI() {
+  const v = parseFloat(document.getElementById('riskIn').value);
+  const out = document.getElementById('roiOut');
+  const big = document.getElementById('roiBig');
+  const disc = document.getElementById('roiDisc');
+  if (v && v > 0) {
+    const q = v * 4.5 * 1;
+    big.textContent = '$' + Math.round(q).toLocaleString('en-US');
+    out.classList.add('show');
+    disc.style.display = 'block';
+  } else {
+    out.classList.remove('show');
+    disc.style.display = 'none';
+  }
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.pain-card, .agent, .plan, .step, .kpi-card').forEach(el2 => {
+  el2.style.opacity = '0';
+  el2.style.transform = 'translateY(18px)';
+  el2.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  io.observe(el2);
+});
+</script>
+</body>
 </html>
