@@ -1,8 +1,7 @@
 {
   "name": "control-agent",
   "version": "1.0.0",
-  "description": "Control Agent Master backend scaffold",
-  "main": "dist/server.js",
+  "description": "Control Agent Master Console (Vite + React)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,21 +13,15 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.6",
-    "zod": "^4.4.3"
+    "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
-    "tsx": "^4.21.0",
     "typescript": "^6.0.3",
     "vite": "^7.3.1"
   }
