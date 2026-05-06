@@ -12,6 +12,7 @@ const STEP_META = [
 const I18N = {
   en: {
     "brand.masterConsole": "Master Console",
+    "brand.tagline": "Manufacturing Execution & Supply Chain Intelligence · Automotive Tier 1/2",
     "nav.overview": "Dashboard Overview",
     "nav.reports": "Active 8D-Reports",
     "nav.supply": "Supply Agent",
@@ -29,33 +30,72 @@ const I18N = {
     "overview.trafficLightSub": "Immediate risk signal for operations.",
     "overview.timestampedHistory": "Timestamped History",
     "overview.timestampedHistorySub": "Shows who approved which step and when.",
-    "landing.kicker": "Real-time quality and supply command center",
-    "landing.title": "Stop escalation before it stops production.",
-    "landing.copy":
-      "Control Agent connects Supply, Flow, and Quality into one operational cockpit with 8D traceability, risk signals, and immediate containment actions.",
+    "landing.kicker": "Automotive Tier 1/2 · USA & Mexico",
+    "landing.heroHeadline": "Stop Losing $50,000 Every Hour the Line Stands Still.",
+    "landing.heroSub":
+      "Real-time Supply, Flow, and Quality Intelligence. Built for the Captains of the Shop Floor.",
+    "landing.ctaDemo": "Schedule Live Demo ($ USD Base)",
     "landing.enter": "Open Dashboard",
+    "landing.heroFootnote":
+      "Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.",
+    "landing.riskBadge": "Risk signal",
+    "landing.riskTitle": "One hour of downtime can erase a quarter of margin.",
+    "landing.bullet1": "SAP-aligned traceability (MARD / batch / containment) with Captain thresholds.",
+    "landing.bullet2": "Flow telemetry, OEE, scrap — tied to financial counter in USD.",
+    "landing.bullet3": "Auto-8D drafting path aligned with IATF 10.2 discipline (audit-ready mode).",
+    "founder.scarsTitle": "Built in the Trenches",
+    "founder.scarsKicker": "From a 3:00 AM plant call — not a slide deck.",
+    "founder.keyline": "I don't sell software. I sell the sleep you lost.",
+    "founder.story":
+      "The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.",
+    "triad.title": "The Tool Triad",
+    "triad.subtitle": "Three agents. One command posture. Built for automotive operations.",
+    "triad.supplyTitle": "Supply Agent",
+    "triad.supplyBody":
+      "SAP MARD-live sync plus an AI-intelligence gateway for alternative sourcing (US/MEX).",
+    "triad.flowTitle": "Flow Agent",
+    "triad.flowBody":
+      "Performance telemetry, OEE, scrap analysis, and operator traceability — tied to escalation logic.",
+    "triad.qualityTitle": "Quality Agent",
+    "triad.qualityBody":
+      "Auto-8D report path (IATF 10.2 aligned) plus a global financial counter in USD for leadership alignment.",
+    "roi.title": "Interactive ROI Calculator",
+    "roi.subtitle":
+      "If Control Agent helps reduce downtime cost exposure by just 5% annually, what does that return?",
+    "roi.hint": "Illustrative model for executive conversations — not a guarantee.",
+    "roi.sliderLabel": "Your hourly downtime cost ($ USD)",
+    "roi.hourlyPrefix": "Hourly exposure",
+    "roi.annualLabel": "Estimated annual value of a 5% downtime reduction",
+    "roi.vsPro":
+      "That annual upside is about {ratio}× the Professional plan ({pro}/mo) — before counting faster response, audit readiness, and supplier containment.",
+    "compliance.iatf": "IATF 16949 Compliant Architecture",
+    "compliance.usHost": "US-Based Data Hosting",
+    "compliance.iatfFooter": "IATF 16949 compliant architecture (discipline-first design).",
+    "compliance.renderUs": "Hosted on US-region infrastructure (e.g. Render.com).",
+    "pricing.pageTitle": "Pricing",
+    "pricing.pageSubtitle": "USD SaaS tiers for Tier 1/2 automotive operations.",
     "pricing.title": "Investment & ROI (Value-Based Pricing)",
     "pricing.subtitle": "Clean 3-column pricing grid in USD.",
     "pricing.popular": "Most Popular",
-    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.name": "PILOT",
     "pricing.tier1.price": "$990 / month",
-    "pricing.tier1.billing": "(billed annually)",
-    "pricing.tier1.f1": "Supply Agent basic",
-    "pricing.tier1.f2": "AI-Sourcing link",
+    "pricing.tier1.billing": "billed annually",
+    "pricing.tier1.f1": "Basic Supply Agent",
+    "pricing.tier1.f2": "AI sourcing gateway",
     "pricing.tier1.f3": "SAP-Mock Connector",
     "pricing.tier1.target": "Target: Smaller production sites.",
-    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.name": "PROFESSIONAL",
     "pricing.tier2.price": "$1,850 / month",
-    "pricing.tier2.f1": "Full Supply & Flow Agent",
-    "pricing.tier2.f2": "OEE Tracking",
-    "pricing.tier2.f3": "Financial Counter",
+    "pricing.tier2.f1": "Full Supply & Flow",
+    "pricing.tier2.f2": "Financial Counter (USD)",
+    "pricing.tier2.f3": "Captain thresholds & alerts",
     "pricing.tier2.f4": "Custom Alert Thresholds",
     "pricing.tier2.target": "Target: Core automotive suppliers in MEX/USA.",
-    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
+    "pricing.tier3.name": "ENTERPRISE",
     "pricing.tier3.price": "Contact Sales",
-    "pricing.tier3.billing": "(starts at $3,500/month)",
-    "pricing.tier3.f1": "Full Suite",
-    "pricing.tier3.f2": "Auto-8D Generation",
+    "pricing.tier3.billing": "Multi-plant · full automation path",
+    "pricing.tier3.f1": "Multi-plant support",
+    "pricing.tier3.f2": "Full IATF 10.2 automation suite",
     "pricing.tier3.f3": "Multi-Line Support",
     "pricing.tier3.f4": "IATF 10.2 Compliance Suite",
     "pricing.tier3.target": "Target: Tier-1 Mega Plants.",
@@ -71,7 +111,7 @@ const I18N = {
     "contact.locUsa": "USA",
     "contact.locGermany": "Germany",
     "contact.locOther": "Other",
-    "contact.riskLabel": "What is your hourly risk in case of a line stop?",
+    "contact.riskLabel": "Estimated hourly downtime cost ($ USD)",
     "contact.submit": "Get My ROI Estimate",
     "contact.invalidEmail":
       "Please use a company email. Free email providers (Gmail/Hotmail/etc.) are not accepted.",
@@ -79,18 +119,12 @@ const I18N = {
       "Critical Risk detected. Our Captain's Control module is designed for your scale.",
     "contact.thankYou":
       "Based on your {risk}/hour risk, the Control Agent can save you approximately {saving} per month by reducing response time by 40%.",
-    "founder.title": "Built in the Trenches, not in a Boardroom.",
-    "founder.story":
-      "I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift when I realized that managers need a 'Captain's View,' not just a spreadsheet.",
-    "founder.core":
-      "I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with confidence.",
-    "founder.signoff":
-      "Let's secure your production together. Because I know exactly what's at stake.",
     "alerts.captain": "ATTENTION CAPTAIN: Immediate Action Required for Step D4!",
     "alerts.auto8d": "System created 8D-Report for Performance Gap",
   },
   es: {
     "brand.masterConsole": "Consola Maestra",
+    "brand.tagline": "MES & inteligencia de cadena de suministro · Tier 1/2 automotriz",
     "nav.overview": "Resumen del Panel",
     "nav.reports": "Reportes 8D Activos",
     "nav.supply": "Agente de Suministro",
@@ -108,33 +142,74 @@ const I18N = {
     "overview.trafficLightSub": "Senal inmediata de riesgo para operaciones.",
     "overview.timestampedHistory": "Historial con Marca de Tiempo",
     "overview.timestampedHistorySub": "Muestra quien aprobo cada paso y cuando.",
-    "landing.kicker": "Centro de mando en tiempo real para calidad y suministro",
-    "landing.title": "Deten la escalacion antes de que detenga la produccion.",
-    "landing.copy":
-      "Control Agent conecta Suministro, Flujo y Calidad en una sola cabina operativa con trazabilidad 8D, senales de riesgo y acciones inmediatas de contencion.",
-    "landing.enter": "Abrir Dashboard",
+    "landing.kicker": "Tier 1/2 automotriz · USA y Mexico",
+    "landing.heroHeadline": "Deje de Perder $50,000 USD por cada Hora de Paro de Linea.",
+    "landing.heroSub":
+      "Inteligencia en tiempo real de Suministro, Flujo y Calidad. Hecha para los capitanes del piso de planta.",
+    "landing.ctaDemo": "Agendar demo en vivo (base en $ USD)",
+    "landing.enter": "Abrir panel",
+    "landing.heroFootnote":
+      "Desplegado en infraestructura en region de EE.UU. para reducir latencia a equipos en Mexico y EE.UU.",
+    "landing.riskBadge": "Senal de riesgo",
+    "landing.riskTitle": "Una hora de paro puede borrar un trimestre de margen.",
+    "landing.bullet1":
+      "Trazabilidad alineada a SAP (MARD / lote / contencion) con umbrales de Capitan.",
+    "landing.bullet2": "Telemetria de flujo, OEE, scrap — ligada a contador financiero en USD.",
+    "landing.bullet3":
+      "Camino de borrador 8D alineado a disciplina IATF 10.2 (modo auditoria).",
+    "founder.scarsTitle": "Construido en la trinchera",
+    "founder.scarsKicker": "Desde una llamada a las 3:00 AM en planta — no desde un PowerPoint.",
+    "founder.keyline": "No vendo software. Vendo el sueno que perdio.",
+    "founder.story":
+      "Sonaron las 3:00 AM. Otra linea abajo — y pantallas SAP llenas de campos “indefinidos” mientras operaciones esperaba una decision. Esa noche, Control Agent dejo de ser una idea. Se volvio la vista de Capitan que hubiera querido tener: realidad de suministro, verdad de flujo y disciplina de calidad en un solo lugar — antes de que la linea pague la factura.",
+    "triad.title": "La triada de herramientas",
+    "triad.subtitle": "Tres agentes. Un solo mando. Pensado para operaciones automotrices.",
+    "triad.supplyTitle": "Supply Agent",
+    "triad.supplyBody":
+      "Sincronizacion MARD en vivo mas gateway de inteligencia AI para abastecimiento alternativo (US/MEX).",
+    "triad.flowTitle": "Flow Agent",
+    "triad.flowBody":
+      "Telemetria de desempeno, OEE, analisis de scrap y trazabilidad del operador — ligada a escalamiento.",
+    "triad.qualityTitle": "Quality Agent",
+    "triad.qualityBody":
+      "Camino de reporte 8D automatico (alineado IATF 10.2) mas contador financiero global en USD.",
+    "roi.title": "Calculadora interactiva de ROI",
+    "roi.subtitle":
+      "Si Control Agent ayuda a reducir solo 5% la exposicion anual a costo por paros, cual es el retorno?",
+    "roi.hint": "Modelo ilustrativo para conversaciones ejecutivas — no es garantia.",
+    "roi.sliderLabel": "Su costo horario por paro ($ USD)",
+    "roi.hourlyPrefix": "Exposicion horaria",
+    "roi.annualLabel": "Valor anual estimado de reducir paros 5%",
+    "roi.vsPro":
+      "Ese upside anual es ~{ratio}× el plan Professional ({pro}/mes) — antes de contar respuesta mas rapida, auditoria y contencion con proveedores.",
+    "compliance.iatf": "Arquitectura alineada a IATF 16949",
+    "compliance.usHost": "Alojamiento de datos en EE.UU.",
+    "compliance.iatfFooter": "Arquitectura alineada a IATF 16949 (diseno disciplina primero).",
+    "compliance.renderUs": "Alojado en infraestructura en region EE.UU. (p. ej. Render.com).",
+    "pricing.pageTitle": "Precios",
+    "pricing.pageSubtitle": "SaaS en USD para operaciones Tier 1/2.",
     "pricing.title": "Inversion y ROI (Precio Basado en Valor)",
     "pricing.subtitle": "Cuadricula limpia de 3 columnas en USD.",
     "pricing.popular": "Mas Popular",
-    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.name": "PILOTO",
     "pricing.tier1.price": "$990 / mes",
-    "pricing.tier1.billing": "(facturado anualmente)",
+    "pricing.tier1.billing": "facturado anualmente",
     "pricing.tier1.f1": "Supply Agent basico",
-    "pricing.tier1.f2": "Enlace AI-Sourcing",
+    "pricing.tier1.f2": "Gateway AI de abastecimiento",
     "pricing.tier1.f3": "Conector SAP-Mock",
     "pricing.tier1.target": "Objetivo: Plantas de produccion pequenas.",
-    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.name": "PROFESIONAL",
     "pricing.tier2.price": "$1,850 / mes",
-    "pricing.tier2.f1": "Supply & Flow Agent completos",
-    "pricing.tier2.f2": "Seguimiento OEE",
-    "pricing.tier2.f3": "Contador Financiero",
+    "pricing.tier2.f1": "Supply y Flow completos",
+    "pricing.tier2.f2": "Contador financiero (USD)",
+    "pricing.tier2.f3": "Umbrales y alertas de Capitan",
     "pricing.tier2.f4": "Umbrales de alerta personalizados",
     "pricing.tier2.target": "Objetivo: Proveedores automotrices clave en MEX/USA.",
-    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
-    "pricing.tier3.price": "Contactar Ventas",
-    "pricing.tier3.billing": "(desde $3,500/mes)",
-    "pricing.tier3.f1": "Suite completa",
-    "pricing.tier3.f2": "Generacion Auto-8D",
+    "pricing.tier3.name": "EMPRESARIAL",
+    "pricing.tier3.price": "Contactar ventas",
+    "pricing.tier3.billing": "Multi-planta · automatizacion completa",
+    "pricing.tier3.f1": "Soporte multi-planta",
+    "pricing.tier3.f2": "Suite completa de automatizacion IATF 10.2",
     "pricing.tier3.f3": "Soporte multi-linea",
     "pricing.tier3.f4": "Suite de Cumplimiento IATF 10.2",
     "pricing.tier3.target": "Objetivo: Mega Plantas Tier-1.",
@@ -150,7 +225,7 @@ const I18N = {
     "contact.locUsa": "USA",
     "contact.locGermany": "Alemania",
     "contact.locOther": "Otro",
-    "contact.riskLabel": "Cual es su riesgo por hora en caso de paro de linea?",
+    "contact.riskLabel": "Costo horario estimado por paro ($ USD)",
     "contact.submit": "Obtener estimacion ROI",
     "contact.invalidEmail":
       "Use un correo corporativo. No se aceptan correos gratuitos (Gmail/Hotmail/etc.).",
@@ -158,18 +233,12 @@ const I18N = {
       "Riesgo critico detectado. Nuestro modulo Captain's Control esta disenado para su escala.",
     "contact.thankYou":
       "Con base en su riesgo de {risk}/hora, Control Agent puede ahorrarle aproximadamente {saving} por mes al reducir el tiempo de respuesta en 40%.",
-    "founder.title": "Construido en la Trinchera, no en una Sala de Juntas.",
-    "founder.story":
-      "He estado ahi. Senti la presion de una linea de produccion detenida y el caos por datos SAP faltantes. Control Agent no nacio en un laboratorio: nacio en el piso de planta durante un turno de medianoche cuando entendi que los lideres necesitan una 'Vista de Capitan', no solo una hoja de calculo.",
-    "founder.core":
-      "No quiero venderte software. Quiero devolverte el sueno que yo perdi. Mi herramienta identifica la brecha de suministro, monitorea el flujo de maquina y calcula tu riesgo en USD en tiempo real para que lideres con confianza.",
-    "founder.signoff":
-      "Aseguremos tu produccion juntos. Porque se exactamente lo que esta en juego.",
     "alerts.captain": "ATENCION CAPITAN: Accion inmediata requerida para el Paso D4.",
     "alerts.auto8d": "El sistema creo un reporte 8D por brecha de rendimiento",
   },
   de: {
     "brand.masterConsole": "Master Konsole",
+    "brand.tagline": "MES & Supply-Chain-Intelligence · Automotive Tier 1/2",
     "nav.overview": "Dashboard Ubersicht",
     "nav.reports": "Aktive 8D-Reports",
     "nav.supply": "Supply Agent",
@@ -187,33 +256,74 @@ const I18N = {
     "overview.trafficLightSub": "Sofortiges Risikosignal fuer den Betrieb.",
     "overview.timestampedHistory": "Zeitgestempelte Historie",
     "overview.timestampedHistorySub": "Zeigt, wer welchen Schritt wann freigegeben hat.",
-    "landing.kicker": "Echtzeit-Leitzentrale fuer Qualitaet und Supply",
-    "landing.title": "Stoppe Eskalation, bevor die Produktion stoppt.",
-    "landing.copy":
-      "Control Agent verbindet Supply, Flow und Quality in einem operativen Cockpit mit 8D-Traceability, Risikosignalen und sofortigen Containment-Aktionen.",
+    "landing.kicker": "Automotive Tier 1/2 · USA & Mexiko",
+    "landing.heroHeadline": "Stoppen Sie den Verlust von 50.000 $ pro Stunde Bandstillstand.",
+    "landing.heroSub":
+      "Echtzeit-Supply-, Flow- und Qualitaetsintelligenz. Gebaut fuer die Captains am Shopfloor.",
+    "landing.ctaDemo": "Live-Demo vereinbaren ($ USD Basis)",
     "landing.enter": "Dashboard oeffnen",
+    "landing.heroFootnote":
+      "Ausrollung auf US-Region-Infrastruktur fuer geringere Latenz fuer Teams in Mexiko und den USA.",
+    "landing.riskBadge": "Risikosignal",
+    "landing.riskTitle": "Eine Stunde Stillstand kann eine Quartalsmarge ausradieren.",
+    "landing.bullet1":
+      "SAP-nahe Traceability (MARD / Charge / Containment) mit Captain-Schwellwerten.",
+    "landing.bullet2": "Flow-Telemetrie, OEE, Scrap — gekoppelt an Financial Counter in USD.",
+    "landing.bullet3":
+      "Auto-8D-Entwurfslogik im IATF-10.2-Kontext (Audit-Mode).",
+    "founder.scarsTitle": "In der Praxis gebaut",
+    "founder.scarsKicker": "Aus einem Anruf um 3:00 Uhr in der Produktion — nicht aus einer Folie.",
+    "founder.keyline": "Ich verkaufe keine Software. Ich verkaufe den Schlaf, den Sie verloren haben.",
+    "founder.story":
+      "Um 3:00 Uhr klingelte das Telefon. Wieder eine Linie unten — und SAP voller „undefinierter“ Felder, waehrend die Produktion auf eine Entscheidung wartete. In dieser Nacht hoerte Control Agent auf, nur eine Idee zu sein. Es wurde die Captain’s View, die ich mir gewuenscht haette: Supply-Wahrheit, Flow-Wahrheit und Qualitaetsdisziplin an einem Ort — bevor die Linie die Rechnung zahlt.",
+    "triad.title": "Die Tool-Triade",
+    "triad.subtitle": "Drei Agents. Ein Kommando. Fuer Automotive-Operations.",
+    "triad.supplyTitle": "Supply Agent",
+    "triad.supplyBody":
+      "SAP-MARD-Live-Sync plus AI-Gateway fuer alternatives Sourcing (US/MEX).",
+    "triad.flowTitle": "Flow Agent",
+    "triad.flowBody":
+      "Performance-Telemetrie, OEE, Scrap-Analyse und Operator-Traceability — mit Eskalationslogik.",
+    "triad.qualityTitle": "Quality Agent",
+    "triad.qualityBody":
+      "Auto-8D-Pfad (IATF 10.2) plus globaler Financial Counter in USD fuer das Leadership-Team.",
+    "roi.title": "Interaktiver ROI-Rechner",
+    "roi.subtitle":
+      "Wenn Control Agent die jaehrliche Downtime-Kostenexposition nur um 5% senkt — was ist dann der Return?",
+    "roi.hint": "Illustratives Modell fuer Fuehrungsgespraeche — keine Garantie.",
+    "roi.sliderLabel": "Ihre Stundenkosten bei Bandstillstand ($ USD)",
+    "roi.hourlyPrefix": "Stunden-Exposure",
+    "roi.annualLabel": "Schaetzwert jaehrlich bei 5% weniger Downtime-Kostenexposure",
+    "roi.vsPro":
+      "Dieses jaehrliche Upside entspricht ca. {ratio}× dem Professional-Plan ({pro}/Monat) — noch ohne schnellere Reaktion, Audit-Readiness und Supplier-Containment.",
+    "compliance.iatf": "IATF-16949-konforme Architektur",
+    "compliance.usHost": "Daten-Hosting in den USA",
+    "compliance.iatfFooter": "IATF-16949-konforme Architektur (Disziplin-first Design).",
+    "compliance.renderUs": "Gehostet auf US-Region-Infrastruktur (z. B. Render.com).",
+    "pricing.pageTitle": "Preise",
+    "pricing.pageSubtitle": "USD-SaaS fuer Tier-1/2-Automotive-Operations.",
     "pricing.title": "Investition & ROI (Value-Based Pricing)",
     "pricing.subtitle": "Sauberes 3-Spalten-Preismodell in USD.",
     "pricing.popular": "Am beliebtesten",
-    "pricing.tier1.name": "PILOT / TIER 2",
+    "pricing.tier1.name": "PILOT",
     "pricing.tier1.price": "$990 / Monat",
-    "pricing.tier1.billing": "(jaehrliche Abrechnung)",
-    "pricing.tier1.f1": "Supply Agent basic",
-    "pricing.tier1.f2": "AI-Sourcing Link",
+    "pricing.tier1.billing": "jaehrliche Abrechnung",
+    "pricing.tier1.f1": "Supply Agent Basis",
+    "pricing.tier1.f2": "AI-Sourcing-Gateway",
     "pricing.tier1.f3": "SAP-Mock Connector",
     "pricing.tier1.target": "Ziel: Kleinere Produktionsstandorte.",
-    "pricing.tier2.name": "PROFESSIONAL / CAPTAIN'S CHOICE",
+    "pricing.tier2.name": "PROFESSIONAL",
     "pricing.tier2.price": "$1,850 / Monat",
-    "pricing.tier2.f1": "Voller Supply & Flow Agent",
-    "pricing.tier2.f2": "OEE Tracking",
-    "pricing.tier2.f3": "Financial Counter",
+    "pricing.tier2.f1": "Voller Supply & Flow",
+    "pricing.tier2.f2": "Financial Counter (USD)",
+    "pricing.tier2.f3": "Captain-Schwellwerte & Alerts",
     "pricing.tier2.f4": "Individuelle Alert-Schwellwerte",
     "pricing.tier2.target": "Ziel: Kern-Zulieferer Automotive in MEX/USA.",
-    "pricing.tier3.name": "ENTERPRISE / AUDIT READY",
+    "pricing.tier3.name": "ENTERPRISE",
     "pricing.tier3.price": "Sales kontaktieren",
-    "pricing.tier3.billing": "(ab $3,500/Monat)",
-    "pricing.tier3.f1": "Full Suite",
-    "pricing.tier3.f2": "Auto-8D Generierung",
+    "pricing.tier3.billing": "Multi-Werk · volle Automatisierung",
+    "pricing.tier3.f1": "Multi-Werk-Support",
+    "pricing.tier3.f2": "Volle IATF-10.2-Automatisierungs-Suite",
     "pricing.tier3.f3": "Multi-Line Support",
     "pricing.tier3.f4": "IATF 10.2 Compliance Suite",
     "pricing.tier3.target": "Ziel: Tier-1 Mega Plants.",
@@ -229,7 +339,7 @@ const I18N = {
     "contact.locUsa": "USA",
     "contact.locGermany": "Deutschland",
     "contact.locOther": "Sonstiges",
-    "contact.riskLabel": "Wie hoch ist Ihr stündliches Risiko bei einem Linienstopp?",
+    "contact.riskLabel": "Schaetzwert Stundenkosten bei Linienstopp ($ USD)",
     "contact.submit": "ROI-Einschaetzung erhalten",
     "contact.invalidEmail":
       "Bitte verwenden Sie eine Firmen-E-Mail. Freemailer (Gmail/Hotmail/etc.) sind nicht erlaubt.",
@@ -237,13 +347,6 @@ const I18N = {
       "Kritisches Risiko erkannt. Unser Captain's-Control-Modul ist fuer Ihre Groessenordnung ausgelegt.",
     "contact.thankYou":
       "Basierend auf Ihrem Risiko von {risk}/Stunde kann Control Agent durch 40% schnellere Reaktionszeit ungefaehr {saving} pro Monat einsparen.",
-    "founder.title": "In der Praxis gebaut, nicht im Konferenzraum.",
-    "founder.story":
-      "Ich war dort. Ich kenne den Druck bei stillstehender Produktion und das Chaos durch fehlende SAP-Daten. Control Agent wurde nicht im Labor gebaut - sondern in der Nachtschicht auf dem Shopfloor, als ich merkte: Fuehrung braucht eine 'Captain's View' und nicht nur Tabellen.",
-    "founder.core":
-      "Ich will dir keine Software verkaufen. Ich will dir den Schlaf zurueckgeben, den ich verloren habe. Mein Tool erkennt Versorgungsluecken, ueberwacht den Maschinenfluss und berechnet dein Risiko in Echtzeit in USD - damit du sicher fuehren kannst.",
-    "founder.signoff":
-      "Lass uns deine Produktion gemeinsam absichern. Weil ich genau weiss, was auf dem Spiel steht.",
     "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln fuer Schritt D4 erforderlich!",
     "alerts.auto8d": "System hat 8D-Report fuer Performance-Luecke erstellt",
   },
@@ -287,12 +390,60 @@ function tf(key, vars) {
   return str;
 }
 
+function refreshLucideIcons() {
+  try {
+    if (window.lucide?.createIcons) window.lucide.createIcons();
+  } catch (_error) {
+    // Non-blocking if CDN blocked.
+  }
+}
+
+function clampHourlyCost(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return 50000;
+  return Math.max(10000, Math.min(250000, n));
+}
+
+function syncHourlyCostAcrossUi(value) {
+  const bounded = clampHourlyCost(value);
+  const slider = document.getElementById("roi-slider");
+  const contactRisk = document.getElementById("contact-risk");
+  if (slider) slider.value = String(bounded);
+  if (contactRisk) contactRisk.value = String(bounded);
+  updateRiskUi(bounded);
+  updateRoiDisplay(bounded);
+}
+
+function updateRoiDisplay(hourlyCost) {
+  const hourlyEl = document.getElementById("roi-hourly-display");
+  const annualEl = document.getElementById("roi-annual-savings");
+  const vsProEl = document.getElementById("roi-vs-pro");
+  if (!hourlyEl || !annualEl || !vsProEl) return;
+
+  const hoursPerYear = 365 * 24;
+  const annualExposure = hourlyCost * hoursPerYear;
+  const annualSavings = annualExposure * 0.05;
+  hourlyEl.textContent = usd(hourlyCost);
+  annualEl.textContent = usd(annualSavings);
+
+  const proMonthly = 1850;
+  const ratio =
+    proMonthly > 0 ? Math.max(0, annualSavings / (proMonthly * 12)) : 0;
+  vsProEl.textContent = tf("roi.vsPro", {
+    ratio: ratio.toFixed(1),
+    pro: usd(proMonthly),
+  });
+}
+
 function applyI18nStatic() {
   document.documentElement.setAttribute("lang", state.language);
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (!key) return;
     el.textContent = t(key);
+  });
+  document.querySelectorAll(".js-lang-select").forEach((sel) => {
+    sel.value = state.language;
   });
   document.getElementById("captain-banner").textContent = t("alerts.captain");
   document.getElementById("auto8d-notice").textContent = t("alerts.auto8d");
@@ -303,6 +454,11 @@ function applyI18nStatic() {
       updateRiskUi(Number(riskInput.value || 0));
     }
   }
+  const slider = document.getElementById("roi-slider");
+  if (slider) {
+    updateRoiDisplay(clampHourlyCost(Number(slider.value || 50000)));
+  }
+  refreshLucideIcons();
 }
 
 function usd(value) {
@@ -463,10 +619,10 @@ function bindContactForm() {
   const thankYouEl = document.getElementById("contact-thankyou");
   riskInput.addEventListener("input", () => {
     const parsed = Number(riskInput.value || 0);
-    const bounded = Math.max(10000, Math.min(250000, Number.isFinite(parsed) ? parsed : 50000));
-    updateRiskUi(bounded);
+    const bounded = clampHourlyCost(parsed);
+    syncHourlyCostAcrossUi(bounded);
   });
-  updateRiskUi(Number(riskInput.value || 50000));
+  syncHourlyCostAcrossUi(Number(riskInput.value || 50000));
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -475,7 +631,7 @@ function bindContactForm() {
     const email = emailInput.value.trim();
     const location = locationInput.value;
     const parsed = Number(riskInput.value || 0);
-    const risk = Math.max(10000, Math.min(250000, Number.isFinite(parsed) ? parsed : 50000));
+    const risk = clampHourlyCost(parsed);
     if (!name || !email || !location) {
       errorEl.textContent = "Please complete all fields.";
       errorEl.classList.remove("hidden");
@@ -496,15 +652,30 @@ function bindContactForm() {
   });
 }
 
+function bindRoiCalculator() {
+  const slider = document.getElementById("roi-slider");
+  if (!slider) return;
+  slider.addEventListener("input", () => {
+    syncHourlyCostAcrossUi(Number(slider.value || 50000));
+  });
+  syncHourlyCostAcrossUi(Number(slider.value || 50000));
+}
+
 function bindLanguageSelector() {
-  const select = document.getElementById("language-select");
-  if (!select) return;
-  select.value = state.language;
-  select.addEventListener("change", async () => {
-    state.language = select.value || "en";
-    localStorage.setItem("control-agent-language", state.language);
-    applyI18nStatic();
-    await Promise.all([loadReports(), loadSupply(), loadFlow(), loadQuality(), loadTopBar()]);
+  const selects = document.querySelectorAll(".js-lang-select");
+  if (!selects.length) return;
+  selects.forEach((select) => {
+    select.value = state.language;
+    select.addEventListener("change", async () => {
+      const next = select.value || "en";
+      state.language = I18N[next] ? next : "en";
+      localStorage.setItem("control-agent-language", state.language);
+      selects.forEach((s) => {
+        if (s !== select) s.value = state.language;
+      });
+      applyI18nStatic();
+      await Promise.all([loadReports(), loadSupply(), loadFlow(), loadQuality(), loadTopBar()]);
+    });
   });
 }
 
@@ -1136,6 +1307,7 @@ async function init() {
   bindNavigation();
   bindLandingActions();
   bindContactForm();
+  bindRoiCalculator();
   bindLanguageSelector();
   bindAuditToggle();
   bindFinancialToggle();

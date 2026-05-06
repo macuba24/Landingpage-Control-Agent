@@ -4,65 +4,278 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control Agent Dashboard</title>
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              ca: {
+                bg: "#121212",
+                blue: "#1E3A8A",
+                risk: "#DC2626",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <section id="landing-page" class="landing-page">
-      <header class="landing-top">
-        <div class="brand">
-          <div class="brand-dot"></div>
+    <section id="landing-page" class="bg-ca-bg text-gray-100 border-b border-gray-800">
+      <header class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-emerald-500 shadow-lg shrink-0"></div>
           <div>
-            <h1>Control Agent</h1>
-            <p data-i18n="brand.masterConsole">Master Console</p>
+            <p class="text-lg font-semibold tracking-tight">Control Agent</p>
+            <p class="text-xs text-gray-400" data-i18n="brand.tagline">Manufacturing Execution & Supply Chain Intelligence</p>
           </div>
         </div>
-      </header>
-      <div class="landing-hero">
-        <p class="landing-kicker" data-i18n="landing.kicker">Real-time quality and supply command center</p>
-        <h2 data-i18n="landing.title">Stop escalation before it stops production.</h2>
-        <p class="landing-copy" data-i18n="landing.copy">
-          Control Agent connects Supply, Flow, and Quality into one operational cockpit with 8D traceability, risk signals, and immediate containment actions.
-        </p>
-        <div class="landing-actions">
-          <button id="enter-dashboard-btn" class="jump-btn" type="button" data-i18n="landing.enter">Open Dashboard</button>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-900/60 px-3 py-1 text-[11px] text-gray-300">
+            <i data-lucide="shield-check" class="h-3.5 w-3.5 text-emerald-400"></i>
+            <span data-i18n="compliance.iatf">IATF 16949 Compliant Architecture</span>
+          </span>
+          <span class="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-900/60 px-3 py-1 text-[11px] text-gray-300">
+            <i data-lucide="server" class="h-3.5 w-3.5 text-sky-400"></i>
+            <span data-i18n="compliance.usHost">US-Based Data Hosting</span>
+          </span>
+          <label class="flex items-center gap-2 text-xs text-gray-400">
+            <span data-i18n="top.language">Language</span>
+            <select
+              id="language-select-landing"
+              class="js-lang-select rounded-lg border border-gray-700 bg-gray-900 px-2 py-1.5 text-sm text-gray-100"
+              aria-label="Language selector"
+            >
+              <option value="en">EN</option>
+              <option value="es">ES-MEX</option>
+              <option value="de">DE</option>
+            </select>
+          </label>
         </div>
-      </div>
-      <section class="contact-section">
-        <div class="panel contact-panel">
-          <h3 data-i18n="contact.title">Protect your Production Value.</h3>
-          <p class="muted" data-i18n="contact.subtitle">Tell us your current risk profile and receive a value-based estimate.</p>
-          <form id="contact-form" class="contact-form">
-            <div class="contact-grid">
-              <label>
+      </header>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-14 pt-2">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p class="text-sm font-medium text-sky-300 mb-2" data-i18n="landing.kicker">Automotive Tier 1/2 · USA & Mexico</p>
+            <h1 class="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold leading-tight tracking-tight text-white" data-i18n="landing.heroHeadline">
+              Stop Losing $50,000 Every Hour the Line Stands Still.
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-gray-300 max-w-xl" data-i18n="landing.heroSub">
+              Real-time Supply, Flow, and Quality Intelligence. Built for the Captains of the Shop Floor.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                id="schedule-demo-btn"
+                href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Live%20Demo%20Request"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-ca-blue px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/40 hover:brightness-110 transition"
+              >
+                <i data-lucide="calendar-check" class="h-4 w-4"></i>
+                <span data-i18n="landing.ctaDemo">Schedule Live Demo ($ USD Base)</span>
+              </a>
+              <button
+                id="enter-dashboard-btn"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-600 bg-gray-900/80 px-5 py-3 text-sm font-semibold text-gray-100 hover:border-gray-500 transition"
+              >
+                <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
+                <span data-i18n="landing.enter">Open Dashboard</span>
+              </button>
+            </div>
+            <p class="mt-4 text-xs text-gray-500 max-w-md" data-i18n="landing.heroFootnote">
+              Deployed on US-region infrastructure to reduce latency for Mexico and US operations teams.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-ca-risk" data-i18n="landing.riskBadge">Risk signal</p>
+                <p class="mt-1 text-lg font-semibold text-white" data-i18n="landing.riskTitle">One hour of downtime can erase a quarter of margin.</p>
+              </div>
+              <i data-lucide="activity" class="h-8 w-8 text-ca-risk shrink-0"></i>
+            </div>
+            <ul class="mt-5 space-y-3 text-sm text-gray-300">
+              <li class="flex gap-2">
+                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span data-i18n="landing.bullet1">SAP-aligned traceability (MARD / batch / containment) with Captain thresholds.</span>
+              </li>
+              <li class="flex gap-2">
+                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span data-i18n="landing.bullet2">Flow telemetry, OEE, scrap — tied to financial counter in USD.</span>
+              </li>
+              <li class="flex gap-2">
+                <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span data-i18n="landing.bullet3">Auto-8D drafting path aligned with IATF 10.2 discipline (audit-ready mode).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <section class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-white" data-i18n="founder.scarsTitle">Built in the Trenches</h2>
+              <p class="mt-1 text-sm text-gray-400" data-i18n="founder.scarsKicker">From a 3:00 AM plant call — not a slide deck.</p>
+            </div>
+            <div class="rounded-xl border border-ca-risk/40 bg-ca-risk/10 px-4 py-2 text-sm font-semibold text-red-100" data-i18n="founder.keyline">
+              I don't sell software. I sell the sleep you lost.
+            </div>
+          </div>
+          <p class="mt-6 text-gray-300 leading-relaxed" data-i18n="founder.story">
+            The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.
+          </p>
+        </section>
+
+        <section class="mt-14">
+          <h2 class="text-xl font-bold text-white" data-i18n="triad.title">The Tool Triad</h2>
+          <p class="mt-1 text-sm text-gray-400" data-i18n="triad.subtitle">Three agents. One command posture. Built for automotive operations.</p>
+          <div class="mt-6 grid gap-5 md:grid-cols-3">
+            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
+                <i data-lucide="package-search" class="h-5 w-5"></i>
+              </div>
+              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.supplyTitle">Supply Agent</h3>
+              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.supplyBody">
+                SAP MARD-live sync plus an AI-intelligence gateway for alternative sourcing (US/MEX).
+              </p>
+            </article>
+            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
+                <i data-lucide="gauge" class="h-5 w-5"></i>
+              </div>
+              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.flowTitle">Flow Agent</h3>
+              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.flowBody">
+                Performance telemetry, OEE, scrap analysis, and operator traceability — tied to escalation logic.
+              </p>
+            </article>
+            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-ca-blue/20 text-sky-300">
+                <i data-lucide="file-check-2" class="h-5 w-5"></i>
+              </div>
+              <h3 class="mt-4 font-semibold text-white" data-i18n="triad.qualityTitle">Quality Agent</h3>
+              <p class="mt-2 text-sm text-gray-400 leading-relaxed" data-i18n="triad.qualityBody">
+                Auto-8D report path (IATF 10.2 aligned) plus a global financial counter in USD for leadership alignment.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-white" data-i18n="roi.title">Interactive ROI Calculator</h2>
+              <p class="mt-1 text-sm text-gray-400" data-i18n="roi.subtitle">
+                If Control Agent helps reduce downtime cost exposure by just 5% annually, what does that return?
+              </p>
+            </div>
+            <p class="text-xs text-gray-500" data-i18n="roi.hint">Illustrative model for executive conversations — not a guarantee.</p>
+          </div>
+          <div class="mt-6">
+            <label for="roi-slider" class="text-sm font-medium text-gray-200" data-i18n="roi.sliderLabel">Your hourly downtime cost ($ USD)</label>
+            <input
+              id="roi-slider"
+              type="range"
+              min="10000"
+              max="250000"
+              step="1000"
+              value="50000"
+              class="mt-3 w-full accent-ca-risk"
+            />
+            <div class="mt-2 flex flex-wrap items-baseline justify-between gap-2 text-sm">
+              <span class="text-gray-400" data-i18n="roi.hourlyPrefix">Hourly exposure</span>
+              <strong id="roi-hourly-display" class="text-white tabular-nums">$50,000.00</strong>
+            </div>
+          </div>
+          <div class="mt-6 rounded-xl border border-emerald-900/50 bg-emerald-950/30 p-4">
+            <p class="text-sm text-emerald-100/90" data-i18n="roi.annualLabel">Estimated annual value of a 5% downtime reduction</p>
+            <p id="roi-annual-savings" class="mt-1 text-2xl font-bold text-emerald-300 tabular-nums">$0.00</p>
+            <p id="roi-vs-pro" class="mt-3 text-sm text-gray-400"></p>
+          </div>
+        </section>
+
+        <section class="mt-14">
+          <h2 class="text-xl font-bold text-white" data-i18n="pricing.pageTitle">Pricing</h2>
+          <p class="mt-1 text-sm text-gray-400" data-i18n="pricing.pageSubtitle">USD SaaS tiers for Tier 1/2 automotive operations.</p>
+          <div class="mt-6 grid gap-5 md:grid-cols-3">
+            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier1.name">PILOT</p>
+              <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier1.price">$990 / month</p>
+              <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier1.billing">billed annually</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
+                <li data-i18n="pricing.tier1.f1">Basic Supply Agent</li>
+                <li data-i18n="pricing.tier1.f2">AI sourcing gateway</li>
+              </ul>
+            </article>
+            <article class="rounded-2xl border-2 border-ca-blue bg-gray-900/70 p-6 flex flex-col relative shadow-lg shadow-blue-900/20">
+              <span class="absolute -top-3 right-4 rounded-full bg-ca-blue px-3 py-0.5 text-[11px] font-bold text-white" data-i18n="pricing.popular">Most Popular</span>
+              <p class="text-xs font-semibold uppercase tracking-wider text-sky-300" data-i18n="pricing.tier2.name">PROFESSIONAL</p>
+              <p class="mt-2 text-3xl font-bold text-white tabular-nums" data-i18n="pricing.tier2.price">$1,850 / month</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-300 flex-1">
+                <li data-i18n="pricing.tier2.f1">Full Supply & Flow</li>
+                <li data-i18n="pricing.tier2.f2">Financial Counter (USD)</li>
+                <li data-i18n="pricing.tier2.f3">Captain thresholds & alerts</li>
+              </ul>
+            </article>
+            <article class="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 flex flex-col">
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-i18n="pricing.tier3.name">ENTERPRISE</p>
+              <p class="mt-2 text-2xl font-bold text-white" data-i18n="pricing.tier3.price">Contact Sales</p>
+              <p class="text-xs text-gray-500 mt-1" data-i18n="pricing.tier3.billing">Multi-plant · full automation path</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-400 flex-1">
+                <li data-i18n="pricing.tier3.f1">Multi-plant support</li>
+                <li data-i18n="pricing.tier3.f2">Full IATF 10.2 automation suite</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="mt-14 max-w-3xl">
+          <h2 class="text-xl font-bold text-white" data-i18n="contact.title">Protect your Production Value.</h2>
+          <p class="mt-1 text-sm text-gray-400" data-i18n="contact.subtitle">Tell us your plant context and hourly risk — we respond with a focused next step.</p>
+          <form id="contact-form" class="mt-6 space-y-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.nameLabel">Name</span>
-                <input id="contact-name" type="text" required />
+                <input id="contact-name" type="text" required class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
               </label>
-              <label>
+              <label class="block text-sm text-gray-300">
                 <span data-i18n="contact.emailLabel">Company Email</span>
-                <input id="contact-email" type="email" required />
+                <input id="contact-email" type="email" required class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
               </label>
-              <label>
+              <label class="block text-sm text-gray-300 sm:col-span-2">
                 <span data-i18n="contact.locationLabel">Plant Location</span>
-                <select id="contact-location">
+                <select id="contact-location" class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100">
                   <option value="Mexico" data-i18n="contact.locMexico">Mexico</option>
                   <option value="USA" data-i18n="contact.locUsa">USA</option>
                   <option value="Germany" data-i18n="contact.locGermany">Germany</option>
                   <option value="Other" data-i18n="contact.locOther">Other</option>
                 </select>
               </label>
-              <label>
-                <span data-i18n="contact.riskLabel">What is your hourly risk in case of a line stop?</span>
-                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" />
-                <small id="contact-risk-value">$50,000 / hour</small>
-                <small id="contact-risk-micro" class="critical-risk-note hidden"></small>
+              <label class="block text-sm text-gray-300 sm:col-span-2">
+                <span data-i18n="contact.riskLabel">Estimated hourly downtime cost ($ USD)</span>
+                <input id="contact-risk" type="number" min="10000" step="1000" value="50000" class="mt-1 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100" />
+                <span id="contact-risk-value" class="mt-1 block text-xs text-gray-500">$50,000.00 / hour</span>
+                <span id="contact-risk-micro" class="mt-2 hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-xs text-red-100"></span>
               </label>
             </div>
-            <p id="contact-error" class="contact-error hidden"></p>
-            <button type="submit" class="jump-btn" data-i18n="contact.submit">Get My ROI Estimate</button>
+            <p id="contact-error" class="hidden rounded-lg border border-ca-risk/50 bg-ca-risk/10 px-3 py-2 text-sm text-red-100"></p>
+            <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-ca-risk px-5 py-3 text-sm font-semibold text-white hover:brightness-110 transition">
+              <span data-i18n="contact.submit">Get My ROI Estimate</span>
+            </button>
           </form>
-          <div id="contact-thankyou" class="contact-thankyou hidden"></div>
-        </div>
-      </section>
+          <div id="contact-thankyou" class="mt-4 hidden rounded-xl border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-100"></div>
+        </section>
+
+        <footer class="mt-14 flex flex-wrap gap-3 text-[11px] text-gray-500">
+          <span class="inline-flex items-center gap-1.5" data-i18n="compliance.iatfFooter">IATF 16949 compliant architecture (discipline-first design).</span>
+          <span class="text-gray-700">·</span>
+          <span class="inline-flex items-center gap-1.5" data-i18n="compliance.renderUs">Hosted on US-region infrastructure (e.g. Render.com).</span>
+        </footer>
+      </div>
     </section>
     <div class="app-shell">
       <aside class="sidebar">
@@ -97,7 +310,7 @@
             <span id="iatf-badge" class="cert-badge">IATF 10.2 COMPLIANT</span>
             <label class="language-switch">
               <span data-i18n="top.language">Language</span>
-              <select id="language-select" aria-label="Language selector">
+              <select id="language-select" class="js-lang-select" aria-label="Language selector">
                 <option value="en">English</option>
                 <option value="es">Español</option>
                 <option value="de">Deutsch</option>
@@ -220,24 +433,16 @@
 
         <section id="view-investment" class="view">
           <article class="panel founder-panel investment-hero">
-            <h3 data-i18n="founder.title">Built in the Trenches, not in a Boardroom.</h3>
+            <h3 data-i18n="founder.scarsTitle">Built in the Trenches</h3>
+            <p class="muted" data-i18n="founder.scarsKicker">From a 3:00 AM plant call — not a slide deck.</p>
             <div class="founder-layout investment-hero-layout">
               <div class="founder-photo-wrap">
                 <img src="/founder-photo.png" alt="" class="founder-photo investment-hero-photo" />
               </div>
               <div>
+                <p class="founder-keyline" data-i18n="founder.keyline">I don't sell software. I sell the sleep you lost.</p>
                 <p data-i18n="founder.story">
-                  I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP
-                  data. The Control Agent wasn't born in a lab-it was born on the shop floor during a midnight shift
-                  when I realized that managers need a 'Captain's View,' not just a spreadsheet.
-                </p>
-                <p data-i18n="founder.core">
-                  I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the
-                  supply gap, monitors your machine flow, and calculates your risk in real-time USD-so you can lead with
-                  confidence.
-                </p>
-                <p class="founder-signoff" data-i18n="founder.signoff">
-                  Let's secure your production together. Because I know exactly what's at stake.
+                  The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.
                 </p>
               </div>
             </div>

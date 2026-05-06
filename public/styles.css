@@ -245,6 +245,17 @@ body {
   font-weight: 700;
 }
 
+.founder-keyline {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  background: rgba(220, 38, 38, 0.12);
+  color: #fecaca;
+  font-weight: 700;
+  font-size: 14px;
+}
+
 .investment-hero {
   margin-bottom: 12px;
 }
