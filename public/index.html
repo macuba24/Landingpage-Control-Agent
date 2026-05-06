@@ -269,6 +269,20 @@ section { padding: 96px 48px; }
 .founder-bg { position: absolute; right: -60px; bottom: -60px; font-family: var(--display); font-size: 260px; color: rgba(255,255,255,0.012); pointer-events: none; user-select: none; line-height: 1; }
 .founder-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; align-items: center; }
 .founder-left { }
+.founder-card-photo-wrap {
+  max-width: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+  margin-bottom: 22px;
+}
+.founder-card-photo {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
 .founder-badge {
   display: inline-flex; flex-direction: column; gap: 6px;
   background: var(--surface); border: 1px solid var(--border-red);
@@ -521,6 +535,7 @@ h1 { animation-delay: 0.25s; }
   .founder-bridge-photo-wrap { max-width: 360px; }
   .pain-grid, .agents-grid, .pricing-grid { grid-template-columns: 1fr; }
   .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+  .founder-card-photo-wrap { max-width: 360px; }
   .roi-grid { grid-template-columns: 1fr; gap: 40px; }
   .steps { grid-template-columns: 1fr 1fr; }
   .mock-body { grid-template-columns: 1fr; }
@@ -655,6 +670,9 @@ h1 { animation-delay: 0.25s; }
     <div class="sec-tag">Why Trust This</div>
     <div class="founder-grid">
       <div class="founder-left">
+        <div class="founder-card-photo-wrap">
+          <img class="founder-card-photo" src="/assets/founder_rainer.jpg" alt="Rainer Hampicke portrait">
+        </div>
         <div class="founder-badge">
           <div class="badge-title">// Founder</div>
           <div class="badge-name">RAINER HAMPICKE</div>
