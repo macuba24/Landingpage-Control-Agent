@@ -84,7 +84,7 @@ const I18N = {
     "founder.scarsKicker": "From a 3:00 AM plant call — not a slide deck.",
     "founder.keyline": "I don't sell software. I sell the sleep you lost.",
     "founder.trustQuote":
-      "I've spent 20 years on the shop floor in Tier-1 Automotive. I didn't build this to sell software; I built it to stop the 2 AM phone calls and the $50k/hour penalties.",
+      "I've spent 20 years on the shop floor in Tier-1 Automotive. I didn't build this to sell software; I built it to stop the 2 AM phone calls and the operational losses behind every $50k/hour shutdown event.",
     "founder.trustName": "Rainer Hampicke, Founder & Industry Expert.",
     "founder.story":
       "The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.",
@@ -145,7 +145,8 @@ const I18N = {
     "pricing.tier3.target": "",
     "pricing.roiTitle": "ROI Callout",
     "pricing.roiText":
-      "At an average downtime penalty of $1,333 per minute, the Control Agent pays for itself within the first 15 minutes of a prevented incident.",
+      "At an average downtime cost impact of $1,333 per minute, the Control Agent pays for itself within the first 15 minutes of a prevented incident.",
+    "pricing.roiSubtext": "This includes lost production value, idle labor, and supply chain disruption.",
     "pricing.auditCta": "Request ROI Business Case Study",
     "pricing.auditFoot": "We provide a customized Economic Impact Report for your specific plant KPIs.",
     "pricing.tierCta": "Request Economic Impact Analysis",
@@ -199,7 +200,7 @@ const I18N = {
     "monster.finalCta": "Request Economic Impact Analysis",
     "authority.experienceTitle": "Tested by 20 Years of Shop Floor Reality, Not just 20 Lines of Code.",
     "authority.experienceQuote":
-      "I've lived through the 2:47 AM calls. I know the stress of an $80,000/hour penalty. Control Agent is the tool I wish I had for the last two decades.",
+      "I've lived through the 2:47 AM calls. I know the stress when every hour of downtime burns $80,000 in costs. Control Agent is the tool I wish I had for the last two decades.",
     "authority.nativeBadge": "100% Automotive Native.",
     "authority.nativeB1": "Designed for IATF 16949 compliant environments.",
     "authority.nativeB2": "Engineered to eliminate the 4-hour SAP information lag.",
@@ -439,7 +440,7 @@ const I18N = {
     "founder.scarsKicker": "Aus einem Anruf um 3:00 Uhr in der Produktion — nicht aus einer Folie.",
     "founder.keyline": "Ich verkaufe keine Software. Ich verkaufe den Schlaf, den Sie verloren haben.",
     "founder.trustQuote":
-      "Ich habe 20 Jahre auf dem Shopfloor in der Tier-1-Automobilindustrie verbracht. Ich habe das nicht gebaut, um Software zu verkaufen, sondern um 2-Uhr-Anrufe und 50k$/h-Strafen zu stoppen.",
+      "Ich habe 20 Jahre auf dem Shopfloor in der Tier-1-Automobilindustrie verbracht. Ich habe das nicht gebaut, um Software zu verkaufen, sondern um 2-Uhr-Anrufe und die operativen Verluste hinter jedem 50k$/h-Stillstand zu stoppen.",
     "founder.trustName": "Rainer Hampicke, Gründer & Industrieexperte.",
     "founder.story":
       "Um 3:00 Uhr klingelte das Telefon. Wieder eine Linie unten — und SAP voller „undefinierter“ Felder, während die Produktion auf eine Entscheidung wartete. In dieser Nacht hörte Control Agent auf, nur eine Idee zu sein. Es wurde die Captain’s View, die ich mir gewünscht hätte: Supply-Wahrheit, Flow-Wahrheit und Qualitätsdisziplin an einem Ort — bevor die Linie die Rechnung zahlt.",
@@ -512,7 +513,8 @@ const I18N = {
     "pricing.tier3.target": "",
     "pricing.roiTitle": "ROI-Box",
     "pricing.roiText":
-      "Bei durchschnittlich 1.333 $ Ausfallstrafe pro Minute amortisiert sich der Control Agent innerhalb der ersten 15 Minuten eines verhinderten Vorfalls.",
+      "Bei durchschnittlichem Downtime-Kostenimpact von 1.333 $ pro Minute amortisiert sich der Control Agent innerhalb der ersten 15 Minuten eines verhinderten Vorfalls.",
+    "pricing.roiSubtext": "Darin enthalten sind verlorener Produktionswert, unproduktive Arbeitszeit und Störungen in der Lieferkette.",
     "pricing.auditCta": "ROI-Business-Case anfordern",
     "pricing.auditFoot":
       "Wir liefern einen maßgeschneiderten Economic-Impact-Report für die KPIs Ihres Werks.",
@@ -556,7 +558,7 @@ const I18N = {
       "Basierend auf Ihrem Risiko von {risk}/Stunde kann Control Agent durch 40% schnellere Reaktionszeit ungefähr {saving} pro Monat einsparen.",
     "authority.experienceTitle": "Getestet durch 20 Jahre Shopfloor-Realität, nicht nur durch 20 Zeilen Code.",
     "authority.experienceQuote":
-      "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress einer Strafe von 80.000 $ pro Stunde. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
+      "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress, wenn jede Stunde Stillstand 80.000 $ an Kosten verschlingt. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
     "authority.nativeBadge": "100% Automotive Native.",
     "authority.nativeB1": "Entwickelt für IATF 16949-konforme Umgebungen.",
     "authority.nativeB2": "Konzipiert, um den 4-Stunden-SAP-Informationsverzug zu eliminieren.",
