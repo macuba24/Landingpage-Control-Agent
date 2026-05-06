@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
 
 const NAV_ITEMS = [
   "Dashboard Overview",
@@ -448,9 +447,12 @@ export default function Cockpit() {
 
   const supplyStable = supplyIsStable(supplySnapshot);
 
+  /** SAP glitch still tracked for latency display; baseline ops = yellow “monitor” lamp. */
   const sapLatencyHigh =
     sapMardLatencyMs != null && sapMardLatencyMs > 180;
-  const globalRiskLevel = sapLatencyHigh ? "MEDIUM" : "LOW";
+  const trafficYellowBaseline = true;
+  const globalRiskLevel =
+    trafficYellowBaseline || sapLatencyHigh ? "MEDIUM" : "LOW";
 
   const notificationMessage = (() => {
     if (!supplyStable) {
@@ -509,11 +511,11 @@ export default function Cockpit() {
 
   const riskPillStyle = {
     ...styles.riskPill,
-    ...(sapLatencyHigh ? styles.riskPillMedium : {}),
+    ...(trafficYellowBaseline || sapLatencyHigh ? styles.riskPillMedium : {}),
   };
   const riskValueStyle = {
     ...styles.riskValue,
-    ...(sapLatencyHigh ? styles.riskValueMedium : {}),
+    ...(trafficYellowBaseline || sapLatencyHigh ? styles.riskValueMedium : {}),
   };
 
   return (
@@ -522,6 +524,10 @@ export default function Cockpit() {
         @keyframes live-dot-pulse {
           0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
           50% { opacity: 0.3; box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+        }
+        @keyframes traffic-yellow-pulse {
+          0%, 100% { box-shadow: 0 0 18px rgba(250, 204, 21, 0.55); transform: scale(1); }
+          50% { box-shadow: 0 0 28px rgba(250, 204, 21, 0.85); transform: scale(1.04); }
         }
       `}</style>
       <aside style={styles.sidebar} aria-label="Main navigation">
@@ -549,9 +555,7 @@ export default function Cockpit() {
           ))}
         </nav>
         <div style={styles.sidebarFooter}>
-          <Link to="/info" style={styles.sidebarLink}>
-            About Control Agent
-          </Link>
+          <span style={styles.sidebarFooterNote}>Control Agent · Master Console</span>
         </div>
       </aside>
 
@@ -845,7 +849,7 @@ export default function Cockpit() {
                     style={{
                       ...styles.trafficOrb,
                       ...styles.orbGreen,
-                      ...(sapLatencyHigh ? styles.orbDim : styles.orbActive),
+                      ...(trafficYellowBaseline ? styles.orbDim : styles.orbActive),
                     }}
                   />
                   <span style={styles.trafficLabel}>Green</span>
@@ -855,9 +859,9 @@ export default function Cockpit() {
                     style={{
                       ...styles.trafficOrb,
                       ...styles.orbYellow,
-                      ...(sapLatencyHigh
-                        ? { ...styles.orbYellowActive, opacity: 1 }
-                        : { opacity: 0.45 }),
+                      ...styles.orbYellowActive,
+                      opacity: 1,
+                      animation: "traffic-yellow-pulse 2s ease-in-out infinite",
                     }}
                   />
                   <span style={styles.trafficLabel}>Yellow</span>
@@ -870,12 +874,12 @@ export default function Cockpit() {
               <div style={styles.trafficFooter}>
                 <span
                   style={
-                    sapLatencyHigh
+                    trafficYellowBaseline || sapLatencyHigh
                       ? { ...styles.trafficSummary, ...styles.trafficSummaryMedium }
                       : styles.trafficSummary
                   }
                 >
-                  Overall: {globalRiskLevel} risk
+                  Overall: {globalRiskLevel} risk · Monitor
                 </span>
               </div>
             </aside>
@@ -973,11 +977,11 @@ const styles: Record<string, CSSProperties> = {
     borderTop: borderCard,
     marginTop: "auto",
   },
-  sidebarLink: {
-    fontSize: "0.78rem",
-    color: "#7b8fab",
-    textDecoration: "none",
+  sidebarFooterNote: {
+    fontSize: "0.72rem",
+    color: "#64748b",
     fontWeight: 600,
+    letterSpacing: "0.04em",
   },
   mainWrap: {
     flex: 1,
