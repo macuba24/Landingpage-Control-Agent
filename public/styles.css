@@ -377,6 +377,24 @@ body {
   font-weight: 700;
 }
 
+.roi-cost-input {
+  border-color: #cbd5e1;
+  color: #0f172a;
+  background-color: #f8fafc;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.16) 0.6px, transparent 0.6px);
+  background-size: 7px 7px;
+}
+
+.roi-cost-input::placeholder {
+  color: #64748b;
+}
+
+.roi-cost-input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+  outline: none;
+}
+
 .dashboard-live-scan {
   position: relative;
   overflow: hidden;

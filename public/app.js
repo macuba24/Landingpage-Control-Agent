@@ -104,10 +104,12 @@ const I18N = {
       "If Control Agent helps reduce downtime cost exposure by just 5% annually, what does that return?",
     "roi.hint": "Illustrative model for executive conversations — not a guarantee.",
     "roi.sliderLabel": "Your hourly downtime cost ($ USD)",
+    "roi.inputPlaceholder": "Enter your hourly downtime cost (e.g., 80000)...",
     "roi.hourlyPrefix": "Hourly exposure",
     "roi.annualLabel": "Estimated annual value of a 5% downtime reduction",
     "roi.vsPro":
       "That annual upside is about {ratio}× the Professional plan ({pro}/mo) — before counting faster response, audit readiness, and supplier containment.",
+    "roi.breakEven": "Your Break-Even Point: {minutes} minutes of prevented downtime per year.",
     "compliance.iatf": "IATF 16949 Compliant Architecture",
     "compliance.usHost": "US-Based Data Hosting",
     "compliance.iatfFooter": "IATF 16949 compliant architecture (discipline-first design).",
@@ -307,29 +309,45 @@ const I18N = {
       "Si Control Agent ayuda a reducir solo 5% la exposicion anual a costo por paros, cual es el retorno?",
     "roi.hint": "Modelo ilustrativo para conversaciones ejecutivas — no es garantia.",
     "roi.sliderLabel": "Su costo horario por paro ($ USD)",
+    "roi.inputPlaceholder": "Ingrese su costo horario por paro (ej.: 80000)...",
     "roi.hourlyPrefix": "Exposicion horaria",
     "roi.annualLabel": "Valor anual estimado de reducir paros 5%",
     "roi.vsPro":
       "Ese upside anual es ~{ratio}× el plan Professional ({pro}/mes) — antes de contar respuesta mas rapida, auditoria y contencion con proveedores.",
+    "roi.breakEven": "Su punto de equilibrio: {minutes} minutos de paro evitado por ano.",
     "compliance.iatf": "Arquitectura alineada a IATF 16949",
     "compliance.usHost": "Alojamiento de datos en EE.UU.",
     "compliance.iatfFooter": "Arquitectura alineada a IATF 16949 (diseno disciplina primero).",
     "compliance.renderUs": "Alojado en infraestructura en region EE.UU. (p. ej. Render.com).",
     "pricing.pageTitle": "Precios",
-    "pricing.pageSubtitle": "SaaS en USD para operaciones Tier 1/2.",
+    "pricing.pageSubtitle": "SaaS en USD para operaciones automotrices Tier 1/2.",
+    "pricing.corporateLine":
+      "Disenado para proteccion de EBITDA, excelencia operativa y arbitraje de riesgo con implementacion de baja latencia.",
+    "pricing.colScenario": "Escenario",
+    "pricing.colStatusQuo": "Situacion actual",
+    "pricing.colControlAgent": "Con Control Agent",
+    "pricing.row1Label": "Senal de decision",
+    "pricing.row1Status": "Retraso de SAP (4-24h)",
+    "pricing.row1Control": "Inteligencia en tiempo real",
+    "pricing.row2Label": "Modelo de escalamiento",
+    "pricing.row2Status": "Cadenas de llamadas manuales",
+    "pricing.row2Control": "Alertas 8D automatizadas",
+    "pricing.row3Label": "Exposicion financiera",
+    "pricing.row3Status": "Riesgo de linea detenida de $80,000/h",
+    "pricing.row3Control": "Mitigacion de riesgo a las 2:47 AM",
     "pricing.title": "Inversion y ROI (Precio Basado en Valor)",
     "pricing.subtitle": "Cuadricula limpia de 3 columnas en USD.",
-    "pricing.popular": "Mas Popular",
+    "pricing.popular": "Mas popular",
     "pricing.tier1.name": "PILOTO",
     "pricing.tier1.price": "$990 / mes",
     "pricing.tier1.billing": "facturado anualmente",
-    "pricing.tier1.f1": "Supply Agent basico",
-    "pricing.tier1.f2": "Gateway AI de abastecimiento",
-    "pricing.tier1.f3": "Conector SAP-Mock",
+    "pricing.tier1.f1": "Agente de suministro basico",
+    "pricing.tier1.f2": "Pasarela de IA para abastecimiento",
+    "pricing.tier1.f3": "Conector SAP simulado",
     "pricing.tier1.target": "Objetivo: Plantas de produccion pequenas.",
     "pricing.tier2.name": "PROFESIONAL",
     "pricing.tier2.price": "$1,850 / mes",
-    "pricing.tier2.f1": "Supply y Flow completos",
+    "pricing.tier2.f1": "Suministro y flujo completos",
     "pricing.tier2.f2": "Contador financiero (USD)",
     "pricing.tier2.f3": "Umbrales y alertas de Capitan",
     "pricing.tier2.f4": "Umbrales de alerta personalizados",
@@ -345,6 +363,13 @@ const I18N = {
     "pricing.roiTitle": "ROI",
     "pricing.roiText":
       "Si Control Agent evita solo UNA hora de inactividad ($50,000 promedio), paga toda su suscripcion anual en los primeros 15 minutos de una crisis.",
+    "pricing.roiSubtext":
+      "Esto incluye valor de produccion perdido, mano de obra inactiva y disrupciones en la cadena de suministro.",
+    "pricing.auditCta": "Solicitar estudio de caso ROI",
+    "pricing.auditFoot":
+      "Entregamos un informe de impacto economico personalizado para los KPI especificos de su planta.",
+    "pricing.tierCta": "Solicitar analisis de impacto economico",
+    "pricing.tierFoot": "Reservado para proveedores Tier-1 y lideres de planta OEM.",
     "contact.title": "Proteja el valor de su produccion.",
     "contact.subtitle": "Comparta su perfil de riesgo actual y reciba una estimacion basada en valor.",
     "contact.nameLabel": "Nombre",
@@ -426,14 +451,14 @@ const I18N = {
     "mobile.targetOut": "Soll-Output",
     "mobile.realtimeOut": "Echtzeit-Output",
     "mobile.oee": "OEE",
-    "mobile.scrap": "Scrap",
+    "mobile.scrap": "Ausschuss",
     "landing.heroFootnote":
       "Ausrollung auf US-Region-Infrastruktur für geringere Latenz für Teams in Mexiko und den USA.",
     "landing.riskBadge": "Risikosignal",
     "landing.riskTitle": "Eine Stunde Stillstand kann eine Quartalsmarge ausradieren.",
     "landing.bullet1":
       "SAP-nahe Traceability (MARD / Charge / Containment) mit Captain-Schwellwerten.",
-    "landing.bullet2": "Flow-Telemetrie, OEE, Scrap — gekoppelt an Financial Counter in USD.",
+    "landing.bullet2": "Flow-Telemetrie, OEE, Ausschuss — gekoppelt an Finanzzähler in USD.",
     "landing.bullet3":
       "Auto-8D-Entwurfslogik im IATF-10.2-Kontext (Audit-Mode).",
     "founder.scarsTitle": "In der Praxis gebaut",
@@ -443,36 +468,38 @@ const I18N = {
       "Ich habe 20 Jahre auf dem Shopfloor in der Tier-1-Automobilindustrie verbracht. Ich habe das nicht gebaut, um Software zu verkaufen, sondern um 2-Uhr-Anrufe und die operativen Verluste hinter jedem 50k$/h-Stillstand zu stoppen.",
     "founder.trustName": "Rainer Hampicke, Gründer & Industrieexperte.",
     "founder.story":
-      "Um 3:00 Uhr klingelte das Telefon. Wieder eine Linie unten — und SAP voller „undefinierter“ Felder, während die Produktion auf eine Entscheidung wartete. In dieser Nacht hörte Control Agent auf, nur eine Idee zu sein. Es wurde die Captain’s View, die ich mir gewünscht hätte: Supply-Wahrheit, Flow-Wahrheit und Qualitätsdisziplin an einem Ort — bevor die Linie die Rechnung zahlt.",
-    "triad.title": "Die Tool-Triade",
-    "triad.subtitle": "Drei Agents. Ein Kommando. Für Automotive-Operations.",
+      "Um 3:00 Uhr klingelte das Telefon. Wieder eine Linie unten — und SAP voller „undefinierter“ Felder, während die Produktion auf eine Entscheidung wartete. In dieser Nacht hörte Control Agent auf, nur eine Idee zu sein. Es wurde die Leitstandsicht, die ich mir gewünscht hätte: Versorgungsrealität, Flusswahrheit und Qualitätsdisziplin an einem Ort — bevor die Linie die Rechnung zahlt.",
+    "triad.title": "Die Werkzeug-Triade",
+    "triad.subtitle": "Drei Agenten. Ein Kommando. Für Automotive-Betrieb.",
     "triad.supplyTitle": "Supply Agent",
     "triad.supplyBody":
-      "SAP-MARD-Live-Sync plus AI-Gateway für alternatives Sourcing (US/MEX).",
+      "SAP-MARD-Live-Synchronisierung plus KI-Gateway für alternative Beschaffung (US/MEX).",
     "triad.flowTitle": "Flow Agent",
     "triad.flowBody":
-      "Performance-Telemetrie, OEE, Scrap-Analyse und Operator-Traceability — mit Eskalationslogik.",
+      "Performance-Telemetrie, OEE, Ausschussanalyse und Operator-Rückverfolgbarkeit — mit Eskalationslogik.",
     "triad.qualityTitle": "Quality Agent",
     "triad.qualityBody":
-      "Auto-8D-Pfad (IATF 10.2) plus globaler Financial Counter in USD für das Leadership-Team.",
+      "Automatisierter 8D-Pfad (IATF 10.2) plus globaler Finanzzähler in USD für das Führungsteam.",
     "roi.title": "Interaktiver ROI-Rechner",
     "roi.subtitle":
-      "Wenn Control Agent die jährliche Downtime-Kostenexposition nur um 5% senkt — was ist dann der Return?",
+      "Wenn Control Agent die jährliche Stillstandskosten-Exposition nur um 5% senkt — wie hoch ist dann die Rendite?",
     "roi.hint": "Illustratives Modell für Führungsgespräche — keine Garantie.",
     "roi.sliderLabel": "Ihre Stundenkosten bei Bandstillstand ($ USD)",
-    "roi.hourlyPrefix": "Stunden-Exposure",
-    "roi.annualLabel": "Schätzwert jährlich bei 5% weniger Downtime-Kostenexposure",
+    "roi.inputPlaceholder": "Geben Sie Ihre Stillstandskosten pro Stunde ein (z. B. 80000)...",
+    "roi.hourlyPrefix": "Stündliche Exposition",
+    "roi.annualLabel": "Geschätzter Jahreswert bei 5% weniger Stillstandskosten-Exposition",
     "roi.vsPro":
-      "Dieses jährliche Upside entspricht ca. {ratio}× dem Professional-Plan ({pro}/Monat) — noch ohne schnellere Reaktion, Audit-Readiness und Supplier-Containment.",
+      "Dieses jährliche Potenzial entspricht ca. {ratio}× dem Professional-Plan ({pro}/Monat) — ohne schnellere Reaktion, Audit-Bereitschaft und Lieferanten-Containment einzurechnen.",
+    "roi.breakEven": "Ihr Break-Even-Punkt: {minutes} Minuten verhinderter Stillstand pro Jahr.",
     "compliance.iatf": "IATF-16949-konforme Architektur",
     "compliance.usHost": "Daten-Hosting in den USA",
     "compliance.iatfFooter": "IATF-16949-konforme Architektur (Disziplin-first Design).",
     "compliance.renderUs": "Gehostet auf US-Region-Infrastruktur (z. B. Render.com).",
     "pricing.pageTitle": "Strategische Einführung & ROI.",
     "pricing.pageSubtitle":
-      "Wir verkaufen keine Lizenzen; wir schützen Produktionslinien. Wählen Sie den Tier, der zur operativen Komplexität Ihres Werks passt.",
+      "Wir verkaufen keine Lizenzen; wir schützen Produktionslinien. Wählen Sie die Stufe, die zur operativen Komplexität Ihres Werks passt.",
     "pricing.corporateLine":
-      "Entwickelt für EBITDA-Schutz, Operational Excellence und Risiko-Arbitrage durch Zero-Latency-Implementierung.",
+      "Entwickelt für EBITDA-Schutz, operative Exzellenz und Risiko-Arbitrage durch latenzarme Implementierung.",
     "pricing.colScenario": "Szenario",
     "pricing.colStatusQuo": "Status quo",
     "pricing.colControlAgent": "Mit Control Agent",
@@ -481,33 +508,33 @@ const I18N = {
     "pricing.row1Control": "Echtzeit-Intelligenz",
     "pricing.row2Label": "Eskalationsmodell",
     "pricing.row2Status": "Manuelle Telefonketten",
-    "pricing.row2Control": "Automatisierte 8D-Alerts",
+    "pricing.row2Control": "Automatisierte 8D-Warnungen",
     "pricing.row3Label": "Finanzielle Exposition",
-    "pricing.row3Status": "80.000 $/Stunde Line-Down-Risiko",
+    "pricing.row3Status": "80.000 $/Stunde Stillstandsrisiko",
     "pricing.row3Control": "Risikominderung um 2:47 Uhr",
     "pricing.title": "Investition & ROI (wertbasierte Einführung)",
     "pricing.subtitle": "Sauberes 3-Säulen-Einführungsmodell in USD.",
     "pricing.popular": "Strategischer Kern",
     "pricing.tier1.name": "Pilot-Stufe",
     "pricing.tier1.price": "",
-    "pricing.tier1.billing": "Einstieg in Risk Intelligence. Fokus auf schnelle 2:47-Uhr-Reaktion.",
-    "pricing.tier1.f1": "Single-Plant-Deployment",
-    "pricing.tier1.f2": "Echtzeit-Alerting um 2:47 Uhr",
-    "pricing.tier1.f3": "8D-Traceability",
+    "pricing.tier1.billing": "Einstieg in Risiko-Intelligenz. Fokus auf schnelle Reaktion um 2:47 Uhr.",
+    "pricing.tier1.f1": "Einführung in einem einzelnen Werk",
+    "pricing.tier1.f2": "Echtzeit-Warnungen um 2:47 Uhr",
+    "pricing.tier1.f3": "8D-Rückverfolgbarkeit",
     "pricing.tier1.target": "",
-    "pricing.tier2.name": "Enterprise-Stufe",
+    "pricing.tier2.name": "Unternehmens-Stufe",
     "pricing.tier2.price": "",
-    "pricing.tier2.f1": "Multi-Site-Intelligence",
-    "pricing.tier2.f2": "Cross-Border-Risk-Mapping",
+    "pricing.tier2.f1": "Standortübergreifende Intelligenz",
+    "pricing.tier2.f2": "Grenzüberschreitende Risikokartierung",
     "pricing.tier2.f3": "Zugang anfragen",
     "pricing.tier2.f4": "",
-    "pricing.tier2.billing": "Volle Multi-Plant-Synchronisierung und SAP-Lag-Eliminierung.",
+    "pricing.tier2.billing": "Vollständige Multi-Werk-Synchronisierung und Eliminierung von SAP-Verzögerungen.",
     "pricing.tier2.target": "",
-    "pricing.tier3.name": "Globales Mission Control",
+    "pricing.tier3.name": "Globales Leitstand-Modell",
     "pricing.tier3.price": "",
-    "pricing.tier3.billing": "24/7 AI-gestützter Supply-Chain-Schutz für OEM-Level-Operations.",
-    "pricing.tier3.f1": "Volle Enterprise-AI-Integration",
-    "pricing.tier3.f2": "24/7 dediziertes Mission Control",
+    "pricing.tier3.billing": "24/7 KI-gestützter Lieferkettenschutz für OEM-Operationen.",
+    "pricing.tier3.f1": "Vollständige KI-Integration auf Unternehmensebene",
+    "pricing.tier3.f2": "24/7 dedizierter Leitstand",
     "pricing.tier3.f3": "Prädiktive Risikoprävention",
     "pricing.tier3.f4": "",
     "pricing.tier3.target": "",
@@ -517,8 +544,8 @@ const I18N = {
     "pricing.roiSubtext": "Darin enthalten sind verlorener Produktionswert, unproduktive Arbeitszeit und Störungen in der Lieferkette.",
     "pricing.auditCta": "ROI-Business-Case anfordern",
     "pricing.auditFoot":
-      "Wir liefern einen maßgeschneiderten Economic-Impact-Report für die KPIs Ihres Werks.",
-    "pricing.tierCta": "Economic-Impact-Analyse anfordern",
+      "Wir liefern einen maßgeschneiderten Wirtschaftlichkeitsbericht für die KPIs Ihres Werks.",
+    "pricing.tierCta": "Wirtschaftlichkeitsanalyse anfordern",
     "pricing.tierFoot": "Reserviert für Tier-1-Zulieferer und OEM-Werksleiter.",
     "pricing.zeroRiskFoot":
       "Unser Engagement startet mit einem technischen Audit Ihres aktuellen SAP-Lags und Ihrer OEE-Leckage. Keine Vorab-Softwarekosten, bis der ROI für Ihr Werk nachweisbar ist.",
@@ -536,9 +563,9 @@ const I18N = {
     "monster.techTitle": "Gehostet in US-West (Oregon) für ultra-niedrige Latenz in Nordamerika.",
     "monster.techB1": "Cloud-native",
     "monster.techB2": "SOC2-konform",
-    "monster.techB3": "Zero-Config-SAP-Integration",
+    "monster.techB3": "SAP-Integration ohne Konfigurationsaufwand",
     "monster.finalHeadline": "Warten Sie nicht auf den nächsten 2:47-Uhr-Anruf.",
-    "monster.finalCta": "Economic-Impact-Analyse anfordern",
+    "monster.finalCta": "Wirtschaftlichkeitsanalyse anfordern",
     "contact.title": "Sichern Sie Ihre Wertschöpfung ab.",
     "contact.subtitle": "Teilen Sie Ihr aktuelles Risikoprofil und erhalten Sie eine wertbasierte Einschätzung.",
     "contact.nameLabel": "Name",
@@ -559,13 +586,13 @@ const I18N = {
     "authority.experienceTitle": "Getestet durch 20 Jahre Shopfloor-Realität, nicht nur durch 20 Zeilen Code.",
     "authority.experienceQuote":
       "Ich habe die 2:47-AM-Anrufe selbst erlebt. Ich kenne den Stress, wenn jede Stunde Stillstand 80.000 $ an Kosten verschlingt. Control Agent ist das Tool, das ich mir in den letzten zwei Jahrzehnten gewünscht hätte.",
-    "authority.nativeBadge": "100% Automotive Native.",
+    "authority.nativeBadge": "100% nativ für Automotive.",
     "authority.nativeB1": "Entwickelt für IATF 16949-konforme Umgebungen.",
     "authority.nativeB2": "Konzipiert, um den 4-Stunden-SAP-Informationsverzug zu eliminieren.",
     "authority.nativeB3": "Fokussiert auf den Schutz von Tier-1-OEM-Beziehungen.",
     "authority.partnerTitle": "Seien Sie der Führende, nicht der Folgende.",
     "authority.partnerBody":
-      "Aktuell nehmen wir 3 weitere Tier-1-Werke in unser \"Strategic Impact Program\" auf. Sichern Sie sich Ihren Platz, um Ihre Division bei OEE und Risikominderung anzuführen.",
+      "Aktuell nehmen wir 3 weitere Tier-1-Werke in unser \"Strategisches Impact-Programm\" auf. Sichern Sie sich Ihren Platz, um Ihre Division bei OEE und Risikominderung anzuführen.",
     "authority.partnerCta": "Für strategische Partnerschaft bewerben",
     "alerts.captain": "ACHTUNG CAPTAIN: Sofortiges Handeln für Schritt D4 erforderlich!",
     "alerts.auto8d": "System hat 8D-Report für Performance-Lücke erstellt",
@@ -624,11 +651,27 @@ function clampHourlyCost(value) {
   return Math.max(10000, Math.min(250000, n));
 }
 
+function parseCurrencyLikeInput(value) {
+  const digits = String(value || "").replace(/[^\d]/g, "");
+  if (!digits) return NaN;
+  return Number(digits);
+}
+
+function usdNoCents(value) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(Number(value || 0));
+}
+
 function getRoiHourlyFromInputs() {
   const mobile = document.getElementById("roi-mobile-input");
   const slider = document.getElementById("roi-slider");
   const raw = mobile?.value ?? slider?.value ?? 50000;
-  return clampHourlyCost(Number(raw));
+  const parsed = mobile ? parseCurrencyLikeInput(raw) : Number(raw);
+  return clampHourlyCost(parsed);
 }
 
 function syncHourlyCostAcrossUi(value) {
@@ -637,7 +680,7 @@ function syncHourlyCostAcrossUi(value) {
   const mobileRoi = document.getElementById("roi-mobile-input");
   const contactRisk = document.getElementById("contact-risk");
   if (slider) slider.value = String(bounded);
-  if (mobileRoi) mobileRoi.value = String(bounded);
+  if (mobileRoi) mobileRoi.value = usdNoCents(bounded);
   if (contactRisk) contactRisk.value = String(bounded);
   updateRiskUi(bounded);
   updateRoiDisplay(bounded);
@@ -647,6 +690,7 @@ function updateRoiDisplay(hourlyCost) {
   const hourlyEl = document.getElementById("roi-hourly-display");
   const annualEl = document.getElementById("roi-annual-savings");
   const vsProEl = document.getElementById("roi-vs-pro");
+  const paybackEl = document.getElementById("roi-payback-time");
   if (!hourlyEl || !annualEl || !vsProEl) return;
 
   const hoursPerYear = 365 * 24;
@@ -662,6 +706,15 @@ function updateRoiDisplay(hourlyCost) {
     ratio: ratio.toFixed(1),
     pro: usd(proMonthly),
   });
+
+  if (paybackEl) {
+    const annualProgramUsd = 25000;
+    const breakEvenMinutes = Math.max(
+      1,
+      Math.round((annualProgramUsd / Math.max(1, hourlyCost)) * 60),
+    );
+    paybackEl.textContent = tf("roi.breakEven", { minutes: breakEvenMinutes });
+  }
 }
 
 function applyI18nStatic() {
@@ -1002,7 +1055,8 @@ function bindRoiCalculator() {
   }
   if (mobileRoi) {
     mobileRoi.addEventListener("input", () => {
-      syncHourlyCostAcrossUi(Number(mobileRoi.value || 50000));
+      const parsed = parseCurrencyLikeInput(mobileRoi.value);
+      syncHourlyCostAcrossUi(Number.isFinite(parsed) ? parsed : 50000);
     });
   }
   if (!slider && !mobileRoi) return;

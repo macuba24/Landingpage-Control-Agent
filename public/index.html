@@ -310,18 +310,25 @@
             <div class="mt-3 md:hidden">
               <input
                 id="roi-mobile-input"
-                type="number"
+                type="text"
                 min="10000"
                 max="250000"
                 step="1000"
-                value="50000"
-                class="w-full min-h-[44px] rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 tabular-nums"
+                value="$50,000"
+                inputmode="numeric"
+                enterkeyhint="done"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Enter your hourly downtime cost (e.g., 80000)..."
+                data-i18n-placeholder="roi.inputPlaceholder"
+                class="roi-cost-input w-full min-h-[48px] rounded-lg border px-3 py-2 tabular-nums"
               />
             </div>
             <div class="mt-2 flex flex-wrap items-baseline justify-between gap-2 text-sm">
               <span class="text-gray-400" data-i18n="roi.hourlyPrefix">Hourly exposure</span>
               <strong id="roi-hourly-display" class="text-white tabular-nums">$50,000.00</strong>
             </div>
+            <p id="roi-payback-time" class="mt-2 text-xs text-sky-200"></p>
           </div>
           <div class="mt-6 rounded-xl border border-emerald-900/50 bg-emerald-950/30 p-4">
             <p class="text-sm text-emerald-100/90" data-i18n="roi.annualLabel">Estimated annual value of a 5% downtime reduction</p>
