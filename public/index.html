@@ -167,7 +167,7 @@
               </p>
             </div>
           </div>
-          <div class="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl reveal-on-scroll">
+          <div class="dashboard-live-scan rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/90 to-gray-950 p-6 shadow-xl reveal-on-scroll">
             <div class="flex items-start justify-between gap-3">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-ca-risk" data-i18n="landing.riskBadge">Risk signal</p>
@@ -193,18 +193,44 @@
         </div>
 
         <section id="section-founder" class="mt-16 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-bold text-white" data-i18n="founder.scarsTitle">Built in the Trenches</h2>
-              <p class="mt-1 text-sm text-gray-400" data-i18n="founder.scarsKicker">From a 3:00 AM plant call — not a slide deck.</p>
+          <div class="founder-trust-grid">
+            <div class="founder-trust-photo-wrap">
+              <img src="/founder-photo.png" alt="Rainer Hampicke" class="founder-trust-photo" />
             </div>
-            <div class="rounded-xl border border-ca-risk/40 bg-ca-risk/10 px-4 py-2 text-sm font-semibold text-red-100" data-i18n="founder.keyline">
-              I don't sell software. I sell the sleep you lost.
+            <div>
+              <h2 class="text-xl font-bold text-white">Founder Trust</h2>
+              <p class="mt-4 text-gray-300 leading-relaxed" data-i18n="founder.trustQuote">
+                I’ve spent 20 years on the shop floor in Tier-1 Automotive. I didn’t build this to sell software; I built it to stop the 2 AM phone calls and the $50k/hour penalties.
+              </p>
+              <p class="mt-4 text-sm font-semibold text-sky-300" data-i18n="founder.trustName">Rainer Hampicke, Founder & Industry Expert.</p>
             </div>
           </div>
-          <p class="mt-6 text-gray-300 leading-relaxed" data-i18n="founder.story">
-            The phone rang at 3:00 AM. Another line down — and SAP screens full of “undefined” fields while operations waited for a decision. That night, Control Agent stopped being an idea. It became the Captain’s view I wished I had: supply reality, flow truth, and quality discipline in one place — before the line pays the invoice.
+        </section>
+
+        <section id="section-cost-silence" class="mt-14 rounded-2xl border border-red-900/50 bg-gradient-to-b from-red-950/40 to-gray-950 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-red-300" data-i18n="monster.costKicker">Cost of Silence</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white" data-i18n="monster.costHeadline">Every minute of downtime costs up to $833.</h2>
+          <p class="mt-3 text-gray-300 max-w-3xl" data-i18n="monster.costBody">
+            While your SAP is "syncing", you are losing money. Control Agent bridges the gap between ERP lag and shop-floor reality.
           </p>
+        </section>
+
+        <section id="section-pillars" class="mt-14 scroll-mt-28 reveal-on-scroll">
+          <h2 class="text-xl font-bold text-white" data-i18n="monster.pillarsTitle">The 3-Pillar Solution</h2>
+          <div class="mt-5 grid gap-4 md:grid-cols-3">
+            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar1Title">Supply Agent</p>
+              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar1Body">AI-driven risk detection before the truck even leaves the supplier.</p>
+            </article>
+            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar2Title">Flow Agent</p>
+              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar2Body">Real-time bottleneck analysis. No more guessing where the parts are.</p>
+            </article>
+            <article class="feature-card rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
+              <p class="text-sm font-semibold text-sky-300" data-i18n="monster.pillar3Title">Quality Agent</p>
+              <p class="mt-2 text-sm text-gray-300" data-i18n="monster.pillar3Body">Instant 8D-transparency. Stop defects before they hit the assembly line.</p>
+            </article>
+          </div>
         </section>
 
         <section id="section-triad" class="mt-14 scroll-mt-28 reveal-on-scroll">
@@ -357,10 +383,33 @@
           <div id="contact-thankyou" class="mt-4 hidden rounded-xl border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-100"></div>
         </section>
 
-        <footer class="mt-14 flex flex-wrap gap-3 text-[11px] text-gray-500">
+        <section id="section-tech" class="mt-14 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
+          <h2 class="text-xl font-bold text-white" data-i18n="monster.techTitle">Hosted on US-West (Oregon) for ultra-low latency in North America.</h2>
+          <ul class="mt-4 space-y-2 text-sm text-gray-300">
+            <li data-i18n="monster.techB1">Cloud-native</li>
+            <li data-i18n="monster.techB2">SOC2 compliant</li>
+            <li data-i18n="monster.techB3">Zero-config SAP integration</li>
+          </ul>
+        </section>
+
+        <section id="section-final-call" class="mt-14 rounded-2xl border border-red-900/50 bg-red-950/20 p-6 sm:p-8 scroll-mt-28 reveal-on-scroll">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="monster.finalHeadline">Don't wait for the next 2:47 AM call.</h2>
+          <a
+            href="mailto:sales@control-agent.example?subject=Control%20Agent%20%E2%80%93%20Production%20Security%20Request"
+            class="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-md bg-ca-risk px-7 py-4 text-lg font-bold text-white shadow-lg shadow-red-900/50 hover:brightness-110 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+            data-i18n="monster.finalCta"
+          >Secure My Production Now</a>
+        </section>
+
+        <footer class="mt-14 flex flex-wrap items-center gap-3 text-[11px] text-gray-500">
           <span class="inline-flex items-center gap-1.5" data-i18n="compliance.iatfFooter">IATF 16949 compliant architecture (discipline-first design).</span>
           <span class="text-gray-700">·</span>
           <span class="inline-flex items-center gap-1.5" data-i18n="compliance.renderUs">Hosted on US-region infrastructure (e.g. Render.com).</span>
+          <span class="text-gray-700">·</span>
+          <a href="#" onclick="return false;" class="text-gray-400 hover:text-gray-200">Privacy Policy</a>
+          <span class="text-gray-700">·</span>
+          <a href="#" onclick="return false;" class="text-gray-400 hover:text-gray-200">Legal Notice</a>
+          <span class="made-automotive-badge">Made for Automotive Excellence</span>
         </footer>
       </div>
 
