@@ -79,16 +79,17 @@ export class ControlAgent {
       D2: null,
       D3: {
         stepId: "D3",
-        dStepOwner: "unassigned@company.com",
-        sapUserId: null,
-        deadlineAt: new Date(now + 24 * 60 * 60 * 1000).toISOString(),
+        dStepOwner: "supply.lead@company.com",
+        sapUserId: "SAP-SC-332",
+        // Keep demo posture realistic: active containment is slightly overdue (yellow risk).
+        deadlineAt: new Date(now - 75 * 60 * 1000).toISOString(),
         updatedAt: new Date().toISOString(),
       },
       D4: {
         stepId: "D4",
-        dStepOwner: "unassigned@company.com",
-        sapUserId: null,
-        deadlineAt: new Date(now + 72 * 60 * 60 * 1000).toISOString(),
+        dStepOwner: "qa.lead@company.com",
+        sapUserId: "SAP-QA-100",
+        deadlineAt: new Date(now + 20 * 60 * 60 * 1000).toISOString(),
         updatedAt: new Date().toISOString(),
       },
       D5: null,

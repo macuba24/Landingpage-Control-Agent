@@ -242,6 +242,7 @@ section { padding: 96px 48px; }
 .pain-card {
   background: var(--surface); padding: 36px 28px; position: relative; overflow: hidden;
   transition: background 0.3s;
+  border-radius: 10px;
 }
 .pain-card:hover { background: var(--surface2); }
 .pain-card::after {
@@ -306,7 +307,7 @@ section { padding: 96px 48px; }
 .how { background: var(--bg2); }
 .how::before { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); margin: 0 0 96px; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
-.step { background: var(--surface); padding: 36px 28px; position: relative; }
+.step { background: var(--surface); padding: 36px 28px; position: relative; border-radius: 10px; }
 .step-num { font-family: var(--display); font-size: 64px; color: var(--border); line-height: 1; margin-bottom: -10px; }
 .step-name { font-family: var(--display); font-size: 22px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
 .step-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
@@ -375,6 +376,7 @@ section { padding: 96px 48px; }
   background: var(--surface); border: 1px solid var(--border);
   padding: 36px 28px; position: relative; overflow: hidden;
   transition: border-color 0.3s, transform 0.3s;
+  border-radius: 10px;
 }
 .agent:hover { border-color: var(--border-red); transform: translateY(-5px); }
 .agent-idx { font-family: var(--display); font-size: 80px; color: rgba(255,255,255,0.03); position: absolute; top: -10px; right: 16px; line-height: 1; }
@@ -472,6 +474,7 @@ input:focus, select:focus { border-color: var(--red); }
   background: var(--surface); padding: 40px 32px; position: relative;
   display: flex; flex-direction: column;
   transition: background 0.3s;
+  border-radius: 10px;
 }
 .plan.featured { background: var(--surface2); border-top: 3px solid var(--red); }
 .plan-tag { font-family: var(--mono); font-size: 9px; color: var(--red); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; }
@@ -491,6 +494,7 @@ input:focus, select:focus { border-color: var(--red); }
 .pricing-note {
   background: var(--surface); border: 1px solid var(--border);
   padding: 28px 32px; font-size: 15px; color: var(--muted); line-height: 1.7; text-align: center;
+  border-radius: 10px;
 }
 .pricing-note strong { color: var(--text); }
 
