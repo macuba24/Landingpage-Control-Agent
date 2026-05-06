@@ -26,8 +26,9 @@ Ausgabe: `dist/` (wird von Git ignoriert).
 2. **Nicht committen:** `node_modules/`, `dist/`, `.vercel/`, `.env*`.  
    Steht in `.gitignore`.
 
-3. **Vercel:** Root = Repo-Root, Build Command `npm run build`, Output `dist`.  
-   `vercel.json` enthält den SPA-Rewrite für Client-Routing.
+3. **Vercel:** Root = **Repo-Root** (nicht `public/`).  
+   **`index.html` liegt nur im Projektroot** (Vite-Einstieg); **`public/index.html` darf es nicht geben**.  
+   `vercel.json` setzt `framework: vite`, `buildCommand`, `outputDirectory: dist` und den SPA-Rewrite.
 
 4. **CI:** Bei Push/PR auf `main` baut GitHub Actions das Projekt — offensichtliche Branches fallen so auf.
 
