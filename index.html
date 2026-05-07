@@ -109,6 +109,26 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
   border-left: 2px solid var(--red); padding-left: 20px;
 }
 .hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-story {
+  max-width: 720px;
+  margin-bottom: 42px;
+  background: rgba(15, 23, 36, 0.55);
+  border: 1px solid var(--border-red);
+  padding: 18px 20px;
+}
+.hero-story-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hero-story-copy {
+  font-size: 15px;
+  color: #c8d2e2;
+  line-height: 1.7;
+}
 
 .cta-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 64px; }
 
@@ -407,6 +427,13 @@ h1 { animation-delay: 0.25s; }
       Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
       Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.
     </p>
+    <div class="hero-story">
+      <div class="hero-story-kicker">The Man Behind The System</div>
+      <p class="hero-story-copy">
+        I've been where you are at 2:47 AM. I know the silence of a stopped production line and the
+        pressure when every minute costs money while SAP still lags behind reality.
+      </p>
+    </div>
     <div class="cta-group">
       <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
       <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
