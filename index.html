@@ -166,6 +166,34 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
 .ticker-item { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: white; flex-shrink: 0; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+/* HERO STORY BLOCK (explicit separate section) */
+.hero-story-section {
+  padding: 48px;
+  background: #08101c;
+  border-top: 1px solid var(--border-red);
+  border-bottom: 1px solid var(--border-red);
+}
+.hero-story-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  border-left: 4px solid var(--red);
+  padding: 24px 26px;
+}
+.hero-story-headline {
+  font-family: var(--display);
+  font-size: 34px;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+.hero-story-text {
+  font-size: 17px;
+  color: #d8e1f0;
+  line-height: 1.7;
+}
+
 /* SECTIONS */
 section { padding: 96px 48px; }
 .inner { max-width: 1100px; margin: 0 auto; }
@@ -440,6 +468,17 @@ h1 { animation-delay: 0.25s; }
       <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-red">Calculate My Risk <span class="btn-arrow">→</span></a>
       <div class="trust-micro"><span>✓</span> No sales call &nbsp;·&nbsp; <span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> Just your number</div>
     </div>
+  </div>
+</section>
+
+<!-- HERO STORY (forced visible section) -->
+<section id="hero-story" class="hero-story-section">
+  <div class="hero-story-inner">
+    <h2 class="hero-story-headline">HERO STORY</h2>
+    <p class="hero-story-text">
+      I've been where you are at 2:47 AM. I know the silence of a stopped production line and the
+      pressure when every minute costs money while SAP still lags behind reality.
+    </p>
   </div>
 </section>
 
