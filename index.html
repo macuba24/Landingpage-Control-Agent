@@ -14,168 +14,31 @@
             --blue: #3B82F6;
             --green: #10B981;
         }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            padding: 120px 5% 60px;
-            text-align: center;
-            background: radial-gradient(circle at top, rgba(220, 38, 38, 0.15), transparent);
-        }
-
-        .hero h1 {
-            font-family: 'Bebas Neue';
-            font-size: clamp(55px, 12vw, 130px);
-            line-height: 0.85;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        .hero { padding: 120px 5% 60px; text-align: center; background: radial-gradient(circle at top, rgba(220, 38, 38, 0.15), transparent); }
+        .hero h1 { font-family: 'Bebas Neue'; font-size: clamp(55px, 12vw, 130px); line-height: 0.85; margin: 0; text-transform: uppercase; }
         .hero h1 span { color: var(--red); }
-
-        .ticker {
-            font-family: 'JetBrains Mono';
-            color: var(--red);
-            font-size: clamp(14px, 2vw, 20px);
-            margin-top: 30px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        /* STORY BOX */
-        .story-container {
-            max-width: 850px;
-            margin: 60px auto;
-            padding: 40px;
-            border-left: 5px solid var(--red);
-            background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent);
-            text-align: left;
-        }
-
-        .story-container h2 {
-            font-family: 'Bebas Neue';
-            font-size: 40px;
-            margin-top: 0;
-            color: #fff;
-        }
-
-        .story-text {
-            font-size: 21px;
-            color: #A0AEC0;
-            font-style: italic;
-        }
-
+        .ticker { font-family: 'JetBrains Mono'; color: var(--red); font-size: clamp(14px, 2vw, 20px); margin-top: 30px; letter-spacing: 2px; font-weight: bold; }
+        .story-container { max-width: 850px; margin: 60px auto; padding: 40px; border-left: 5px solid var(--red); background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent); text-align: left; }
+        .story-container h2 { font-family: 'Bebas Neue'; font-size: 40px; margin-top: 0; color: #fff; }
+        .story-text { font-size: 21px; color: #A0AEC0; font-style: italic; }
         .highlight { color: var(--red); font-weight: bold; font-family: 'JetBrains Mono'; }
-
-        /* MASTER CONSOLE PREVIEW */
-        .console-preview {
-            max-width: 1100px;
-            margin: 80px auto;
-            background: #0A0F18;
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
-        }
-
-        .d-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .d-card {
-            background: var(--card);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
+        .console-preview { max-width: 1100px; margin: 80px auto; background: #0A0F18; padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 300px; gap: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); cursor: pointer; text-decoration: none; transition: 0.3s; }
+        .console-preview:hover { border-color: var(--red); transform: scale(1.01); }
+        .d-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .d-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-family: 'JetBrains Mono', monospace; }
         .d-id { color: var(--blue); font-size: 12px; font-weight: bold; }
         .d-title { font-size: 16px; margin: 10px 0; font-weight: bold; color: #fff; }
         .d-assignee { font-size: 12px; color: #64748B; }
-
-        .traffic-light {
-            background: #000;
-            border-radius: 25px;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #222;
-        }
-
+        .traffic-light { background: #000; border-radius: 25px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #222; }
         .light { width: 65px; height: 65px; border-radius: 50%; margin: 15px 0; background: #111; }
         .light.red-active { background: var(--red); box-shadow: 0 0 50px var(--red); }
         .ampel-label { font-family: 'Bebas Neue'; color: var(--red); font-size: 24px; margin-top: 20px; }
-
-        /* AUDIT FORM */
-        .form-section {
-            max-width: 700px;
-            margin: 120px auto;
-            padding: 60px;
-            background: var(--card);
-            border: 2px solid var(--red);
-            border-radius: 16px;
-            box-shadow: 0 0 60px rgba(220, 38, 38, 0.15);
-        }
-
-        .form-section h2 {
-            font-family: 'Bebas Neue';
-            font-size: 50px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 18px;
-            margin-bottom: 25px;
-            background: #06090E;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-family: 'JetBrains Mono';
-            font-size: 16px;
-        }
-
-        .btn {
-            background: var(--red);
-            color: white;
-            border: none;
-            padding: 22px;
-            width: 100%;
-            font-family: 'Bebas Neue';
-            font-size: 32px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4);
-        }
-
-        @media (max-width: 900px) {
-            .console-preview { grid-template-columns: 1fr; }
-            .d-grid { grid-template-columns: 1fr; }
-        }
+        .form-section { max-width: 700px; margin: 120px auto; padding: 60px; background: var(--card); border: 2px solid var(--red); border-radius: 16px; }
+        input, select, textarea { width: 100%; padding: 18px; margin-bottom: 25px; background: #06090E; border: 1px solid #333; color: white; border-radius: 8px; box-sizing: border-box; font-family: 'JetBrains Mono'; }
+        .btn { background: var(--red); color: white; border: none; padding: 22px; width: 100%; font-family: 'Bebas Neue'; font-size: 32px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: 0.3s; }
+        .btn:hover { box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4); transform: translateY(-2px); }
+        @media (max-width: 900px) { .console-preview { grid-template-columns: 1fr; } .d-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -184,9 +47,9 @@
         <div style="font-family: 'JetBrains Mono'; color: var(--red); margin-bottom: 20px; font-weight: bold;">[ SYSTEM STATUS: CRITICAL LAGGING ]</div>
         <h1>IT'S <span>2:47 AM.</span><br>YOUR LINE IS DOWN.<br>SAP SHOWS NOTHING.</h1>
         <div class="ticker">INDUSTRY LOSSES THIS HOUR: $836,239</div>
-        <p style="font-size: 24px; margin-top: 40px; color: #cbd5e1; max-width: 800px; margin-left: auto; margin-right: auto;">
-            While SAP is "syncing" — you're losing <span class="highlight">$833 every minute.</span>
-        </p>
+        <div style="margin-top: 40px;">
+            <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn" style="display: inline-block; width: auto; padding: 20px 60px;">OPEN LIVE DASHBOARD →</a>
+        </div>
     </section>
 
     <section class="story-container">
@@ -200,7 +63,7 @@
         </p>
     </section>
 
-    <div class="console-preview">
+    <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="console-preview">
         <div class="d-grid">
             <div class="d-card">
                 <div class="d-id">D1 - TEAM</div>
@@ -228,12 +91,12 @@
             <div class="light"></div>
             <div class="light"></div>
             <div class="ampel-label">LINE STOPPED</div>
-            <div style="font-family: 'JetBrains Mono'; font-size: 10px; color: #444; margin-top: 10px;">IATF 10.2 COMPLIANT</div>
+            <div style="font-family: 'JetBrains Mono'; font-size: 10px; color: #444; margin-top: 10px;">CLICK TO SEE LIVE COMMAND CENTER</div>
         </div>
-    </div>
+    </a>
 
     <section id="audit" class="form-section">
-        <h2 style="margin-bottom: 10px;">REQUEST YOUR AUDIT</h2>
+        <h2 style="font-family: 'Bebas Neue'; text-align: center; margin-bottom: 10px;">REQUEST YOUR AUDIT</h2>
         <p style="text-align: center; color: #64748B; margin-bottom: 40px; font-family: 'JetBrains Mono';">// Free · No commitment · ROI Report in 48h</p>
         
         <form action="https://formspree.io/f/mqakppov" method="POST">
@@ -250,9 +113,6 @@
             <input type="number" name="hourly_cost" placeholder="Estimated Hourly Cost of Downtime (USD)">
             <button type="submit" class="btn">ANALYZE MY RISK →</button>
         </form>
-        <div style="text-align: center; margin-top: 30px; font-size: 13px; color: #475569;">
-            ✓ IATF 16949 compliant · ✓ No sales call · ✓ Your business case first
-        </div>
     </section>
 
     <footer style="text-align: center; padding: 60px; color: #1e293b; font-family: 'JetBrains Mono'; font-size: 12px; letter-spacing: 2px;">
