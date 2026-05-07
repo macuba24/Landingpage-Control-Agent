@@ -6,154 +6,125 @@
     <title>Control Agent | Tier-1 Automotive Command Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #06090E;
-            --card: #0F1724;
-            --red: #DC2626;
-            --text: #EDF2F7;
-            --blue: #3B82F6;
-            --green: #10B981;
-        }
+        :root { --bg: #06090E; --card: #0F1724; --red: #DC2626; --text: #EDF2F7; --blue: #3B82F6; --green: #10B981; }
         body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
         .hero { padding: 120px 5% 60px; text-align: center; background: radial-gradient(circle at top, rgba(220, 38, 38, 0.15), transparent); }
         .hero h1 { font-family: 'Bebas Neue'; font-size: clamp(55px, 12vw, 130px); line-height: 0.85; margin: 0; text-transform: uppercase; }
         .hero h1 span { color: var(--red); }
         .ticker { font-family: 'JetBrains Mono'; color: var(--red); font-size: clamp(14px, 2vw, 20px); margin-top: 30px; letter-spacing: 2px; font-weight: bold; }
-        .story-container { max-width: 850px; margin: 60px auto; padding: 40px; border-left: 5px solid var(--red); background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent); text-align: left; }
-        .story-container h2 { font-family: 'Bebas Neue'; font-size: 40px; margin-top: 0; color: #fff; }
-        .story-text { font-size: 21px; color: #A0AEC0; font-style: italic; }
+        .story-container { max-width: 850px; margin: 60px auto; padding: 40px; border-left: 5px solid var(--red); background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent); }
         .highlight { color: var(--red); font-weight: bold; font-family: 'JetBrains Mono'; }
-        .industrial-note { max-width: 850px; margin: -20px auto 30px; color: #94A3B8; font-size: 18px; }
-        .console-preview { max-width: 1100px; margin: 80px auto; background: #0A0F18; padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 300px; gap: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); cursor: pointer; text-decoration: none; transition: 0.3s; }
-        .console-preview:hover { border-color: var(--red); transform: scale(1.01); }
+        
+        /* PRICING TABLE */
+        .pricing-section { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .price-card { background: var(--card); padding: 40px; border-radius: 12px; border: 1px solid #222; position: relative; }
+        .price-card.featured { border-color: var(--red); box-shadow: 0 0 30px rgba(220,38,38,0.1); }
+        .price-tag { font-family: 'Bebas Neue'; font-size: 48px; margin: 20px 0; }
+        .price-tag span { font-size: 18px; font-family: 'Inter'; color: #64748B; }
+
+        /* SECURITY & IT SECTION */
+        .it-security { max-width: 1100px; margin: 80px auto; padding: 60px 40px; background: #0A0F18; border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .it-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+        .it-item h4 { color: var(--blue); font-family: 'JetBrains Mono'; margin-bottom: 10px; }
+
+        .btn { background: var(--red); color: white; border: none; padding: 22px; width: 100%; font-family: 'Bebas Neue'; font-size: 28px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: 0.3s; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4); }
+        .btn-outline { background: transparent; border: 1px solid var(--red); }
+        
+        .console-preview { max-width: 1100px; margin: 80px auto; background: #0A0F18; padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 300px; gap: 40px; text-decoration: none; color: inherit; }
         .d-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .d-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-family: 'JetBrains Mono', monospace; }
-        .d-id { color: var(--blue); font-size: 12px; font-weight: bold; }
-        .d-title { font-size: 16px; margin: 10px 0; font-weight: bold; color: #fff; }
-        .d-assignee { font-size: 12px; color: #64748B; }
-        .traffic-light { background: #000; border-radius: 25px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #222; }
-        .light { width: 65px; height: 65px; border-radius: 50%; margin: 15px 0; background: #111; }
-        .light.red-active { background: var(--red); box-shadow: 0 0 50px var(--red); }
-        .ampel-label { font-family: 'Bebas Neue'; color: var(--red); font-size: 24px; margin-top: 20px; }
-        .ops { max-width: 1100px; margin: 40px auto; padding: 32px; background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
-        .ops h3 { font-family: 'Bebas Neue'; font-size: 42px; margin: 0 0 14px; }
-        .ops p { margin: 0 0 10px; color: #A0AEC0; }
-        .pricing { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .plan { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; }
-        .plan h4 { font-family: 'Bebas Neue'; font-size: 36px; margin: 0; }
-        .price { font-family: 'JetBrains Mono'; color: var(--red); font-weight: bold; margin: 8px 0; }
-        .plan p { color: #94A3B8; margin: 0; }
-        .form-section { max-width: 700px; margin: 120px auto; padding: 60px; background: var(--card); border: 2px solid var(--red); border-radius: 16px; }
-        input, select, textarea { width: 100%; padding: 18px; margin-bottom: 25px; background: #06090E; border: 1px solid #333; color: white; border-radius: 8px; box-sizing: border-box; font-family: 'JetBrains Mono'; }
-        .btn { background: var(--red); color: white; border: none; padding: 22px; width: 100%; font-family: 'Bebas Neue'; font-size: 32px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: 0.3s; }
-        .btn:hover { box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4); transform: translateY(-2px); }
-        @media (max-width: 900px) { .console-preview { grid-template-columns: 1fr; } .d-grid { grid-template-columns: 1fr; } .pricing { grid-template-columns: 1fr; } }
+        .d-card { background: var(--card); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-family: 'JetBrains Mono'; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div style="font-family: 'JetBrains Mono'; color: var(--red); margin-bottom: 20px; font-weight: bold;">[ SYSTEM STATUS: CRITICAL LAGGING ]</div>
+        <div style="font-family: 'JetBrains Mono'; color: var(--red); margin-bottom: 20px;">[ IATF 10.2 COMPLIANT // AUDIT-READY ]</div>
         <h1>IT'S <span>2:47 AM.</span><br>YOUR LINE IS DOWN.<br>SAP SHOWS NOTHING.</h1>
-        <div class="ticker">INDUSTRY LOSSES THIS HOUR: $836,239</div>
-        <p style="margin-top: 18px; font-family: 'JetBrains Mono'; color: #10B981; letter-spacing: 1px;">IATF 10.2 COMPLIANT - Built for Tier-1 Audits.</p>
-        <div style="margin-top: 40px;">
-            <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn" style="display: inline-block; width: auto; padding: 20px 60px;">OPEN LIVE DASHBOARD →</a>
-        </div>
+        <div class="ticker">EST. LOSSES THIS HOUR: $836,239</div>
+        <p style="font-size: 22px; margin-top: 40px; color: #A0AEC0;">Leading your plant with yesterday's data costs <span class="highlight">$833 every minute.</span></p>
     </section>
 
     <section class="story-container">
-        <h2>Founder's Proof — Rainer Hampicke</h2>
-        <p class="story-text">
-            I've spent 20+ years on the shop floor. I've felt that pressure at 2:47 AM when the customer is calling and your ERP system is 4 hours behind reality. 
-            <br><br>
-            Most plant managers see the crisis only <strong>after</strong> it costs $80,000. Control Agent shows you the risk <strong>before</strong> the call comes in.
-            <br><br>
-            <span class="highlight">I don't want to sell you software. I want to give you back the sleep I lost.</span>
+        <h2 style="font-family: 'Bebas Neue'; font-size: 36px;">"I don't sell software. I give you back your sleep."</h2>
+        <p style="font-size: 19px; color: #A0AEC0; font-style: italic;">
+            20+ years in Tier-1 Automotive. I know the midnight call. I know the SAP lag. 
+            Control Agent shows you the risk <strong>before</strong> the line stops.
         </p>
     </section>
-    <div class="industrial-note">Don't explain downtime to your board. Prevent it. One-click ROI reporting for Corporate HQ.</div>
+
+    <h2 style="text-align: center; font-family: 'Bebas Neue'; font-size: 50px;">PROTECTION LEVELS</h2>
+    <section class="pricing-section">
+        <div class="price-card">
+            <h3>PILOT MODULE</h3>
+            <p>Single Agent (Supply, Flow OR Quality)</p>
+            <div class="price-tag">$1,000 <span>/ month</span></div>
+            <ul style="color: #A0AEC0; padding-left: 20px;">
+                <li>Real-time 2:47 AM Alerts</li>
+                <li>Single Plant View</li>
+                <li>Standard ROI Reporting</li>
+            </ul>
+            <a href="#audit" class="btn btn-outline">START PILOT</a>
+        </div>
+        <div class="price-card featured">
+            <div style="position: absolute; top: -15px; right: 20px; background: var(--red); padding: 5px 15px; font-size: 12px; font-weight: bold;">MOST POPULAR</div>
+            <h3>COMMAND CENTER</h3>
+            <p>Full Suite (All Agents + Risk Map)</p>
+            <div class="price-tag">$2,500 <span>/ month</span></div>
+            <ul style="color: #A0AEC0; padding-left: 20px;">
+                <li>Supply + Flow + Quality Agent</li>
+                <li>Automated 8D Trigger (IATF 10.2)</li>
+                <li>HQ Multi-Plant Dashboard</li>
+            </ul>
+            <a href="#audit" class="btn">GO COMMAND</a>
+        </div>
+        <div class="price-card">
+            <h3>SAP INTEGRATION</h3>
+            <p>Full-Service Implementation</p>
+            <div class="price-tag">$5,000 <span>/ one-time</span></div>
+            <p style="color: #64748B; font-size: 14px;">External SAP Expert Partner Service. Seamless API setup. Timeline: approx. 14 days to Live-Sync.</p>
+        </div>
+    </section>
+
+    <section class="it-security">
+        <h2 style="font-family: 'Bebas Neue'; font-size: 40px; margin: 0;">ENTERPRISE-GRADE SECURITY</h2>
+        <div class="it-grid">
+            <div class="it-item">
+                <h4>DATA SOVEREIGNTY</h4>
+                <p style="font-size: 14px; color: #A0AEC0;">Hosted on AWS US-West. SOC2 compliant architecture. Read-only SAP access logic ensures zero risk to your ERP core.</p>
+            </div>
+            <div class="it-item">
+                <h4>IMPLEMENTATION</h4>
+                <p style="font-size: 14px; color: #A0AEC0;">Dashboard ready in 15 mins (Demo Mode). Full SAP-MARD Live-Sync within 14 business days via certified partners.</p>
+            </div>
+            <div class="it-item">
+                <h4>ROI REPORTING</h4>
+                <p style="font-size: 14px; color: #A0AEC0;">Built-in financial counter. Export real-time business cases for Corporate HQ in one click. No more manual Excel archaeology.</p>
+            </div>
+        </div>
+    </section>
 
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="console-preview">
         <div class="d-grid">
-            <div class="d-card">
-                <div class="d-id">D1 - TEAM</div>
-                <div class="d-title">Establish the Team</div>
-                <div class="d-assignee">Assignee: S. Weber // 8D Champion</div>
-            </div>
-            <div class="d-card">
-                <div class="d-id">D2 - PROBLEM</div>
-                <div class="d-title">Describe the Problem</div>
-                <div class="d-assignee">Assignee: M. Chen // Quality Lead</div>
-            </div>
-            <div class="d-card">
-                <div class="d-id">D3 - CONTAINMENT</div>
-                <div class="d-title">Interim Containment</div>
-                <div class="d-assignee" style="color: var(--red); font-weight: bold;">[ ACTION DUE ]</div>
-            </div>
-            <div class="d-card">
-                <div class="d-id">D4 - ROOT CAUSE</div>
-                <div class="d-title">Root Cause Analysis</div>
-                <div class="d-assignee">Assignee: A. Fischer // Engineering</div>
-            </div>
+            <div class="d-card"><div style="color:var(--blue); font-size:10px;">D1_TEAM</div><div style="font-weight:bold;">S. Weber // 8D Champion</div></div>
+            <div class="d-card"><div style="color:var(--blue); font-size:10px;">D3_CONTAINMENT</div><div style="color:var(--red); font-weight:bold;">[ ACTION DUE ]</div></div>
         </div>
-        <div class="traffic-light">
-            <div class="light red-active"></div>
-            <div class="light"></div>
-            <div class="light"></div>
-            <div class="ampel-label">LINE STOPPED</div>
-            <div style="font-family: 'JetBrains Mono'; font-size: 10px; color: #444; margin-top: 10px;">CLICK TO SEE LIVE COMMAND CENTER</div>
+        <div style="text-align:center; border-left: 1px solid #222; padding-left: 20px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--red); margin: 0 auto; box-shadow: 0 0 20px var(--red);"></div>
+            <p style="font-family:'Bebas Neue'; color:var(--red); margin-top:10px;">LIVE CONSOLE</p>
+            <p style="font-size:10px; color:#444;">CLICK TO OPEN</p>
         </div>
     </a>
 
-    <section class="ops">
-        <h3>IT & SECURITY</h3>
-        <p>SOC2 compliant architecture. Read-only SAP Access via Secure API. Hosted on AWS US-West.</p>
-        <p style="font-family: 'JetBrains Mono';">Dashboard ready in 15 min (Demo Mode). Full SAP-Integration in 14 days.</p>
-        <p style="font-family: 'JetBrains Mono'; color: #cbd5e1;">Professional Setup Service: $5,000 (External SAP-Expert Partner).</p>
-    </section>
-
-    <section class="pricing">
-        <article class="plan">
-            <h4>Pilot</h4>
-            <div class="price">$1,000/mo</div>
-            <p>Single Plant, Single Agent</p>
-        </article>
-        <article class="plan">
-            <h4>Command</h4>
-            <div class="price">$2,500/mo</div>
-            <p>Multi-Agent &amp; Risk Mapping</p>
-        </article>
-        <article class="plan">
-            <h4>Enterprise</h4>
-            <div class="price">Custom</div>
-            <p>Multi-Site Connectivity</p>
-        </article>
-    </section>
-
-    <section id="audit" class="form-section">
-        <h2 style="font-family: 'Bebas Neue'; text-align: center; margin-bottom: 10px;">REQUEST YOUR AUDIT</h2>
-        <p style="text-align: center; color: #64748B; margin-bottom: 40px; font-family: 'JetBrains Mono';">// Free · No commitment · ROI Report in 48h</p>
-        
+    <section id="audit" style="max-width: 600px; margin: 100px auto; padding: 40px; background: var(--card); border-radius: 12px; border: 1px solid var(--red);">
+        <h2 style="font-family: 'Bebas Neue'; text-align: center;">REQUEST YOUR ROI AUDIT</h2>
         <form action="https://formspree.io/f/mqakppov" method="POST">
-            <input type="text" name="name" placeholder="Full Name *" required>
-            <input type="email" name="email" placeholder="Business Email *" required>
-            <input type="text" name="company" placeholder="Company / Plant Location *" required>
-            <select name="role" required>
-                <option value="">Select Your Role *</option>
-                <option value="Plant Manager">Plant Manager</option>
-                <option value="Quality Manager">Quality Manager</option>
-                <option value="Supply Chain Manager">Supply Chain Manager</option>
-                <option value="Operations Director">Operations Director</option>
-            </select>
-            <input type="number" name="hourly_cost" placeholder="Estimated Hourly Cost of Downtime (USD)">
+            <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:15px; margin-bottom:20px; background:#000; border:1px solid #333; color:#fff;">
+            <input type="email" name="email" placeholder="Business Email" required style="width:100%; padding:15px; margin-bottom:20px; background:#000; border:1px solid #333; color:#fff;">
+            <input type="number" name="hourly_cost" placeholder="Est. Hourly Downtime Cost (USD)" style="width:100%; padding:15px; margin-bottom:20px; background:#000; border:1px solid #333; color:#fff;">
             <button type="submit" class="btn">ANALYZE MY RISK →</button>
         </form>
     </section>
-
-    <footer style="text-align: center; padding: 60px; color: #1e293b; font-family: 'JetBrains Mono'; font-size: 12px; letter-spacing: 2px;">
-        CONTROL AGENT // BUILT FOR THE SHOP FLOOR // 2026
-    </footer>
 
 </body>
 </html>
