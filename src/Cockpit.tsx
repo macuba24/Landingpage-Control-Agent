@@ -567,7 +567,7 @@ export default function Cockpit() {
         <div style={styles.returnBar}>
           <span style={styles.returnBarTitle}>Master Console</span>
           <a
-            href="https://landingpage-control-agent.onrender.com/#audit?v=final"
+            href="https://landingpage-control-agent-3n5q.onrender.com/#audit"
             style={styles.returnCta}
           >
             ← ZURUECK ZUM RISIKO-AUDIT
