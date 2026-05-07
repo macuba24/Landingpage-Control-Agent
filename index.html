@@ -130,6 +130,30 @@ h1 .w4{
   border-left:3px solid var(--yellow);padding-left:18px;
 }
 .hero-sub strong{color:var(--text)}
+.hero-story{
+  max-width:760px;
+  margin:0 0 24px;
+  border-left:4px solid #DC2626;
+  border-top:1px solid rgba(220,38,38,.35);
+  border-right:1px solid rgba(220,38,38,.35);
+  border-bottom:1px solid rgba(220,38,38,.35);
+  background:rgba(220,38,38,.09);
+  border-radius:0 8px 8px 0;
+  padding:14px 16px;
+}
+.hero-story-tag{
+  font-family:var(--mono);
+  font-size:10px;
+  color:#fca5a5;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.hero-story-text{
+  color:var(--text);
+  font-size:16px;
+  line-height:1.72;
+}
 
 .hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}
 .btn-y{
@@ -579,6 +603,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <span class="w3">SAP SHOWS NOTHING.</span>
       <span class="w4">While SAP is "syncing" — you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
     </h1>
+    <div class="hero-story">
+      <div class="hero-story-tag">Hero Story</div>
+      <p class="hero-story-text">Das Telefon vibriert. Eine Nummer aus dem Werk. Sie wissen es, bevor Sie abheben: Die Produktion in Halle 4 steht still. SAP meldet alles grün, aber das Band bewegt sich nicht. Jede Minute kostet gerade $833.</p>
+    </div>
     <p class="hero-sub">Most plant managers see the crisis only <strong>after it costs $80,000</strong>. Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.</p>
     <div class="hero-btns">
       <a href="#lead" class="btn-y">Get My Free Audit <span class="arr">→</span></a>
@@ -793,10 +821,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
           ║              object-fit:cover">           ║
           ╚══════════════════════════════════════════╝
         -->
-        <div class="founder-photo">
-          <div class="founder-photo-icon">👤</div>
-          <div class="founder-photo-lbl">Insert Your Photo Here</div>
-        </div>
+        <img src="/rainer-hampicke.png" alt="Rainer Hampicke" style="width:100%;border-radius:8px;margin-bottom:22px;object-fit:cover">
         <div class="fstats rev">
           <div class="fstat"><span class="fstat-n">20+</span><span class="fstat-t">Years on the shop floor — Tier-1 Automotive</span></div>
           <div class="fstat"><span class="fstat-n">2:47</span><span class="fstat-t">AM — the call I kept getting that I couldn't answer fast enough</span></div>
