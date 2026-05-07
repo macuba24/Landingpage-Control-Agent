@@ -95,7 +95,7 @@
         }
 
         .traffic-light {
-            background: #0A0F18;
+            background: #05070C;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -105,10 +105,10 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
         .light { width: 40px; height: 40px; border-radius: 50%; opacity: 0.2; }
-        .light.red { background: #DC2626; box-shadow: 0 0 20px rgba(220, 38, 38, 0.4); opacity: 1; }
+        .light.red { background: #DC2626; box-shadow: 0 0 26px rgba(220, 38, 38, 0.55); opacity: 1; }
         .light.amber { background: #F59E0B; }
         .light.green { background: #10B981; }
-        .critical-label { font-family: 'Bebas Neue', sans-serif; color: #DC2626; font-size: 14px; margin-top: 10px; }
+        .critical-label { font-family: 'Bebas Neue', sans-serif; color: #DC2626; font-size: 14px; margin-top: 10px; letter-spacing: 0.05em; }
 
         /* Pulsierender Live-Punkt */
         .live-dot { width: 10px; height: 10px; background: var(--green-bright); border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 8px var(--green-glow); animation: pulse 2s infinite; }
@@ -210,7 +210,7 @@
                     <div class="console-card">
                         <div class="card-id">ID: D1_SUPPLY_CHAIN</div>
                         <div class="card-title">Inbound Logistics</div>
-                        <div class="status-badge">MEDIUM RISK</div>
+                        <div class="status-badge">RISK</div>
                     </div>
                     <div class="console-card">
                         <div class="card-id">ID: D2_FLOW</div>
@@ -221,6 +221,21 @@
                         <div class="card-id">ID: D3_QUALITY</div>
                         <div class="card-title">IATF 10.2 Audit</div>
                         <div class="status-badge status-ok">COMPLIANT</div>
+                    </div>
+                    <div class="console-card">
+                        <div class="card-id">ID: D4_ROOT_CAUSE</div>
+                        <div class="card-title">Root Cause Analysis</div>
+                        <div class="status-badge">RISK</div>
+                    </div>
+                    <div class="console-card">
+                        <div class="card-id">ID: D5_ACTIONS</div>
+                        <div class="card-title">Corrective Actions</div>
+                        <div class="status-badge status-ok">OPTIMAL</div>
+                    </div>
+                    <div class="console-card">
+                        <div class="card-id">ID: D6_VERIFICATION</div>
+                        <div class="card-title">Verification</div>
+                        <div class="status-badge status-ok">OPTIMAL</div>
                     </div>
                 </div>
                 <div class="traffic-light">
@@ -242,7 +257,7 @@
             </p>
             
             <a href="https://control-agent.vercel.app/" target="_blank" class="btn">
-                JETZT DAS DASHBOARD ÖFFNEN
+                ZUM LIVE DASHBOARD
             </a>
             
             <p style="margin-top: 20px; font-size: 14px; color: var(--text-muted); font-family: var(--mono);">
