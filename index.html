@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Control Agent – Master Console</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* ================================================================
    DESIGN SYSTEM — pixel-perfect match to Control Agent dashboard
@@ -35,7 +35,7 @@
   --border-med: rgba(255,255,255,0.12);
   --border-yel: rgba(245,197,24,0.25);
 
-  --display: 'Rajdhani', sans-serif;
+  --display: 'Bebas Neue', sans-serif;
   --body:    'DM Sans', sans-serif;
   --mono:    'JetBrains Mono', monospace;
   --r: 8px;
@@ -130,6 +130,16 @@ h1 .w4{
   border-left:3px solid var(--yellow);padding-left:18px;
 }
 .hero-sub strong{color:var(--text)}
+.story-glow{
+  max-width:540px;margin:0 0 28px;
+  background:linear-gradient(120deg,rgba(192,57,43,.18),rgba(192,57,43,.06));
+  border:1px solid rgba(192,57,43,.45);
+  border-left:4px solid var(--red);
+  border-radius:6px;padding:14px 16px;
+  box-shadow:0 0 24px rgba(192,57,43,.25);
+}
+.story-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:#ffb4aa;text-transform:uppercase;margin-bottom:6px}
+.story-copy{color:var(--text);font-size:14px;line-height:1.6}
 
 .hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}
 .btn-y{
@@ -531,10 +541,12 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   .steps{grid-template-columns:1fr 1fr}
   .lead-inner{grid-template-columns:1fr;gap:36px}
   .df-body{grid-template-columns:1fr}
-  .df-nav,.df-right{display:none}
+  .df-nav{display:none}
+  .df-right{display:flex;border-left:none;border-top:1px solid var(--border);padding-top:18px;margin-top:10px}
   .df-d-grid{grid-template-columns:1fr 1fr}
   .dr-body{grid-template-columns:1fr}
-  .dr-nav,.dr-right{display:none}
+  .dr-nav{display:none}
+  .dr-right{display:flex;border-top:1px solid var(--border);margin-top:8px;padding-top:18px}
   .sec,.dashsec,.lead-sec,.price-bg,.final,.founder-bg{padding:60px 20px}
   .pain-bg,.agents-bg,.how-bg{padding:60px 20px}
   footer{flex-direction:column;text-align:center;padding:20px}
@@ -580,6 +592,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <span class="w3">SAP SHOWS NOTHING.</span>
       <span class="w4">While SAP is "syncing" — you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
     </h1>
+    <div class="story-glow">
+      <div class="story-kicker">Critical Story Log</div>
+      <div class="story-copy">02:47 AM. Line stop. ERP still syncing. Control Agent creates immediate visibility and triggers action before escalation.</div>
+    </div>
     <p class="hero-sub">Most plant managers see the crisis only <strong>after it costs $80,000</strong>. Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.</p>
     <div class="hero-btns">
       <a href="#lead" class="btn-y">Get My Free Audit <span class="arr">→</span></a>
@@ -598,7 +614,103 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="hero-right-glow"></div>
     <div style="width:100%;max-width:660px;position:relative">
       <div class="dash-replica">
-        <img src="/dashboard-bild2.png" alt="Control Agent Dashboard" class="dashboard-shot">
+        <div class="dr-top">
+          <div class="dr-brand">
+            <div class="dr-stripe"></div>
+            <div>
+              <div class="dr-brand-t">Master Console</div>
+              <div class="dr-brand-s">CONTROL AGENT</div>
+            </div>
+          </div>
+          <div class="dr-top-badges">
+            <div class="pill pill-yellow" style="font-size:9px;padding:3px 10px"><div class="pill-dot"></div>GLOBAL RISK LEVEL MEDIUM</div>
+            <div class="pill pill-green" style="font-size:9px;padding:3px 10px">IATF 10.2 COMPLIANT</div>
+          </div>
+        </div>
+        <div class="dr-body">
+          <div class="dr-nav">
+            <div class="dr-nav-item act"><div class="dr-dot"></div>Dashboard Overview</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Active 8D-Reports</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Supply Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Flow Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Quality Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Investment &amp; ROI</div>
+          </div>
+          <div class="dr-center">
+            <div class="dr-alert">System created 8D-Report for Performance Gap</div>
+            <div class="dr-board-title">The Control Board</div>
+            <div class="dr-board-sub">8D WORKFLOW · LIVE</div>
+            <div class="dr-d-grid">
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D1</span><span class="dr-badge db-review">IN REVIEW</span></div>
+                <div class="dr-d-title">Establish the Team</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>S. Weber</span></div>
+                  <div class="dr-d-meta">Role <span>8D Champion</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D2</span><span class="dr-badge db-open">OPEN</span></div>
+                <div class="dr-d-title">Describe the Problem</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>M. Chen</span></div>
+                  <div class="dr-d-meta">Role <span>Quality Lead</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D3</span><span class="dr-badge db-action">ACTION DUE</span></div>
+                <div class="dr-d-title">Interim Containment</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>K. Novak</span></div>
+                  <div class="dr-d-meta">Role <span>Operations</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D4</span><span class="dr-badge db-pending">PENDING</span></div>
+                <div class="dr-d-title">Root Cause Analysis</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>A. Fischer</span></div>
+                  <div class="dr-d-meta">Role <span>Engineering</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D5</span><span class="dr-badge db-draft">DRAFT</span></div>
+                <div class="dr-d-title">Define Corrective Actions</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>L. Rossi</span></div>
+                  <div class="dr-d-meta">Role <span>Process Owner</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D6</span><span class="dr-badge db-sched">SCHEDULED</span></div>
+                <div class="dr-d-title">Implement &amp; Verify</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>J. Patel</span></div>
+                  <div class="dr-d-meta">Role <span>Plant Manager</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dr-right">
+            <div class="dr-tl-title">Traffic Light Status</div>
+            <div class="dr-tl-sub">Plant-wide composite</div>
+            <div class="dr-tl">
+              <div class="dr-tl-light">
+                <div class="dr-bulb green-on"></div>
+                <span class="dr-tl-lbl tl-lbl-g">GREEN</span>
+              </div>
+              <div class="dr-tl-light">
+                <div class="dr-bulb yellow-on"></div>
+                <span class="dr-tl-lbl tl-lbl-y">YELLOW</span>
+              </div>
+              <div class="dr-tl-light">
+                <div class="dr-bulb red-off"></div>
+                <span class="dr-tl-lbl tl-lbl-r">RED</span>
+              </div>
+            </div>
+            <div class="dr-overall">Overall: MEDIUM risk<br>· Monitor</div>
+          </div>
+        </div>
       </div>
       <!-- CTA overlay bottom of dashboard -->
       <div class="dash-cta-overlay">
@@ -777,7 +889,76 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-h rev">This Is What You See <em>When You Log In.</em></div>
     <p class="sec-s">Not a spreadsheet. Not a SAP report from 4 hours ago. Real data. Real-time. One screen.</p>
     <div class="dash-full rev">
-      <img src="/dashboard-bild2.png" alt="Control Agent Dashboard" class="dashboard-shot">
+      <div class="df-top">
+        <div class="df-top-l">
+          <div class="df-stripe"></div>
+          <div><div class="df-title">Master Console</div><div class="df-sub">CONTROL AGENT</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="pill pill-yellow" style="font-size:9px;padding:3px 10px"><div class="pill-dot"></div>GLOBAL RISK LEVEL MEDIUM</div>
+          <div class="pill pill-green" style="font-size:9px;padding:3px 10px">IATF 10.2 COMPLIANT</div>
+        </div>
+      </div>
+      <div class="df-body">
+        <div class="df-nav">
+          <div class="df-nav-item act"><div class="df-dot"></div>Dashboard Overview</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Active 8D-Reports</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Supply Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Flow Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Quality Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Investment &amp; ROI</div>
+        </div>
+        <div class="df-main">
+          <div class="df-alert">✓ System created 8D-Report for Performance Gap — D3 Containment ACTION DUE</div>
+          <div class="df-board-h">
+            <div class="df-board-title">The Control Board</div>
+            <div class="df-board-live">8D WORKFLOW · LIVE</div>
+          </div>
+          <div class="df-board-sub">D1-D8 task cards with ownership details.</div>
+          <div class="df-d-grid">
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D1</span><span class="df-badge db-review">IN REVIEW</span></div>
+              <div class="df-card-title">Establish the Team</div>
+              <div class="df-card-meta">Assignee <span>S. Weber</span> Role <span>8D Champion</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D2</span><span class="df-badge db-open">OPEN</span></div>
+              <div class="df-card-title">Describe the Problem</div>
+              <div class="df-card-meta">Assignee <span>M. Chen</span> Role <span>Quality Lead</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D3</span><span class="df-badge db-action">ACTION DUE</span></div>
+              <div class="df-card-title">Interim Containment</div>
+              <div class="df-card-meta">Assignee <span>K. Novak</span> Role <span>Operations</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D4</span><span class="df-badge db-pending">PENDING</span></div>
+              <div class="df-card-title">Root Cause Analysis</div>
+              <div class="df-card-meta">Assignee <span>A. Fischer</span> Role <span>Engineering</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D5</span><span class="df-badge db-draft">DRAFT</span></div>
+              <div class="df-card-title">Define Corrective Actions</div>
+              <div class="df-card-meta">Assignee <span>L. Rossi</span> Role <span>Process Owner</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D6</span><span class="df-badge db-sched">SCHEDULED</span></div>
+              <div class="df-card-title">Implement &amp; Verify</div>
+              <div class="df-card-meta">Assignee <span>J. Patel</span> Role <span>Plant Manager</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="df-right">
+          <div class="df-tl-title">Traffic Light Status</div>
+          <div class="df-tl-sub">Plant-wide composite</div>
+          <div class="df-lights">
+            <div class="df-light"><div class="df-bulb g"></div><span class="df-bulb-lbl g">GREEN</span></div>
+            <div class="df-light"><div class="df-bulb y"></div><span class="df-bulb-lbl y">YELLOW</span></div>
+            <div class="df-light"><div class="df-bulb r"></div><span class="df-bulb-lbl r">RED</span></div>
+          </div>
+          <div class="df-overall">Overall: MEDIUM risk<br>· Monitor</div>
+        </div>
+      </div>
     </div>
     <!-- CTA after seeing dashboard — highest psychological moment -->
     <div class="dashsec-cta">
@@ -859,6 +1040,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
             <div class="roi-box-note">Based on 1 stop × 4.5h avg downtime — conservative estimate</div>
           </div>
           <input type="hidden" name="_subject" value="New Control Agent Lead – Strategic Impact Audit">
+          <input type="hidden" name="_next" value="https://www.linkedin.com/in/rainer-hampicke/">
           <button type="submit" class="submit-btn">Request My Free Audit <span>→</span></button>
           <div class="form-disc">NO SPAM · NO PRE-SALES · YOUR BUSINESS CASE FIRST</div>
         </form>
