@@ -529,6 +529,10 @@ export default function Cockpit() {
           0%, 100% { box-shadow: 0 0 18px rgba(250, 204, 21, 0.55); transform: scale(1); }
           50% { box-shadow: 0 0 28px rgba(250, 204, 21, 0.85); transform: scale(1.04); }
         }
+        @keyframes return-cta-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); transform: translateY(0); }
+          50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); transform: translateY(-1px); }
+        }
       `}</style>
       <aside style={styles.sidebar} aria-label="Main navigation">
         <div style={styles.sidebarBrand}>
@@ -560,6 +564,15 @@ export default function Cockpit() {
       </aside>
 
       <div style={styles.mainWrap}>
+        <div style={styles.returnBar}>
+          <span style={styles.returnBarTitle}>Master Console</span>
+          <a
+            href="https://landingpage-control-agent.onrender.com/#audit"
+            style={styles.returnCta}
+          >
+            ← ZURUECK ZUM RISIKO-AUDIT
+          </a>
+        </div>
         <header style={styles.topBar}>
           <div style={styles.topBarLeft} />
           <div style={styles.topBarCenter}>
@@ -988,6 +1001,37 @@ const styles: Record<string, CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     minWidth: 0,
+  },
+  returnBar: {
+    position: "sticky",
+    top: 0,
+    zIndex: 25,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "0.75rem",
+    padding: "0.7rem 1.5rem",
+    background: "#06090E",
+    borderBottom: borderCard,
+  },
+  returnBarTitle: {
+    fontSize: "0.78rem",
+    fontWeight: 700,
+    letterSpacing: "0.06em",
+    textTransform: "uppercase",
+    color: "#8FA3BF",
+  },
+  returnCta: {
+    textDecoration: "none",
+    background: "#DC2626",
+    color: "#FFFFFF",
+    border: "1px solid rgba(248, 113, 113, 0.45)",
+    borderRadius: "8px",
+    padding: "0.45rem 0.8rem",
+    fontSize: "0.7rem",
+    fontWeight: 800,
+    letterSpacing: "0.04em",
+    animation: "return-cta-pulse 1.7s ease-in-out infinite",
   },
   topBar: {
     display: "grid",
