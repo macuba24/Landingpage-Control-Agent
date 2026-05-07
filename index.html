@@ -109,6 +109,28 @@ h1 .w4 { font-family: var(--body); font-size: clamp(20px,2.5vw,32px); font-weigh
   border-left: 2px solid var(--red); padding-left: 20px;
 }
 .hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-story-inline {
+  max-width: 760px;
+  margin: 0 0 26px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  border-left: 4px solid var(--red);
+  padding: 14px 16px;
+}
+.hero-story-inline-title {
+  font-family: var(--mono);
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.hero-story-inline-copy {
+  color: #dbe5f6;
+  font-size: 15px;
+  line-height: 1.6;
+}
 .hero-story {
   max-width: 720px;
   margin-bottom: 42px;
@@ -453,6 +475,10 @@ h1 { animation-delay: 0.25s; }
       <span class="w3">SAP SHOWS NOTHING.</span>
       <span class="w4">While your SAP is still "syncing," you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
     </h1>
+    <div class="hero-story-inline">
+      <div class="hero-story-inline-title">HERO STORY</div>
+      <p class="hero-story-inline-copy">I've been where you are at 2:47 AM. I know the silence of a stopped production line and the pressure when every minute costs money while SAP still lags behind reality.</p>
+    </div>
     <p class="hero-sub">
       Most plant managers see the crisis only <strong>after it costs them $80,000</strong>.<br>
       Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.
