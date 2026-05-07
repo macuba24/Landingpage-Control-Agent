@@ -23,6 +23,7 @@
         .story-container h2 { font-family: 'Bebas Neue'; font-size: 40px; margin-top: 0; color: #fff; }
         .story-text { font-size: 21px; color: #A0AEC0; font-style: italic; }
         .highlight { color: var(--red); font-weight: bold; font-family: 'JetBrains Mono'; }
+        .industrial-note { max-width: 850px; margin: -20px auto 30px; color: #94A3B8; font-size: 18px; }
         .console-preview { max-width: 1100px; margin: 80px auto; background: #0A0F18; padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 300px; gap: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); cursor: pointer; text-decoration: none; transition: 0.3s; }
         .console-preview:hover { border-color: var(--red); transform: scale(1.01); }
         .d-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -34,11 +35,19 @@
         .light { width: 65px; height: 65px; border-radius: 50%; margin: 15px 0; background: #111; }
         .light.red-active { background: var(--red); box-shadow: 0 0 50px var(--red); }
         .ampel-label { font-family: 'Bebas Neue'; color: var(--red); font-size: 24px; margin-top: 20px; }
+        .ops { max-width: 1100px; margin: 40px auto; padding: 32px; background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+        .ops h3 { font-family: 'Bebas Neue'; font-size: 42px; margin: 0 0 14px; }
+        .ops p { margin: 0 0 10px; color: #A0AEC0; }
+        .pricing { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .plan { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; }
+        .plan h4 { font-family: 'Bebas Neue'; font-size: 36px; margin: 0; }
+        .price { font-family: 'JetBrains Mono'; color: var(--red); font-weight: bold; margin: 8px 0; }
+        .plan p { color: #94A3B8; margin: 0; }
         .form-section { max-width: 700px; margin: 120px auto; padding: 60px; background: var(--card); border: 2px solid var(--red); border-radius: 16px; }
         input, select, textarea { width: 100%; padding: 18px; margin-bottom: 25px; background: #06090E; border: 1px solid #333; color: white; border-radius: 8px; box-sizing: border-box; font-family: 'JetBrains Mono'; }
         .btn { background: var(--red); color: white; border: none; padding: 22px; width: 100%; font-family: 'Bebas Neue'; font-size: 32px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: 0.3s; }
         .btn:hover { box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4); transform: translateY(-2px); }
-        @media (max-width: 900px) { .console-preview { grid-template-columns: 1fr; } .d-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .console-preview { grid-template-columns: 1fr; } .d-grid { grid-template-columns: 1fr; } .pricing { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -47,13 +56,14 @@
         <div style="font-family: 'JetBrains Mono'; color: var(--red); margin-bottom: 20px; font-weight: bold;">[ SYSTEM STATUS: CRITICAL LAGGING ]</div>
         <h1>IT'S <span>2:47 AM.</span><br>YOUR LINE IS DOWN.<br>SAP SHOWS NOTHING.</h1>
         <div class="ticker">INDUSTRY LOSSES THIS HOUR: $836,239</div>
+        <p style="margin-top: 18px; font-family: 'JetBrains Mono'; color: #10B981; letter-spacing: 1px;">IATF 10.2 COMPLIANT - Built for Tier-1 Audits.</p>
         <div style="margin-top: 40px;">
             <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn" style="display: inline-block; width: auto; padding: 20px 60px;">OPEN LIVE DASHBOARD →</a>
         </div>
     </section>
 
     <section class="story-container">
-        <h2>"I know exactly what's at stake."</h2>
+        <h2>Founder's Proof — Rainer Hampicke</h2>
         <p class="story-text">
             I've spent 20+ years on the shop floor. I've felt that pressure at 2:47 AM when the customer is calling and your ERP system is 4 hours behind reality. 
             <br><br>
@@ -62,6 +72,7 @@
             <span class="highlight">I don't want to sell you software. I want to give you back the sleep I lost.</span>
         </p>
     </section>
+    <div class="industrial-note">Don't explain downtime to your board. Prevent it. One-click ROI reporting for Corporate HQ.</div>
 
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="console-preview">
         <div class="d-grid">
@@ -94,6 +105,31 @@
             <div style="font-family: 'JetBrains Mono'; font-size: 10px; color: #444; margin-top: 10px;">CLICK TO SEE LIVE COMMAND CENTER</div>
         </div>
     </a>
+
+    <section class="ops">
+        <h3>IT & SECURITY</h3>
+        <p>SOC2 compliant architecture. Read-only SAP Access via Secure API. Hosted on AWS US-West.</p>
+        <p style="font-family: 'JetBrains Mono';">Dashboard ready in 15 min (Demo Mode). Full SAP-Integration in 14 days.</p>
+        <p style="font-family: 'JetBrains Mono'; color: #cbd5e1;">Professional Setup Service: $5,000 (External SAP-Expert Partner).</p>
+    </section>
+
+    <section class="pricing">
+        <article class="plan">
+            <h4>Pilot</h4>
+            <div class="price">$1,000/mo</div>
+            <p>Single Plant, Single Agent</p>
+        </article>
+        <article class="plan">
+            <h4>Command</h4>
+            <div class="price">$2,500/mo</div>
+            <p>Multi-Agent &amp; Risk Mapping</p>
+        </article>
+        <article class="plan">
+            <h4>Enterprise</h4>
+            <div class="price">Custom</div>
+            <p>Multi-Site Connectivity</p>
+        </article>
+    </section>
 
     <section id="audit" class="form-section">
         <h2 style="font-family: 'Bebas Neue'; text-align: center; margin-bottom: 10px;">REQUEST YOUR AUDIT</h2>
