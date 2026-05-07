@@ -1,273 +1,1165 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Control Agent | Stoppt Stillstand</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #06090E;
-      --card: #0F1724;
-      --border: rgba(255, 255, 255, 0.09);
-      --text: #EDF2F7;
-      --muted: #94A3B8;
-      --red: #DC2626;
-      --amber: #F59E0B;
-      --green: #10B981;
-      --mono: "JetBrains Mono", monospace;
-      --body: "Inter", sans-serif;
-      --display: "Bebas Neue", sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Agent – Master Console</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   DESIGN SYSTEM — pixel-perfect match to Control Agent dashboard
+   ================================================================ */
+:root {
+  --navy:       #0D1B2E;
+  --navy-mid:   #0F1F35;
+  --navy-card:  #162540;
+  --navy-light: #1C2E48;
+  --sidebar:    #0B1828;
+  --sidebar-act:#1A3354;
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--body);
-      line-height: 1.7;
-    }
+  --yellow:     #F5C518;
+  --yellow-dim: rgba(245,197,24,0.18);
+  --green:      #22C55E;
+  --green-dim:  rgba(34,197,94,0.15);
+  --green-dark: #1A6B3A;
+  --red:        #C0392B;
+  --red-muted:  #7B2D26;
+  --blue:       #3B82F6;
+  --blue-dim:   rgba(59,130,246,0.15);
+  --orange:     #E67E22;
 
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 36px 20px 70px; }
+  --text:       #EDF4FF;
+  --text-sec:   #7A9BBF;
+  --text-dim:   #304D6B;
+  --border:     rgba(255,255,255,0.07);
+  --border-med: rgba(255,255,255,0.12);
+  --border-yel: rgba(245,197,24,0.25);
 
-    h1 {
-      font-family: var(--display);
-      font-size: clamp(88px, 15vw, 150px);
-      line-height: 0.88;
-      letter-spacing: 0.02em;
-      margin-bottom: 26px;
-      color: #fff;
-    }
+  --display: 'Rajdhani', sans-serif;
+  --body:    'DM Sans', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --r: 8px;
+}
 
-    .story-box {
-      max-width: 900px;
-      border-left: 4px solid var(--red);
-      border-top: 1px solid rgba(220, 38, 38, 0.4);
-      border-right: 1px solid rgba(220, 38, 38, 0.4);
-      border-bottom: 1px solid rgba(220, 38, 38, 0.4);
-      background: rgba(220, 38, 38, 0.1);
-      padding: 18px 20px;
-      margin-bottom: 28px;
-    }
-    .story-box p { font-size: 22px; letter-spacing: 0.01em; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:var(--body);overflow-x:hidden;line-height:1.6}
 
-    .cta {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--red);
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      border-radius: 8px;
-      padding: 14px 24px;
-      margin-bottom: 32px;
-    }
+/* noise */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.5}
 
-    .proof {
-      background: #0A0F18;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 16px;
-      margin-bottom: 38px;
-    }
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;
+  background:var(--sidebar);
+  border-bottom:1px solid var(--border-med);
+}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-stripe{width:4px;height:30px;background:var(--blue);border-radius:2px}
+.nav-titles{display:flex;flex-direction:column;line-height:1.1}
+.nav-main{font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:0.05em;color:var(--text)}
+.nav-sub{font-family:var(--mono);font-size:9px;color:var(--text-sec);letter-spacing:0.18em}
+.nav-center{display:flex;align-items:center;gap:10px}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:20px;
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.1em;
+  border:1.5px solid;
+}
+.pill-yellow{background:var(--yellow-dim);border-color:var(--yellow);color:var(--yellow)}
+.pill-green{background:var(--green-dim);border-color:var(--green);color:var(--green)}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nbtn{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:0.06em;padding:8px 18px;border-radius:6px;text-decoration:none;cursor:pointer;border:none;transition:all .2s}
+.nbtn-ghost{background:transparent;border:1px solid var(--border-med);color:var(--text-sec)}
+.nbtn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.nbtn-yellow{background:var(--yellow);color:var(--navy)}
+.nbtn-yellow:hover{background:#ddb214;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,197,24,.3)}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      padding: 14px;
-    }
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .id {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: #60A5FA;
-    }
-    .badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid;
-      white-space: nowrap;
-    }
-    .review { color: var(--amber); border-color: var(--amber); background: rgba(245, 158, 11, 0.14); }
-    .optimal { color: var(--green); border-color: var(--green); background: rgba(16, 185, 129, 0.14); }
-    .due { color: #FCA5A5; border-color: #FCA5A5; background: rgba(220, 38, 38, 0.22); }
-    .pending { color: #FDBA74; border-color: #FDBA74; background: rgba(245, 158, 11, 0.16); }
-    .locked { color: #94A3B8; border-color: #475569; background: rgba(71, 85, 105, 0.18); }
-    .title { font-size: 16px; font-weight: 600; }
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding-top:58px;overflow:hidden;position:relative;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.hero-left{
+  position:relative;padding:72px 52px 64px 60px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--border);
+}
+.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--yellow)}
 
-    .traffic {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-      gap: 10px;
-    }
-    .traffic .label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .bulb {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #1F2937;
-      border: 1px solid #0f172a;
-    }
-    .bulb.red {
-      background: var(--red);
-      box-shadow: 0 0 24px rgba(220, 38, 38, 0.72);
-    }
-    .risk {
-      font-family: var(--mono);
-      color: var(--red);
-      font-size: 12px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
+.live-bar{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--navy-card);border:1px solid rgba(192,57,43,.4);
+  padding:8px 16px;border-radius:6px;margin-bottom:32px;width:fit-content;
+}
+.live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse-r 1.5s ease-in-out infinite}
+@keyframes pulse-r{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}50%{box-shadow:0 0 0 8px rgba(192,57,43,0)}}
+.live-lbl{font-family:var(--mono);font-size:11px;color:var(--text-sec)}
+.live-num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--red)}
 
-    #audit { max-width: 760px; margin: 0 auto; }
-    .audit-card {
-      background: var(--card);
-      border: 1px solid rgba(220, 38, 38, 0.5);
-      border-radius: 12px;
-      padding: 26px;
-    }
-    .audit-card h2 {
-      font-family: var(--display);
-      font-size: 54px;
-      line-height: 0.92;
-      margin-bottom: 8px;
-    }
-    .audit-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    input, textarea {
-      width: 100%;
-      background: #0A0F18;
-      border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 8px;
-      padding: 12px;
-      font-family: var(--body);
-      margin-bottom: 12px;
-    }
-    .submit {
-      width: 100%;
-      background: var(--red);
-      border: none;
-      color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 14px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+h1{
+  font-family:var(--display);
+  font-size:clamp(44px,5.5vw,80px);
+  font-weight:700;line-height:.97;
+  letter-spacing:.02em;text-transform:uppercase;
+  margin-bottom:22px;
+}
+h1 .w1{color:var(--text);display:block}
+h1 .w2{color:var(--yellow);display:block}
+h1 .w3{color:var(--text);display:block}
+h1 .w4{
+  font-family:var(--body);font-size:clamp(15px,1.8vw,20px);
+  font-weight:400;color:var(--text-sec);
+  display:block;text-transform:none;letter-spacing:0;margin-top:14px;line-height:1.65;
+}
 
-    @media (max-width: 900px) {
-      .proof { grid-template-columns: 1fr; }
-      .cards { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .cards { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .story-box p { font-size: 19px; }
-    }
-  </style>
+.hero-sub{
+  font-size:16px;color:var(--text-sec);line-height:1.75;
+  max-width:500px;margin-bottom:36px;
+  border-left:3px solid var(--yellow);padding-left:18px;
+}
+.hero-sub strong{color:var(--text)}
+
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn-y{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--yellow);color:var(--navy);
+  font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:.06em;
+  padding:14px 28px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;transition:all .2s;
+}
+.btn-y:hover{background:#ddb214;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,197,24,.3)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--text-sec);
+  font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:.06em;
+  padding:14px 22px;border-radius:6px;border:1px solid var(--border-med);
+  cursor:pointer;text-decoration:none;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.arr{transition:transform .2s}
+.btn-y:hover .arr,.btn-ghost:hover .arr{transform:translateX(4px)}
+
+.trust-row{display:flex;flex-wrap:wrap;gap:18px}
+.tr-item{font-family:var(--mono);font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:5px}
+.tr-item span{color:var(--green)}
+
+/* ── HERO RIGHT: Real Dashboard Replica ── */
+.hero-right{
+  position:relative;background:var(--sidebar);
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 28px;overflow:hidden;
+}
+.hero-right-glow{
+  position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(ellipse,rgba(59,130,246,.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+/* ─── REAL DASHBOARD MOCK ─── */
+.dash-replica{
+  width:100%;max-width:660px;
+  background:var(--navy-mid);
+  border:1px solid var(--border-med);
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+  animation:slideIn .9s ease .2s both;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* topbar */
+.dr-top{
+  background:var(--sidebar);height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;border-bottom:1px solid var(--border-med);
+}
+.dr-brand{display:flex;align-items:center;gap:8px}
+.dr-stripe{width:3px;height:26px;background:var(--blue);border-radius:2px}
+.dr-brand-t{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text)}
+.dr-brand-s{font-family:var(--mono);font-size:8px;color:var(--text-sec);letter-spacing:.15em}
+.dr-top-badges{display:flex;align-items:center;gap:8px}
+
+/* body */
+.dr-body{display:grid;grid-template-columns:156px 1fr 1fr;min-height:380px}
+
+/* sidebar */
+.dr-nav{background:var(--sidebar);border-right:1px solid var(--border);padding:10px 0}
+.dr-nav-item{
+  padding:10px 14px;
+  font-family:var(--mono);font-size:10px;color:var(--text-sec);
+  display:flex;align-items:center;gap:7px;cursor:default;
+  transition:all .2s;
+}
+.dr-nav-item.act{color:var(--text);background:var(--sidebar-act);border-right:2px solid var(--blue)}
+.dr-nav-item:hover:not(.act){color:var(--text-sec)}
+.dr-dot{width:5px;height:5px;border-radius:50%;background:var(--text-dim)}
+.dr-nav-item.act .dr-dot{background:var(--blue)}
+
+/* center — control board */
+.dr-center{padding:12px 10px;border-right:1px solid var(--border);overflow:hidden}
+.dr-alert{
+  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);
+  border-radius:5px;padding:8px 10px;
+  font-family:var(--mono);font-size:9px;color:var(--green);
+  margin-bottom:10px;letter-spacing:.04em;
+}
+.dr-board-title{
+  font-family:var(--display);font-size:14px;font-weight:700;color:var(--text);
+  margin-bottom:2px;
+}
+.dr-board-sub{font-family:var(--mono);font-size:8px;color:var(--text-dim);letter-spacing:.12em;margin-bottom:10px}
+
+/* D-step cards */
+.dr-d-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.dr-d-card{
+  background:var(--navy-card);border:1px solid var(--border);
+  border-radius:6px;padding:9px 10px;position:relative;
+}
+.dr-d-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.dr-d-num{font-family:var(--display);font-size:12px;font-weight:700;color:var(--text-sec)}
+.dr-badge{
+  font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.06em;
+  padding:2px 7px;border-radius:3px;
+}
+.db-review  {background:rgba(59,130,246,.2);color:var(--blue)}
+.db-open    {background:rgba(255,255,255,.08);color:var(--text-sec)}
+.db-action  {background:rgba(245,197,24,.2);color:var(--yellow)}
+.db-pending {background:rgba(230,126,34,.2);color:var(--orange)}
+.db-draft   {background:rgba(59,130,246,.15);color:#60A5FA}
+.db-sched   {background:rgba(34,197,94,.15);color:var(--green)}
+.dr-d-title{font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px;line-height:1.2}
+.dr-d-row{display:flex;flex-direction:column;gap:2px}
+.dr-d-meta{font-family:var(--mono);font-size:8px;color:var(--text-dim);display:flex;gap:4px}
+.dr-d-meta span{color:var(--text-sec)}
+
+/* right — traffic light */
+.dr-right{padding:14px 12px;display:flex;flex-direction:column;align-items:center}
+.dr-tl-title{font-family:var(--display);font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;text-align:center}
+.dr-tl-sub{font-family:var(--mono);font-size:8px;color:var(--text-dim);text-align:center;margin-bottom:16px}
+.dr-tl{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:16px}
+.dr-tl-light{display:flex;flex-direction:column;align-items:center;gap:6px}
+.dr-bulb{width:44px;height:44px;border-radius:50%;position:relative}
+.dr-bulb.green-on{background:radial-gradient(circle at 35% 35%,#4ADE80,#16A34A);box-shadow:0 0 18px rgba(34,197,94,.6),0 0 36px rgba(34,197,94,.2)}
+.dr-bulb.yellow-on{background:radial-gradient(circle at 35% 35%,#FCD34D,#D97706);box-shadow:0 0 18px rgba(245,197,24,.6),0 0 36px rgba(245,197,24,.2)}
+.dr-bulb.red-off{background:radial-gradient(circle at 35% 35%,#9B3535,#6B2020);box-shadow:none;opacity:.5}
+.dr-tl-lbl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em}
+.tl-lbl-g{color:var(--green)}
+.tl-lbl-y{color:var(--yellow)}
+.tl-lbl-r{color:#9B3535}
+.dr-overall{font-family:var(--mono);font-size:9px;color:var(--yellow);text-align:center;font-weight:600;line-height:1.4}
+
+/* dashboard CTA overlay */
+.dash-cta-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(13,27,46,.95) 40%);
+  padding:40px 28px 28px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.dash-cta-label{font-family:var(--mono);font-size:11px;color:var(--text-sec);letter-spacing:.1em;text-align:center}
+
+/* ── STRIP ── */
+.strip{background:var(--navy-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
+.strip-track{display:flex;gap:48px;animation:ticker 22s linear infinite;white-space:nowrap}
+.strip-item{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--text-sec);flex-shrink:0;display:flex;align-items:center;gap:8px}
+.strip-item em{color:var(--yellow);font-style:normal}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── PROOF BAR ── */
+.proof{background:var(--navy-mid);padding:48px;border-bottom:1px solid var(--border)}
+.proof-row{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
+.proof-cell{background:var(--navy-mid);padding:28px 20px;text-align:center}
+.proof-n{font-family:var(--display);font-size:40px;font-weight:700;color:var(--yellow);line-height:1}
+.proof-l{font-family:var(--mono);font-size:10px;color:var(--text-sec);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;line-height:1.4}
+
+/* ── SECTIONS ── */
+.sec{padding:88px 48px}
+.inner{max-width:1100px;margin:0 auto}
+.sec-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;margin-bottom:10px}
+.sec-tag::before{content:'// ';opacity:.5}
+.sec-h{font-family:var(--display);font-size:clamp(34px,4.5vw,62px);font-weight:700;text-transform:uppercase;line-height:.97;margin-bottom:14px}
+.sec-h em{color:var(--yellow);font-style:normal}
+.sec-s{color:var(--text-sec);font-size:16px;max-width:500px;line-height:1.75;margin-bottom:48px}
+
+/* ── PAIN ── */
+.pain-bg{background:var(--navy);position:relative}
+.pain-bg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:40px}
+.pain-card{background:var(--navy-mid);padding:32px 26px;position:relative;overflow:hidden;transition:background .3s}
+.pain-card:hover{background:var(--navy-card)}
+.pain-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.pain-card:hover::after{transform:scaleX(1)}
+.pain-role{font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.pain-q{font-size:16px;font-weight:500;color:var(--text);line-height:1.55;margin-bottom:14px;font-style:italic}
+.pain-q::before{content:'"';color:var(--yellow);font-style:normal}
+.pain-q::after{content:'"';color:var(--yellow);font-style:normal}
+.pain-meta{font-family:var(--mono);font-size:10px;color:var(--text-dim)}
+.verdict{background:var(--navy-card);border:1px solid var(--border-yel);padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;border-radius:var(--r)}
+.verdict-t{font-family:var(--display);font-size:clamp(22px,3vw,38px);font-weight:700;text-transform:uppercase;line-height:1.1}
+.verdict-t em{color:var(--yellow);font-style:normal;display:block}
+.verdict-n{font-size:15px;color:var(--text-sec);max-width:360px;line-height:1.7}
+.verdict-n strong{color:var(--text)}
+
+/* ── FOUNDER ── */
+.founder-bg{background:var(--navy-mid);position:relative;overflow:hidden}
+.founder-watermark{position:absolute;right:-40px;bottom:-60px;font-family:var(--display);font-size:260px;font-weight:700;color:rgba(255,255,255,.012);pointer-events:none;user-select:none;line-height:1;text-transform:uppercase}
+.founder-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+.fbadge{background:var(--navy-card);border:1px solid var(--border-yel);border-radius:var(--r);padding:24px;margin-bottom:24px}
+.fbadge-tag{font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.fbadge-name{font-family:var(--display);font-size:24px;font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:3px}
+.fbadge-role{font-family:var(--mono);font-size:11px;color:var(--text-sec)}
+/* HERO PHOTO — replace this div with <img src="your-photo.jpg" ...> */
+.founder-photo{
+  width:100%;aspect-ratio:4/5;border-radius:var(--r);
+  background:linear-gradient(155deg,var(--navy-card),var(--navy-light));
+  border:1px solid var(--border-med);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin-bottom:22px;position:relative;overflow:hidden;
+}
+.founder-photo::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(245,197,24,.04));
+}
+.founder-photo-icon{font-size:72px;opacity:.12;z-index:1}
+.founder-photo-lbl{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.15em;text-transform:uppercase;z-index:1;margin-top:12px}
+/* ↑ SWAP WITH: <img src="rainer.jpg" style="width:100%;border-radius:8px;margin-bottom:22px;object-fit:cover"> */
+
+.fstats{display:flex;flex-direction:column;gap:12px}
+.fstat{display:flex;align-items:center;gap:12px}
+.fstat-n{font-family:var(--display);font-size:30px;font-weight:700;color:var(--yellow);min-width:60px;line-height:1}
+.fstat-t{font-size:13px;color:var(--text-sec);line-height:1.4}
+.ftext p{font-size:16px;line-height:1.85;color:var(--text-sec);margin-bottom:18px}
+.ftext p strong{color:var(--text)}
+.fquote{border-left:3px solid var(--yellow);padding:18px 22px;background:var(--navy-card);border-radius:0 var(--r) var(--r) 0;font-size:17px;font-weight:500;color:var(--text);line-height:1.65;font-style:italic;margin:24px 0 28px}
+
+/* ── HOW IT WORKS ── */
+.how-bg{background:var(--navy)}
+.how-bg::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);margin-bottom:88px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.step{background:var(--navy-mid);padding:32px 26px}
+.step-n{font-family:var(--display);font-size:68px;font-weight:700;color:rgba(255,255,255,.04);line-height:1;margin-bottom:-10px}
+.step-name{font-family:var(--display);font-size:22px;font-weight:700;text-transform:uppercase;color:var(--yellow);margin-bottom:10px}
+.step-desc{font-size:14px;color:var(--text-sec);line-height:1.65}
+
+/* ── AGENTS ── */
+.agents-bg{background:var(--navy-mid)}
+.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.agent{background:var(--navy-card);border:1px solid var(--border);border-radius:var(--r);padding:32px 26px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.agent:hover{border-color:var(--border-yel);transform:translateY(-5px)}
+.agent-idx{position:absolute;top:-10px;right:14px;font-family:var(--display);font-size:86px;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+.agent-name{font-family:var(--display);font-size:24px;font-weight:700;text-transform:uppercase;color:var(--yellow);margin-bottom:10px}
+.agent-desc{font-size:14px;color:var(--text-sec);line-height:1.65;margin-bottom:20px}
+.agent-fts{display:flex;flex-direction:column;gap:7px}
+.af{font-family:var(--mono);font-size:11px;color:var(--text-dim);display:flex;gap:7px;align-items:flex-start}
+.af::before{content:'→';color:var(--yellow);flex-shrink:0}
+
+/* ── DASHBOARD FULL SECTION ── */
+.dashsec{background:var(--navy);padding:88px 48px;position:relative}
+.dashsec::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);margin-bottom:88px}
+
+/* Full dashboard replica (wider version for this section) */
+.dash-full{
+  max-width:960px;margin:0 auto;
+  background:var(--navy-mid);border:1px solid var(--border-med);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.55);
+}
+.df-top{
+  background:var(--sidebar);height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;border-bottom:1px solid var(--border-med);
+}
+.df-top-l{display:flex;align-items:center;gap:10px}
+.df-stripe{width:3px;height:26px;background:var(--blue);border-radius:2px}
+.df-title{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text)}
+.df-sub{font-family:var(--mono);font-size:8px;color:var(--text-sec);letter-spacing:.15em}
+.df-body{display:grid;grid-template-columns:170px 1fr 180px;min-height:400px}
+.df-nav{background:var(--sidebar);border-right:1px solid var(--border);padding:12px 0}
+.df-nav-item{padding:11px 16px;font-family:var(--mono);font-size:10px;color:var(--text-sec);display:flex;align-items:center;gap:8px;cursor:default;transition:all .2s}
+.df-nav-item.act{color:var(--text);background:var(--sidebar-act);border-right:2px solid var(--blue)}
+.df-dot{width:5px;height:5px;border-radius:50%;background:var(--text-dim)}
+.df-nav-item.act .df-dot{background:var(--blue)}
+.df-main{padding:16px}
+.df-alert{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);border-radius:5px;padding:10px 14px;font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:14px;letter-spacing:.04em}
+.df-board-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+.df-board-title{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text)}
+.df-board-live{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.1em}
+.df-board-sub{font-family:var(--mono);font-size:8px;color:var(--text-dim);letter-spacing:.08em;margin-bottom:12px}
+.df-d-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.df-d-card{background:var(--navy-card);border:1px solid var(--border);border-radius:6px;padding:10px 11px}
+.df-d-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.df-d-num{font-family:var(--display);font-size:13px;font-weight:700;color:var(--text-sec)}
+.df-badge{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.05em;padding:2px 8px;border-radius:3px}
+.df-card-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.2}
+.df-card-meta{font-family:var(--mono);font-size:9px;color:var(--text-dim);display:grid;grid-template-columns:auto 1fr;gap:2px 8px}
+.df-card-meta span{color:var(--text-sec)}
+/* traffic light right */
+.df-right{padding:16px 14px;display:flex;flex-direction:column;align-items:center;border-left:1px solid var(--border)}
+.df-tl-title{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text);text-align:center;margin-bottom:2px}
+.df-tl-sub{font-family:var(--mono);font-size:8px;color:var(--text-dim);text-align:center;margin-bottom:18px}
+.df-lights{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:16px}
+.df-light{display:flex;flex-direction:column;align-items:center;gap:5px}
+.df-bulb{width:52px;height:52px;border-radius:50%}
+.df-bulb.g{background:radial-gradient(circle at 35% 35%,#4ADE80,#15803D);box-shadow:0 0 20px rgba(34,197,94,.55),0 0 40px rgba(34,197,94,.15)}
+.df-bulb.y{background:radial-gradient(circle at 35% 35%,#FCD34D,#B45309);box-shadow:0 0 20px rgba(245,197,24,.55),0 0 40px rgba(245,197,24,.15)}
+.df-bulb.r{background:radial-gradient(circle at 35% 35%,#9B3535,#5C1A1A);box-shadow:none;opacity:.45}
+.df-bulb-lbl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em}
+.df-bulb-lbl.g{color:var(--green)}
+.df-bulb-lbl.y{color:var(--yellow)}
+.df-bulb-lbl.r{color:#9B3535}
+.df-overall{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--yellow);text-align:center;line-height:1.5}
+.dashsec-cta{display:flex;justify-content:center;margin-top:36px;gap:16px;flex-wrap:wrap}
+
+/* ── LEAD GEN ── */
+.lead-sec{
+  background:var(--navy-mid);padding:88px 48px;
+  position:relative;overflow:hidden;
+}
+.lead-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--yellow),transparent)}
+.lead-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(245,197,24,.04) 0%,transparent 65%);pointer-events:none}
+.lead-inner{position:relative;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.lead-pre{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;margin-bottom:14px}
+.lead-h{font-family:var(--display);font-size:clamp(30px,4vw,52px);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:18px}
+.lead-h em{color:var(--yellow);font-style:normal;display:block}
+.lead-p{font-size:15px;color:var(--text-sec);line-height:1.75;margin-bottom:24px}
+.lead-bullets{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.lb{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-sec);line-height:1.5}
+.lb-i{width:20px;height:20px;background:var(--yellow-dim);border:1px solid var(--yellow);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;color:var(--yellow);font-weight:700}
+.social-proofs{display:flex;flex-direction:column;gap:8px}
+.sp{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--text-dim)}
+.sp span{color:var(--green)}
+
+/* form */
+.fcard{background:var(--navy-card);border:1px solid var(--border-yel);border-radius:var(--r);padding:36px;position:relative;overflow:hidden}
+.fcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--blue))}
+.fc-title{font-family:var(--display);font-size:22px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.fc-sub{font-family:var(--mono);font-size:10px;color:var(--text-sec);margin-bottom:24px}
+.fg{margin-bottom:14px}
+label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--text-sec);text-transform:uppercase;display:block;margin-bottom:5px}
+input,select{
+  width:100%;background:var(--navy);border:1px solid var(--border-med);
+  color:var(--text);font-family:var(--mono);font-size:13px;
+  padding:12px 13px;border-radius:6px;outline:none;
+  transition:border-color .2s;appearance:none;
+}
+input:focus,select:focus{border-color:var(--yellow)}
+input::placeholder{color:var(--text-dim)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.roi-box{background:var(--navy);border:1px solid var(--border-yel);border-radius:6px;padding:14px;margin-bottom:14px;display:none}
+.roi-box-lbl{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.roi-box-val{font-family:var(--display);font-size:36px;font-weight:700;color:var(--yellow);line-height:1}
+.roi-box-note{font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:4px}
+.submit-btn{
+  width:100%;background:var(--yellow);color:var(--navy);
+  font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:.06em;
+  padding:15px;border:none;border-radius:6px;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;
+}
+.submit-btn:hover{background:#ddb214;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,197,24,.3)}
+.form-disc{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-align:center;margin-top:10px;letter-spacing:.06em}
+.form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:32px 16px;gap:14px}
+.form-success.show{display:flex}
+.fs-icon{font-size:44px}
+.fs-title{font-family:var(--display);font-size:28px;font-weight:700;color:var(--green);text-transform:uppercase}
+.fs-sub{font-size:14px;color:var(--text-sec);line-height:1.65}
+
+/* ── PRICING ── */
+.price-bg{background:var(--navy);padding:88px 48px}
+.price-bg::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);margin-bottom:88px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:36px}
+.plan{background:var(--navy-mid);padding:36px 28px;display:flex;flex-direction:column}
+.plan.feat{background:var(--navy-card);border-top:3px solid var(--yellow)}
+.plan-tag{font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.plan-name{font-family:var(--display);font-size:28px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:5px}
+.plan-price{font-family:var(--display);font-size:48px;font-weight:700;color:var(--yellow);line-height:1;margin-bottom:3px}
+.plan-period{font-family:var(--mono);font-size:10px;color:var(--text-sec);margin-bottom:24px}
+.plan-fts{flex:1;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.pf{font-size:14px;color:var(--text-sec);display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+.pf span{color:var(--green);flex-shrink:0;font-weight:700}
+.plan-btn{display:block;text-align:center;text-decoration:none;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;padding:13px;border-radius:6px;border:1px solid var(--border-yel);color:var(--yellow);transition:all .2s}
+.plan-btn:hover,.plan.feat .plan-btn{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.price-note{background:var(--navy-card);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;text-align:center;font-size:15px;color:var(--text-sec);line-height:1.7}
+.price-note strong{color:var(--text)}
+
+/* ── FINAL CTA ── */
+.final{background:var(--navy-mid);padding:110px 48px;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent)}
+.final-glow{position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(245,197,24,.07) 0%,transparent 65%);pointer-events:none}
+.final-in{position:relative;max-width:700px;margin:0 auto}
+.final-pre{font-family:var(--mono);font-size:11px;color:var(--yellow);letter-spacing:.2em;text-transform:uppercase;margin-bottom:26px}
+.final h2{font-family:var(--display);font-size:clamp(38px,6vw,76px);font-weight:700;text-transform:uppercase;line-height:.95;margin-bottom:20px}
+.final h2 em{color:var(--yellow);font-style:normal;display:block}
+.final p{font-size:17px;color:var(--text-sec);margin-bottom:40px;line-height:1.7}
+.final-trust{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.1em;margin-top:20px}
+
+/* ── FOOTER ── */
+footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--navy);flex-wrap:wrap;gap:12px}
+.fl{display:flex;align-items:center;gap:8px}
+.fl-stripe{width:3px;height:18px;background:var(--blue);border-radius:2px}
+.fl-t{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text-dim);letter-spacing:.06em}
+.flinks{display:flex;gap:20px}
+.flinks a{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--text-sec)}
+.fcopy{font-family:var(--mono);font-size:10px;color:var(--text-dim)}
+
+/* ── SCROLL REVEAL ── */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 16px}
+  .nav-center{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:90px 24px 48px}
+  .hero-right{height:auto;padding:32px 20px;border-top:1px solid var(--border)}
+  .proof-row{grid-template-columns:repeat(2,1fr)}
+  .pain-grid,.agents-grid,.plan-grid{grid-template-columns:1fr}
+  .founder-grid{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:1fr 1fr}
+  .lead-inner{grid-template-columns:1fr;gap:36px}
+  .df-body{grid-template-columns:1fr}
+  .df-nav,.df-right{display:none}
+  .df-d-grid{grid-template-columns:1fr 1fr}
+  .dr-body{grid-template-columns:1fr}
+  .dr-nav,.dr-right{display:none}
+  .sec,.dashsec,.lead-sec,.price-bg,.final,.founder-bg{padding:60px 20px}
+  .pain-bg,.agents-bg,.how-bg{padding:60px 20px}
+  footer{flex-direction:column;text-align:center;padding:20px}
+}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section>
-      <h1>IT'S 02:47 AM.</h1>
-      <div class="story-box">
-        <p>Das Telefon vibriert. Eine Nummer aus dem Werk. Sie wissen es, bevor Sie abheben: Die Produktion in Halle 4 steht still. SAP meldet alles grün, aber das Band bewegt sich nicht. Jede Minute kostet gerade $833.</p>
-      </div>
-      <a href="#audit" class="cta">JETZT STILLSTAND STOPPEN</a>
-    </section>
 
-    <section class="proof">
-      <div class="cards">
-        <article class="card">
-          <div class="card-top"><span class="id">D1_TEAM</span><span class="badge review">IN REVIEW</span></div>
-          <div class="title">Establish the Team</div>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="id">D2_PROBLEM</span><span class="badge optimal">OPTIMAL</span></div>
-          <div class="title">Describe the Problem</div>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="id">D3_CONTAIN</span><span class="badge due">ACTION DUE</span></div>
-          <div class="title">Containment Actions</div>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="id">D4_ROOT</span><span class="badge pending">PENDING</span></div>
-          <div class="title">Root Cause Analysis</div>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="id">D5_CORRECT</span><span class="badge locked">LOCKED</span></div>
-          <div class="title">Corrective Actions</div>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="id">D6_VERIFY</span><span class="badge locked">LOCKED</span></div>
-          <div class="title">Validate Actions</div>
-        </article>
-      </div>
-      <aside class="traffic">
-        <div class="label">Traffic Light</div>
-        <div class="bulb red"></div>
-        <div class="bulb"></div>
-        <div class="bulb"></div>
-        <div class="risk">RED · CRITICAL</div>
-      </aside>
-    </section>
+<!-- ══════ NAV ══════ -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-stripe"></div>
+    <div class="nav-titles">
+      <span class="nav-main">Master Console</span>
+      <span class="nav-sub">Control Agent</span>
+    </div>
+  </div>
+  <div class="nav-center">
+    <div class="pill pill-yellow"><div class="pill-dot"></div>GLOBAL RISK: MEDIUM</div>
+    <div class="pill pill-green">IATF 10.2 COMPLIANT</div>
+  </div>
+  <div class="nav-right">
+    <a href="#lead" class="nbtn nbtn-ghost">Free Audit</a>
+    <a href="https://control-agent.vercel.app/" target="_blank" class="nbtn nbtn-yellow">Open Dashboard →</a>
+  </div>
+</nav>
 
-    <section id="audit">
-      <div class="audit-card">
-        <h2>RISIKO-AUDIT</h2>
-        <p>Hinterlassen Sie Ihre Daten für eine schnelle Analyse Ihres Stillstands- und Lieferkettenrisikos.</p>
-        <form action="https://formspree.io/f/mqakppov" method="POST">
-          <div class="grid">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Business E-Mail" required>
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+
+  <!-- LEFT: Copy -->
+  <div class="hero-left">
+    <div class="hero-tag">For Plant · Quality · Supply Chain Leaders in Automotive</div>
+    <div class="live-bar">
+      <div class="live-dot"></div>
+      <span class="live-lbl">INDUSTRY LOSSES THIS HOUR</span>
+      <span class="live-num" id="liveNum">$724,160</span>
+    </div>
+    <h1>
+      <span class="w1">IT'S 2:47 AM.</span>
+      <span class="w2">YOUR LINE IS DOWN.</span>
+      <span class="w3">SAP SHOWS NOTHING.</span>
+      <span class="w4">While SAP is "syncing" — you're losing $833 every minute.<br>Control Agent closes the gap between ERP lag and shop floor reality.</span>
+    </h1>
+    <p class="hero-sub">Most plant managers see the crisis only <strong>after it costs $80,000</strong>. Control Agent shows you the risk before the call comes in — real-time, one cockpit, zero surprises.</p>
+    <div class="hero-btns">
+      <a href="#lead" class="btn-y">Get My Free Audit <span class="arr">→</span></a>
+      <a href="https://control-agent.vercel.app/" target="_blank" class="btn-ghost">Open Dashboard <span class="arr">↗</span></a>
+    </div>
+    <div class="trust-row">
+      <div class="tr-item"><span>✓</span> No sales call</div>
+      <div class="tr-item"><span>✓</span> No commitment</div>
+      <div class="tr-item"><span>✓</span> IATF 10.2 compliant</div>
+      <div class="tr-item"><span>✓</span> Live in 15 min</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Pixel-perfect dashboard replica -->
+  <div class="hero-right">
+    <div class="hero-right-glow"></div>
+    <div style="width:100%;max-width:660px;position:relative">
+      <div class="dash-replica">
+        <!-- topbar -->
+        <div class="dr-top">
+          <div class="dr-brand">
+            <div class="dr-stripe"></div>
+            <div>
+              <div class="dr-brand-t">Master Console</div>
+              <div class="dr-brand-s">CONTROL AGENT</div>
+            </div>
           </div>
-          <textarea name="message" rows="4" placeholder="Werk / System / kritischer Engpass"></textarea>
-          <button type="submit" class="submit">KOSTENLOSES RISIKO-AUDIT ANFORDERN</button>
+          <div class="dr-top-badges">
+            <div class="pill pill-yellow" style="font-size:9px;padding:3px 10px"><div class="pill-dot"></div>GLOBAL RISK LEVEL MEDIUM</div>
+            <div class="pill pill-green" style="font-size:9px;padding:3px 10px">IATF 10.2 COMPLIANT</div>
+          </div>
+        </div>
+        <!-- body -->
+        <div class="dr-body">
+          <!-- sidebar -->
+          <div class="dr-nav">
+            <div class="dr-nav-item act"><div class="dr-dot"></div>Dashboard Overview</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Active 8D-Reports</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Supply Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Flow Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Quality Agent</div>
+            <div class="dr-nav-item"><div class="dr-dot"></div>Investment &amp; ROI</div>
+          </div>
+          <!-- center: control board -->
+          <div class="dr-center">
+            <div class="dr-alert">System created 8D-Report for Performance Gap</div>
+            <div class="dr-board-title">The Control Board</div>
+            <div class="dr-board-sub">8D WORKFLOW · LIVE</div>
+            <div class="dr-d-grid">
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D1</span><span class="dr-badge db-review">IN REVIEW</span></div>
+                <div class="dr-d-title">Establish the Team</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>S. Weber</span></div>
+                  <div class="dr-d-meta">Role <span>8D Champion</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D2</span><span class="dr-badge db-open">OPEN</span></div>
+                <div class="dr-d-title">Describe the Problem</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>M. Chen</span></div>
+                  <div class="dr-d-meta">Role <span>Quality Lead</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D3</span><span class="dr-badge db-action">ACTION DUE</span></div>
+                <div class="dr-d-title">Interim Containment</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>K. Novak</span></div>
+                  <div class="dr-d-meta">Role <span>Operations</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D4</span><span class="dr-badge db-pending">PENDING</span></div>
+                <div class="dr-d-title">Root Cause Analysis</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>A. Fischer</span></div>
+                  <div class="dr-d-meta">Role <span>Engineering</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D5</span><span class="dr-badge db-draft">DRAFT</span></div>
+                <div class="dr-d-title">Define Corrective Actions</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>L. Rossi</span></div>
+                  <div class="dr-d-meta">Role <span>Process Owner</span></div>
+                </div>
+              </div>
+              <div class="dr-d-card">
+                <div class="dr-d-header"><span class="dr-d-num">D6</span><span class="dr-badge db-sched">SCHEDULED</span></div>
+                <div class="dr-d-title">Implement &amp; Verify</div>
+                <div class="dr-d-row">
+                  <div class="dr-d-meta">Assignee <span>J. Patel</span></div>
+                  <div class="dr-d-meta">Role <span>Plant Manager</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- right: traffic light -->
+          <div class="dr-right">
+            <div class="dr-tl-title">Traffic Light Status</div>
+            <div class="dr-tl-sub">Plant-wide composite</div>
+            <div class="dr-tl">
+              <div class="dr-tl-light">
+                <div class="dr-bulb green-on"></div>
+                <span class="dr-tl-lbl tl-lbl-g">GREEN</span>
+              </div>
+              <div class="dr-tl-light">
+                <div class="dr-bulb yellow-on"></div>
+                <span class="dr-tl-lbl tl-lbl-y">YELLOW</span>
+              </div>
+              <div class="dr-tl-light">
+                <div class="dr-bulb red-off"></div>
+                <span class="dr-tl-lbl tl-lbl-r">RED</span>
+              </div>
+            </div>
+            <div class="dr-overall">Overall: MEDIUM risk<br>· Monitor</div>
+          </div>
+        </div>
+      </div>
+      <!-- CTA overlay bottom of dashboard -->
+      <div class="dash-cta-overlay">
+        <div class="dash-cta-label">↑ This is your real-time command center. See it live:</div>
+        <a href="https://control-agent.vercel.app/" target="_blank" class="btn-y" style="font-size:16px;padding:12px 26px;">
+          Open Live Dashboard <span class="arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-track">
+    <div class="strip-item">⬥ SUPPLY AGENT <em>ACTIVE</em></div>
+    <div class="strip-item">⬥ FLOW MONITORING <em>LIVE</em></div>
+    <div class="strip-item">⬥ QUALITY AGENT <em>ARMED</em></div>
+    <div class="strip-item">⬥ 8D <em>AUTO-TRIGGERED</em></div>
+    <div class="strip-item">⬥ IATF 10.2 <em>COMPLIANT</em></div>
+    <div class="strip-item">⬥ SAP LAG <em>ELIMINATED</em></div>
+    <div class="strip-item">⬥ ZERO <em>BLIND SPOTS</em></div>
+    <div class="strip-item">⬥ SUPPLY AGENT <em>ACTIVE</em></div>
+    <div class="strip-item">⬥ FLOW MONITORING <em>LIVE</em></div>
+    <div class="strip-item">⬥ QUALITY AGENT <em>ARMED</em></div>
+    <div class="strip-item">⬥ 8D <em>AUTO-TRIGGERED</em></div>
+    <div class="strip-item">⬥ IATF 10.2 <em>COMPLIANT</em></div>
+    <div class="strip-item">⬥ SAP LAG <em>ELIMINATED</em></div>
+    <div class="strip-item">⬥ ZERO <em>BLIND SPOTS</em></div>
+  </div>
+</div>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="proof-row">
+    <div class="proof-cell rev"><div class="proof-n">20+</div><div class="proof-l">Years Shop Floor</div></div>
+    <div class="proof-cell rev"><div class="proof-n">$833</div><div class="proof-l">Lost Per Minute Down</div></div>
+    <div class="proof-cell rev"><div class="proof-n">4h</div><div class="proof-l">Avg SAP Lag Eliminated</div></div>
+    <div class="proof-cell rev"><div class="proof-n">IATF</div><div class="proof-l">16949 Compliant</div></div>
+    <div class="proof-cell rev"><div class="proof-n">&lt;15m</div><div class="proof-l">To First Risk Signal</div></div>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="sec pain-bg">
+  <div class="inner">
+    <div class="sec-tag">Sound Familiar?</div>
+    <div class="sec-h rev">These Conversations Are Happening <em>Right Now.</em></div>
+    <div class="pain-grid">
+      <div class="pain-card rev">
+        <div class="pain-role">🏭 Plant Manager</div>
+        <div class="pain-q">My line stopped and I had zero early warning. I found out from the customer — not my system.</div>
+        <div class="pain-meta">// 4.5h downtime · est. $360,000 exposure</div>
+      </div>
+      <div class="pain-card rev">
+        <div class="pain-role">🔍 Quality Manager</div>
+        <div class="pain-q">The 8D was opened after the customer called. That's always how it happens. We're always reactive.</div>
+        <div class="pain-meta">// Escalation Level 3 · Audit risk open</div>
+      </div>
+      <div class="pain-card rev">
+        <div class="pain-role">📦 Supply Chain Manager</div>
+        <div class="pain-q">I had no visibility on the supplier gap. SAP showed green — until the line stopped.</div>
+        <div class="pain-meta">// 2 suppliers critical · no buffer · line at risk</div>
+      </div>
+    </div>
+    <div class="verdict rev">
+      <div class="verdict-t">This Is Not A Data Problem.<br><em>It's A Visibility Problem.</em></div>
+      <div class="verdict-n">Your ERP has the data. But it arrives <strong>4–24 hours too late</strong>. Control Agent bridges the gap between what SAP knows and what your shop floor needs — right now.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="sec founder-bg">
+  <div class="founder-watermark">TRENCH</div>
+  <div class="inner">
+    <div class="sec-tag">Why Trust This</div>
+    <div class="founder-grid">
+      <div>
+        <div class="fbadge">
+          <div class="fbadge-tag">// Founder</div>
+          <div class="fbadge-name">RAINER HAMPICKE</div>
+          <div class="fbadge-role">Mechanical Engineer · Automotive PM · 20+ Years Tier-1</div>
+        </div>
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  REPLACE THIS BLOCK WITH YOUR REAL PHOTO ║
+          ║  <img src="rainer.jpg"                   ║
+          ║       style="width:100%;                 ║
+          ║              border-radius:8px;          ║
+          ║              margin-bottom:22px;         ║
+          ║              object-fit:cover">           ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <div class="founder-photo">
+          <div class="founder-photo-icon">👤</div>
+          <div class="founder-photo-lbl">Insert Your Photo Here</div>
+        </div>
+        <div class="fstats rev">
+          <div class="fstat"><span class="fstat-n">20+</span><span class="fstat-t">Years on the shop floor — Tier-1 Automotive</span></div>
+          <div class="fstat"><span class="fstat-n">2:47</span><span class="fstat-t">AM — the call I kept getting that I couldn't answer fast enough</span></div>
+          <div class="fstat"><span class="fstat-n">0</span><span class="fstat-t">Boardroom investors. Built from real operational pain.</span></div>
+        </div>
+      </div>
+      <div class="ftext rev">
+        <p>I've been there. I've felt the pressure of a standing production line and the chaos of missing SAP data at 2 AM. Control Agent wasn't born in a lab — <strong>it was born on the shop floor during a midnight shift</strong> when I realized that managers need a Captain's View, not just another spreadsheet.</p>
+        <p>Every alert, every 8D trigger, every risk signal in this tool was built because <strong>I needed it myself and it didn't exist</strong>. Tested under real Tier-1 production pressure — not in a sandbox.</p>
+        <p>I don't want to sell you software. I want to give you back the sleep I lost. My tool identifies the supply gap, monitors your machine flow, and calculates your risk in real-time USD — so you can <strong>lead with confidence, not chaos.</strong></p>
+        <div class="fquote">"I know exactly what's at stake at 2:47 AM. Let's make sure you never face it unprepared."</div>
+        <a href="https://control-agent.vercel.app/" target="_blank" class="btn-y" style="display:inline-flex">See The Real Dashboard <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec how-bg">
+  <div class="inner">
+    <div class="sec-tag">How It Works</div>
+    <div class="sec-h rev">Live In <em>15 Minutes.</em></div>
+    <p class="sec-s">No lengthy implementation. No pre-sales theater. You log in, you see your risk number, you act.</p>
+    <div class="steps">
+      <div class="step rev"><div class="step-n">01</div><div class="step-name">Connect</div><div class="step-desc">SAP integration without configuration overhead. We audit your current SAP lag and OEE leakage — before you spend a cent.</div></div>
+      <div class="step rev"><div class="step-n">02</div><div class="step-name">See</div><div class="step-desc">Your risk number appears on screen. Supply gaps, machine flow, quality signals — all in one cockpit. No spreadsheet archaeology.</div></div>
+      <div class="step rev"><div class="step-n">03</div><div class="step-name">Act</div><div class="step-desc">8D reports auto-triggered. Containment actions assigned. IATF-compliant audit trail — before the customer calls.</div></div>
+      <div class="step rev"><div class="step-n">04</div><div class="step-name">Lead</div><div class="step-desc">Walk into the morning meeting with answers, not questions. Your board sees a captain — not someone who found out last.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="sec agents-bg">
+  <div class="inner">
+    <div class="sec-tag">The Solution</div>
+    <div class="sec-h rev">One Cockpit. <em>Three Agents.</em></div>
+    <p class="sec-s">Supply. Flow. Quality. Unified into one operational command center.</p>
+    <div class="agents-grid">
+      <div class="agent rev">
+        <div class="agent-idx">01</div>
+        <div class="agent-name">Supply Agent</div>
+        <p class="agent-desc">AI-powered risk detection before the truck leaves the supplier. SAP-MARD live sync with AI gateway for alternative sourcing across US/MEX.</p>
+        <div class="agent-fts">
+          <div class="af">Live supplier risk dashboard</div>
+          <div class="af">SAP-MARD synchronization</div>
+          <div class="af">Auto-escalation on supply gap</div>
+          <div class="af">Alternative sourcing signals (US/MEX)</div>
+        </div>
+      </div>
+      <div class="agent rev">
+        <div class="agent-idx">02</div>
+        <div class="agent-name">Flow Agent</div>
+        <p class="agent-desc">Real-time bottleneck analysis. Performance telemetry, OEE, scrap and operator traceability — with built-in escalation logic and financial counter.</p>
+        <div class="agent-fts">
+          <div class="af">Real-time OEE monitoring</div>
+          <div class="af">Shift-level performance view</div>
+          <div class="af">Scrap & downtime tracking</div>
+          <div class="af">Financial counter in USD</div>
+        </div>
+      </div>
+      <div class="agent rev">
+        <div class="agent-idx">03</div>
+        <div class="agent-name">Quality Agent</div>
+        <p class="agent-desc">Automated 8D path (IATF 10.2). Stops defects before they hit your line. Keeps your audit trail clean without manual input.</p>
+        <div class="agent-fts">
+          <div class="af">Auto-generated 8D reports</div>
+          <div class="af">D1–D8 ownership assignment</div>
+          <div class="af">IATF 10.2 audit trail</div>
+          <div class="af">Containment action tracking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD FULL SECTION — after agents, psychologically perfect moment -->
+<section class="dashsec">
+  <div class="inner">
+    <div class="sec-tag">Your Captain's View</div>
+    <div class="sec-h rev">This Is What You See <em>When You Log In.</em></div>
+    <p class="sec-s">Not a spreadsheet. Not a SAP report from 4 hours ago. Real data. Real-time. One screen.</p>
+    <div class="dash-full rev">
+      <div class="df-top">
+        <div class="df-top-l">
+          <div class="df-stripe"></div>
+          <div><div class="df-title">Master Console</div><div class="df-sub">CONTROL AGENT</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="pill pill-yellow" style="font-size:9px;padding:3px 10px"><div class="pill-dot"></div>GLOBAL RISK LEVEL MEDIUM</div>
+          <div class="pill pill-green" style="font-size:9px;padding:3px 10px">IATF 10.2 COMPLIANT</div>
+        </div>
+      </div>
+      <div class="df-body">
+        <div class="df-nav">
+          <div class="df-nav-item act"><div class="df-dot"></div>Dashboard Overview</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Active 8D-Reports</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Supply Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Flow Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Quality Agent</div>
+          <div class="df-nav-item"><div class="df-dot"></div>Investment &amp; ROI</div>
+        </div>
+        <div class="df-main">
+          <div class="df-alert">✓ System created 8D-Report for Performance Gap — D3 Containment ACTION DUE</div>
+          <div class="df-board-h">
+            <div class="df-board-title">The Control Board</div>
+            <div class="df-board-live">8D WORKFLOW · LIVE</div>
+          </div>
+          <div class="df-board-sub">D1-D8 task cards with ownership details.</div>
+          <div class="df-d-grid">
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D1</span><span class="df-badge db-review">IN REVIEW</span></div>
+              <div class="df-card-title">Establish the Team</div>
+              <div class="df-card-meta">Assignee <span>S. Weber</span> Role <span>8D Champion</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D2</span><span class="df-badge db-open">OPEN</span></div>
+              <div class="df-card-title">Describe the Problem</div>
+              <div class="df-card-meta">Assignee <span>M. Chen</span> Role <span>Quality Lead</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D3</span><span class="df-badge db-action">ACTION DUE</span></div>
+              <div class="df-card-title">Interim Containment</div>
+              <div class="df-card-meta">Assignee <span>K. Novak</span> Role <span>Operations</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D4</span><span class="df-badge db-pending">PENDING</span></div>
+              <div class="df-card-title">Root Cause Analysis</div>
+              <div class="df-card-meta">Assignee <span>A. Fischer</span> Role <span>Engineering</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D5</span><span class="df-badge db-draft">DRAFT</span></div>
+              <div class="df-card-title">Define Corrective Actions</div>
+              <div class="df-card-meta">Assignee <span>L. Rossi</span> Role <span>Process Owner</span></div>
+            </div>
+            <div class="df-d-card">
+              <div class="df-d-h"><span class="df-d-num">D6</span><span class="df-badge db-sched">SCHEDULED</span></div>
+              <div class="df-card-title">Implement &amp; Verify</div>
+              <div class="df-card-meta">Assignee <span>J. Patel</span> Role <span>Plant Manager</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="df-right">
+          <div class="df-tl-title">Traffic Light Status</div>
+          <div class="df-tl-sub">Plant-wide composite</div>
+          <div class="df-lights">
+            <div class="df-light"><div class="df-bulb g"></div><span class="df-bulb-lbl g">GREEN</span></div>
+            <div class="df-light"><div class="df-bulb y"></div><span class="df-bulb-lbl y">YELLOW</span></div>
+            <div class="df-light"><div class="df-bulb r"></div><span class="df-bulb-lbl r">RED</span></div>
+          </div>
+          <div class="df-overall">Overall: MEDIUM risk<br>· Monitor</div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA after seeing dashboard — highest psychological moment -->
+    <div class="dashsec-cta">
+      <a href="https://control-agent.vercel.app/" target="_blank" class="btn-y" style="font-size:18px;padding:16px 36px">Open Live Dashboard <span class="arr">↗</span></a>
+      <a href="#lead" class="btn-ghost" style="font-size:18px;padding:16px 30px">Get My Free Audit <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ LEAD GENERATOR ══════ -->
+<section class="lead-sec" id="lead">
+  <div class="lead-glow"></div>
+  <div class="lead-inner">
+    <div>
+      <div class="lead-pre">// Strategic Impact Audit</div>
+      <div class="lead-h">Stop Waiting For<br><em>The Next Call.</em></div>
+      <p class="lead-p">Register now and receive your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
+      <div class="lead-bullets">
+        <div class="lb"><div class="lb-i">①</div>We audit your current SAP lag and OEE leakage — completely free.</div>
+        <div class="lb"><div class="lb-i">②</div>You receive a custom business case within 48 hours.</div>
+        <div class="lb"><div class="lb-i">③</div>No software cost until ROI is proven for your plant.</div>
+        <div class="lb"><div class="lb-i">④</div>Currently accepting 3 Tier-1 plants into our Strategic Impact Program.</div>
+      </div>
+      <div class="social-proofs">
+        <div class="sp"><span>✓</span> IATF 16949 compliant architecture</div>
+        <div class="sp"><span>✓</span> Hosted US-West · SOC2 compliant</div>
+        <div class="sp"><span>✓</span> SAP integration · no config overhead</div>
+        <div class="sp"><span>✓</span> 20+ years shop floor experience behind every feature</div>
+      </div>
+    </div>
+    <div class="fcard rev">
+      <!-- ⚠️ FORMSPREE SETUP:
+           1. Go to formspree.io and sign in (you're already registered: Rainer Hampicke)
+           2. Click "+ Add New" → create a new form → copy the form ID
+           3. Replace YOUR_FORM_ID below with your real ID (e.g. xabc1234)
+      -->
+      <div id="formBody">
+        <div class="fc-title">Request Your Audit</div>
+        <div class="fc-sub">// Free · No commitment · Response within 48h</div>
+        <form id="leadForm" action="https://formspree.io/f/mqakppov" method="POST">
+          <div class="fg-row">
+            <div class="fg"><label>First Name *</label><input type="text" name="firstName" placeholder="Max" required></div>
+            <div class="fg"><label>Last Name *</label><input type="text" name="lastName" placeholder="Mustermann" required></div>
+          </div>
+          <div class="fg"><label>Company Email *</label><input type="email" name="email" placeholder="m.mustermann@company.com" required></div>
+          <div class="fg"><label>Company / Plant *</label><input type="text" name="company" placeholder="e.g. Bosch Werk Homburg" required></div>
+          <div class="fg-row">
+            <div class="fg">
+              <label>Your Role *</label>
+              <select name="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option>Plant Manager</option>
+                <option>Quality Manager</option>
+                <option>Supply Chain Manager</option>
+                <option>Operations Director</option>
+                <option>CEO / Managing Director</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Plant Location *</label>
+              <select name="location" required>
+                <option value="" disabled selected>Region</option>
+                <option>Germany</option>
+                <option>Mexico</option>
+                <option>USA</option>
+                <option>Other EU</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Hourly Cost if Line Stops (USD)</label>
+            <input type="number" name="hourlyCost" placeholder="e.g. 50000" id="riskIn" oninput="calcROI()">
+          </div>
+          <div class="roi-box" id="roiBox">
+            <div class="roi-box-lbl">Conservative Quarterly Risk Exposure</div>
+            <div class="roi-box-val" id="roiVal">$0</div>
+            <div class="roi-box-note">Based on 1 stop × 4.5h avg downtime — conservative estimate</div>
+          </div>
+          <input type="hidden" name="_subject" value="New Control Agent Lead – Strategic Impact Audit">
+          <button type="submit" class="submit-btn">Request My Free Audit <span>→</span></button>
+          <div class="form-disc">NO SPAM · NO PRE-SALES · YOUR BUSINESS CASE FIRST</div>
         </form>
       </div>
-    </section>
-  </main>
+      <div class="form-success" id="formSuccess">
+        <div class="fs-icon">✅</div>
+        <div class="fs-title">You're In.</div>
+        <div class="fs-sub">Your audit request has been received.<br>Rainer will personally review your plant profile and respond within 48 hours with your custom ROI report.<br><br>Feel free to explore the live dashboard in the meantime.</div>
+        <a href="https://control-agent.vercel.app/" target="_blank" class="btn-y" style="margin-top:8px">Open Dashboard ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="price-bg">
+  <div class="inner">
+    <div class="sec-tag">Investment</div>
+    <div class="sec-h rev">Choose Your <em>Protection Level.</em></div>
+    <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
+    <div class="plan-grid">
+      <div class="plan rev">
+        <div class="plan-tag">// Single Plant</div>
+        <div class="plan-name">Pilot</div>
+        <div class="plan-price">$12k</div>
+        <div class="plan-period">billed annually · ~$1,000/mo</div>
+        <div class="plan-fts">
+          <div class="pf"><span>✓</span>Single plant deployment</div>
+          <div class="pf"><span>✓</span>Real-time 2:47 AM alerts</div>
+          <div class="pf"><span>✓</span>8D traceability (IATF 10.2)</div>
+          <div class="pf"><span>✓</span>SAP integration audit included</div>
+          <div class="pf"><span>✓</span>Custom ROI report for your KPIs</div>
+        </div>
+        <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
+      </div>
+      <div class="plan feat rev">
+        <div class="plan-tag">// Most Popular · Multi-Site</div>
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">$24k</div>
+        <div class="plan-period">billed annually · ~$2,000/mo</div>
+        <div class="plan-fts">
+          <div class="pf"><span>✓</span>Multi-plant intelligence</div>
+          <div class="pf"><span>✓</span>Cross-border risk mapping</div>
+          <div class="pf"><span>✓</span>All three agents active</div>
+          <div class="pf"><span>✓</span>Financial counter in USD (live)</div>
+          <div class="pf"><span>✓</span>Dedicated onboarding support</div>
+        </div>
+        <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
+      </div>
+      <div class="plan rev">
+        <div class="plan-tag">// Global Command</div>
+        <div class="plan-name">Command</div>
+        <div class="plan-price">$30k</div>
+        <div class="plan-period">billed annually · ~$2,500/mo</div>
+        <div class="plan-fts">
+          <div class="pf"><span>✓</span>Full AI integration enterprise-wide</div>
+          <div class="pf"><span>✓</span>24/7 dedicated command center</div>
+          <div class="pf"><span>✓</span>Predictive risk prevention</div>
+          <div class="pf"><span>✓</span>Custom OEM reporting</div>
+          <div class="pf"><span>✓</span>White-glove implementation</div>
+        </div>
+        <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
+      </div>
+    </div>
+    <div class="price-note">
+      <strong>Our commitment starts with a free technical audit of your SAP lag and OEE leakage.</strong><br>
+      No upfront software costs until we've proven the ROI for your plant. Currently accepting 3 additional Tier-1 plants into our Strategic Impact Program.
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="final-in">
+    <div class="final-pre">// Last Warning</div>
+    <h2>Your Next Line Stop<br><em>Is Already In The Data.</em></h2>
+    <p>The question is: will you see it first — or will your customer?</p>
+    <a href="#lead" class="btn-y" style="font-size:19px;padding:18px 44px;display:inline-flex">Get My Free Risk Audit <span class="arr">→</span></a>
+    <div class="final-trust">NO COMMITMENT · NO SALES CALL · 20+ YEARS SHOP FLOOR · IATF 10.2 COMPLIANT</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl"><div class="fl-stripe"></div><div class="fl-t">MASTER CONSOLE · CONTROL AGENT</div></div>
+  <div class="flinks">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Legal Notice</a>
+    <a href="https://control-agent.vercel.app/" target="_blank">Open Dashboard ↗</a>
+  </div>
+  <div class="fcopy">Hosted US-West · SOC2 · IATF 16949 · Made for Automotive Excellence</div>
+</footer>
+
+<script>
+// Live counter
+let base = 724160;
+setInterval(() => {
+  base += Math.floor(Math.random() * 1100 + 400);
+  document.getElementById('liveNum').textContent = '$' + base.toLocaleString('en-US');
+}, 1400);
+
+// ROI calc
+function calcROI() {
+  const v = parseFloat(document.getElementById('riskIn').value);
+  const box = document.getElementById('roiBox');
+  if (v && v > 0) {
+    document.getElementById('roiVal').textContent = '$' + Math.round(v * 4.5).toLocaleString('en-US');
+    box.style.display = 'block';
+  } else { box.style.display = 'none'; }
+}
+
+// Formspree AJAX
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.submit-btn');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  try {
+    const res = await fetch(this.action, { method:'POST', body:new FormData(this), headers:{'Accept':'application/json'} });
+    if (res.ok) {
+      document.getElementById('formBody').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    } else { btn.textContent = 'Error — please try again'; btn.disabled = false; }
+  } catch { btn.textContent = 'Error — please try again'; btn.disabled = false; }
+});
+
+// Scroll reveal
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in') }), {threshold:.08});
+document.querySelectorAll('.rev').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
